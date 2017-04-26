@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="main_footer" align="center">
+<div id="footer" align="center">
 footer
-�������� ����
+여러가지 상세내용 입력해쥬세요~~
 
 </div>
 </body>

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div id="main_header">
+<div id="header">
 <div id="log" align="right">
 <span>님 접속 중입니다.</span>
 <a href="#">로그아웃</a>
