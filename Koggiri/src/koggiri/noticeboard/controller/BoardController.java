@@ -31,7 +31,7 @@ public class BoardController extends HttpServlet {
        String contextPath = request.getContextPath();
        String command = requestURI.substring(contextPath.length()+1);
        int le = command.indexOf("/");
-      String path = command.substring(le + 1, command.length()); // insert.do
+      String path = command.substring(le + 1, command.length());  
        System.out.println(contextPath);
        System.out.println(command);
        System.out.println(path);

@@ -31,7 +31,7 @@
 	
 	<form action="listAction.do" method ="post">
 		<input type = "checkbox" name = "area" value = "n_title">제목</input>
-		<input type = "checkbox" name = "area" value = "n_name">작성자</input>
+		<input type = "checkbox" name = "area" value = "n_emp_id">작성자</input>
 		<input type = "text" name = "searchkey" size = "10"></input>
 		<input type = "submit" value = "검색">
 	

@@ -1,18 +1,19 @@
 package koggiri.noticeboard.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Board implements Serializable{	
 	private int n_id;
 	private String n_emp_id;
 	private String n_title;
 	private String n_content;
-	private String n_date;
+	private Timestamp n_date;
 	private int n_hit;
 	
 	public Board(){}
 
-	public Board(int n_id, String n_emp_id, String n_title, String n_content, String n_date, int n_hit) {
+	public Board(int n_id, String n_emp_id, String n_title, String n_content, Timestamp n_date, int n_hit) {
 		super();
 		this.n_id = n_id;
 		this.n_emp_id = n_emp_id;
@@ -54,11 +55,11 @@ public class Board implements Serializable{
 		this.n_content = n_content;
 	}
 
-	public String getN_date() {
+	public Timestamp getN_date() {
 		return n_date;
 	}
 
-	public void setN_date(String n_date) {
+	public void setN_date(Timestamp n_date) {
 		this.n_date = n_date;
 	}
 
@@ -69,6 +70,7 @@ public class Board implements Serializable{
 	public void setN_hit(int n_hit) {
 		this.n_hit = n_hit;
 	}
+
 	
 	
 
