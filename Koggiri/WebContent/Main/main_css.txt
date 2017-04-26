@@ -1,0 +1,121 @@
+@CHARSET "EUC-KR";
+
+#main_menu {
+	/* 	메인 메뉴 */
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-left: 100px;
+	margin-right: 200px;
+}
+
+#main_menu li {
+	/* 메인 메뉴  리스트*/
+	display: inline;
+	text-decoration: none;
+	color: navy;
+	border-left: 1px #008ad7 solid;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-weight: bold;
+}
+
+#main_menu a {
+	text-decoration: none;
+	color: navy;
+}
+
+#main_menu img {
+	/* 이미지크기 및 마진 */
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+#main_contain {
+	/* 컨테인 밑으로 내리기 */
+	clear: both;
+}
+
+#main_tab td {
+	padding: 5px;
+}
+
+#log {
+	/* 로그인 여부 확인창 */
+	width: 100%;
+	padding: 15px;
+	background-color: #008ad7;
+	color: white;
+}
+
+#log span {
+	padding-right: 10px;
+}
+
+#log a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	padding-right: 150px;
+}
+
+#main_footer {
+	height: 150px;
+	background-color: #008ad7;
+	color: white;
+}
+
+#cal {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
+#appr {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
+#mail {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
+#notice {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
+#important {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
+.intro_tab {
+	padding-top: 10px;
+	width: 350px;
+}
