@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.admin_emp.action.Action;
 import koggiri.admin_emp.action.ActionFoward;
+import koggiri.admin_emp.action.EmpInsertAction;
 import koggiri.admin_emp.action.EmpSearchAction;
 
 
 
 
-@WebServlet(urlPatterns = "*.do")
+@WebServlet(urlPatterns = "*.admin")
 public class EmpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,12 +32,13 @@ public class EmpController extends HttpServlet {
         String requestURI = request.getRequestURI();
         String contextPath = request.getContextPath();
         String command = requestURI.substring(contextPath.length()+1);
-        request.setCharacterEncoding("utf-8"); 
+        request.setCharacterEncoding("UTF-8");
+        
         ActionFoward forward = null;
         Action action = null;
-    	
+    	System.out.println(command);
         
-        if(command.equals("searchEmp.do")){
+        if(command.equals("searchEmp.admin")){
             
             action = new EmpSearchAction();
             
@@ -46,6 +48,14 @@ public class EmpController extends HttpServlet {
               e.printStackTrace();
            }
          
+         }else if(command.equals("join.admin")){
+        	 action = new EmpInsertAction();
+        	 
+        	 try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
          }
         
         if(forward !=null){
