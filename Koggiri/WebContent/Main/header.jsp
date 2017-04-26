@@ -13,9 +13,11 @@
 		<div id="log" align="right">
 			<span>님 접속 중입니다.</span> <a href="#">로그아웃</a>
 		</div>
-
-		<div id="main_menu" align="center">
-			<img src="../images/koggiri.PNG" align="middle">
+		<div id="main_top">
+		<div id="main_logo">
+		<img src="../images/koggiri.PNG">
+		</div>
+		<div id="main_menu">
 			<ul>
 				<li><a href="#">공지사항</a></li>
 				<li><a href="#">일정</a></li>
@@ -28,7 +30,7 @@
 			</ul>
 		</div>
 	</div>
-
+</div>
 	<form>
 </body>
 </html>
