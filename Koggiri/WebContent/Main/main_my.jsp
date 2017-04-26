@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style/main.css">
+
 <title>Insert title here</title>
 </head>
 <body>
 	<form>
 		<div id="my">
 			<img src="../images/profile.JPG"></img>
-
+			
 		</div>
 	</form>
 </body>
