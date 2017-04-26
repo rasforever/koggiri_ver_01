@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link type="text/css" rel="stylesheet" href="./style/main.css">
+ <link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
 <div id="main_footer" align="center">
 footer
-¿©·¯°¡Áö Á¤º¸
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 </div>
 </body>

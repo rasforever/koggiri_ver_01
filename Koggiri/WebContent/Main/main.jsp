@@ -25,7 +25,7 @@
 		<tr>
 		<td><jsp:include page="main_cal.jsp" /></td>
 		<td><jsp:include page="main_important.jsp" /></td>
-		<td><jsp:include page="main_cal.jsp" /></td>
+		<td><jsp:include page="main_test.jsp" /></td>
 		</tr>
 	</table>
 		<br>
@@ -34,7 +34,7 @@
 	<br>
 	<br>
 	</div>
-	</form>
+
 	<div id="main_footer">
 	<jsp:include page="footer.jsp" />
 	</div>

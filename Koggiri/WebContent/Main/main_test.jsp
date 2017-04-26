@@ -4,25 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-
-<div id="appr">
-		<table border="0" class="intro_tab">
-			<tr align="center">
-			<td width="60%">제목</td>
-				<td width="20%">승인여부</td>
-
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-		</div>
-	</form>
+빈칸
 </body>
 </html>

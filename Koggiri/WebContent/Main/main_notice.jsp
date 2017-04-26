@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="./style/main.css">
+<link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,9 +12,9 @@
 		<div id="notice">
 			<table border="0" class="intro_tab">
 				<tr align="center">
-					<td width="60%">Á¦¸ñ</td>
-					<td width="20%">ÀÌ¸§</td>
-					<td>³¯Â¥</td>
+					<td width="60%">ì œëª©</td>
+					<td width="20%">ì‘ì„±ì</td>
+					<td>ë‚ ì§œ</td>
 				</tr>
 				<tr>
 					<td></td>
