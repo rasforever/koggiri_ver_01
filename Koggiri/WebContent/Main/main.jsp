@@ -12,8 +12,12 @@
 		<jsp:include page="header.jsp" />
 	</div>
 	<div id="main_contain" align="center">
-		<br> <br> <br> <br> <br>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<table id="main_tab">
 			<tr>
 				<td><jsp:include page="main_mail.jsp" /></td>
@@ -26,10 +30,13 @@
 				<td><jsp:include page="main_test.jsp" /></td>
 			</tr>
 		</table>
-		<br> <br> <br> <br> <br>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
-
 	<div id="main_footer">
 		<jsp:include page="footer.jsp" />
 	</div>
