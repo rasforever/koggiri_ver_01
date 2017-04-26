@@ -7,8 +7,9 @@
 	<typeAliases>
 		<typeAlias type="koggiri.admin_emp.model.SearchedEmp" alias="SearchedEmp"/>
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
+		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
-		
+
 	</typeAliases>
 	
 	<environments default="development">

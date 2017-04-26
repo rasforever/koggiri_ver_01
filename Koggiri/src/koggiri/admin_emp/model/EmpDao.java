@@ -43,6 +43,39 @@ public class EmpDao {
 		}
 	   }
 	
+	public int insertEmp(Emp emp) throws Exception{
+		int re=-1;
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			
+			re = session.getMapper(EmpMapper.class).insertEmp(emp);
+			if(re>0){
+				session.commit();
+
+			}else{
+				session.rollback();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return re;
+	}
+	
+	public String findEmpid(Emp emp) throws Exception{
+		SqlSession session = getSqlSessionFactory().openSession();
+		   try {
+			return session.getMapper(EmpMapper.class).findEmpid(emp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			 return null;
+		}finally {
+			session.close();
+		}
+	}
+	
 	
 	
 }
