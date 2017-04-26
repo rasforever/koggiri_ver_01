@@ -19,8 +19,9 @@ public class InsertAction implements Action {
 		board.setN_title(request.getParameter("n_title"));
 		board.setN_content(request.getParameter("n_content"));
 		
-		dao.insertBoard(board);
 		
+		dao.insertBoard(board);
+		System.out.println("4444");
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("listAction.noticeboard");

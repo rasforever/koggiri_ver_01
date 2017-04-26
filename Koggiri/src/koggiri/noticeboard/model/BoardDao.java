@@ -62,5 +62,19 @@ public class BoardDao {
 		}
 		
 	}
+	
+	public Board detailBoard(int seq){
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(BoardMapper.class).detailBoard(seq);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			session.close();
+		}
+		
+		
+	}
 
 }

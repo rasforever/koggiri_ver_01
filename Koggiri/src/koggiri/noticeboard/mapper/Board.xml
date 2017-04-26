@@ -12,13 +12,17 @@
          n_id, n_emp_id, n_title, n_content, n_date, n_hit
       )
       values(
-         4, #{n_emp_id}, #{n_title}, #{n_content}, SYSDATE, 0
+         nboard.nextval, #{n_emp_id}, #{n_title}, #{n_content}, SYSDATE, 0
       )
 
 	</insert>
+	
 	<select id="listBoard" resultType="Board">
 		select * from noticeboard
 		</select>
 	
+	<select id="detailBoard" resultType="Board" parameterType="int">
+		select * from noticeboard where n_id = #{n_id}
+	</select>
 	
 </mapper>
