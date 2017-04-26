@@ -7,7 +7,11 @@
 	<typeAliases>
 		<typeAlias type="koggiri.admin_emp.model.SearchedEmp" alias="SearchedEmp"/>
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
+
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
+
+		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
+
 	</typeAliases>
 	
 	<environments default="development">
@@ -21,6 +25,7 @@
 	
 	<mappers>
 		<mapper resource="koggiri/admin_emp/mapper/Emp.xml"/>
+		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
 	</mappers>
 	
 </configuration>
