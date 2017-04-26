@@ -12,7 +12,7 @@
          n_id, n_emp_id, n_title, n_content, n_date, n_hit
       )
       values(
-         #{n_id}, #{n_emp_id}, #{n_title}, #{n_content}, sysdate, 0
+         4, #{n_emp_id}, #{n_title}, #{n_content}, SYSDATE, 0
       )
 
 	</insert>

@@ -30,6 +30,8 @@ public class BoardDao {
 	}
 	
 	public void insertBoard(Board board){
+		board.setN_emp_id("관리자");
+		System.out.println(board);
 		SqlSession session = getSqlSessionFactory().openSession();
 		int re = -1;
 		

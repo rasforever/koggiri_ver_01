@@ -71,6 +71,12 @@ public class Board implements Serializable{
 		this.n_hit = n_hit;
 	}
 
+	@Override
+	public String toString() {
+		return "Board [n_id=" + n_id + ", n_emp_id=" + n_emp_id + ", n_title=" + n_title + ", n_content=" + n_content
+				+ ", n_date=" + n_date + ", n_hit=" + n_hit + "]";
+	}
+
 	
 	
 
