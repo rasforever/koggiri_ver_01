@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<mapper namespace="koggiri.task.mapper.TaskMapper">
+	<cache />
+	
+	<insert id="insertTask" parameterType= "Task">
+	insert into task(
+	ta_seq, ta_title, ta_startdate, ta_enddate, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
+	)
+	values(
+	task_ta_seq.nextval, #{ta_title}, #{ta_startdate}, #{ta_enddate}, #{ta_weekresult}, #{ta_nextresult}, SYSDATE , 0
+	)
+	</insert>
+	
+</mapper>
