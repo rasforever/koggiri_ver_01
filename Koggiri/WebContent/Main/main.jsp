@@ -12,24 +12,31 @@
 		<jsp:include page="header.jsp" />
 	</div>
 	<div id="main_contain" align="center">
-		<br> <br> <br> <br> <br>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<table id="main_tab">
 			<tr>
-				<td><jsp:include page="main_mail.jsp" /></td>
-				<td><jsp:include page="main_notice.jsp" /></td>
-				<td><jsp:include page="main_appr.jsp" /></td>
-			<tr />
+				<td><span>Mail</span><br><jsp:include page="main_mail.jsp" /></td>
+				<td><span>Notice</span><br><jsp:include page="main_notice.jsp" /></td>
+				<td><span>Approval</span><br><jsp:include page="main_appr.jsp" /></td>
+			<tr/>
 			<tr>
-				<td><jsp:include page="main_cal.jsp" /></td>
-				<td><jsp:include page="main_important.jsp" /></td>
-				<td><jsp:include page="main_test.jsp" /></td>
+				<td><span>Calendar</span><br><jsp:include page="main_cal.jsp" /></td>
+				<td><span>Important</span><br><jsp:include page="main_important.jsp" /></td>
+				<td><span>empty</span><br><jsp:include page="main_test.jsp" /></td>
 			</tr>
 		</table>
-		<br> <br> <br> <br> <br>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
-
 	<div id="main_footer">
 		<jsp:include page="footer.jsp" />
 	</div>
