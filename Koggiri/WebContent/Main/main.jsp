@@ -20,14 +20,15 @@
 		<br>
 		<table id="main_tab">
 			<tr>
-				<td><span>Mail</span><br><jsp:include page="main_mail.jsp" /></td>
+				<td><span>MyInformation</span><br><jsp:include page="main_my.jsp" /></td>
 				<td><span>Notice</span><br><jsp:include page="main_notice.jsp" /></td>
 				<td><span>Approval</span><br><jsp:include page="main_appr.jsp" /></td>
 			<tr/>
 			<tr>
+				<td><span>Mail</span><br><jsp:include page="main_mail.jsp" /></td>
 				<td><span>Calendar</span><br><jsp:include page="main_cal.jsp" /></td>
 				<td><span>Important</span><br><jsp:include page="main_important.jsp" /></td>
-				<td><span>empty</span><br><jsp:include page="main_test.jsp" /></td>
+
 			</tr>
 		</table>
 		<br>
