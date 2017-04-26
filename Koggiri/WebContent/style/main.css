@@ -5,7 +5,7 @@
 	width:1400px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-left: 20px;
+
 	margin-right: 200px;
 }
 
@@ -25,17 +25,23 @@
 	text-decoration: none;
 	color: navy;
 }
-
-#main_menu img {
+#main_top{
+	padding: 30px;
+}
+#main_logo{
+	float: left;
+}
+#main_logo img {
 	/* 이미지크기 및 마진 */
+	margin-left:200px;
+	margin-right:100px;
 	width: 100px;
 	height: 100px;
-	float: left;
 }
 
 #main_contain {
 	/* 컨테인  */
-	margin-left:20px;
+	margin-left:70px;
 	width:1400px;
 	clear: both;
 }
@@ -44,6 +50,12 @@
 	padding: 5px;
 	text-decoration: none;
 	color: black;
+}
+#main_tab span{
+	font-size: 20px;
+	font-weight:bold;
+	font-family:sans-serif;
+	margin-left: 15px;
 }
 
 #log {
@@ -71,6 +83,8 @@
 	color: white;
 }
 
+
+/*****************************************/
 #cal {
 	width: 350px;
 	height: 200px;
