@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="koggiri.admin_emp.mapper.EmpMapper">
+	<cache />
+	
+	
+	
+	
+	<select id="selectList" parameterType="Search" resultType="SearchedEmp">
+		
+		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm from
+		emp e,dept d,pos p
+		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
+		<if test="area=='emp_nm'">
+			and e.emp_nm like #{searchKey}
+		</if>
+		<if test="area=='emp_id'">
+			and e.emp_id like #{searchKey}
+		</if>		
+		<if test="area=='dept_nm'">
+			and d.dept_nm like #{searchKey}
+		</if>
+		<if test="area=='pos_nm'">
+			and p.pos_nm like #{searchKey}
+		</if>
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
