@@ -9,8 +9,10 @@
 </head>
 <body>
 <div id="footer" align="center">
-footer
-여러가지 상세내용 입력해쥬세요~~
+footer<br>
+여러가지 상세내용 입력해쥬세요~~<br>
+예를들어 회사명,주소, 전화번호, 계좌 등..<br>
+kosta152_project_koggiri@by.5Team/
 
 </div>
 </body>
