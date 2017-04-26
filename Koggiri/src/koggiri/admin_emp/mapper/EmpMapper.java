@@ -8,5 +8,6 @@ import koggiri.admin_emp.model.SearchedEmp;
 
 public interface EmpMapper {
 	List<SearchedEmp> selectList(Search search);
-	
+	int insertEmp(Emp emp);
+	String findEmpid(Emp emp);
 }
