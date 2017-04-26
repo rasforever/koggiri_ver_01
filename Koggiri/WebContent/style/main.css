@@ -5,7 +5,6 @@
 	width:1400px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-
 	margin-right: 200px;
 }
 
@@ -26,9 +25,11 @@
 	color: navy;
 }
 #main_top{
+	/* 이미지 + 메뉴 */
 	padding: 30px;
 }
 #main_logo{
+	/* 이미지 div */
 	float: left;
 }
 #main_logo img {
@@ -52,6 +53,7 @@
 	color: black;
 }
 #main_tab span{
+	/* 퀵메뉴 제목 */
 	font-size: 20px;
 	font-weight:bold;
 	font-family:sans-serif;
@@ -61,7 +63,7 @@
 #log {
 	/* 로그인 여부 확인창 */
 	width: 100%;
-	padding: 15px;
+	padding: 30px;
 	background-color: #008ad7;
 	color: white;
 }
@@ -85,6 +87,16 @@
 
 
 /*****************************************/
+#my {
+	width: 350px;
+	height: 200px;
+	border: 2px solid #008ad7;
+	border-radius: 20px;
+	-moz-border-radius: 10px;
+	-wedkit-border-radius: 10px;
+	box-shadow: 5px 5px gray;
+}
+
 #cal {
 	width: 350px;
 	height: 200px;
@@ -139,4 +151,10 @@
 .intro_tab {
 	padding-top: 10px;
 	width: 350px;
+}
+
+#my img{
+	padding: 10px;
+	width: 120px;
+	height:150px;
 }
