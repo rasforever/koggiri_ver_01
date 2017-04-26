@@ -2,9 +2,10 @@
 
 #main_menu {
 	/* 	메인 메뉴 */
+	width:1400px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-left: 100px;
+	margin-left: 20px;
 	margin-right: 200px;
 }
 
@@ -13,13 +14,14 @@
 	display: inline;
 	text-decoration: none;
 	color: navy;
-	border-left: 1px #008ad7 solid;
+	border-left: 3px #008ad7 solid;
 	padding-left: 30px;
 	padding-right: 30px;
 	font-weight: bold;
 }
 
 #main_menu a {
+	/* 메인 메뉴 글자색 */
 	text-decoration: none;
 	color: navy;
 }
@@ -32,13 +34,16 @@
 }
 
 #main_contain {
-	/* 컨테인 밑으로 내리기 */
+	/* 컨테인  */
+	margin-left:20px;
+	width:1400px;
 	clear: both;
 }
-
 #main_tab td {
+	/* 컨테인 테이블 */
 	padding: 5px;
 	text-decoration: none;
+	color: black;
 }
 
 #log {
