@@ -32,6 +32,14 @@
 		<tr height="30">
 			<td colspan="4">${board.n_content }</td>
 		</tr>
+		
+		<tr height="30">
+			<td colspan="4">
+				<input type="button" value="수정" onclick="fn_update()">
+				<input type="button" value="삭제" onclick="fn_delete()">
+		</tr>
+		
+		
 
 	</table>
 </body>
