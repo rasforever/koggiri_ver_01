@@ -29,6 +29,19 @@
 		</if>
 	</select>
 	
+	<insert id="insertEmp" parameterType="Emp">
+		insert into emp(emp_id,emp_nm,res_no,sex_id,nation_id,dept_id,pos_id,join_dt
+		,wstate_cd,input_emp_id,input_sysdt)
+		values(#{emp_id},#{emp_nm},#{res_no},#{sex_id},#{nation_id}
+		,#{dept_id},#{pos_id},#{join_dt}
+		,#{wstate_cd},#{input_emp_id},sysdate)
+	</insert>
+	
+	<select id="findEmpid" parameterType="Emp" resultType="String">
+		select max(emp_id) from emp
+		where join_dt = #{join_dt} 
+		
+	</select>
 </mapper>
 
 

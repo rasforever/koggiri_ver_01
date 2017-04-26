@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="searchEmp.do" method="post">
+	<form action="searchEmp.admin" method="post">
 	<select name="area">
     <option value="">검색옵션</option>
     <option value="emp_id">사번</option>
