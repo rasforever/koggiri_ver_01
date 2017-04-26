@@ -12,18 +12,30 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<style>
+div {
+	apperance: none;
+	-webkit-apperance: none;
+	width: 100px;
+	height: 100px;
+}
+</style>
 <script>
 	$(function() {
 		$(".datepicker").datepicker({
 			dateFormat : "yy/mm/dd"
 		});
 	});
+	var dropFile = function(event) {
+		event.preventDefault();
+	}
 </script>
 </head>
 <body>
 	<h3>비용신청서</h3>
 	<hr>
-	<form action="expensesAction.approval" method="post" enctype="multipart/form-data">
+	<form action="expensesAction.approval" method="post"
+		enctype="multipart/form-data">
 		제&nbsp;&nbsp;&nbsp;&nbsp;목 : <input type="text" name="ex_title">
 		&nbsp;&nbsp;&nbsp; 신&nbsp;청&nbsp;일 : <input type="text"
 			class="datepicker"><br> 결제종류 : <input type="text"
@@ -33,12 +45,13 @@
 		: <input type="text" name="title"> <br>
 
 		<hr>
-  		<input multiple="multiple" type="file" name="filename[]" />
-		<input type="submit" value="등록">
+		<div onchange="dropfile();"></div>
+		<input id="file" multiple="multiple" type="file" name="filename[]" />
+		<br> <input type="submit" value="등록">
 	</form>
 
 
-</form>
+	</form>
 
 </body>
 </html>
