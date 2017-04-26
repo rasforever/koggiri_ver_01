@@ -10,7 +10,7 @@
 
 <h3>글 작성</h3>
 <hr>
-<form action="insertAction.do" method="post">
+<form action="insertAction.noticeboard" method="post">
 
  	제목 : <input type="text" name = "n_title"><br>
  	내용 : <br>

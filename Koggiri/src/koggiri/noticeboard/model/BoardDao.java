@@ -1,6 +1,7 @@
 package koggiri.noticeboard.model;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -48,5 +49,16 @@ public class BoardDao {
 		}
 	}
 	
+	public List<Board> listBoard(){
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(BoardMapper.class).listBoard();
+		} catch (Exception e) {
+			return null;
+		} finally {
+			session.close();
+		}
+		
+	}
 
 }

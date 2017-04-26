@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.noticeboard.action.Action;
 import koggiri.noticeboard.action.ActionForward;
 import koggiri.noticeboard.action.InsertAction;
+import koggiri.noticeboard.action.ListAction;
 
 
-@WebServlet("/BoardController")
+@WebServlet("*.noticeboard")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,24 +30,38 @@ public class BoardController extends HttpServlet {
        String requestURI = request.getRequestURI();
        String contextPath = request.getContextPath();
        String command = requestURI.substring(contextPath.length()+1);
+       int le = command.indexOf("/");
+      String path = command.substring(le + 1, command.length()); // insert.do
+       System.out.println(contextPath);
        System.out.println(command);
-       System.out.println("sssdfsdfasdf");
+       System.out.println(path);
+       
        request.setCharacterEncoding("utf-8"); // 들어오는거 인코딩.
        ActionForward forward = null;
        Action action = null;
 
        
-       if(command.equals("insertAction.do")){
-           
+       if(path.equals("insertAction.noticeboard")){
+           System.out.println("ghhhhhh");
            action = new InsertAction();
-          System.out.println("testalert");
+         
            try {
               forward = action.execute(request, response);
           } catch (Exception e) {
              e.printStackTrace();
           }
-          //커맨드 값이 마으면 거기에 맞는 액션을 호출하면 된다.
+   
         }
+       
+       else if (path.equals("listAction.noticeboard")) {
+			action = new ListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+       
+       
        
        if(forward !=null){
            if(forward.isRedirect()){
@@ -58,7 +73,8 @@ public class BoardController extends HttpServlet {
                      request.getRequestDispatcher(forward.getPath());
                dispatcher.forward(request, response);
            }
-        }
+       }
+       }
    }
    
 	
