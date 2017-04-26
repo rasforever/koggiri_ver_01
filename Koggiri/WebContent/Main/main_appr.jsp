@@ -4,16 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="./style/main.css">
+<link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
 <form>
+
 <div id="appr">
 		<table border="0" class="intro_tab">
 			<tr align="center">
-			<td width="60%">Á¦¸ñ</td>
-				<td width="20%">½ÂÀÎ¿©ºÎ</td>
+			<td width="60%">ì œëª©</td>
+				<td width="20%">ìŠ¹ì¸ì—¬ë¶€</td>
 
 			</tr>
 			<tr>

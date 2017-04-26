@@ -4,29 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link type="text/css" rel="stylesheet" href="./style/main.css">
+ <link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
 
-<div id="main_header">
+<div id="header">
 <div id="log" align="right">
-<span>´Ô Á¢¼Ó ÁßÀÔ´Ï´Ù.</span>
-<a href="#">·Î±×¾Æ¿ô</a>
+<span>ë‹˜ ì ‘ì† ì¤‘ìž…ë‹ˆë‹¤.</span>
+<a href="#">ë¡œê·¸ì•„ì›ƒ</a>
 </div>
 
 <div id="main_menu" align="center">
-<img src="./images/koggiri.PNG" align="middle">
+<img src="../images/koggiri.PNG" align="middle">
 
 <ul>
-<li><a href="#">°øÁö</a></li>
-<li><a href="#">¸ÞÀÏ</a></li>
-<li><a href="#">ÀÏÁ¤</a></li>
-<li><a href="#">°áÀç</a></li>
-<li><a href="#">¾÷¹«</a></li>
-<li><a href="#">¹®¼­</a></li>
-<li><a href="#">È¸ÀÇ</a></li>
-<li><a href="#">Á¶Á÷µµ</li>
+<li><a href="#">ê³µì§€ì‚¬í•­</a></li>
+<li><a href="#">ì¼ì •</a></li>
+<li><a href="#">ë©”ì¼</a></li>
+<li><a href="#">ê²°ìž¬</a></li>
+<li><a href="#">ë¬¸ì„œ</a></li>
+<li><a href="#">ì—…ë¬´</a></li>
+<li><a href="#">íšŒì˜</a></li>
+<li><a href="#">ì¡°ì§ë„</li>
 </ul>
 </div>
 </div>

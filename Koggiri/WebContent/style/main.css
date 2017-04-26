@@ -38,6 +38,7 @@
 
 #main_tab td {
 	padding: 5px;
+	text-decoration: none;
 }
 
 #log {
@@ -93,6 +94,7 @@
 	-moz-border-radius: 10px;
 	-wedkit-border-radius: 10px;
 	box-shadow: 5px 5px gray;
+	
 }
 
 #notice {

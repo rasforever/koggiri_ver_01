@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
 </head>
 <body>
-<div id="footer" align="center">
-footer
-여러가지 상세내용 입력해쥬세요~~
-
-</div>
+빈칸
 </body>
+</html>
