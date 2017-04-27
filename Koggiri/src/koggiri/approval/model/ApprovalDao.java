@@ -30,9 +30,11 @@ public class ApprovalDao {
 		// 가져온다.
 
 	}
-	public List<PayType> pay_tyselect() {
+	public List<PayType> pay_tyselect() throws Exception{
+		System.out.println("안되냐?");
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
+			System.out.println("d");
 			return session.getMapper(ApprovalMapper.class).pay_tyselect();	
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,7 +44,7 @@ public class ApprovalDao {
 		}
 	}	
 
-	public List<ReqType> req_tyselect() {
+	public List<ReqType> req_tyselect() throws Exception {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
 			return session.getMapper(ApprovalMapper.class).req_tyselect();	

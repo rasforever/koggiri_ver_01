@@ -11,10 +11,11 @@ public class ApprovalService {
 		return service;
 	}
 	
-	public List<PayType> PayTypeService(){
+	public List<PayType> PayTypeService() throws Exception{
+		System.out.println("되냐?");
 		return dao.pay_tyselect();		
 	}
-	public List<ReqType> ReqTypeService(){
+	public List<ReqType> ReqTypeService() throws Exception{
 		return dao.req_tyselect();		
 	}
 

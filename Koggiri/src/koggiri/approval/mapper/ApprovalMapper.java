@@ -6,6 +6,6 @@ import koggiri.approval.model.PayType;
 import koggiri.approval.model.ReqType;
 
 public interface ApprovalMapper {
-	List<PayType> pay_tyselect();
-	List<ReqType> req_tyselect();
+	public List<PayType> pay_tyselect();
+	public List<ReqType> req_tyselect();
 }
