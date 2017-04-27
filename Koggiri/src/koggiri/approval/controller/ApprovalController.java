@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.approval.action.Action;
 import koggiri.approval.action.ActionFoward;
+import koggiri.approval.action.BusinesstAction;
 import koggiri.approval.action.DraftAction;
 import koggiri.approval.action.ExpensesTypeAction;
+import koggiri.approval.action.LeaveAction;
 
 @WebServlet(urlPatterns = "*.approval")
 public class ApprovalController extends HttpServlet {
@@ -52,7 +54,7 @@ public class ApprovalController extends HttpServlet {
 	              e.printStackTrace();
 	           }
 		}
-		else if (command.equals("leaveAction.approval")) {
+		else if (command.equals("approval/leaveAction.approval")) {
 			 action = new LeaveAction();	            
 	            try {
 	               forward = action.execute(request, response);
@@ -60,7 +62,7 @@ public class ApprovalController extends HttpServlet {
 	              e.printStackTrace();
 	           }
 		}
-		else if (command.equals("businesstAction.approval")) {
+		else if (command.equals("approval/businesstAction.approval")) {
 			 action = new BusinesstAction();	            
 	            try {
 	               forward = action.execute(request, response);

@@ -54,11 +54,23 @@ public class ApprovalDao {
 		}
 	}
 	
-	public Draft draft_select() throws Exception { //기안서 기안종류
-		System.out.println("A");
+	public Emp_infomation einfo_select() throws Exception { //인사정보 가져오기
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(ApprovalMapper.class).draft_select();
+			return session.getMapper(ApprovalMapper.class).einfo_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	
+	public List<LeaveType> leave_tyselect() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();
+		System.out.println("B");
+		try {
+			return session.getMapper(ApprovalMapper.class).leave_tyselect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

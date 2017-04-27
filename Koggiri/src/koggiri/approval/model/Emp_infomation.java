@@ -2,15 +2,15 @@ package koggiri.approval.model;
 
 import java.io.Serializable;
 
-public class Draft implements Serializable{
+public class Emp_infomation implements Serializable{
 	private String emp_id;
 	private String emp_nm;
 	private String dept_nm;
 	private String pos_nm;
 	
-	public Draft() {}
+	public Emp_infomation() {}
 	
-	public Draft(String emp_id, String emp_nm, String dept_nm, String pos_nm) {
+	public Emp_infomation(String emp_id, String emp_nm, String dept_nm, String pos_nm) {
 		super();
 		this.emp_id = emp_id;
 		this.emp_nm = emp_nm;
@@ -41,7 +41,6 @@ public class Draft implements Serializable{
 	public void setPos_nm(String pos_nm) {
 		this.pos_nm = pos_nm;
 	}
-	
-	
 
 }
+

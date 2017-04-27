@@ -15,7 +15,11 @@
 		select req_t_cd, req_t_nm from req_type
 	</select>
 	
-	<select id="draft_select" resultType="Draft">
+	<select id="leave_tyselect" resultType="LeaveType">
+		select leave_t_cd, leave_t_nm from leave_type
+	</select>
+	
+	<select id="einfo_select" resultType="Emp_infomation">
 		select e.emp_id as emp_id, e.emp_nm as emp_nm, d.dept_nm as dept_nm, p.pos_nm as pos_nm from emp e inner join dept d
 		on e.dept_id = d.dept_id
 		inner join pos p
