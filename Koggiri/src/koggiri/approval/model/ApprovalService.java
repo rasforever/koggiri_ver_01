@@ -12,7 +12,6 @@ public class ApprovalService {
 	}
 	
 	public List<PayType> PayTypeService() throws Exception{
-		System.out.println("되냐?");
 		return dao.pay_tyselect();		
 	}
 	public List<ReqType> ReqTypeService() throws Exception{

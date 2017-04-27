@@ -11,8 +11,9 @@
 	List<PayType> paylist = service.PayTypeService();
 	List<ReqType> reqlist = service.ReqTypeService();
 
-    request.setAttribute("paylist", paylist); //중요!    
+    request.setAttribute("paylist", paylist); //중요! 
     request.setAttribute("reqlist", reqlist); //중요!     
+       
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,6 +33,10 @@
 	var dropFile = function(event) {
 		event.preventDefault();
 	}
+	var selectpaytype = function(event) {
+		var value = $(this).val();
+		alert(value);
+	}
 </script>
 </head>
 <body>
@@ -41,14 +46,14 @@
 		<hr>
 		제&nbsp;&nbsp;&nbsp;&nbsp;목 : <input type="text" name="ex_title">&nbsp;&nbsp;&nbsp; 
 		신&nbsp;청&nbsp;일 : <input type="text" name="ex_dt" class="datepicker"><br>
-		결제종류 : <select name ="pay_t_cd" >
+		결제종류 : <select name ="pay_t_cd" onchange="selectpaytype();" >
 		<c:forEach var="paytype" items="${paylist}"> 
-			<option value="${paylist.pay_t_cd}">${paylist.pay_t_nm} </option>
+			<option  value="${paytype.pay_t_cd}">${paytype.pay_t_nm} </option>
 		</c:forEach></select> &nbsp;&nbsp;&nbsp; 
 		카드번호 : <input type="text" name="card_number" disabled> <br> 
 		신청종류 :  <select name ="req_t_type" > 
 		<c:forEach var="reqtype" items="${reqlist}"> 
-			<option value="${reqlist.req_t_cd}">${reqlist.req_t_nm} </option>
+			<option value="${reqtype.req_t_cd}">${reqtype.req_t_nm} </option>
 		</c:forEach></select>&nbsp;&nbsp;&nbsp; 
 		총&nbsp;금&nbsp;액 : <input type="text" name="ex_tot_pay"> <br>
 		<hr>

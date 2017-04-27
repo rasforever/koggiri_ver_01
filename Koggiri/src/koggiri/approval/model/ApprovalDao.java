@@ -12,7 +12,6 @@ import koggiri.approval.mapper.ApprovalMapper;
 
 public class ApprovalDao {
 	private static ApprovalDao dao = new ApprovalDao();
-
 	public static ApprovalDao getInstance() {
 		return dao;
 	}
@@ -30,24 +29,23 @@ public class ApprovalDao {
 		// 가져온다.
 
 	}
-	public List<PayType> pay_tyselect() throws Exception{
-		System.out.println("안되냐?");
+
+	public List<PayType> pay_tyselect() throws Exception {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			System.out.println("d");
-			return session.getMapper(ApprovalMapper.class).pay_tyselect();	
+			return session.getMapper(ApprovalMapper.class).pay_tyselect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		} finally {
 			session.close();
 		}
-	}	
+	}
 
 	public List<ReqType> req_tyselect() throws Exception {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(ApprovalMapper.class).req_tyselect();	
+			return session.getMapper(ApprovalMapper.class).req_tyselect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
