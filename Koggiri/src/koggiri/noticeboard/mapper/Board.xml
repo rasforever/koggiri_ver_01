@@ -17,9 +17,19 @@
 
 	</insert>
 	
-	<select id="listBoard" resultType="Board">
+	<select id="listBoard" resultType="Board" parameterType="noticeSearch">
 		select * from noticeboard
-		</select>
+		
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item = "item" separator="or" open="(" close=")">            		
+					${item} LIKE #{searchKey}		
+				</foreach>
+			
+			</where>
+		
+		</if>
+	</select>
 	
 	<select id="detailBoard" resultType="Board" parameterType="int">
 		select * from noticeboard where n_id = #{n_id}

@@ -51,10 +51,10 @@ public class BoardDao {
 		}
 	}
 
-	public List<Board> listBoard() {
+	public List<Board> listBoard(noticeSearch search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(BoardMapper.class).listBoard();
+			return session.getMapper(BoardMapper.class).listBoard(search);
 		} catch (Exception e) {
 			return null;
 		} finally {
