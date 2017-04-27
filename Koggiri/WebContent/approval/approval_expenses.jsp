@@ -46,6 +46,8 @@
 	<form action="expensesAction.approval" method="post"
 		enctype="multipart/form-data">
 		<hr>
+		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input type="text" name="emp_id" disabled>&nbsp;&nbsp;&nbsp; 
+		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="emp_nm" disabled> <br>
 		제&nbsp;&nbsp;&nbsp;&nbsp;목 : <input type="text" name="ex_title">&nbsp;&nbsp;&nbsp; 
 		신&nbsp;청&nbsp;일 : <input type="text" name="ex_dt" class="datepicker"><br>
 		결제종류 : <select name ="pay_t_cd" onchange="typesel(this)" >

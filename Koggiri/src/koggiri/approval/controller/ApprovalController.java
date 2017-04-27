@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import koggiri.admin_emp.action.EmpSearchAction;
 import koggiri.approval.action.Action;
 import koggiri.approval.action.ActionFoward;
+import koggiri.approval.action.expensesTypeAction;
 
 @WebServlet(urlPatterns = "*.approval")
 public class ApprovalController extends HttpServlet {
@@ -34,8 +36,14 @@ public class ApprovalController extends HttpServlet {
 		Action action = null;
 		System.out.println(command);
 
-		if (command.equals(".approval")) {
-
+		if (command.equals("approval/expensesAction.approva")) {
+			 action = new expensesTypeAction();
+	            
+	            try {
+	               forward = action.execute(request, response);
+	           } catch (Exception e) {
+	              e.printStackTrace();
+	           }
 		}
 
 		if (forward != null) {
