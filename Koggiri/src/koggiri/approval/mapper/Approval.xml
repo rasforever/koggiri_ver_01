@@ -8,11 +8,11 @@
 	<cache />
 
 	<select id="pay_tyselect" resultType="PayType">
-		select pay_t_id, pay_t_nm from pay_type
+		select pay_t_cd, pay_t_nm from pay_type
 	</select>
 	
 	<select id="req_tyselect" resultType="ReqType">
-		select req_t_id, req_t_nm from req_type
+		select req_t_cd, req_t_nm from req_type
 	</select>
 
 

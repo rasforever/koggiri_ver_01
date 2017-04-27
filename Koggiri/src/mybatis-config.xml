@@ -9,6 +9,8 @@
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
+		<typeAlias type="koggiri.approval.model.PayType" alias="Paytype"/> <!-- 결제방법 서버접속 -->
+		<typeAlias type="koggiri.approval.model.ReqType" alias="Raytype"/> <!-- 신청방법 서버접속 -->
 		
 
 	</typeAliases>
@@ -25,6 +27,7 @@
 	<mappers>
 		<mapper resource="koggiri/admin_emp/mapper/Emp.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
+		<mapper resource="koggiri/approval/mapper/Approval.xml"/>
 	</mappers>
 	
 </configuration>
