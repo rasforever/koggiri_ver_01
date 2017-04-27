@@ -48,9 +48,7 @@ public class TaskController extends HttpServlet {
 		ta_Action action = null;
 
 		if (command.equals("Task/ta_insertAction.task")) {
-         System.out.println("ddd");
-			action = new ta_insertAction();
-			
+			action = new ta_insertAction();			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -64,7 +62,7 @@ public class TaskController extends HttpServlet {
 
 			} catch (Exception e) {
 			}
-		} else if (command.equals("ta_listAction.task")) {
+		} else if (command.equals("Task/ta_listAction.task")) {
 			action = new ta_listAction();
 			try {
 				forward = action.execute(request, response);

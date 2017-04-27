@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<table width="500" border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<th>글번호</th>
@@ -16,7 +17,7 @@
 			<th>작성일자</th>			
 			<th>조회수</th>			
 		</tr>
-			<c:forEach var = "task" items = "${list }">
+			<c:forEach var = "task" items = "${list}">
 		<tr>
 		<td>${task.ta_seq}</td>
 		<td>${task.ta_weekresult}</td>
@@ -27,6 +28,5 @@
 		</c:forEach>
 			</table>
 	<br>
-	
 </body>
 </html>

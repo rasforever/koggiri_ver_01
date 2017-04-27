@@ -30,13 +30,10 @@ public class TaskDao {
 	}//factory
 
 	public void insertTask(Task task){
-		System.out.println("insertTask임");
 		SqlSession session = getSqlSessionFactory().openSession();
 		int re = -1;
 		try {
-			System.out.println("insertTask임 re위");
 			re = session.getMapper(TaskMapper.class).insertTask(task);
-			System.out.println("insertTask임");
 			if (re > 0) {
 				session.commit();
 			} else {
