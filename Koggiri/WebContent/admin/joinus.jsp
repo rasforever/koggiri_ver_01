@@ -44,6 +44,12 @@ $(function(){
 				<option value="M">남자</option>
 				<option value="F">여자</option>
 			</select><br>
+		국적:<select name="nation_id">
+				<option value="">국적선택</option>
+				<option value="KR">한국</option>
+				<option value="JP">일본</option>
+				<option value="US">미국</option>
+		</select>
 		주민등록번호: <input type="text" name="res_no"><br>
 		
 		<input type="submit" value="추가">
