@@ -19,6 +19,7 @@ import koggiri.noticeboard.action.UpdateAction;
 import koggiri.noticeboard.action.UpdateFormAction;
 
 
+
 @WebServlet("*.noticeboard")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -69,6 +70,7 @@ public class BoardController extends HttpServlet {
 		else if (path.equals("detailAction.noticeboard")) { //디테일액션인가?
 	
 			action = new DetailAction();
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -105,7 +107,7 @@ public class BoardController extends HttpServlet {
 				e.printStackTrace();
 			}		
 		}
-		
+
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
