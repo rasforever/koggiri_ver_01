@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<h3>상세보기</h3>
@@ -32,6 +33,15 @@
 		<tr height="30">
 			<td colspan="4">${board.n_content }</td>
 		</tr>
+		
+		<tr height="30">
+			<td colspan="4">
+			
+				<a href="updateFormAction.noticeboard?n_id=${board.n_id} ">수정</a>
+				<a href="deleteAction.noticeboard?n_id=${board.n_id} ">삭제</a>
+		</tr>
+		
+		
 
 	</table>
 </body>
