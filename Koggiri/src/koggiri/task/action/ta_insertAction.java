@@ -12,6 +12,8 @@ public class ta_insertAction implements ta_Action {
 	public ta_ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TaskDao dao = TaskDao.getInstance();
 	     Task task = new Task();
+	     task.setTa_weekresult(request.getParameter("ta_weekresult"));
+	     task.setTa_nextresult(request.getParameter("ta_nextresult"));
 		
 		dao.insertTask(task);
 		

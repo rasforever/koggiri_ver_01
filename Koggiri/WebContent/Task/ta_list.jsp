@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<table width="500" border="1" cellpadding="0" cellspacing="0">
+		<tr>
+			<th>글번호</th>
+			<th>작성자</th>			
+			<th>작성일자</th>			
+			<th>조회수</th>			
+		</tr>
 </body>
 </html>
