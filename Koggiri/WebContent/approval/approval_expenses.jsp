@@ -11,22 +11,7 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script>
-	$(function() {
-		$(".datepicker").datepicker({
-			dateFormat : "yy/mm/dd"
-		});
-	});
-	//선택 했을시 변경
-	function typesel(obj) {		
-		if ($(obj).find('option:selected').val() == 0){
-			$('#card_number').attr("disabled",false);
-		} else {
-			$('#card_number').attr("disabled",true);
-		}
-		
-	}
-</script>
+<script type="text/javascript" src="script/approval.js"></script>
 </head>
 <body>
 	<h3>비용신청서</h3>

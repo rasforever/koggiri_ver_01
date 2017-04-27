@@ -14,6 +14,14 @@
 	<select id="req_tyselect" resultType="ReqType">
 		select req_t_cd, req_t_nm from req_type
 	</select>
+	
+	<select id="draft_select" resultType="Draft">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm, d.dept_nm as dept_nm, p.pos_nm as pos_nm from emp e inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p
+		on e.pos_id = p.pos_id
+		and e.emp_id = 'k15010201'
+	</select>
 
 
 </mapper>

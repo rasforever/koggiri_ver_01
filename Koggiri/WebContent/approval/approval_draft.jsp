@@ -9,22 +9,16 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script>
-	$(function() {
-		$(".datepicker").datepicker({
-			dateFormat : "yy/mm/dd"
-		});
-	});
-</script>
+<script type="text/javascript" src="script/approval.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
 	<form action="draftingAction.approval" method="post">
-		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input type="text" name="emp_id" disabled>&nbsp;&nbsp;&nbsp; 
-		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="emp_nm" disabled> <br>
-		소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;속 : <input type="text" name="dept_nm" disabled>&nbsp;&nbsp;&nbsp; 
-		직&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;급 : <input type="text" name="pos_nm" disabled> <br>
+		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input type="text" name="emp_id" value="${draft.emp_id }" disabled>&nbsp;&nbsp;&nbsp; 
+		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="emp_nm" value="${draft.emp_nm }" disabled> <br>
+		소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;속 : <input type="text" name="dept_nm" value="${draft.dept_nm }" disabled>&nbsp;&nbsp;&nbsp; 
+		직&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;급 : <input type="text" name="pos_nm" value="${draft.pos_nm }" disabled> <br>
 		기&nbsp;안&nbsp;일 : <input type="text" name="draft_dt" class="datepicker"><br>
 		제목 : <input type="text" name = "draft_title"><br>
 	 	내용 : <br>

@@ -54,10 +54,11 @@ public class ApprovalDao {
 		}
 	}
 	
-	public List<DraftType> draft_tyselect() throws Exception { //기안서 기안종류
+	public Draft draft_select() throws Exception { //기안서 기안종류
+		System.out.println("A");
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(ApprovalMapper.class).draft_tyselect();
+			return session.getMapper(ApprovalMapper.class).draft_select();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
