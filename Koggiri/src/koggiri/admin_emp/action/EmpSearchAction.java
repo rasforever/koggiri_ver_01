@@ -28,7 +28,7 @@ public class EmpSearchAction implements Action {
 		
 		ActionFoward forward = new ActionFoward();
 		forward.setRedirect(false);
-		forward.setPath("/manager.jsp");
+		forward.setPath("/admin/manager.jsp");
 		
 		return forward;
 	}

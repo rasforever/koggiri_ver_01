@@ -53,7 +53,7 @@ public class EmpInsertAction implements Action {
 		
 		ActionFoward forward = new ActionFoward();
 		forward.setRedirect(true);
-		forward.setPath("/Koggiri/manager.jsp");
+		forward.setPath("/Koggiri/admin/manager.jsp");
 		
 		return forward;
 	}
