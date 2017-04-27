@@ -38,7 +38,7 @@ public class EmpController extends HttpServlet {
         Action action = null;
     	System.out.println(command);
         
-        if(command.equals("searchEmp.admin")){
+        if(command.equals("admin/searchEmp.admin")){
             
             action = new EmpSearchAction();
             
@@ -48,7 +48,7 @@ public class EmpController extends HttpServlet {
               e.printStackTrace();
            }
          
-         }else if(command.equals("join.admin")){
+         }else if(command.equals("admin/join.admin")){
         	 action = new EmpInsertAction();
         	 
         	 try {
