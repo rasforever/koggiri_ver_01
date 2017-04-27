@@ -2,16 +2,34 @@
 <%@page import="koggiri.admin_emp.model.SearchedEmp"%>
 <%@page import="java.util.List"%>
 <%@page import="koggiri.admin_emp.model.EmpDao"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script type="text/javascript">
+$(function(){ 
+	$("#join").click(function(){
+		$.ajax({ type: 'get' ,
+				url: 'joinus.jsp' ,
+				dataType : 'text' ,
+				success: function(data) {
+					$("#joindiv").html(data).toggle(); 
+					} 
+				});
+			})	
+})
+
+
+
+</script>
+
 </head>
 <body>
 	<form action="searchEmp.admin" method="post">
@@ -26,9 +44,8 @@
 	<input type="submit" value="검색"	>
 	</form>
 	
-	<button type="button" onclick="location.href='joinus.jsp' ">입사발령</button>
-	<button type="button" onclick="location.href='' ">인사이동</button>
-	<button type="button" onclick="location.href=''">퇴직발령</button>
+	<input type="button" id="join" value="입사발령"/>
+
 	<table border="1">
 		<tr>
 			<th>사번</th>
@@ -45,5 +62,8 @@
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<div id="joindiv"></div>
 </body>
+
 </html>
