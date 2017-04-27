@@ -24,7 +24,7 @@
 		</div>
 		<div id="main_menu">
 			<ul>
-				<li class="f_li"><a href="#">공지사항</a></li>
+				<li><a href="#">공지사항</a></li>
 				<li><a href="#">일정</a></li>
 				<li><a href="#">메일</a></li>
 				<li><a href="#">결재</a></li>
