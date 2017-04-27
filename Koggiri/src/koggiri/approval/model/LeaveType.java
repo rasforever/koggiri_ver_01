@@ -12,10 +12,10 @@ public class LeaveType implements Serializable {
 		this.leave_t_cd = leave_t_cd;
 		this.leave_t_nm = leave_t_nm;
 	}
-	public int getLeave_t_id() {
+	public int getLeave_t_cd() {
 		return leave_t_cd;
 	}
-	public void setLeave_t_id(int leave_t_cd) {
+	public void setLeave_t_cd(int leave_t_cd) {
 		this.leave_t_cd = leave_t_cd;
 	}
 	public String getLeave_t_nm() {

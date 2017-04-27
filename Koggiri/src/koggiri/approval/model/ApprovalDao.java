@@ -67,8 +67,7 @@ public class ApprovalDao {
 	}
 	
 	public List<LeaveType> leave_tyselect() throws Exception { //휴가 휴가종류
-		SqlSession session = getSqlSessionFactory().openSession();
-		System.out.println("B");
+		SqlSession session = getSqlSessionFactory().openSession();		
 		try {
 			return session.getMapper(ApprovalMapper.class).leave_tyselect();
 		} catch (Exception e) {
