@@ -20,7 +20,7 @@
 		<c:forEach var = "board" items = "${list }">
 		<tr>
 			<td>${board.n_id }</td>
-			<td><a href="detailAction.noticeboard?n_id=${board.n_id }">${board.n_title }</a></td>
+			<td><a href="updateHit.noticeboard?n_id=${board.n_id }">${board.n_title }</a></td>
 			<td>${board.n_emp_id}</td>			
 			<td>${board.n_date }</td>			
 			<td>${board.n_hit }</td>			

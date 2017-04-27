@@ -9,30 +9,30 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
 
-public class DetailAction implements Action {
+public class UpdateHitAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		String num = request.getParameter("n_id");
-		
 		int seq = 1;
 		if(num != null){
 			seq = Integer.parseInt(num);
 		}
 		
-		
 		BoardDao dao = BoardDao.getInstance();
-		Board board = dao.detailBoard(seq);
-
-		request.setAttribute("board", board);
+		Board board = dao.updateHit(seq);
+				
+		board.setN_id(seq);
 	
 		
+		
 		ActionForward forward = new ActionForward();
+		
 		forward.setRedirect(false);
-		forward.setPath("detail.jsp");
-
+		forward.setPath("detailAction.noticeboard");
+		
+		
 		return forward;
 	}
 
