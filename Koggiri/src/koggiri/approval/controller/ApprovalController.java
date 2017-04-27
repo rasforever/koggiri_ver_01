@@ -36,7 +36,7 @@ public class ApprovalController extends HttpServlet {
 		Action action = null;
 		System.out.println(command);
 
-		if (command.equals("approval/expensesAction.approva")) {
+		if (command.equals("approval/expensesAction.approval")) {
 			 action = new expensesTypeAction();
 	            
 	            try {

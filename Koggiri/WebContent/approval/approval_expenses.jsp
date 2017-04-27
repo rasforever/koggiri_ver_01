@@ -7,12 +7,12 @@
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
- 	ApprovalService service = ApprovalService.getInstance();
+ 	/* ApprovalService service = ApprovalService.getInstance();
 	List<PayType> paylist = service.PayTypeService();
 	List<ReqType> reqlist = service.ReqTypeService();
 
     request.setAttribute("paylist", paylist); //중요! 
-    request.setAttribute("reqlist", reqlist); //중요!     
+    request.setAttribute("reqlist", reqlist); //중요!   */   
        
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
