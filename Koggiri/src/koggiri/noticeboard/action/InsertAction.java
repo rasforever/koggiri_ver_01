@@ -21,7 +21,7 @@ public class InsertAction implements Action {
 		
 		
 		dao.insertBoard(board);
-		System.out.println("4444");
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("listAction.noticeboard");

@@ -22,8 +22,6 @@
 			<td width="80">제목</td>
 			<td align="left" colspan="3">
 				
-					<input type = "text" name = "n_title" size = "50">
-				
 					<input type = "text" name = "n_title" size ="50" value = "[수정]: ${board.n_title}">				
 			
 			</td>						

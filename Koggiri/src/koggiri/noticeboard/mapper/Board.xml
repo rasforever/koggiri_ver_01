@@ -27,9 +27,9 @@
 	
 	<update id="updateBoard" parameterType="Board">
 		update noticeboard set 
-			n_title = ${n_title}, 
-			n_content = ${n_content}
-		where n_id = ${n_id}
+			n_title = #{n_title}, 
+			n_content = #{n_content}
+		where n_id = #{n_id}
 	</update>
 	
 </mapper>

@@ -25,6 +25,7 @@ public class UpdateAction implements Action {
 		BoardDao dao = BoardDao.getInstance();
 		Board board = new Board();
 		
+		board.setN_id(seq);
 		board.setN_title(request.getParameter("n_title"));
 		board.setN_content(request.getParameter("n_content"));
 	
@@ -32,7 +33,7 @@ public class UpdateAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("listAction.noticeboard");
 		
 			
