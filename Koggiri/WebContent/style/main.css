@@ -1,4 +1,7 @@
 @CHARSET "EUC-KR";
+@IMPORT url("//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css");
+
+
 
 #main_menu {
 	/* 	메인 메뉴 */
@@ -17,8 +20,8 @@
 	padding-left:30px;
 	padding-right:30px;
 	font-weight: bold;
-	font-size: 20px;
-	font-family: 'Nanum Gothic Coding', monospace;
+	font-size: 18px;
+	font-family: fantasy;
 }
 
 #main_menu a {
