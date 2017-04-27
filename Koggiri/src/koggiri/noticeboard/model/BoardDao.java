@@ -116,5 +116,19 @@ public class BoardDao {
 		}
 
 	}
+	
+	public void updateHit(int seq){
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		int re = -1;
+		try {
+			re = session.getMapper(BoardMapper.class).updateHit(seq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
 
 }

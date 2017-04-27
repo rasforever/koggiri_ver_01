@@ -25,7 +25,7 @@ public class DetailAction implements Action {
 		
 		BoardDao dao = BoardDao.getInstance();
 		Board board = dao.detailBoard(seq);
-		
+		dao.updateHit(seq);
 		request.setAttribute("board", board);
 	
 		

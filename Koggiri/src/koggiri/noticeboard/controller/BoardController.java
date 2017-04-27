@@ -106,6 +106,17 @@ public class BoardController extends HttpServlet {
 			}		
 		}
 		
+	/*	else if(path.equals("updateHit.noticeboard")){
+			
+			action = new UpdateHit();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}*/
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
