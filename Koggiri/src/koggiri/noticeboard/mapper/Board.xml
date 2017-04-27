@@ -32,4 +32,8 @@
 		where n_id = #{n_id}
 	</update>
 	
+	<delete id="deleteBoard" parameterType="Board">
+		delete from noticeboard where n_id = #{n_id}
+	</delete>
+	
 </mapper>
