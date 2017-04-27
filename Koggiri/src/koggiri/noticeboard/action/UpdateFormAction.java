@@ -14,7 +14,7 @@ public class UpdateFormAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("yaho~");
+		
 		String num = request.getParameter("n_id");
 		
 		int seq = 1;
