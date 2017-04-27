@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Member implements Serializable{
 	private String mem_id;
 	private String mem_pw;
+	
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -17,6 +18,10 @@ public class Member implements Serializable{
 	public void setMem_pw(String mem_pw) {
 		this.mem_pw = mem_pw;
 	}
+	 public boolean matchPassword(String pwd){
+		 return mem_pw.equals(pwd);
+	 }
+	
 	
 	
 	

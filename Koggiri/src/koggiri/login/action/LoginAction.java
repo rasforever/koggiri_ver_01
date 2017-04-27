@@ -26,12 +26,18 @@ public class LoginAction implements Action {
 		
 		
 		ActionFoward forward = new ActionFoward();
-		if(dbmember!=null){ // 로그인 성공시
-		forward.setRedirect(false);
-		forward.setPath("/login/loginok.jsp");
-		}else{
+		if(dbmember==null){ // 로그인 실패
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인이 실패하였습니다.');");
+			out.println("location.href='/Koggiri/login/loginform.jsp';");
+			out.println("</script>");
+			out.close();
+		}else{ //성공
+			
 			forward.setRedirect(false);
-			forward.setPath("/Koggiri/login/loginform.jsp");
+			forward.setPath("/login/loginok.jsp");
 		}
 		return forward;
 	}
