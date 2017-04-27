@@ -9,9 +9,7 @@
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
-		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/>
-		
-
+	<!-- 	<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> -->
 	</typeAliases>
 	
 	<environments default="development">
@@ -26,7 +24,7 @@
 	<mappers>
 		<mapper resource="koggiri/admin_emp/mapper/Emp.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
-		<mapper resource="koggiri/important/mapper/Imp_Board.xml"/>
+	<!-- 	<mapper resource="koggiri/important/mapper/Imp_Board.xml"/> -->
 	</mappers>
 	
 </configuration>

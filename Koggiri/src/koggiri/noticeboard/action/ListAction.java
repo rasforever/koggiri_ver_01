@@ -21,7 +21,7 @@ public class ListAction implements Action {
 		BoardDao dao = BoardDao.getInstance();
 		List<Board> list = dao.listBoard();
 		request.setAttribute("list", list);
-		System.out.println("sibal~");
+	
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);//1.디스패처를 사용해서 보내겠다.
 		forward.setPath("list.jsp");//2. 이 경로를 통해서 
