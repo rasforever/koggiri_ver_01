@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
 
-public class UpdateFormAction implements Action {
+public class DeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -19,17 +19,21 @@ public class UpdateFormAction implements Action {
 		
 		int seq = 1;
 		if(num != null){
-			seq = Integer.parseInt(num);
-		
+			seq = Integer.parseInt(num);	
 		}
-		ActionForward forward = new ActionForward();
 		BoardDao dao = BoardDao.getInstance();
-		Board board = dao.detailBoard(seq);
+		Board board = new Board();
 		request.setAttribute("board", board);
-		forward.setRedirect(false);
-		forward.setPath("updateForm.jsp");
 		
-	
+		board.setN_id(seq);
+		
+		dao.deleteBoard(board);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("listAction.noticeboard");
+		
+		
 		return forward;
 	}
 

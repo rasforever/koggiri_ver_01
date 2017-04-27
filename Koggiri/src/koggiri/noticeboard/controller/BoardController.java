@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.noticeboard.action.Action;
 import koggiri.noticeboard.action.ActionForward;
+import koggiri.noticeboard.action.DeleteAction;
 import koggiri.noticeboard.action.DetailAction;
 import koggiri.noticeboard.action.InsertAction;
 import koggiri.noticeboard.action.ListAction;
@@ -44,9 +45,9 @@ public class BoardController extends HttpServlet {
 		Action action = null;
 
 		if (path.equals("insertAction.noticeboard")) { //인설트액션인가?
-			System.out.println("2222");
+			
 			action = new InsertAction();
-			System.out.println("3333");
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -56,7 +57,7 @@ public class BoardController extends HttpServlet {
 		}
 
 		else if (path.equals("listAction.noticeboard")) {//리스트액션인가?
-			System.out.println("11111");
+			
 			action = new ListAction();
 			try {
 				forward = action.execute(request, response);
@@ -66,7 +67,7 @@ public class BoardController extends HttpServlet {
 		} 
 		
 		else if (path.equals("detailAction.noticeboard")) { //디테일액션인가?
-			System.out.println("354345");
+	
 			action = new DetailAction();
 			try {
 				forward = action.execute(request, response);
@@ -77,7 +78,7 @@ public class BoardController extends HttpServlet {
 		}
 		
 		else if (path.equals("updateFormAction.noticeboard")){
-			System.out.println("why?");
+			
 			action = new UpdateFormAction();
 			try {
 				forward = action.execute(request, response);
@@ -93,6 +94,16 @@ public class BoardController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		else if(path.equals("deleteAction.noticeboard")){
+
+			action = new DeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}
 		
 

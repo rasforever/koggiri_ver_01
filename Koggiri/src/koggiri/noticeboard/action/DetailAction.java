@@ -21,7 +21,7 @@ public class DetailAction implements Action {
 		if(num != null){
 			seq = Integer.parseInt(num);
 		}
-		System.out.println("777");
+		
 		
 		BoardDao dao = BoardDao.getInstance();
 		Board board = dao.detailBoard(seq);
