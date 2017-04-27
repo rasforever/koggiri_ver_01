@@ -9,6 +9,7 @@
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
+		<typeAlias type="koggiri.task.model.Task" alias ="Task"/>
 
 	</typeAliases>
 	
@@ -24,6 +25,7 @@
 	<mappers>
 		<mapper resource="koggiri/admin_emp/mapper/Emp.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
+		<mapper resource="koggiri/task/mapper/Task.xml"/>
 	</mappers>
 	
 </configuration>

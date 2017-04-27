@@ -3,14 +3,28 @@
 
 <mapper namespace="koggiri.task.mapper.TaskMapper">
 	<cache />
-	
-	<insert id="insertTask" parameterType= "Task">
-	insert into task(
-	ta_seq, ta_title, ta_startdate, ta_enddate, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
-	)
-	values(
-	task_ta_seq.nextval, #{ta_title}, #{ta_startdate}, #{ta_enddate}, #{ta_weekresult}, #{ta_nextresult}, SYSDATE , 0
-	)
+
+	<insert id="insertTask" parameterType="Task">
+		insert into task(
+		ta_seq, ta_title, ta_startdate, ta_enddate, ta_weekresult, ta_nextresult,
+		ta_regdate, ta_hitcount
+		)
+		values(
+		task_ta_seq.nextval, #{ta_title}, #{ta_startdate}, #{ta_enddate}, #{ta_weekresult},
+		#{ta_nextresult}, SYSDATE , 0
+		)
 	</insert>
-	
+
+	<select id="listTask" resultType="Task" parameterType="Task_Search">
+		select *from Task
+		<if test="area!= null">
+			<where>
+				<foreach collection="area" item="item" separator="or" open="("
+					close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+
 </mapper>

@@ -11,6 +11,8 @@ public class Task implements Serializable {
 	private int ta_regdate;
 	private int ta_hitcount;
 	
+	public Task(){}
+	
 	public Task(int ta_seq, String ta_startdate, String ta_enddate, String ta_weekresult, String ta_nextresult,
 			int ta_regdate, int ta_hitcount) {
 		super();
@@ -22,6 +24,7 @@ public class Task implements Serializable {
 		this.ta_regdate = ta_regdate;
 		this.ta_hitcount = ta_hitcount;
 	}
+
 
 	public int getTa_seq() {
 		return ta_seq;
