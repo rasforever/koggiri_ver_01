@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- 
 <title>Insert title here</title>
 
 </head>
@@ -14,7 +13,7 @@
 		<jsp:include page="header.jsp" />
 	</div>
 	<div id="main_contain" align="center">
-		<br> <br> <br> <br> <br> <br>
+		<br> <br>
 		<table id="main_tab" align="center">
 			<tr>
 				<td><span>MyInformation</span><br><jsp:include
@@ -33,7 +32,7 @@
 
 			</tr>
 		</table>
-		<br> <br> <br> <br> <br> <br>
+		<br> <br>
 	</div>
 	<div id="main_footer">
 		<jsp:include page="footer.jsp" />

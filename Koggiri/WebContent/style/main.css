@@ -5,7 +5,7 @@
 
 #main_menu {
 	/* 	메인 메뉴 */
-	width:1400px;
+	width:1000px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 
@@ -20,8 +20,11 @@
 	padding-left:30px;
 	padding-right:30px;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	font-family: fantasy;
+}
+.f_li{
+	border-left: 0px;
 }
 
 #main_menu a {
@@ -31,14 +34,19 @@
 }
 #main_top{
 	/* 이미지 + 메뉴 */
-	padding: 15px;
+	padding: 10px;
+	width: 1000px;
 }
-
+#main_logo{
+	width: 1400px;
+}
 #main_logo img {
 	/* 이미지크기 및 마진 */
 	margin-right:1px;
 	width: 100px;
 	height: 100px;
+	float: left;
+	lfet:30%;
 }
 
 #main_contain {
@@ -161,5 +169,5 @@
 }
 
 #main_outer{
-	
+
 }
