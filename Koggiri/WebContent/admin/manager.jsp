@@ -20,7 +20,10 @@ $(function(){
 				url: 'joinus.jsp' ,
 				dataType : 'text' ,
 				success: function(data) {
-					$("#joindiv").html(data).toggle(); 
+					
+					$("#joindiv").html(data).toggle();
+					
+					
 					} 
 				});
 			})	
@@ -45,7 +48,7 @@ $(function(){
 	</form>
 	
 	<input type="button" id="join" value="입사발령"/>
-
+	
 	<table border="1">
 		<tr>
 			<th>사번</th>
@@ -53,6 +56,7 @@ $(function(){
 			<th>부서</th>
 			<th>직급</th>
 		</tr>  <!-- 밑에는 내용 뿌려줄것 -->
+		
 		<c:forEach var = "SearchedEmp" items = "${list }">
 		<tr>
 			<td>${SearchedEmp.emp_id }</td>
@@ -62,7 +66,7 @@ $(function(){
 		</tr>
 		</c:forEach>
 	</table>
-	
+	</div>
 	<div id="joindiv"></div>
 </body>
 

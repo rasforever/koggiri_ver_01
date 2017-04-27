@@ -45,9 +45,9 @@ public class EmpInsertAction implements Action {
 		emp.setEmp_id(emp_id);
 		emp.setRes_no(request.getParameter("res_no"));
 		emp.setSex_id(request.getParameter("sex_id"));
+		emp.setNation_id(request.getParameter("nation_id"));
 		emp.setWstate_cd("0");
 		emp.setInput_emp_id("master");
-		emp.setNation_id("KR");
 		System.out.println(emp.toString());
 		dao.insertEmp(emp); 
 		
