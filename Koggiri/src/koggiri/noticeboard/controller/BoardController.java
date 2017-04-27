@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.noticeboard.action.Action;
 import koggiri.noticeboard.action.ActionForward;
+import koggiri.noticeboard.action.DeleteAction;
 import koggiri.noticeboard.action.DetailAction;
 import koggiri.noticeboard.action.InsertAction;
 import koggiri.noticeboard.action.ListAction;
@@ -93,6 +94,15 @@ public class BoardController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		else if(path.equals("deleteAction.noticeboard")){
+			action = new DeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}
 		
 
