@@ -97,6 +97,7 @@ public class BoardController extends HttpServlet {
 		}
 		
 		else if(path.equals("deleteAction.noticeboard")){
+
 			action = new DeleteAction();
 			try {
 				forward = action.execute(request, response);

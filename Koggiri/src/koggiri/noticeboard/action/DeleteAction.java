@@ -14,6 +14,7 @@ public class DeleteAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String num = request.getParameter("n_id");
 		
 		int seq = 1;
@@ -23,13 +24,14 @@ public class DeleteAction implements Action {
 		BoardDao dao = BoardDao.getInstance();
 		Board board = new Board();
 		request.setAttribute("board", board);
+		
 		board.setN_id(seq);
 		
 		dao.deleteBoard(board);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("listAction.do");
+		forward.setPath("listAction.noticeboard");
 		
 		
 		return forward;
