@@ -27,7 +27,7 @@
 		<mapper resource="koggiri/admin_emp/mapper/Emp.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
 		<mapper resource="koggiri/approval/mapper/Approval.xml"/>
-	 <!-- 	<mapper resource="koggiri/important/mapper/Imp_Board.xml"/> -->
+	 <mapper resource="koggiri/important/mapper/Imp_Board.xml"/>
 	</mappers>
 	
 </configuration>
