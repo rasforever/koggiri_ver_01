@@ -21,6 +21,10 @@ public class Member implements Serializable{
 	 public boolean matchPassword(String pwd){
 		 return mem_pw.equals(pwd);
 	 }
+	@Override
+	public String toString() {
+		return "Member [mem_id=" + mem_id + ", mem_pw=" + mem_pw + "]";
+	}
 	
 	
 	
