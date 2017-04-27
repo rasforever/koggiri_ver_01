@@ -30,12 +30,14 @@
 			dateFormat : "yy/mm/dd"
 		});
 	});
-	var dropFile = function(event) {
-		event.preventDefault();
-	}
-	var selectpaytype = function(event) {
-		var value = $(this).val();
-		alert(value);
+	//선택 했을시 변경
+	function typesel(obj) {		
+		if ($(obj).find('option:selected').val() == 0){
+			$('#card_number').attr("disabled",false);
+		} else {
+			$('#card_number').attr("disabled",true);
+		}
+		
 	}
 </script>
 </head>
@@ -46,11 +48,11 @@
 		<hr>
 		제&nbsp;&nbsp;&nbsp;&nbsp;목 : <input type="text" name="ex_title">&nbsp;&nbsp;&nbsp; 
 		신&nbsp;청&nbsp;일 : <input type="text" name="ex_dt" class="datepicker"><br>
-		결제종류 : <select name ="pay_t_cd" onchange="selectpaytype();" >
+		결제종류 : <select name ="pay_t_cd" onchange="typesel(this)" >
 		<c:forEach var="paytype" items="${paylist}"> 
 			<option  value="${paytype.pay_t_cd}">${paytype.pay_t_nm} </option>
 		</c:forEach></select> &nbsp;&nbsp;&nbsp; 
-		카드번호 : <input type="text" name="card_number" disabled> <br> 
+		카드번호 : <input type="text" id="card_number" name="card_number" > <br> 
 		신청종류 :  <select name ="req_t_type" > 
 		<c:forEach var="reqtype" items="${reqlist}"> 
 			<option value="${reqtype.req_t_cd}">${reqtype.req_t_nm} </option>

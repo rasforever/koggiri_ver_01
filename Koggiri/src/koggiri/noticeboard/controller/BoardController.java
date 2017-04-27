@@ -14,6 +14,9 @@ import koggiri.noticeboard.action.ActionForward;
 import koggiri.noticeboard.action.DetailAction;
 import koggiri.noticeboard.action.InsertAction;
 import koggiri.noticeboard.action.ListAction;
+import koggiri.noticeboard.action.UpdateAction;
+import koggiri.noticeboard.action.UpdateFormAction;
+
 
 @WebServlet("*.noticeboard")
 public class BoardController extends HttpServlet {
@@ -40,7 +43,7 @@ public class BoardController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (path.equals("insertAction.noticeboard")) {
+		if (path.equals("insertAction.noticeboard")) { //인설트액션인가?
 			System.out.println("2222");
 			action = new InsertAction();
 			System.out.println("3333");
@@ -72,6 +75,26 @@ public class BoardController extends HttpServlet {
 			}
 
 		}
+		
+		else if (path.equals("updateFormAction.noticeboard")){
+			System.out.println("why?");
+			action = new UpdateFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(path.equals("updateAction.noticeboard")){
+			action = new UpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {

@@ -1,7 +1,6 @@
 package koggiri.noticeboard.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,26 +9,35 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
 
-
-
-public class ListAction implements Action {
+public class UpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		
+		String num = request.getParameter("n_id");
+		int seq = 1;
+		if(num != null){
+			seq = Integer.parseInt(num);		
+		}
 		
 		BoardDao dao = BoardDao.getInstance();
-		List<Board> list = dao.listBoard();
-		request.setAttribute("list", list);
-	
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);//1.디스패처를 사용해서 보내겠다.
-		forward.setPath("list.jsp");//2. 이 경로를 통해서 
-		//forward객체에 1번과 2번 내용이 포함되어있음.
+		Board board = new Board();
 		
+		board.setN_id(seq);
+		board.setN_title(request.getParameter("n_title"));
+		board.setN_content(request.getParameter("n_content"));
+	
+		dao.updateBoard(board);
+
+		ActionForward forward = new ActionForward();
+		
+		forward.setRedirect(false);
+		forward.setPath("listAction.noticeboard");
+		
+			
 		return forward;
 	}
-
-	
 
 }
