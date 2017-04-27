@@ -9,14 +9,14 @@
 <body>
 <h3>업무등록</h3>
 <hr>
-<form action="insertAction.do" method="post"> 	
+<form action="ta_insertAction.do" method="post"> 	
 	금주업무실적:<br>
-	<textarea rows="6" cols="70" name="contents"></textarea>
+	<textarea rows="6" cols="70" name="ta_weekresult"></textarea>
 	</div>
 	<br>
 	<div>
 	차주업무계획:<br>
-	<textarea rows="6" cols="70" name="contents"></textarea>
+	<textarea rows="6" cols="70" name="ta_nextresult"></textarea>
 	<div>
 	<br>
 	<div>
