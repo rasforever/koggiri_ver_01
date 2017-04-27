@@ -5,7 +5,7 @@
 	width:1400px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-right: 200px;
+
 }
 
 #main_menu li {
@@ -14,9 +14,11 @@
 	text-decoration: none;
 	color: navy;
 	border-left: 3px #008ad7 solid;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left:30px;
+	padding-right:30px;
 	font-weight: bold;
+	font-size: 20px;
+	font-family: 'Nanum Gothic Coding', monospace;
 }
 
 #main_menu a {
@@ -26,16 +28,12 @@
 }
 #main_top{
 	/* 이미지 + 메뉴 */
-	padding: 30px;
+	padding: 15px;
 }
-#main_logo{
-	/* 이미지 div */
-	float: left;
-}
+
 #main_logo img {
 	/* 이미지크기 및 마진 */
-	margin-left:200px;
-	margin-right:100px;
+	margin-right:1px;
 	width: 100px;
 	height: 100px;
 }

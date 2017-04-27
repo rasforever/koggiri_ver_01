@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
 <title>Insert title here</title>
 
 </head>
 <body>
 <div id="main_outer" align="center">
-	<div id="main_header">
+	<div id="main_header" align="center">
 		<jsp:include page="header.jsp" />
 	</div>
 	<div id="main_contain" align="center">
 		<br> <br> <br> <br> <br> <br>
-		<table id="main_tab">
+		<table id="main_tab" align="center">
 			<tr>
 				<td><span>MyInformation</span><br><jsp:include
 						page="main_my.jsp" /></td>

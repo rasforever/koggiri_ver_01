@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
+
 </head>
 <body>
 
@@ -17,8 +18,8 @@
 		<div id="log" align="right">
 			<span> <%=emp_nm %>님 접속 중입니다.</span> <a href="#">로그아웃</a>
 		</div>
-		<div id="main_top">
-		<div id="main_logo">
+		<div id="main_top" align="center">
+		<div id="main_logo" align="center">
 		<img src="../images/koggiri.PNG">
 		</div>
 		<div id="main_menu">
