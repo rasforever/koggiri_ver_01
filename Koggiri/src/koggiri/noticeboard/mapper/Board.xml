@@ -36,4 +36,10 @@
 		delete from noticeboard where n_id = #{n_id}
 	</delete>
 	
+	<update id="updateHit" parameterType="int" >
+			 	update noticeboard set
+			 		n_hit = n_hit + 1
+			 	where n_id = #{n_id}
+	</update>
+	
 </mapper>
