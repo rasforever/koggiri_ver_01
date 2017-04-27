@@ -13,7 +13,6 @@ import koggiri.task.action.ta_ActionForward;
 import koggiri.task.action.ta_insertAction;
 import koggiri.task.action.ta_insertformAction;
 
-
 /**
  * Servlet implementation class BoardController
  */
@@ -27,32 +26,23 @@ public class TaskController extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse 
+	protected void doGet(HttpServletRequest request, HttpServletResponse
 
-response)
-			throws ServletException, IOException {
+	response) throws ServletException, IOException {
 		doProcess(request, response);
 
 	}
 
-	private void doProcess(HttpServletRequest request, 
-
-HttpServletResponse response)
-			throws IOException, ServletException {
-		// url을 식별해야 한다.
+	private void doProcess(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		String requestURI = request.getRequestURI();
-		// System.out.println(requestURI);
-		// 컨텍스트 경로
 		String contextPath = request.getContextPath();
-		String command = requestURI.substring(contextPath.length() + 
-
-1);
-		System.out.println(command); // 원하는 url만 뽑아온다
+		String command = requestURI.substring(contextPath.length() +1);
+		System.out.println(command); 
 
 		ta_ActionForward forward = null;
 		ta_Action action = null;
 
-		if (command.equals("insertForm.do")) {
+		if (command.equals("ta_insertForm.do")) {
 
 			action = new ta_insertformAction();
 			try {
@@ -61,7 +51,7 @@ HttpServletResponse response)
 
 			}
 
-		} else if (command.equals("insertAction.do")) {
+		} else if (command.equals("ta_insertAction.do")) {
 			action = new ta_insertAction();
 			try {
 				forward = action.execute(request, response);

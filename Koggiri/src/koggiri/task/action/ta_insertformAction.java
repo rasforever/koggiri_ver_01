@@ -8,7 +8,7 @@ public class ta_insertformAction implements ta_Action {
 	public ta_ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ta_ActionForward forward = new ta_ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/ta_insertform.jsp");
+		forward.setPath("/WebContent/ta_insertform.jsp");
 		return forward;
 	}
 }

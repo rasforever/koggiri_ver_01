@@ -11,13 +11,13 @@ public class ta_insertAction implements ta_Action {
 	@Override
 	public ta_ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TaskDao dao = TaskDao.getInstance();
-	//	Task task = new Task();
+	     Task task = new Task();
 		
-	//	dao.insertTask(task);
+		dao.insertTask(task);
 		
 		ta_ActionForward forward = new ta_ActionForward();
 	    forward.setRedirect(true); 
-		forward.setPath("listAction.do");
+		forward.setPath("ta_listAction.do");
 		
 		return forward;
 	}
