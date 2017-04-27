@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
+import koggiri.noticeboard.model.noticeSearch;
 
 
 
@@ -18,8 +19,14 @@ public class ListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		noticeSearch search = new noticeSearch();
+		
+		search.setArea(request.getParameterValues("area"));
+		search.setSearchKey(("%"+ request.getParameter("searchKey") + "%"));
+		
 		BoardDao dao = BoardDao.getInstance();
-		List<Board> list = dao.listBoard();
+		
+		List<Board> list = dao.listBoard(search);
 		request.setAttribute("list", list);
 	
 		ActionForward forward = new ActionForward();
