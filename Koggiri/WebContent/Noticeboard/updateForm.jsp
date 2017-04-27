@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="updateAction.noticeboard?n_id=${board.b_id }" method="post">
+	<form action="updateAction.noticeboard?n_id=${board.n_id }" method="post">
 		
 		<table border="1" cellpadding="0" cellspacing="0">
 		<tr height="30">
@@ -30,7 +30,7 @@
 		</tr>		
 		<tr height="30">			
 			<td colspan="4">
-				<textarea rows="10" cols="70" name="b_content"></textarea>
+				<textarea rows="10" cols="70" name="n_content"></textarea>
 			</td>			
 		</tr>
 		<tr height="30">			
