@@ -9,7 +9,7 @@
 <body>
 	<a href="expensesAction.approval">비용신청서</a>
 	<a href="draftingAction.approval">기안서</a>
-	<a href="leavection.approval">휴가서</a>
+	<a href="leaveAction.approval">휴가서</a>
 	<a href="businesstAction.approval">출장계획서</a>
 </body>
 </html>

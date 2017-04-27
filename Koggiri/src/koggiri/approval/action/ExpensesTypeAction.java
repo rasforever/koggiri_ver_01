@@ -9,7 +9,7 @@ import koggiri.approval.model.ApprovalDao;
 import koggiri.approval.model.PayType;
 import koggiri.approval.model.ReqType;
 
-public class expensesTypeAction implements Action{
+public class ExpensesTypeAction implements Action{
 
 	@Override
 	public ActionFoward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
