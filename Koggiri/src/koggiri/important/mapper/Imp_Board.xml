@@ -14,7 +14,10 @@
 		SYSDATE, 0
 		)
 	</insert>
-
+	
+<select id="Imp_listBoard" resultType="Imp_Board">
+		select * from importantboard
+		</select>
 
 
 
