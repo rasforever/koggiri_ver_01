@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<h3>상세보기</h3>
@@ -35,8 +36,9 @@
 		
 		<tr height="30">
 			<td colspan="4">
-				<input type="button" value="수정" onclick="fn_update()">
-				<input type="button" value="삭제" onclick="fn_delete()">
+			
+				<a href="updateFormAction.noticeboard?n_id=${n_id} ">수정</a>
+				<a href="deleteAction.noticeboard?n_id=${n_id} ">삭제</a>
 		</tr>
 		
 		

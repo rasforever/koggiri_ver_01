@@ -8,4 +8,5 @@ public interface BoardMapper {
 	int insertBoard(Board board);
 	List<Board> listBoard();
 	Board detailBoard(int n_id);
+	int updateBoard(Board board);
 }

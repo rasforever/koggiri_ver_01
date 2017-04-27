@@ -72,9 +72,31 @@ public class BoardDao {
 			return null;
 		}finally {
 			session.close();
-		}
-		
-		
+		}	
 	}
+	
+	public void updateBoard(Board board){
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		int re = -1;
+		try {
+			re = session.getMapper(BoardMapper.class).updateBoard(board);
+			
+			if(re>0){
+			
+				session.commit();
+			}else{
+				
+				session.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}		
+	}
+	
+	
 
 }
