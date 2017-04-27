@@ -42,17 +42,6 @@ public class ApprovalDao {
 		}
 	}	
 
-	public List<CardType> card_tyselect() {
-		SqlSession session = getSqlSessionFactory().openSession();
-		try {
-			return session.getMapper(ApprovalMapper.class).card_tyselect();	
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		} finally {
-			session.close();
-		}
-	}
 	public List<ReqType> req_tyselect() {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {

@@ -14,9 +14,6 @@ public class ApprovalService {
 	public List<PayType> PayTypeService(){
 		return dao.pay_tyselect();		
 	}
-	public List<CardType> CardTypeService(){
-		return dao.card_tyselect();		
-	}
 	public List<ReqType> ReqTypeService(){
 		return dao.req_tyselect();		
 	}
