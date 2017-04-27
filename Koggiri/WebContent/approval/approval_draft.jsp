@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
+	<form action="draftingAction.approval" method="post">
 		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input type="text" name="emp_id" disabled>&nbsp;&nbsp;&nbsp; 
 		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="emp_nm" disabled> <br>
 		소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;속 : <input type="text" name="dept_nm" disabled>&nbsp;&nbsp;&nbsp; 
