@@ -17,7 +17,7 @@ import koggiri.noticeboard.action.InsertAction;
 import koggiri.noticeboard.action.ListAction;
 import koggiri.noticeboard.action.UpdateAction;
 import koggiri.noticeboard.action.UpdateFormAction;
-import koggiri.noticeboard.action.UpdateHitAction;
+
 
 
 @WebServlet("*.noticeboard")
@@ -107,18 +107,7 @@ public class BoardController extends HttpServlet {
 				e.printStackTrace();
 			}		
 		}
-	
-	else if(path.equals("updateHit.noticeboard")){
-			
-			action = new UpdateHitAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
-		
+
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
