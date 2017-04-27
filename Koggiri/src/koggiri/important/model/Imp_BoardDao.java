@@ -1,6 +1,7 @@
 package koggiri.important.model;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -47,5 +48,18 @@ public class Imp_BoardDao {
 			session.close();
 		}
 	}
-	
+
+	public List<Imp_Board> imp_listBoard() {
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(Imp_BoardMapper.class).Imp_listBoard();
+		} catch (Exception e) {
+			return null;
+		}finally {
+			session.close();
+		}
+
+	}
+
+
 }
