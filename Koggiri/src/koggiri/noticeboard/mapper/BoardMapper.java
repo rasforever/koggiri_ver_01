@@ -9,4 +9,5 @@ public interface BoardMapper {
 	List<Board> listBoard();
 	Board detailBoard(int n_id);
 	int updateBoard(Board board);
+	int deleteBoard(Board board);
 }
