@@ -37,8 +37,8 @@
 		<tr height="30">
 			<td colspan="4">
 			
-				<a href="updateFormAction.noticeboard?n_id=${n_id} ">수정</a>
-				<a href="deleteAction.noticeboard?n_id=${n_id} ">삭제</a>
+				<a href="updateFormAction.noticeboard?n_id=${board.n_id} ">수정</a>
+				<a href="deleteAction.noticeboard?n_id=${board.n_id} ">삭제</a>
 		</tr>
 		
 		

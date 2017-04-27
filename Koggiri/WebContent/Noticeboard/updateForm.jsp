@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="listAction.noticeboard?n_id=${board.b_id }" method="post">
+	<form action="updateAction.noticeboard?n_id=${board.b_id }" method="post">
 		
 		<table border="1" cellpadding="0" cellspacing="0">
 		<tr height="30">

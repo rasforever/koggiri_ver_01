@@ -15,7 +15,8 @@ import koggiri.noticeboard.action.DetailAction;
 import koggiri.noticeboard.action.InsertAction;
 import koggiri.noticeboard.action.ListAction;
 import koggiri.noticeboard.action.UpdateAction;
-import kosta.action.UpdateFormAction;
+import koggiri.noticeboard.action.UpdateFormAction;
+
 
 @WebServlet("*.noticeboard")
 public class BoardController extends HttpServlet {
@@ -75,7 +76,8 @@ public class BoardController extends HttpServlet {
 
 		}
 		
-		else if (command.equals("updateFormAction.noticeboard")){
+		else if (path.equals("updateFormAction.noticeboard")){
+			System.out.println("why?");
 			action = new UpdateFormAction();
 			try {
 				forward = action.execute(request, response);
