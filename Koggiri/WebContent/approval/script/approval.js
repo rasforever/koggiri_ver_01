@@ -14,3 +14,7 @@ function typesel(obj) {
 	}
 	
 }
+
+function approval_type(obj) {		
+	
+}

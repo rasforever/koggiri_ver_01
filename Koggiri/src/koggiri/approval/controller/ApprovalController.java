@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.approval.action.Action;
 import koggiri.approval.action.ActionFoward;
+import koggiri.approval.action.ApprovalListAction;
 import koggiri.approval.action.BusinesstAction;
 import koggiri.approval.action.DraftAction;
 import koggiri.approval.action.ExpensesTypeAction;
@@ -69,6 +70,14 @@ public class ApprovalController extends HttpServlet {
 	           } catch (Exception e) {
 	              e.printStackTrace();
 	           }
+		}
+		else if (command.equals("approval/test.approval")) {
+			action = new ApprovalListAction();	            
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
 		}
 
 		if (forward != null) {
