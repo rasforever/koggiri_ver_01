@@ -11,7 +11,11 @@
 		select mem_id,mem_pw from member where
 		mem_id= #{mem_id} and mem_pw=#{mem_pw}
 	</select>
-	
+	<select id="get_emp_nm" parameterType="Member" resultType="String">
+		select emp_nm from emp where
+		emp_id = #{mem_id}
+		
+	</select>
 	
 </mapper>
 

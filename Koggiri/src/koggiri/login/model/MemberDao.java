@@ -44,4 +44,17 @@ public class MemberDao {
 			
 		}
 	}
+	
+	public String get_emp_nm(Member dbmember) throws Exception{
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(MemberMapper.class).get_emp_nm(dbmember);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}finally {
+				session.close();
+				
+			}
+	}
  }

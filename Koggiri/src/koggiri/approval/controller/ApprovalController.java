@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.approval.action.Action;
 import koggiri.approval.action.ActionFoward;
+import koggiri.approval.action.BusinesstAction;
+import koggiri.approval.action.DraftAction;
+import koggiri.approval.action.ExpensesTypeAction;
+import koggiri.approval.action.LeaveAction;
 
 @WebServlet(urlPatterns = "*.approval")
 public class ApprovalController extends HttpServlet {
@@ -34,8 +38,37 @@ public class ApprovalController extends HttpServlet {
 		Action action = null;
 		System.out.println(command);
 
-		if (command.equals(".approval")) {
-
+		if (command.equals("approval/expensesAction.approval")) {
+			 action = new ExpensesTypeAction();	            
+	            try {
+	               forward = action.execute(request, response);
+	           } catch (Exception e) {
+	              e.printStackTrace();
+	           }
+		}
+		else if (command.equals("approval/draftingAction.approval")) {
+			 action = new DraftAction();	            
+	            try {
+	               forward = action.execute(request, response);
+	           } catch (Exception e) {
+	              e.printStackTrace();
+	           }
+		}
+		else if (command.equals("approval/leaveAction.approval")) {
+			 action = new LeaveAction();	            
+	            try {
+	               forward = action.execute(request, response);
+	           } catch (Exception e) {
+	              e.printStackTrace();
+	           }
+		}
+		else if (command.equals("approval/businesstAction.approval")) {
+			 action = new BusinesstAction();	            
+	            try {
+	               forward = action.execute(request, response);
+	           } catch (Exception e) {
+	              e.printStackTrace();
+	           }
 		}
 
 		if (forward != null) {

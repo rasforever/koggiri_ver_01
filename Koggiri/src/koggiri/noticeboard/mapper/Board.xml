@@ -17,9 +17,19 @@
 
 	</insert>
 	
-	<select id="listBoard" resultType="Board">
+	<select id="listBoard" resultType="Board" parameterType="noticeSearch">
 		select * from noticeboard
-		</select>
+		
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item = "item" separator="or" open="(" close=")">            		
+					${item} LIKE #{searchKey}		
+				</foreach>
+			
+			</where>
+		
+		</if>
+	</select>
 	
 	<select id="detailBoard" resultType="Board" parameterType="int">
 		select * from noticeboard where n_id = #{n_id}
@@ -35,5 +45,11 @@
 	<delete id="deleteBoard" parameterType="Board">
 		delete from noticeboard where n_id = #{n_id}
 	</delete>
+	
+	<update id="updateHit" parameterType="int" >
+			 	update noticeboard set
+			 		n_hit = n_hit + 1
+			 	where n_id = #{n_id}
+	</update>
 	
 </mapper>
