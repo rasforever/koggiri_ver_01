@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<form action="ta_insertAction.task" method="post">
 	<h3>업무등록</h3>
 	<hr>
 		<div>
@@ -32,5 +34,6 @@
 					<input type="submit" value="등록"> <input type="reset"
 						value="취소">
 				</div>
+</form>
 </body>
 </html>

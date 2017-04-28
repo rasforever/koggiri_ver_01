@@ -30,7 +30,9 @@ public class TaskDao {
 	}//factory
 
 	public void insertTask(Task task){
+		System.out.println("323232");
 		SqlSession session = getSqlSessionFactory().openSession();
+		System.out.println("2222");
 		int re = -1;
 		try {
 			re = session.getMapper(TaskMapper.class).insertTask(task);

@@ -28,13 +28,6 @@ public class TaskController extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse
-
-	response) throws ServletException, IOException {
-		doProcess(request, response);
-
-	}
-
 	private void doProcess(HttpServletRequest request,HttpServletResponse response) 
 			throws IOException, ServletException {
 		String requestURI = request.getRequestURI();
@@ -81,6 +74,12 @@ public class TaskController extends HttpServlet {
 		}
 		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doProcess(request, response);
+	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

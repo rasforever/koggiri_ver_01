@@ -13,7 +13,7 @@ public class ta_insertAction implements ta_Action {
 
 	@Override
 	public ta_ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-;
+		System.out.println("dfjkjdkjkj");
 		TaskDao dao = TaskDao.getInstance();
 	     Task task = new Task();
 
@@ -36,7 +36,7 @@ public class ta_insertAction implements ta_Action {
 		
 		ta_ActionForward forward = new ta_ActionForward();
 	    forward.setRedirect(true); 
-		forward.setPath("ta_list.jsp");
+		forward.setPath("ta_listAction.task");
 		
 		return forward;
 	}

@@ -24,8 +24,6 @@ public class ta_listAction implements ta_Action {
 		forward.setRedirect(false);
 		forward.setPath("ta_list.jsp");
 		
-		
-
 		return forward;
 
 	}
