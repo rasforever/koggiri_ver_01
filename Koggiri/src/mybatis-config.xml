@@ -16,6 +16,8 @@
 		<typeAlias type="koggiri.approval.model.LeaveType" alias="LeaveType"/> <!-- 신청방법 서버접속 -->	
 		<typeAlias type="koggiri.approval.model.Emp_infomation" alias="Emp_infomation"/> <!-- 사원정보 서버접속 -->	
  		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> 
+ 		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 
+
 
 	</typeAliases>
 	
@@ -33,8 +35,7 @@
 		<mapper resource="koggiri/login/mapper/Member.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
 		<mapper resource="koggiri/approval/mapper/Approval.xml"/>
-	 <mapper resource="koggiri/important/mapper/Imp_Board.xml"/>
-
+		<mapper resource="koggiri/task/mapper/Task.xml"/>
 	</mappers>
 	
 </configuration>
