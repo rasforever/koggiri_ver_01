@@ -1,7 +1,6 @@
 package koggiri.task.model;
 
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -30,8 +29,10 @@ public class TaskDao {
 		return new SqlSessionFactoryBuilder().build(in);
 	}//factory
 
-	public void insertTask(Task task) throws Exception {
+	public void insertTask(Task task){
+		System.out.println("323232");
 		SqlSession session = getSqlSessionFactory().openSession();
+		System.out.println("2222");
 		int re = -1;
 		try {
 			re = session.getMapper(TaskMapper.class).insertTask(task);
@@ -47,12 +48,11 @@ public class TaskDao {
 		}
 	}//insertTask
 
-	public List<Task> listBoard(Task_Search search) throws SQLException{
+	public List<Task> listTask() {
 	  SqlSession session = getSqlSessionFactory().openSession(); 
       try {
-        return session.getMapper(TaskMapper.class).listTask(search);
+        return session.getMapper(TaskMapper.class).listTask();
       } catch (Exception e) {
-         e.printStackTrace();
          return null;
       } finally {
          session.close();
