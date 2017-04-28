@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -51,16 +52,17 @@ public class BoardDao {
 		}
 	}
 
-	public List<Board> listBoard(NoticeSearch search) {
+	public List<Board> listBoard(int startRow, NoticeSearch search) {
 		SqlSession session = getSqlSessionFactory().openSession();
+		List<Board>list = null;
 		try {
-			return session.getMapper(BoardMapper.class).listBoard(search);
+			list = session.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow,2),search);
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		} finally {
 			session.close();
 		}
-
+		return list;
 	}
 
 	public Board detailBoard(int seq) {
@@ -139,6 +141,18 @@ public class BoardDao {
 
 	}
 	
+	public int countBoard(NoticeSearch search){
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = 0;
+		try { 
+			re = session.getMapper(BoardMapper.class).countBoard(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return re;
+	}	
 
 
 }

@@ -27,19 +27,28 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<br>
+	<br><br>
 	
 	<!--페이징 처리할 곳 -->
 	<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
 	<!-- 현재페이지, start_row, end_row  -->
-	<c:if test=""></c:if>
 	
+	<!--[이전] 버튼 만들기!  -->
+	<c:if test="${listModel.startPage > 5}">
+		<a href = "listAction.noticeboard?pageNum=${listModel.startPage - 5 }">[이전]</a>
+	</c:if>
 	
+	<!-- 페이지 목록  -->
+	<c:forEach var="pageNo" begin = "${listModel.startPage}" end = "${listModel.endPage}">
+		<c:if test="${listModel.requestPage == pageNo }"><b></c:if> <!-- <b>태그는 글씨를 두껍게 해주는 태그 -->
+			<a href = "listAction.noticeboard?pageNum=${ pageNo}">[${pageNo}]</a>
+		<c:if test="${listModel.requestPage == pageNo }"></b></c:if>
+	</c:forEach>
 	
-	
-	
-	
-	
+	<!-- [이후] 버튼 만들기!  -->
+	 <c:if test="${listModel.endPage < listModel.totalPageCount}">
+	 	<a href = "listAction.noticeboard?pageNum=${listModel.startPage + 5 }">[이후]</a>
+	 </c:if>
 	
 	
 	<form action="listAction.noticeboard" method ="post">
