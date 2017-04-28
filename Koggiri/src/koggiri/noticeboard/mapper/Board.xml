@@ -52,4 +52,6 @@
 			 	where n_id = #{n_id}
 	</update>
 	
+	
+	
 </mapper>
