@@ -51,7 +51,7 @@ public class BoardDao {
 		}
 	}
 
-	public List<Board> listBoard(noticeSearch search) {
+	public List<Board> listBoard(NoticeSearch search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
 			return session.getMapper(BoardMapper.class).listBoard(search);

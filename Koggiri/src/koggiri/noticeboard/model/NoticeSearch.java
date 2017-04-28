@@ -1,6 +1,6 @@
 package koggiri.noticeboard.model;
 
-public class noticeSearch {
+public class NoticeSearch {
 	private String[] area;
 	private String searchKey;
 	

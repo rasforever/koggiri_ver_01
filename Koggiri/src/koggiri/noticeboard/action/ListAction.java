@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
-import koggiri.noticeboard.model.noticeSearch;
+import koggiri.noticeboard.model.NoticeSearch;
 
 
 
@@ -19,7 +19,7 @@ public class ListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		noticeSearch search = new noticeSearch();
+		NoticeSearch search = new NoticeSearch();
 		
 		search.setArea(request.getParameterValues("area"));
 		search.setSearchKey(("%"+ request.getParameter("searchKey") + "%"));

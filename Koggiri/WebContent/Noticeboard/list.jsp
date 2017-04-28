@@ -29,6 +29,19 @@
 	</table>
 	<br>
 	
+	<!--페이징 처리할 곳 -->
+	<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
+	<!-- 현재페이지, start_row, end_row  -->
+	<c:if test=""></c:if>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<form action="listAction.noticeboard" method ="post">
 		<input type = "checkbox" name = "area" value = "n_title">제목</input>
 		<input type = "checkbox" name = "area" value = "n_emp_id">작성자</input>

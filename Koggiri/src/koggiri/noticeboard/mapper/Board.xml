@@ -17,7 +17,7 @@
 
 	</insert>
 	
-	<select id="listBoard" resultType="Board" parameterType="noticeSearch">
+	<select id="listBoard" resultType="Board" parameterType="NoticeSearch">
 		select * from noticeboard
 		
 		<if test="area != null">
