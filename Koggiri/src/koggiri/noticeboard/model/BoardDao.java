@@ -51,10 +51,10 @@ public class BoardDao {
 		}
 	}
 
-	public List<Board> listBoard() {
+	public List<Board> listBoard(noticeSearch search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(BoardMapper.class).listBoard();
+			return session.getMapper(BoardMapper.class).listBoard(search);
 		} catch (Exception e) {
 			return null;
 		} finally {
@@ -96,6 +96,28 @@ public class BoardDao {
 			session.close();
 		}
 	}
+	
+	public void updateHit(int n_id) {
+		SqlSession session = getSqlSessionFactory().openSession();
+		System.out.println("teset");
+		int re = -1;
+		try {
+			re = session.getMapper(BoardMapper.class).updateHit(n_id);
+
+			if (re > 0) {
+
+				session.commit();
+			} else {
+
+				session.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
 
 	public void deleteBoard(Board board) {
 		SqlSession session = getSqlSessionFactory().openSession();
@@ -116,5 +138,7 @@ public class BoardDao {
 		}
 
 	}
+	
+
 
 }

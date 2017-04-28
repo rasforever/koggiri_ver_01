@@ -10,14 +10,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btnlogout").click(function(){
+			location.href="../logout/logoutform.login";
+		});
+	});
+</script>
 </head>
 <body>
 
-	<div id="header">
+	<div id="header" align="center">
 		<div id="log" align="right">
-			<span> <%=emp_nm %>님 접속 중입니다.</span> <a href="#">로그아웃</a>
+			<span> <%=emp_nm %>님 접속 중입니다.</span>  <a href="#" id="btnlogout">로그아웃</a>
 		</div>
-		<div id="main_top">
+		<div id="main_top" align="center">
 		<div id="main_logo">
 		<img src="../images/koggiri.PNG">
 		</div>
@@ -31,6 +39,7 @@
 				<li><a href="#">업무</a></li>
 				<li><a href="#">회의</a></li>
 				<li><a href="#">조직도</a></li>
+
 			</ul>
 		</div>
 	</div>

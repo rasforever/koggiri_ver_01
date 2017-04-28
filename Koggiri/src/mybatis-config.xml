@@ -9,10 +9,15 @@
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
 		<typeAlias type="koggiri.login.model.Member" alias ="Member"/>
-		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/>
+		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/> <!-- 고병휘 -->
+		<typeAlias type="koggiri.noticeboard.model.noticeSearch" alias = "noticeSearch"/><!-- 고병휘 -->
 		<typeAlias type="koggiri.approval.model.PayType" alias="PayType"/> <!-- 결제방법 서버접속 -->
 		<typeAlias type="koggiri.approval.model.ReqType" alias="ReqType"/> <!-- 신청방법 서버접속 -->	
+		<typeAlias type="koggiri.approval.model.LeaveType" alias="LeaveType"/> <!-- 신청방법 서버접속 -->	
+		<typeAlias type="koggiri.approval.model.Emp_infomation" alias="Emp_infomation"/> <!-- 사원정보 서버접속 -->	
  		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> 
+ 		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 
+
 
 	</typeAliases>
 	
@@ -30,8 +35,7 @@
 		<mapper resource="koggiri/login/mapper/Member.xml"/>
 		<mapper resource="koggiri/noticeboard/mapper/Board.xml"/>
 		<mapper resource="koggiri/approval/mapper/Approval.xml"/>
-	 <mapper resource="koggiri/important/mapper/Imp_Board.xml"/>
-
+		<mapper resource="koggiri/task/mapper/Task.xml"/>
 	</mappers>
 	
 </configuration>

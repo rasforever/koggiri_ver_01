@@ -18,7 +18,7 @@ import koggiri.task.action.ta_listAction;
 /**
  * Servlet implementation class BoardController
  */
-@WebServlet("*.do")
+@WebServlet("*.task")
 
 public class TaskController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,13 +26,6 @@ public class TaskController extends HttpServlet {
 	public TaskController() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse
-
-	response) throws ServletException, IOException {
-		doProcess(request, response);
-
 	}
 
 	private void doProcess(HttpServletRequest request,HttpServletResponse response) 
@@ -47,23 +40,22 @@ public class TaskController extends HttpServlet {
 		ta_ActionForward forward = null;
 		ta_Action action = null;
 
-		if (command.equals("ta_insertform.do")) {
+		if (command.equals("Task/ta_insertAction.task")) {
+			action = new ta_insertAction();			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 
+			}
+
+		} else if (command.equals("ta_insertformAction.task")) {
 			action = new ta_insertformAction();
 			try {
 				forward = action.execute(request, response);
-			} catch (Exception e) {
-
-			}
-
-		} else if (command.equals("ta_insertAction.do")) {
-			action = new ta_insertAction();
-			try {
-				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 			}
-		} else if (command.equals("ta_listAction.do")) {
+		} else if (command.equals("Task/ta_listAction.task")) {
 			action = new ta_listAction();
 			try {
 				forward = action.execute(request, response);
@@ -82,6 +74,12 @@ public class TaskController extends HttpServlet {
 		}
 		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doProcess(request, response);
+	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

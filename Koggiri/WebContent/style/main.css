@@ -1,11 +1,14 @@
 @CHARSET "EUC-KR";
+@IMPORT url("//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css");
+
+
 
 #main_menu {
 	/* 	메인 메뉴 */
-	width:1400px;
+	width:1000px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-right: 200px;
+
 }
 
 #main_menu li {
@@ -14,9 +17,11 @@
 	text-decoration: none;
 	color: navy;
 	border-left: 3px #008ad7 solid;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left:30px;
+	padding-right:30px;
 	font-weight: bold;
+	font-size: 16px;
+	font-family: fantasy;
 }
 
 #main_menu a {
@@ -26,18 +31,19 @@
 }
 #main_top{
 	/* 이미지 + 메뉴 */
-	padding: 30px;
+	padding: 10px;
+	width: 1000px;
 }
 #main_logo{
-	/* 이미지 div */
-	float: left;
+	width: 1400px;
 }
 #main_logo img {
 	/* 이미지크기 및 마진 */
-	margin-left:200px;
-	margin-right:100px;
+	margin-right:1px;
 	width: 100px;
 	height: 100px;
+	float: left;
+	lfet:30%;
 }
 
 #main_contain {
@@ -157,4 +163,8 @@
 	padding: 10px;
 	width: 120px;
 	height:150px;
+}
+
+#main_outer{
+
 }
