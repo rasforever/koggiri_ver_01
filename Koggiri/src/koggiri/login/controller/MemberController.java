@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.login.action.Action;
 import koggiri.login.action.ActionFoward;
 import koggiri.login.action.LoginAction;
+import koggiri.login.action.LogoutAction;
 
 
 @WebServlet("*.login")
@@ -23,7 +24,7 @@ public class MemberController extends HttpServlet {
 
     }
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-
+    	
        String requestURI = request.getRequestURI();
        String contextPath = request.getContextPath();
        String command = requestURI.substring(contextPath.length()+1);
@@ -43,6 +44,17 @@ public class MemberController extends HttpServlet {
           }
           
         }
+       
+       else if(command.equals("logout/logoutform.login")){
+       	action = new LogoutAction();
+           
+           try {
+              forward = action.execute(request, response);
+          } catch (Exception e) {
+             e.printStackTrace();
+          }
+       }
+      
        
        if(forward !=null){
            if(forward.isRedirect()){
