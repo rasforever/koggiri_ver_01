@@ -55,6 +55,7 @@
 	
 	
 	<form action="listAction.noticeboard" method ="post">
+		<input type = "hidden" name = "temp" value = "temp"></input>
 		<input type = "checkbox" name = "area" value = "n_title">제목</input>
 		<input type = "checkbox" name = "area" value = "n_content">내용</input>
 		<input type = "text" name = "searchKey" size = "10"></input>

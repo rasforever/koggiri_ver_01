@@ -56,7 +56,7 @@ public class BoardDao {
 		SqlSession session = getSqlSessionFactory().openSession();
 		List<Board>list = null;
 		try {
-			list = session.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow,2),search);
+			list = session.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow,5),search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
