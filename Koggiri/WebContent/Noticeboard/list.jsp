@@ -27,6 +27,9 @@
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<a href = "insertForm.jsp">글쓰기</a>
+	
 	<br><br>
 	
 	<!--페이징 처리할 곳 -->
@@ -53,7 +56,7 @@
 	
 	<form action="listAction.noticeboard" method ="post">
 		<input type = "checkbox" name = "area" value = "n_title">제목</input>
-		<input type = "checkbox" name = "area" value = "n_emp_id">작성자</input>
+		<input type = "checkbox" name = "area" value = "n_content">내용</input>
 		<input type = "text" name = "searchKey" size = "10"></input>
 		<input type = "submit" value = "검색">
 	
