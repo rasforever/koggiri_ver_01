@@ -71,7 +71,7 @@ public class ApprovalController extends HttpServlet {
 	              e.printStackTrace();
 	           }
 		}
-		else if (command.equals("approval/test.approval")) {
+		else if (command.equals("approval/approval_list_r.approval")) {
 			action = new ApprovalListAction();	            
             try {
                forward = action.execute(request, response);

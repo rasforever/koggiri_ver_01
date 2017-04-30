@@ -39,12 +39,14 @@ function rs_type(obj) {
 	</ul>
 	<form action="test.approval" method="post">
 		<div id ="r_approval">
+			<input type="button" id="r_approval_all" name="r_approval_all" value="전체" onclick="approval_type('r')"> 
 			<input type="button" id="r_approval_w" name="r_approval_w" value="결재대기중" onclick="approval_type('rw')"> 
 			<input type="button" id="r_approval_p" name="r_approval_p" value="결재진행중" onclick="approval_type('rp')"> 
 			<input type="button" id="r_approval_c" name="r_approval_e" value="결재완료" onclick="approval_type('re')">
 			<input type="button" id="r_approval_r" name="r_approval_c" value="결재부결/반려" onclick="approval_type('rc')">	
 		</div>
 		<div id="s_approval">
+			<input type="button" id="s_approval_all" name="s_approval_all" value="전체" onclick="approval_type('s')"> 
 			<input type="button" id="s_approval_p" name="s_approval_p" value="진행중결재" onclick="approval_type('sp')"> 
 			<input type="button" id="s_approval_e" name="s_approval_e" value="완료결재" onclick="approval_type('se')"> 
 			<input type="button" id="s_approval_c" name="s_approval_c" value="부결/반려결재"  onclick="approval_type('sc')">
@@ -64,15 +66,15 @@ function rs_type(obj) {
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var = "approval_list" items = "${list }">
+		<c:forEach var = "approval" items = "${approvallist }">
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>				
+				<td>${approval.app_id }</td>
+				<td>${approval.draft_dt }</td>
+				<td>${approval.app_type_nm }</td>
+				<td>${approval.dept_nm }</td>
+				<td>${approval.drafter }</td>
+				<td>${approval.approver }</td>
+				<td>${approval.app_pro_nm }</td>				
 			</tr>
 		</c:forEach>
 		</tbody>

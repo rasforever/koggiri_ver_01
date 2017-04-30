@@ -1,8 +1,11 @@
 package koggiri.approval.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import koggiri.approval.model.Approval;
 import koggiri.approval.model.ApprovalDao;
 
 public class ApprovalListAction implements Action {
@@ -10,9 +13,16 @@ public class ApprovalListAction implements Action {
 	@Override
 	public ActionFoward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ApprovalDao dao = ApprovalDao.getInstance();
-		request.getParameterValues(arg0);
+		List<Approval> approvallist = dao.approval_r_select();
 		
-		return null;
+		
+		request.setAttribute("approvallist", approvallist); //중요!  
+		
+		ActionFoward forward = new ActionFoward();
+		forward.setRedirect(false);
+		forward.setPath("/approval/approval_list.jsp");
+
+		return forward;
 	}
 
 }

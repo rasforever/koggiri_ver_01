@@ -33,6 +33,13 @@ function approval_type(obj) {
 		alert(obj);
 	}else if(obj == "st"){
 		alert(obj);
+	}else if(obj == "r"){
+		alert(obj);
+		location.href = "approval_list_r.approval";
+		alert(obj);
+	}else if(obj == "s"){
+		alert(obj);
+		loaction="approval_list_s.approval";
 	}
 	
 }

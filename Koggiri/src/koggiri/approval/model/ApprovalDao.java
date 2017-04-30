@@ -77,5 +77,17 @@ public class ApprovalDao {
 			session.close();
 		}
 	}
+	
+	public List<Approval> approval_r_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_r_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
 
 }
