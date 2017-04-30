@@ -18,17 +18,15 @@
 		<li><a href=# onclick="">내가 보낸 결재</a></li>
 	</ul>
 	<form action="test.approval" method="post">
-	<%if %>
 		<input type="button" id="r_approval_w" name="r_approval_w" value="결재대기중"> 
 		<input type="button" id="r_approval_p" name="r_approval_p" value="결재진행중"> 
 		<input type="button" id="r_approval_c" name="r_approval_e" value="결재완료">
 		<input type="button" id="r_approval_r" name="r_approval_c" value="결재부결/반려">		
-	<%}else{ %>	
+		
 		<input type="button" id="s_approval_p" name="s_approval_p" value="진행중결재"   > 
 		<input type="button" id="s_approval_e" name="s_approval_e" value="완료결재" > 
 		<input type="button" id="s_approval_c" name="s_approval_c" value="부결/반려결재" >
 		<input type="button" id="s_approval_t" name="s_approval_t" value="임시저장결재" >
-	<%} %>
 	</form>
 	<table border=1>
 		<thead>
