@@ -18,6 +18,6 @@ public class NoticeSearch {
 		this.searchKey = searchKey;
 	}
 	
-	
+
 	
 }
