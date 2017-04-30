@@ -11,28 +11,82 @@
 <link rel='stylesheet' href='fullcalendar.css' />
 
 <script src='lib/moment.min.js'></script>
-<script src='fullcalendar.js'></script>
+<script src='fullcalendar.js' charset="euc-kr"></script>
+<script src='locale/ko.js'></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
+	
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		
+		navLinks: true, // can click day/week names to navigate views
+		selectable: true,
+		selectHelper: true,
+		select: function(start, end) { 
+			var title = prompt('Event Title:');
+			var eventData;
+			if (title) {
+				eventData = {
+					title: title,
+					start: start,
+					end: end
+				};
+				$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+						
+				$.ajax({
+					type: "POST",
+					data : eventData,
+					dataType :'json',
+					url : "server.jsp",
+					success : function(){
+						alert("tt");
+					}
+					
+				});
+				
+				
+				
+			}
 
-    $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        
-    })
-
+			$('#calendar').fullCalendar('unselect');
+		},
+		editable: true,
+		eventLimit: true, // allow "more" link when too many events
+		
+	});
+	
+    
+	
 });
+
+
 </script>
 <style type="text/css">
- 
- #calendar{
- 	width: 50%;
- 	height: 50%;
- }
+    body {
+        margin :40px 10px;
+        padding : 0;
+        font-family : "Lucida Grande", Helvetica, Arial, Verdana,sans-serif;
+        font-size : 14px;
+    }
+    #calendar {
+        max-width : 900px;
+        margin : 0 auto;
+    }
 </style>
 </head>
 <body>
 	<div id='calendar'></div>
+	
+	<div id="result">
+		<table border="1">
+		
+		</table>
+	</div>
 </body>
 </html>
