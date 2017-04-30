@@ -18,11 +18,17 @@
 	
 	<select id="imp_listBoard" resultType="Imp_Board">
 		select * from importantboard
-		</select>
+	</select>
 		
 	<select id="imp_detailBoard" resultType="Imp_Board" parameterType="int">
 		select * from importantboard where i_id = #{i_id}
-		</select>
+	</select>
+		
+	<update id="imp_updateHit">
+			update importantboard set
+				i_hit = i_hit+1
+			where i_id = #{i_id}
+	</update>
 		
 
 
