@@ -4,7 +4,8 @@
 
 <mapper namespace="koggiri.important.mapper.Imp_BoardMapper">
 	<cache />
-	<insert id="insert_ImpBoard" parameterType="Imp_Board">
+	
+	<insert id="imp_insertBoard" parameterType="Imp_Board">
 		insert into importantboard(
 		i_id, i_emp_id, i_title, i_content, i_date,
 		i_hit
@@ -15,10 +16,14 @@
 		)
 	</insert>
 	
-<select id="Imp_listBoard" resultType="Imp_Board">
+	<select id="imp_listBoard" resultType="Imp_Board">
 		select * from importantboard
 		</select>
-
+		
+	<select id="imp_detailBoard" resultType="Imp_Board" parameterType="int">
+		select * from importantboard where i_id = #{i_id}
+		</select>
+		
 
 
 </mapper>
