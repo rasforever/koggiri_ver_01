@@ -12,12 +12,19 @@
 <script type="text/javascript" src="script/approval.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-
+<%
+	String type = request.getParameter("type");
+%>
 <link rel="stylesheet" href="jquery.tabs.css" type="text/css" media="print, projection, screen">
 <script type="text/javascript">
 $(function (){
-	$('#r_approval').show();
-	$('#s_approval').hide();
+	if (<%=type%> == 1){	
+		$('#r_approval').hide();
+		$('#s_approval').show();
+	} else {
+		$('#r_approval').show();
+		$('#s_approval').hide();	
+	}
 });
 function rs_type(obj) {
 	if (obj == 0){
