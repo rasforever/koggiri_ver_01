@@ -19,8 +19,8 @@
  		 	<script type="text/javascript">
 			 	CKEDITOR.replace( 'n_content',{
 			 	    'filebrowserUploadUrl':'/ckeditor/upload.jsp?'
-			 	    +'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
-			 	    +'&realDir=서버업로드될디렉토리명'
+			 	    +'realUrl=upload'
+			 	    +'&realDir=upload'
 			 	});
             </script>
 		<br>
