@@ -15,12 +15,12 @@ public class Imp_InsertAction implements Imp_Action{
 	public Imp_ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Imp_BoardDao dao = Imp_BoardDao.getInstance();
+		Imp_BoardDao imp_dao = Imp_BoardDao.getInstance();
 		Imp_Board imp_board = new Imp_Board();
 		imp_board.setI_title(request.getParameter("i_title"));
 		imp_board.setI_content(request.getParameter("i_content"));
 		
-		dao.insert_Imp_Board(imp_board);
+		imp_dao.imp_insertBoard(imp_board);
 		System.out.println(imp_board);
 		System.out.println("insert!!"); //insertboard 확인
 		Imp_ActionForward imp_forward = new Imp_ActionForward();

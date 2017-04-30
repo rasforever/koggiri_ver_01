@@ -6,7 +6,8 @@ import koggiri.important.model.Imp_Board;
 
 public interface Imp_BoardMapper {
 
-	int insert_ImpBoard(Imp_Board imp_board);
-	List<Imp_Board> Imp_listBoard();
+	int imp_insertBoard(Imp_Board imp_board);
+	List<Imp_Board> imp_listBoard();
+	Imp_Board imp_detailBoard(int i_id);
 
 }

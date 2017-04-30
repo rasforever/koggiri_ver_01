@@ -11,10 +11,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import koggiri.important.mapper.Imp_BoardMapper;
 
 public class Imp_BoardDao {
-	private static Imp_BoardDao dao = new Imp_BoardDao();
+	private static Imp_BoardDao imp_dao = new Imp_BoardDao();
 	
 	public static Imp_BoardDao getInstance(){
-		return dao;
+		return imp_dao;
 	}
 	
 	public SqlSessionFactory getSqlSessionFactory(){
@@ -28,14 +28,14 @@ public class Imp_BoardDao {
 		return new SqlSessionFactoryBuilder().build(in);
 		
 	}
-	public void insert_Imp_Board(Imp_Board imp_board){
-		imp_board.setI_emp_id("MASTER"); //관리자 아이디
+	public void imp_insertBoard(Imp_Board imp_board){
+		imp_board.setI_emp_id("Master"); //관리자 아이디
 		
 		SqlSession session = getSqlSessionFactory().openSession();
 		int re = -1;
 		
 		try {
-			re = session.getMapper(Imp_BoardMapper.class).insert_ImpBoard(imp_board);
+			re = session.getMapper(Imp_BoardMapper.class).imp_insertBoard(imp_board);
 			
 			if(re>0){
 				session.commit();
@@ -52,13 +52,25 @@ public class Imp_BoardDao {
 	public List<Imp_Board> imp_listBoard() {
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(Imp_BoardMapper.class).Imp_listBoard();
+			return session.getMapper(Imp_BoardMapper.class).imp_listBoard();
 		} catch (Exception e) {
 			return null;
 		}finally {
 			session.close();
 		}
 
+	}
+	
+	public Imp_Board imp_detailBoard(int i_id){
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(Imp_BoardMapper.class).imp_detailBoard(i_id);   
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			session.close();
+		}
 	}
 
 
