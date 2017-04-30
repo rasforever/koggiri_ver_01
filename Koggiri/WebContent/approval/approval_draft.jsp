@@ -26,7 +26,11 @@
 	 	<textarea rows="20" cols="100" id="draft_content" name = "draft_content">
 	 	</textarea>
 	 	<script type="text/javascript">
-                CKEDITOR.replace( 'draft_content' );
+			 	CKEDITOR.replace( 'draft_content',{
+			 	    'filebrowserUploadUrl':'/ckeditor/upload.jsp?'
+			 	    +'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
+			 	    +'&realDir=서버업로드될디렉토리명'
+			 	});
             </script>
 		<br>
 		<input type="submit" value="등록">
