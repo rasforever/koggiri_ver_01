@@ -30,7 +30,7 @@ public class Imp_BoardDao {
 	}
 	public void insert_Imp_Board(Imp_Board imp_board){
 		imp_board.setI_emp_id("MASTER"); //관리자 아이디
-		System.out.println(imp_board);
+		
 		SqlSession session = getSqlSessionFactory().openSession();
 		int re = -1;
 		
