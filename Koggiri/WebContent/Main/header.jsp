@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
+<link type="text/css" rel="stylesheet" href="../style/main_menu.css">
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
@@ -27,21 +28,32 @@
 		</div>
 		<div id="main_top" align="center">
 		<div id="main_logo">
-		<img src="../images/koggiri.PNG">
+		<a href="../Main/main.jsp"><img src="../images/koggiri.PNG"></a>
 		</div>
-		<div id="main_menu">
-			<ul>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">일정</a></li>
-				<li><a href="#">메일</a></li>
-				<li><a href="#">결재</a></li>
-				<li><a href="#">문서</a></li>
-				<li><a href="#">업무</a></li>
-				<li><a href="#">회의</a></li>
-				<li><a href="#">조직도</a></li>
+		
+	<div class="main_menu">
 
-			</ul>
-		</div>
+		<ul>
+			<li><a href="#">공지사항</a>
+				<ul>
+					<li><a href="../Noticeboard/listAction.noticeboard">공지합니다</a></li>
+					<li><a href="#">알립니다</a></li>
+				</ul></li>
+
+			<li><a href="#">일정</a></li>
+			<li><a href="#">메일</a></li>
+			<li><a href="#">결재</a></li>
+			<li><a href="#">문서</a></li>
+			<li><a href="#">업무</a></li>
+			<li><a href="#">회의</a>
+				<ul>
+					<li><a href="#">그림회의</a></li>
+					<li><a href="#">화상회의</a></li>
+				</ul></li>
+			<li><a href="#">조직도</a></li>
+
+		</ul>
+	</div>
 	</div>
 </div>
 	<form>

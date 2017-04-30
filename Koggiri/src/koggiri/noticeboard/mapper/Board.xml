@@ -17,7 +17,7 @@
 
 	</insert>
 	
-	<select id="listBoard" resultType="Board" parameterType="noticeSearch">
+	<select id="listBoard" resultType="Board" parameterType="NoticeSearch">
 		select * from noticeboard
 		
 		<if test="area != null">
@@ -29,6 +29,7 @@
 			</where>
 		
 		</if>
+		order by n_id desc
 	</select>
 	
 	<select id="detailBoard" resultType="Board" parameterType="int">
@@ -51,5 +52,17 @@
 			 		n_hit = n_hit + 1
 			 	where n_id = #{n_id}
 	</update>
+
+	<select id="countBoard" resultType="int" parameterType="NoticeSearch">
+		select count(*) from noticeboard
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator= "OR" open = "(" close = ")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
 	
 </mapper>
