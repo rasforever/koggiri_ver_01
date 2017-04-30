@@ -17,29 +17,25 @@ function typesel(obj) {
 
 function approval_type(obj) {
 	if(obj == "rw"){
-		alert(obj);
-		loaction="approval_list_rw.approval";
+		location.href = "approval_list_rw.approval";
 	}else if(obj == "rp"){
-		alert(obj);
+		location.href = "approval_list_rp.approval";
 	}else if(obj == "re"){
-		alert(obj);
+		location.href = "approval_list_re.approval";
 	}else if(obj == "rc"){
-		alert(obj);
+		location.href = "approval_list_rc.approval";
 	}else if(obj == "sp"){
-		alert(obj);
+		location.href = "approval_list_sp.approval";
 	}else if(obj == "se"){
-		alert(obj);
+		location.href = "approval_list_se.approval";
 	}else if(obj == "sc"){
-		alert(obj);
+		location.href = "approval_list_sc.approval";
 	}else if(obj == "st"){
-		alert(obj);
+		location.href = "approval_list_st.approval";
 	}else if(obj == "r"){
-		alert(obj);
 		location.href = "approval_list_r.approval";
-		alert(obj);
 	}else if(obj == "s"){
-		alert(obj);
-		loaction="approval_list_s.approval";
+		location.href ="approval_list_s.approval";
 	}
 	
 }

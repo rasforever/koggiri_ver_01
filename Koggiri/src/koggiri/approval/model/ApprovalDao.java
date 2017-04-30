@@ -89,5 +89,105 @@ public class ApprovalDao {
 			session.close();
 		}
 	}
+	
+	public List<Approval> approval_rw_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_rw_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_rp_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_rp_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_re_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_re_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_rc_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_rc_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_s_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_s_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_sp_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_sp_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_se_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_se_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_sc_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_sc_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+	public List<Approval> approval_st_select() throws Exception { //휴가 휴가종류
+		SqlSession session = getSqlSessionFactory().openSession();		
+		try {
+			return session.getMapper(ApprovalMapper.class).approval_st_select();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
 
 }

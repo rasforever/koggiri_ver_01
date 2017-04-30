@@ -39,7 +39,134 @@
 		inner join emp ed
 		on a.draft_emp_id = ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id;
+		on a.app_emp_id = ea.emp_id
+	</select>
+	
+	<select id="approval_rw_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd = '0'
+	</select>
+	
+	<select id="approval_rp_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd = '1'
+	</select>
+	
+	<select id="approval_re_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd = '2'
+	</select>
+	
+	<select id="approval_rc_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd in ('3','4')
+	</select>
+	
+	<select id="approval_s_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+	</select>
+	
+	<select id="approval_sp_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd = '1'
+	</select>
+	
+	<select id="approval_se_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd = '2'
+	</select>
+	
+	<select id="approval_sc_select" resultType="Approval">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
+		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_pro_cd in ('3','4')
 	</select>
 
 

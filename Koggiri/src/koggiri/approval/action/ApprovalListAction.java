@@ -9,18 +9,47 @@ import koggiri.approval.model.Approval;
 import koggiri.approval.model.ApprovalDao;
 
 public class ApprovalListAction implements Action {
+	private String read_type;
+
+	public ApprovalListAction(String read_type) {
+		this.read_type = read_type;
+	}
 
 	@Override
 	public ActionFoward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ApprovalDao dao = ApprovalDao.getInstance();
-		List<Approval> approvallist = dao.approval_r_select();
-		
-		
-		request.setAttribute("approvallist", approvallist); //중요!  
-		
+		List<Approval> approvallist = null;
+		if (read_type.equals("r")) {
+			approvallist = dao.approval_r_select();
+		} else if (read_type.equals("rw")) {
+			approvallist = dao.approval_rw_select();
+		} else if (read_type.equals("rp")) {
+			approvallist = dao.approval_rp_select();
+		} else if (read_type.equals("rc")) {
+			approvallist = dao.approval_rc_select();
+		} else if (read_type.equals("re")) {
+			approvallist = dao.approval_re_select();
+		} else if (read_type.equals("s")) {
+			approvallist = dao.approval_s_select();
+		} else if (read_type.equals("sp")) {
+			approvallist = dao.approval_sp_select();
+		} else if (read_type.equals("se")) {
+			approvallist = dao.approval_se_select();
+		} else if (read_type.equals("sc")) {
+			approvallist = dao.approval_sc_select();
+		} else if (read_type.equals("st")) {
+			approvallist = dao.approval_st_select();
+		}
+
+		for (int i = 0; i < approvallist.size(); i++) {
+			approvallist.get(i).setDraft_dt(approvallist.get(i).getDraft_dt().substring(0, 10));
+		}
+
+		request.setAttribute("approvallist", approvallist); // 중요!
+
 		ActionFoward forward = new ActionFoward();
 		forward.setRedirect(false);
-		forward.setPath("/approval/approval_list.jsp");
+		forward.setPath("/approval/approval_index.jsp");
 
 		return forward;
 	}

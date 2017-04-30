@@ -72,7 +72,79 @@ public class ApprovalController extends HttpServlet {
 	           }
 		}
 		else if (command.equals("approval/approval_list_r.approval")) {
-			action = new ApprovalListAction();	            
+			action = new ApprovalListAction("r");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_rw.approval")) {
+			action = new ApprovalListAction("rw");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_rp.approval")) {
+			action = new ApprovalListAction("rp");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_re.approval")) {
+			action = new ApprovalListAction("re");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_rc.approval")) {
+			action = new ApprovalListAction("rc");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_s.approval")) {
+			action = new ApprovalListAction("s");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_sp.approval")) {
+			action = new ApprovalListAction("sp");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_se.approval")) {
+			action = new ApprovalListAction("se");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_sc.approval")) {
+			action = new ApprovalListAction("sc");	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_list_st.approval")) {
+			action = new ApprovalListAction("st");	
             try {
                forward = action.execute(request, response);
            } catch (Exception e) {

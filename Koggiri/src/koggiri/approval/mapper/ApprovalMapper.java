@@ -14,4 +14,13 @@ public interface ApprovalMapper {
 	public List<LeaveType> leave_tyselect(); //휴가서에서 휴가종류
 	public Emp_infomation einfo_select(); //기안서에서 기안종류
 	public List<Approval> approval_r_select(); //전체 조회
+	public List<Approval> approval_rw_select(); //전체 조회
+	public List<Approval> approval_rp_select(); //전체 조회
+	public List<Approval> approval_re_select(); //전체 조회
+	public List<Approval> approval_rc_select(); //전체 조회
+	public List<Approval> approval_s_select(); //전체 조회
+	public List<Approval> approval_sp_select(); //전체 조회
+	public List<Approval> approval_se_select(); //전체 조회
+	public List<Approval> approval_sc_select(); //전체 조회
+	public List<Approval> approval_st_select(); //전체 조회
 }

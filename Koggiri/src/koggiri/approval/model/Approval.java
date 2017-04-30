@@ -2,7 +2,7 @@ package koggiri.approval.model;
 
 import java.io.Serializable;
 
-public class Approval implements Serializable{
+public class Approval implements Serializable {
 	private String app_id;
 	private String draft_dt;
 	private String app_type_nm;
@@ -10,8 +10,9 @@ public class Approval implements Serializable{
 	private String drafter;
 	private String approver;
 	private String app_pro_nm;
-	
-	public Approval() {}
+
+	public Approval() {
+	}
 
 	public Approval(String app_id, String draft_dt, String app_type_nm, String dept_nm, String drafter, String approver,
 			String app_pro_nm) {
@@ -80,5 +81,5 @@ public class Approval implements Serializable{
 	public void setApp_pro_nm(String app_pro_nm) {
 		this.app_pro_nm = app_pro_nm;
 	}
-	
-	}
+
+}
