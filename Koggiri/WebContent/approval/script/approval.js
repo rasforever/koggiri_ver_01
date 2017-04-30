@@ -15,6 +15,25 @@ function typesel(obj) {
 	
 }
 
-function approval_type(obj) {		
+function approval_type(obj) {
+	if(obj == "rw"){
+		alert(obj);
+		loaction="approval_list_rw.approval";
+	}else if(obj == "rp"){
+		alert(obj);
+	}else if(obj == "re"){
+		alert(obj);
+	}else if(obj == "rc"){
+		alert(obj);
+	}else if(obj == "sp"){
+		alert(obj);
+	}else if(obj == "se"){
+		alert(obj);
+	}else if(obj == "sc"){
+		alert(obj);
+	}else if(obj == "st"){
+		alert(obj);
+	}
 	
 }
+
