@@ -27,6 +27,7 @@ public class Imp_DetailAction implements Imp_Action {
 		
 		Imp_BoardDao imp_dao = Imp_BoardDao.getInstance();
 		
+		imp_dao.imp_updateHit(seq);
 		Imp_Board imp_board = imp_dao.imp_detailBoard(seq);
 		
 		request.setAttribute("imp_board", imp_board);

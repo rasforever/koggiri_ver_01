@@ -72,6 +72,26 @@ public class Imp_BoardDao {
 			session.close();
 		}
 	}
+	
+	public void imp_updateHit(int i_id){
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			
+			re = session.getMapper(Imp_BoardMapper.class).imp_updateHit(i_id);
+			
+			if(re>0){
+				session.commit();
+			}else{
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
 
 
 }
