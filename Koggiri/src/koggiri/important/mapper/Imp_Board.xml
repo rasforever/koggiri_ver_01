@@ -16,8 +16,18 @@
 		)
 	</insert>
 	
-	<select id="imp_listBoard" resultType="Imp_Board">
+	<select id="imp_listBoard" resultType="Imp_Board" parameterType="Imp_Search">
 		select * from importantboard
+		
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item = "item" separator="or" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>	
+			</where>	
+		</if>
+		order by i_id desc
+		
 	</select>
 		
 	<select id="imp_detailBoard" resultType="Imp_Board" parameterType="int">

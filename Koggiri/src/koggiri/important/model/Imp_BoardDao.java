@@ -50,16 +50,17 @@ public class Imp_BoardDao {
 		}
 	}
 
-	public List<Imp_Board> imp_listBoard() {
+	public List<Imp_Board> imp_listBoard(Imp_Search imp_search) {
 		SqlSession session = getSqlSessionFactory().openSession();
+		List<Imp_Board> imp_listBoard = null;
 		try {
-			return session.getMapper(Imp_BoardMapper.class).imp_listBoard();
+			imp_listBoard =  session.getMapper(Imp_BoardMapper.class).imp_listBoard(imp_search);
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		} finally {
 			session.close();
 		}
-
+			return imp_listBoard;
 	}
 
 	public Imp_Board imp_detailBoard(int i_id) {
