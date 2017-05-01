@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.important.action.Imp_Action;
 import koggiri.important.action.Imp_ActionForward;
+import koggiri.important.action.Imp_DeleteAction;
 import koggiri.important.action.Imp_DetailAction;
 import koggiri.important.action.Imp_InsertAction;
 import koggiri.important.action.Imp_ListAction;
@@ -95,6 +96,15 @@ public class Imp_BoardController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		}
+
+		else if (path.equals("deleteAction.importantboard")) {
+			imp_action = new Imp_DeleteAction();
+			try {
+				imp_forward = imp_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		if (imp_forward != null) {

@@ -113,4 +113,23 @@ public class Imp_BoardDao {
 		}
 	}
 
+	public void imp_deleteBoard(Imp_Board imp_board) {
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			re = session.getMapper(Imp_BoardMapper.class).imp_deleteBoard(imp_board);
+			if (re > 0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+
 }

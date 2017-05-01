@@ -11,5 +11,5 @@ public interface Imp_BoardMapper {
 	Imp_Board imp_detailBoard(int i_id);
 	int imp_updateHit(int i_id);
 	int imp_updateBoard(Imp_Board imp_board);
-
+	int imp_deleteBoard(Imp_Board imp_board);
 }

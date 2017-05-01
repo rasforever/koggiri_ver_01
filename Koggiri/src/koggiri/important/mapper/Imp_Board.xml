@@ -36,6 +36,11 @@
 				i_content = #{i_content}	
 			where i_id = #{i_id}	
 	</update>
+	
+	<delete id="imp_deleteBoard" parameterType="Imp_Board">
+			delete from importantboard 
+			where i_id = #{i_id}
+	</delete>
 		
 
 
