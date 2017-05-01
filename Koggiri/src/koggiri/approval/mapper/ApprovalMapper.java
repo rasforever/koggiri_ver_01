@@ -5,9 +5,6 @@ import java.util.List;
 import koggiri.approval.model.AppType;
 import koggiri.approval.model.Approval;
 import koggiri.approval.model.Emp_infomation;
-import koggiri.approval.model.LeaveType;
-import koggiri.approval.model.PayType;
-import koggiri.approval.model.ReqType;
 
 public interface ApprovalMapper {
 	public List<AppType> app_tyselect(); //

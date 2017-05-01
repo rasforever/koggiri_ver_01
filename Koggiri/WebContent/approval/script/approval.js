@@ -6,10 +6,7 @@ $(function() {
 	});
 });
 
-function typesel(obj) {		
-
-		$('#draft_content').text("disabled");
-
+function typesel(obj) {	
 	
 }
 
