@@ -9,10 +9,30 @@
 	width: 1100px;
 
 }
+.chart{
+	width: 1100px;
+}
+.update{
+	width: 1100px;
+}
+#chart_detail {
+	width: 1100px;
+}
 
 .detail{
 	width: 1100px;
 }
+#update_tb{
+	width: 1100px;
+	border: 0px;
+}
+#update_tb th{
+	background-color: #0080ff;
+	color: white;
+	width: 60px;
+	height: 25px;
+}
+
 #detail_tb{
 		width: 1100px;
 
@@ -24,12 +44,25 @@
 	height: 25px;
 }
 
+.det_btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	border: 0px;
+	color: white;
+	font-weight: bold;
+}
+.det_btn:HOVER{
+	background-color: #ff8080;
+}
+
 h3 {
 	margin-right: 90%;
 	border: 1px solid;
 	border-color: #0080ff;
 	background-color: #0080ff;
 	width: 150px;
+	font-size:20px;
 	border-radius: 10px;
 	color: white;
 }
@@ -56,7 +89,9 @@ h3 {
 #list_tb td {
 	padding: 8px 0px 8px 0px;
 	border-bottom: 1px solid silver;
-
+}
+#list_tb a:HOVER{
+	color: #ff8080;
 }
 
 #insert_a a{
@@ -65,6 +100,9 @@ h3 {
 	text-decoration: none;
 	background-color:#0080ff;
 	color: white;
+}
+#insert_a a:HOVER{
+	background-color: #ff8080;
 }
 #bottom{
 	width: 1100px;
@@ -81,4 +119,93 @@ h3 {
 	background-color: #0080ff;
 	border: 0px;
 	color: white;
+}
+#search_btn:HOVER{
+	background-color: #ff8080;
+}
+#rud a{
+	padding:10px;
+	background-color: #0080ff;
+	text-decoration: none;
+	color: white;
+}
+#rud a:HOVER{
+	background-color: #ff8080;
+}
+
+#detail_text{
+	resize: none;
+		width: 1100px;
+	height: 300px;
+}
+
+.bt{
+	border-bottom: 1px solid silver;
+}
+/*************************/
+
+#Tabs ul li{
+	font-size: 10px;
+
+}
+#MM a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#MM a:hover{
+	color: #ff8080;
+}
+#PL a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#PL a:hover{
+	color: #ff8080;
+}
+#MT a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#MT a:hover{
+	color: #ff8080;
+}
+#SN a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#SN a:hover{
+	color: #ff8080;
+}
+#BS a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#BS a:hover{
+	color: #ff8080;
+}
+#SE a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#SE a:hover{
+	color: #ff8080;
+}
+#MG a{
+	text-decoration: none;
+	font-size: 15pt;
+	color: #0080ff;
+}
+#MG a:hover{
+	color: #ff8080;
+}
+
+/**************************/
+.up_input{
+	border: 0px;
 }

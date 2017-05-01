@@ -11,12 +11,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="../style/board.css">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
 </head>
 
 <body>
+
+<div align="center">
+<div class="chart" align="center">
 <script type="text/javascript">
 
 $(function(){
@@ -28,22 +33,16 @@ $(function(){
   });
  
 });
- 
 </script>
-
-<form action="chart.ch" method="post">
-		<input type="submit" value="조직도 보기">
-</form>	
-
 <!-- 부서 별 -->	
  <div id="Tabs">
  <ul>
-  	<li><a href="#MM" style="font-size:9pt;">경영진</a></li>
-	<li><a href="#PL" style="font-size:9pt;">인사팀</a></li>
- 	<li><a href="#MT" style="font-size:9pt;">관리팀</a></li>
- 	<li><a href="#SN" style="font-size:9pt;">솔루션팀</a></li>
- 	<li><a href="#BS" style="font-size:9pt;">영업팀</a></li>
- 	<li><a href="#MG" style="font-size:9pt;">마게팅팀</a></li>
+  	<li><a href="#MM">경영진</a></li>
+	<li><a href="#PL">인사팀</a></li>
+ 	<li><a href="#MT">관리팀</a></li>
+ 	<li><a href="#SN">솔루션팀</a></li>
+ 	<li><a href="#BS">영업팀</a></li>
+ 	<li><a href="#MG">마게팅팀</a></li>
 </ul>
      
 <div class="tabs-spacer"></div>
@@ -106,7 +105,8 @@ $(function(){
 </div>
 
 <!-- 사원 상세정보 -->
-<div>
+<div id="chart_detail" align="left">
+	<table>
 	${chart.emp_nm}<br>
 	${chart.emp_id}<br>
 	${chart.sex_nm}<br>
@@ -114,6 +114,9 @@ $(function(){
 	${chart.tel_no}<br>
 	${chart.e_mail}<br>
 	${chart.join_dt}
+	</table>
+</div>
+</div>
 </div>
 
 </body>

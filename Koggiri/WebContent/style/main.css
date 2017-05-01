@@ -2,6 +2,17 @@
 @IMPORT url("//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css");
 
 
+#header{
+	width: 100%;
+	margin: 0 auto;
+	
+}
+#footer{
+	height: 150px;
+	width:100%;
+	background-color: #008ad7;
+	color: white;
+}
 
 #main_menu {
 	/* 	메인 메뉴 */
@@ -14,14 +25,15 @@
 #main_top{
 	/* 이미지 + 메뉴 */
 	padding: 10px;
-	width: 1000px;
+	width: 100%;
+	margin-left:16%;
 }
 #main_logo{
-	width: 1400px;
+	width: 100%;
 }
-#main_logo img {
+img {
 	/* 이미지크기 및 마진 */
-	margin-right:50px;
+	padding-right:15px;
 	width: 100px;
 	height: 100px;
 	float: left;
@@ -30,7 +42,7 @@
 
 #main_contain {
 	/* 컨테인  */
-	margin-left:70px;
+
 	width:1400px;
 	clear: both;
 }
@@ -68,9 +80,7 @@
 }
 
 #main_footer {
-	height: 150px;
-	background-color: #008ad7;
-	color: white;
+width: 100%;
 }
 
 
@@ -148,5 +158,5 @@
 }
 
 #main_outer{
-
+ width: 100%;
 }

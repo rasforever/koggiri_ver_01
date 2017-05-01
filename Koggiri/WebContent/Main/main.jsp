@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 
 </head>
 <body>
+
 <div id="main_outer" align="center">
 	<div id="main_header" align="center">
 		<jsp:include page="header.jsp" />
@@ -38,6 +40,6 @@
 	<div id="main_footer">
 		<jsp:include page="footer.jsp" />
 	</div>
-	</div>
+</div>
 </body>
 </html>

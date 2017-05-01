@@ -19,7 +19,8 @@
 			<div class="board" align="center">
 
 
-				<h3 align="center">공지사항 작성</h3>
+				<h3 align="center">Notice</h3>
+				<br><br>
 				<hr>
 				<br> <br> 제목 &nbsp;<input type="text" name="n_title"
 					size="160"> <br> <br>
