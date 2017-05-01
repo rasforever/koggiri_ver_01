@@ -38,19 +38,18 @@
 				</option>
 			</c:forEach>
 
-		</select>&nbsp;&nbsp;&nbsp; 제목 : <input type="text" name="draft_title"><br>
+		</select>&nbsp;&nbsp;&nbsp; 제목 : <input type="text" name="app_title"><br>
 		내용 : <br>
-		<textarea rows="20" cols="100" id="draft_content" name="draft_content">
+		<textarea rows="20" cols="100" id="app_context" name="app_context">
 	 	</textarea>
 		<script type="text/javascript">
-			CKEDITOR.replace('draft_content', {
+			CKEDITOR.replace('app_context', {
 				'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
 					+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
 					+ '&realDir=서버업로드될디렉토리명'
 			});
 			
 			function typesel(obj) {
-				alert($(obj).val());	
 				var text ="";
 				if ($(obj).val() == "10"){
 					text = "<p><strong><span style='font-size:26px'>비용 신청서</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><table border='1' cellpadding='0' cellspacing='0' style='width:634px'><tbody><tr><td><p>비용신청자&nbsp;</p></td><td>&nbsp;김성준</td></tr><tr><p>신청액&nbsp;</p></td><td>신청일</td><td>&nbsp;2016.12.14 ~ 2016.12.15</td></tr><tr><td><p>&nbsp;비용신청자 내역</p></td><td><p>&nbsp;양학타운에서 쉬고자 합니다.</p><p>새벽 늦게 자니깐 많이 힘듭니다.</p></td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;</p><p>상기 내용과 같이 휴가신청서를 상신하오니 재가 바랍니다.</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016 년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp; 월&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;일</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 신청자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;김성준&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>";
@@ -61,12 +60,10 @@
 				} else if($(obj).val() == "40"){
 					text = "<p><strong><span style='font-size:26px'>출장 신청서</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><table border='1' cellpadding='0' cellspacing='0' style='width:634px'><tbody><tr><td><p>출장자&nbsp;</p></td><td>유승현</td></tr><tr><td><p>&nbsp;출장기간</p></td><td>&nbsp;</td></tr><tr><td><p>&nbsp;출장장소</p></td><td><p>&nbsp;</p></td></tr><tr><td>&nbsp;출장목적</td><td><p>11111111111111111111111111111111111111111111111111111111111111</p><p>&nbsp;</p></td></tr><tr><td>&nbsp;출장 일정 &amp; 회의록</td><td><p>&nbsp;11111111111111111111111111111111111111111111111111111111111111</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></td></tr></tbody></table><p>&nbsp;</p><p>상기 내용과 같이 출장신청서를 상신하오니 재가 바랍니다.</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016 년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp; 월&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;일</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 신청자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;김성준&nbsp;&nbsp;</p>";
 				}
-				CKEDITOR.instances.draft_content.setData(text);
+				CKEDITOR.instances.app_context.setData(text);
 			}
 		</script>
-		<c:set var="age">15</c:set>
-		<br> <input type="submit" value="등록">
+		<br> <input type="submit" value="등록"><input type="reset" value="취소">
 	</form>
-
 </body>
 </html>
