@@ -10,23 +10,32 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="script/approval.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="leaveAction.approval" method="post">
+	<form action="approval_insertAction.approval" method="post">
 		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input type="text" name="emp_id" value="${einfo.emp_id }" disabled>&nbsp;&nbsp;&nbsp; 
 		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="emp_nm" value="${einfo.emp_nm }" disabled> <br>
 		소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;속 : <input type="text" name="dept_nm" value="${einfo.dept_nm }" disabled>&nbsp;&nbsp;&nbsp; 
 		직&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;급 : <input type="text" name="pos_nm" value="${einfo.pos_nm }" disabled> <br>
-		휴&nbsp;가&nbsp;일 : <input type="text" name="leave_st_dt" class="datepicker">~<input type="text" name="leave_ed_dt" class="datepicker"><br>
-		휴가종류 :<select name ="leave_t_cd">
-		<c:forEach var="leavetype" items="${leavelist}"> 
-			<option  value="${leavetype.leave_t_cd}">${leavetype.leave_t_nm} </option>
-		</c:forEach></select>
-		비상연락망 : <input type="text" name = "leave_tel"><br>
-	 	휴가사유 : <br>
-	 	<textarea rows="20" cols="100" name = "leave_content"></textarea>
+		기&nbsp;안&nbsp;일 : <input type="text" name="draft_dt" class="datepicker"><br>
+		신청종류 :  <select name ="app_type" onchange="typesel(this)" > 
+		<c:forEach var="apptype" items="${applist}"> 
+			<option value="${apptype.app_type_cd}">${apptype.app_type_nm} </option>			
+		</c:forEach></select>&nbsp;&nbsp;&nbsp; 
+		제목 : <input type="text" name = "draft_title"><br>
+	 	내용 : <br>
+	 	<textarea rows="20" cols="100" id="draft_content" name = "draft_content">
+	 	</textarea>
+	 	<script type="text/javascript">
+			 	CKEDITOR.replace( 'draft_content',{
+			 	    'filebrowserUploadUrl':'/ckeditor/upload.jsp?'
+			 	    +'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
+			 	    +'&realDir=서버업로드될디렉토리명'
+			 	});
+        </script>
 		<br>
 		<input type="submit" value="등록">
 	</form>

@@ -7,16 +7,10 @@
 <mapper namespace="koggiri.approval.mapper.ApprovalMapper">
 	<cache />
 
-	<select id="pay_tyselect" resultType="PayType">
-		select pay_t_cd, pay_t_nm from pay_type
-	</select>
 	
-	<select id="req_tyselect" resultType="ReqType">
-		select req_t_cd, req_t_nm from req_type
-	</select>
 	
-	<select id="leave_tyselect" resultType="LeaveType">
-		select leave_t_cd, leave_t_nm from leave_type
+	<select id="app_tyselect" resultType="AppType">
+		select app_type_cd, app_type_nm from App_type
 	</select>
 	
 	<select id="einfo_select" resultType="Emp_infomation">
