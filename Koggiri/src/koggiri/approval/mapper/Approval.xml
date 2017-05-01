@@ -162,6 +162,31 @@
 		on a.app_emp_id = ea.emp_id
 		and a.app_pro_cd in ('3','4')
 	</select>
+	
+	
+	
+	<insert id="insertApproval"  parameterType="ApprovalInsert">       
+    	{CALL insert_approval(#{app_type_cd}, 'k15010201', #{draft_dt}, #{app_title}, #{app_context})}        
+	</insert>
+	
+	<select id="approval_detail" parameterType="String" resultType="ApprovalDetail">
+		select a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as dept_nm, ap.app_pro_nm as app_pro_nm, 
+		       ed.emp_nm as draft_emp_nm, ea.emp_nm as app_emp_nm, a.draft_dt as draft_dt, a.app_dt as app_dt,
+		       a.app_title as app_title, a.app_context as app_context
+		from approval a inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp ea
+		on a.app_emp_id = ea.emp_id
+		and a.app_id = #{app_id}
+	</select>
+
+
 
 
 </mapper>

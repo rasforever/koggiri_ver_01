@@ -73,7 +73,7 @@ function rs_type(obj) {
 		<tbody>
 		<c:forEach var = "approval" items = "${approvallist }">
 			<tr>
-				<td>${approval.app_id }</td>
+				<td><a href="approval_detailAction.approval?app_id=${approval.app_id }">${approval.app_id }</td>
 				<td>${approval.draft_dt }</td>
 				<td>${approval.app_type_nm }</td>
 				<td>${approval.dept_nm }</td>
