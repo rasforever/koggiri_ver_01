@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../style/board.css">
@@ -26,7 +27,17 @@
 					</tr>
 					<tr height="30">
 						<td colspan="4"><textarea rows="10" cols="70"
-								name="n_content"></textarea></td>
+								name="n_content">${board.n_content }</textarea></td>
+								
+					<script type="text/javascript">
+					CKEDITOR.replace('n_content', {
+						'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
+							+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
+							+ '&realDir=서버업로드될디렉토리명'
+					});
+				</script>			
+								
+				
 					</tr>
 				</table>
 				
