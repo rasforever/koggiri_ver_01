@@ -7,8 +7,7 @@
 	
 	<insert id="imp_insertBoard" parameterType="Imp_Board">
 		insert into importantboard(
-		i_id, i_emp_id, i_title, i_content, i_date,
-		i_hit
+		i_id, i_emp_id, i_title, i_content, i_date, i_hit
 		)
 		values(
 		nboard.nextval, #{i_emp_id}, #{i_title}, #{i_content},
@@ -27,7 +26,6 @@
 			</where>	
 		</if>
 		order by i_id desc
-		
 	</select>
 		
 	<select id="imp_detailBoard" resultType="Imp_Board" parameterType="int">

@@ -30,6 +30,22 @@
 	<a href="Imp_insertForm.jsp">글쓰기</a>
 	<br>
 	<br>
+	
+	<c:if test=""></c:if>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<form action="listAction.importantboard" method ="post">
 		<input type = "hidden" name="temp" value = "temp"></input>
 		<input type = "checkbox" name = "area" value = "i_title">제목</input>
