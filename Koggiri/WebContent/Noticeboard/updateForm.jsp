@@ -11,21 +11,28 @@
 <body>
 
 	<form action="updateAction.noticeboard?n_id=${board.n_id }" method="post">
+	<div id="main_header" align="center">
+				<jsp:include page="../Main/header.jsp" />
+			</div>
+			<br><br><br><br>
 		<div align="center">
 			<div class="update">
-				<table border="1" cellpadding="0" cellspacing="0" id="update_tb">
-					<tr height="30">
-						<td width="70" align="center">작성자</td>
+							<h3 align="center">Notice</h3>
+							<br><br>
+				<table id="update_tb">
+					<tr>
+						<th width="70"  align="center">작성자</td>
 						<td>&nbsp;&nbsp;<input type="text" name="n_emp_id"
 							value="${board.n_emp_id }" size="10" readonly="true" class="up_input"></td>
 					</tr>
 
-					<tr height="30">
-						<td width="70" align="center">제목</td>
+					<tr align="center">
+						<th width="70">제목</td>
 						<td align="left" colspan="3">&nbsp;&nbsp;<input type="text"
 							name="n_title" size="50" value="[수정]: ${board.n_title}" class="up_input"></td>
 					</tr>
 					<tr height="30">
+
 						<td colspan="4"><textarea rows="10" cols="70"
 								name="n_content">${board.n_content }</textarea></td>
 								
@@ -40,13 +47,19 @@
 				
 					</tr>
 				</table>
-				
-					<input type="submit" value="수정완료">&nbsp;&nbsp;
-					<input type=button value="취소" OnClick="javascript:history.back(-1)">
-
+				<br>
+				<div id="detail_btn" align="center">
+					<input type="submit" value="수정완료" class="det_btn"> &nbsp;&nbsp;
+					<input type=button value="취소" OnClick="javascript:history.back(-1)" class="det_btn">
+				</div>
 						
 			</div>
+			<br> <br> <br> <br>
+			<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>
 		</div>
+		
 	</form>
 
 

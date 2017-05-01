@@ -74,8 +74,8 @@
 				<input type="hidden" name="temp" value="temp"></input> <input
 					type="checkbox" name="area" value="n_title">제목</input> <input
 					type="checkbox" name="area" value="n_content">내용</input> <input
-					type="text" name="searchKey" size="30"></input> <input
-					type="submit" value="검색" id="search_btn">
+					type="text" name="searchKey" size="30"></input> 
+					<input type="submit" value="검색" id="search_btn">
 			</div>
 			<!-- search_div div -->
 		</form>
