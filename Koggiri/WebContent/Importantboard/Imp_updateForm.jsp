@@ -43,7 +43,7 @@
 		<tr height="30">			
 			<td colspan="4" align="center">
 				<input type="submit" value="수정완료">&nbsp;&nbsp;
-				<input type="reset" value="취소">
+				<input type=button value="취소" OnClick="javascript:history.back(-1)">
 			</td>			
 		</tr>
 	</table>
