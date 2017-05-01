@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import koggiri.approval.mapper.ApprovalMapper;
+import koggiri.noticeboard.mapper.BoardMapper;
+import koggiri.noticeboard.model.Board;
 
 public class ApprovalDao {
 	private static ApprovalDao dao = new ApprovalDao();
@@ -165,6 +167,28 @@ public class ApprovalDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+			session.close();
+		}
+	}
+	
+	public void insert(Board board) {
+		board.setN_emp_id("Master");
+	
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = -1;
+
+		try {
+			re = session.getMapper(BoardMapper.class).insertBoard(board);
+
+			if (re > 0) {
+				session.commit();
+
+			} else {
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			session.close();
 		}
