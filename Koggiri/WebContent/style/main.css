@@ -63,14 +63,11 @@ img {
 #log {
 	/* 로그인 여부 확인창 */
 	width: 100%;
-	padding: 30px;
 	background-color: #008ad7;
+	padding: 30px 0px;
 	color: white;
 }
 
-#log span {
-	padding-right: 10px;
-}
 
 #log a {
 	text-decoration: none;

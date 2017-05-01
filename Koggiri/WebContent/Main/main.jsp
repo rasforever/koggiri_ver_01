@@ -12,10 +12,11 @@
 
 <div id="main_outer" align="center">
 	<div id="main_header" align="center">
-		<jsp:include page="header.jsp" />
+
 	</div>
 	
 	<div id="main_contain" align="center">
+			<jsp:include page="header.jsp" />
 		<br> <br>
 		<table id="main_tab" align="center">
 			<tr>
@@ -36,9 +37,10 @@
 			</tr>
 		</table>
 		<br> <br>
+				<jsp:include page="footer.jsp" />
 	</div>
 	<div id="main_footer">
-		<jsp:include page="footer.jsp" />
+
 	</div>
 </div>
 </body>
