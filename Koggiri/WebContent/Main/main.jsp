@@ -9,6 +9,7 @@
 
 </head>
 <body>
+
 <div id="main_outer" align="center">
 	<div id="main_header" align="center">
 		<jsp:include page="header.jsp" />
@@ -39,6 +40,6 @@
 	<div id="main_footer">
 		<jsp:include page="footer.jsp" />
 	</div>
-	</div>
+</div>
 </body>
 </html>
