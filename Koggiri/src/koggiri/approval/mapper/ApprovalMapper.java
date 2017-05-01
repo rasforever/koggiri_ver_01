@@ -9,7 +9,7 @@ import koggiri.approval.model.Emp_infomation;
 public interface ApprovalMapper {
 	public List<AppType> app_tyselect(); //
 	public Emp_infomation einfo_select(); //기안서에서 기안종류
-	public List<Approval> approval_r_select(); //전체 조회
+	public List<Approval> approval_r_select(); //전체 조회 수정 조회
 	public List<Approval> approval_rw_select(); //전체 조회
 	public List<Approval> approval_rp_select(); //전체 조회
 	public List<Approval> approval_re_select(); //전체 조회
