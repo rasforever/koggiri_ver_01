@@ -36,6 +36,10 @@ public class Imp_ListAction implements Imp_Action {
 			imp_search.setSearchKey("%" + request.getParameter("searchKey") + "%");
 			session.setAttribute("imp_search", imp_search);
 		}
+		else if((Imp_Search)session.getAttribute("imp_search") != null){
+			
+			imp_search = (Imp_Search)session.getAttribute("imp_search");
+		}
 		
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null){
