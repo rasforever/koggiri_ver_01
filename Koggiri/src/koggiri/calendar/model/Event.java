@@ -1,6 +1,8 @@
 package koggiri.calendar.model;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable {
 	private String title;
 	private String start;
 	private String end;
@@ -22,11 +24,17 @@ public class Event {
 	public void setEnd(String end) {
 		this.end = end;
 	}
+	public Event(){}
 	public Event(String title, String start, String end) {
 		super();
 		this.title = title;
 		this.start = start;
 		this.end = end;
+	}
+	
+	@Override
+	public String toString() {
+		return "Event [title=" + title + ", start=" + start + ", end=" + end + "]";
 	}
 	
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,15 +8,17 @@
 <title>Insert title here</title>
 
 <script src='lib/jquery.min.js'></script>
-
+<script src='json2.js'></script>
 <link rel='stylesheet' href='fullcalendar.css' />
 
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar.js' charset="euc-kr"></script>
 <script src='locale/ko.js'></script>
 <script type="text/javascript">
-$(document).ready(function() {
-
+	var eventData;
+	var eventDatalist=[];
+	$(document).ready(function() {
+	
     // page is now ready, initialize the calendar...
 	
 	$('#calendar').fullCalendar({
@@ -30,42 +33,50 @@ $(document).ready(function() {
 		selectHelper: true,
 		select: function(start, end) { 
 			var title = prompt('Event Title:');
-			var eventData;
+		
 			if (title) {
 				eventData = {
 					title: title,
 					start: start,
 					end: end
-				};
+				}
+				eventDatalist.push(eventData);
+				
+				
 				$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-						
-				$.ajax({
-					type: "POST",
-					data : eventData,
-					dataType :'json',
-					url : "server.jsp",
-					success : function(){
-						alert("tt");
-					}
-					
-				});
-				
-				
-				
+								
 			}
-
+		
 			$('#calendar').fullCalendar('unselect');
+			
+			
 		},
 		editable: true,
-		eventLimit: true, // allow "more" link when too many events
+		eventLimit: true // allow "more" link when too many events
+		
 		
 	});
 	
-    
+    $('#post').click(function(){
+    	
+    	for(var i=0;i<eventDatalist.length;i++){
+    	$.ajax({
+    		
+        	type:"POST",
+        	url:"send.cal",
+        	
+			data: JSON.stringify(eventDatalist[i])
+			,
+			contentType: "application/json"
+			
+        	 
+         });
+    	}	
+    });
+	 	
+});	
+
 	
-});
-
-
 </script>
 <style type="text/css">
     body {
@@ -88,5 +99,7 @@ $(document).ready(function() {
 		
 		</table>
 	</div>
+	<button id="post">전송1</button>
+	<button id="post2">전송2</button>
 </body>
 </html>
