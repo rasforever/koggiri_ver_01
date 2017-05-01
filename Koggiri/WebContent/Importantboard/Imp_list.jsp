@@ -26,13 +26,32 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<br>
-	<form action="listAction.importantboard" method ="post">
-		<input type = "checkbox" name = "area" value = "i_title">제목</input>
-		<input type = "checkbox" name = "area" value = "i_emp_id">작성자</input>
-		<input type = "text" name = "searchkey" size = "10"></input>
-		<input type = "submit" value = "검색">
 	
+	<a href="Imp_insertForm.jsp">글쓰기</a>
+	<br>
+	<br>
+	
+	<c:if test=""></c:if>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<form action="listAction.importantboard" method ="post">
+		<input type = "hidden" name="temp" value = "temp"></input>
+		<input type = "checkbox" name = "area" value = "i_title">제목</input>
+		<input type = "checkbox" name = "area" value = "i_content">내용</input>
+		<input type = "text" name = "searchKey" size = "10"></input>
+		<input type = "submit" value = "검색">
 	</form>
 </body>
 </html>

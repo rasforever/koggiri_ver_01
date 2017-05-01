@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.important.action.Imp_Action;
 import koggiri.important.action.Imp_ActionForward;
+import koggiri.important.action.Imp_DeleteAction;
 import koggiri.important.action.Imp_DetailAction;
 import koggiri.important.action.Imp_InsertAction;
 import koggiri.important.action.Imp_ListAction;
+import koggiri.important.action.Imp_UpdateAction;
+import koggiri.important.action.Imp_UpdateFormAction;
 
 /**
  * Servlet implementation class Imp_BoardController
@@ -42,7 +45,7 @@ public class Imp_BoardController extends HttpServlet {
 		Imp_ActionForward imp_forward = null;
 		Imp_Action imp_action = null;
 
-		//insert
+		// insert
 		if (path.equals("insertAction.importantboard")) {
 			System.out.println(" success!! insert path가 정상적으로 비교됨.");
 			imp_action = new Imp_InsertAction();
@@ -51,8 +54,8 @@ public class Imp_BoardController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			//list
+
+			// list
 		} else if (path.equals("listAction.importantboard")) {// 리스트액션인가?
 			System.out.println(" success!! list path가 정상적으로 비교됨.");
 			imp_action = new Imp_ListAction();
@@ -62,16 +65,46 @@ public class Imp_BoardController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		else if(path.equals("detailAction.importantboard")){
-			
+
+		else if (path.equals("detailAction.importantboard")) {
+
 			imp_action = new Imp_DetailAction();
 			try {
 				imp_forward = imp_action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
+		}
+
+		else if (path.equals("updateFormAction.importantboard")) {
+			imp_action = new Imp_UpdateFormAction();
+
+			try {
+				imp_forward = imp_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		else if (path.equals("updateAction.importantboard")) {
+			imp_action = new Imp_UpdateAction();
+
+			try {
+				imp_forward = imp_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		else if (path.equals("deleteAction.importantboard")) {
+			imp_action = new Imp_DeleteAction();
+			try {
+				imp_forward = imp_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		if (imp_forward != null) {
