@@ -37,8 +37,8 @@
 		<tr height="30">
 			<td colspan="4">
 				<a href="listAction.importantboard">목록</a>
-				<a href="updateFormAction.importantboard?n_id=${imp_board.i_id} ">수정</a>
-				<a href="deleteAction.importantboard?i_id=${imp_board.i_id} ">삭제</a>
+				<a href="updateFormAction.importantboard?i_id=${imp_board.i_id}">수정</a>
+				<a href="deleteAction.importantboard?i_id=${imp_board.i_id}">삭제</a>
 		</tr>
 		
 		
