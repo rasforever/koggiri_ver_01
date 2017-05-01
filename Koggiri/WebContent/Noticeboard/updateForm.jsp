@@ -14,13 +14,13 @@
 			<div class="update">
 				<table border="1" cellpadding="0" cellspacing="0" id="update_tb">
 					<tr height="30">
-						<td width="70">작성자</td>
+						<td width="70" align="center">작성자</td>
 						<td>&nbsp;&nbsp;<input type="text" name="n_emp_id"
 							value="${board.n_emp_id }" size="10" readonly="true" class="up_input"></td>
 					</tr>
 
 					<tr height="30">
-						<td width="70">제목</td>
+						<td width="70" align="center">제목</td>
 						<td align="left" colspan="3">&nbsp;&nbsp;<input type="text"
 							name="n_title" size="50" value="[수정]: ${board.n_title}" class="up_input"></td>
 					</tr>
