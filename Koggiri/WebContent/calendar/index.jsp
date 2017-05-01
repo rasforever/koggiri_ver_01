@@ -15,8 +15,8 @@
 <script src='fullcalendar.js' charset="euc-kr"></script>
 <script src='locale/ko.js'></script>
 <script type="text/javascript">
-	var eventData;
-	var eventDatalist=[];
+	
+	
 	$(document).ready(function() {
 	
     // page is now ready, initialize the calendar...
@@ -35,12 +35,12 @@
 			var title = prompt('Event Title:');
 		
 			if (title) {
-				eventData = {
+			var	eventData = {
 					title: title,
 					start: start,
 					end: end
 				}
-				eventDatalist.push(eventData);
+				
 				
 				
 				$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
@@ -52,30 +52,81 @@
 			
 		},
 		editable: true,
-		eventLimit: true // allow "more" link when too many events
-		
+		eventLimit: true, // allow "more" link when too many events
+		eventClick: function(event, element) {
+
+	        event.title = prompt('Event Title:');
+			
+	        $('#calendar').fullCalendar('updateEvent', event);
+
+	    },
+	    //event의 사이즈를 줄였다 늘였다 할 수 있는 기능
+	    eventResizeStart: function(event) {     
+	        startDateOnStart = event.start;
+	        endDateOnStart = event.end;         
+	    },
+	    eventResizeStop: function(event) {  
+	        // I added 1 sec delay because in my experience the event object needs some time to update.
+	        setTimeout(
+	            function(){
+	                 startDateOnStop = event.start;
+	                 endDateOnStop = event.end;
+	        }, 1000);                   
+	    }
 		
 	});
-	
+	 var cal=[];
+	 cal=$('#calendar').fullCalendar( 'clientEvents');
+     
+      //event store in var End
+        
+        
+	//id가 post인 버튼 클릭시 eventDatalist라는 json형식의 배열을 for문으로 하나하나 서블릿으로 post방식으로 데이터를 전송한다.
     $('#post').click(function(){
     	
-    	for(var i=0;i<eventDatalist.length;i++){
-    	$.ajax({
+    	
+    	var newcal ="";
+    	for(var i =0;i<cal.length;i++){
+    		newcal = newcal + JSONtoString(cal[i])+",";
     		
-        	type:"POST",
-        	url:"send.cal",
-        	
-			data: JSON.stringify(eventDatalist[i])
-			,
-			contentType: "application/json"
-			
-        	 
-         });
-    	}	
-    });
-	 	
-});	
+    	}
+    	newcal = "["+newcal.substring(0,newcal.length-1)+"]"; // json 배열 스트링형식으로의 변환
+    	
+    	
+    	$.ajax({
+            
+            type:"POST",
+            url:"send.cal",
+           
+                   data: newcal
+                   ,
+                   
+                   success:function(){
+                          alert("성공");
+                   },
+                   error:function(){
+                          alert("실패");
+                   }
+            
+        });
 
+    });
+	 
+});	
+	//json array 을 string으로 변환하는 함수
+	function JSONtoString(object) {
+	    var results = [];
+	    for (var property in object) {
+	        var value = object[property];
+	        if(property.toString()!="start" && property.toString()!="end"){ 
+	            results.push('"'+property.toString() +'"'+ ': ' + '"'+value+'"');
+	        }else if(property.toString()=="start" || property.toString()=="end"){ // 속성이 start,end일때 13자리 값을 날짜로 변환
+	        	results.push('"'+property.toString() +'"'+ ': ' + '"'+new moment(value).format("YYYY-MM-DD")+'"');
+	        }
+	        }
+	             
+	        return '{' + results.join(', ') + '}';
+	}
 	
 </script>
 <style type="text/css">
@@ -92,6 +143,7 @@
 </style>
 </head>
 <body>
+
 	<div id='calendar'></div>
 	
 	<div id="result">
@@ -99,7 +151,6 @@
 		
 		</table>
 	</div>
-	<button id="post">전송1</button>
-	<button id="post2">전송2</button>
+	<button id="post">전송</button>
 </body>
 </html>
