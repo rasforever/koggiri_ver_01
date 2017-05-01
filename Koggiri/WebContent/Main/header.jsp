@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <link type="text/css" rel="stylesheet" href="../style/main_menu.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
@@ -50,7 +51,7 @@
 					<li><a href="#">그림회의</a></li>
 					<li><a href="#">화상회의</a></li>
 				</ul></li>
-			<li><a href="#">조직도</a></li>
+			<li><a href="../member_chart/chart.ch">조직도</a></li>
 
 		</ul>
 	</div>

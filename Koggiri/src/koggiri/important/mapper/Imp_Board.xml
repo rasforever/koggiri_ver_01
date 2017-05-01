@@ -7,8 +7,7 @@
 	
 	<insert id="imp_insertBoard" parameterType="Imp_Board">
 		insert into importantboard(
-		i_id, i_emp_id, i_title, i_content, i_date,
-		i_hit
+		i_id, i_emp_id, i_title, i_content, i_date, i_hit
 		)
 		values(
 		nboard.nextval, #{i_emp_id}, #{i_title}, #{i_content},
@@ -16,8 +15,17 @@
 		)
 	</insert>
 	
-	<select id="imp_listBoard" resultType="Imp_Board">
+	<select id="imp_listBoard" resultType="Imp_Board" parameterType="Imp_Search">
 		select * from importantboard
+		
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item = "item" separator="or" open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>	
+			</where>	
+		</if>
+		order by i_id desc
 	</select>
 		
 	<select id="imp_detailBoard" resultType="Imp_Board" parameterType="int">
@@ -29,7 +37,28 @@
 				i_hit = i_hit+1
 			where i_id = #{i_id}
 	</update>
-		
-
+	
+	<update id="imp_updateBoard" parameterType="Imp_Board">
+			update importantboard set			
+				i_title = #{i_title},
+				i_content = #{i_content}	
+			where i_id = #{i_id}	
+	</update>
+	
+	<delete id="imp_deleteBoard" parameterType="Imp_Board">
+			delete from importantboard 
+			where i_id = #{i_id}
+	</delete>
+	
+	<select id="imp_countBoard" resultType="int" parameterType="Imp_Search">
+		select count(*) from importantboard
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator= "OR" open = "(" close = ")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>	
+		</if>
+	</select>
 
 </mapper>

@@ -11,14 +11,14 @@
 		<typeAlias type="koggiri.login.model.Member" alias ="Member"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/> <!-- 고병휘 -->
 		<typeAlias type="koggiri.noticeboard.model.NoticeSearch" alias = "NoticeSearch"/><!-- 고병휘 -->
-		<typeAlias type="koggiri.approval.model.PayType" alias="PayType"/> <!-- 결제방법 서버접속 -->
-		<typeAlias type="koggiri.approval.model.ReqType" alias="ReqType"/> <!-- 신청방법 서버접속 -->	
-		<typeAlias type="koggiri.approval.model.LeaveType" alias="LeaveType"/> <!-- 신청방법 서버접속 -->	
+		<typeAlias type="koggiri.approval.model.AppType" alias="AppType"/> <!-- 결제방법 서버접속 -->
 		<typeAlias type="koggiri.approval.model.Emp_infomation" alias="Emp_infomation"/> <!-- 사원정보 서버접속 -->	
 		<typeAlias type="koggiri.approval.model.Approval" alias="Approval"/> <!-- 사원정보 서버접속 -->	
- 		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> 
+ 		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> <!-- 고병휘  -->
+ 		<typeAlias type="koggiri.important.model.Imp_Search" alias="Imp_Search"/> <!-- 고병휘  -->
  		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 
 		<typeAlias type="koggiri.calendar.model.Event" alias="Event"/>
+		<typeAlias type="koggiri.chart.model.Chart" alias="Chart"/><!-- 조직도 -->
 
 	</typeAliases>
 	
@@ -39,6 +39,7 @@
 		<mapper resource="koggiri/approval/mapper/Approval.xml"/>
 		<mapper resource="koggiri/task/mapper/Task.xml"/>
 		<mapper resource="koggiri/calendar/mapper/Calendar.xml"/>
+		<mapper resource="koggiri/chart/mapper/Chart.xml"/>
 	</mappers>
 	
 </configuration>
