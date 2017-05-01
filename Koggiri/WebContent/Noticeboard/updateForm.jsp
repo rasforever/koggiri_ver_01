@@ -17,7 +17,7 @@
 				<input type="text" name="n_emp_id" value = "${board.n_emp_id }" size="10">
 			</td>			
 		</tr>
-		
+	
 		<tr height="30">
 			<td width="80">제목</td>
 			<td align="left" colspan="3">

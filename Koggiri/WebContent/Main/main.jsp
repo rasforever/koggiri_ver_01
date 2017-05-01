@@ -12,6 +12,7 @@
 	<div id="main_header" align="center">
 		<jsp:include page="header.jsp" />
 	</div>
+	
 	<div id="main_contain" align="center">
 		<br> <br>
 		<table id="main_tab" align="center">

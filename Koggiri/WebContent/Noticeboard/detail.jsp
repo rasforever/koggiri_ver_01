@@ -7,43 +7,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style/board.css">
+
 <title>Insert title here</title>
 
 </head>
 <body>
+<div align="center">
+<div class="detail" align="center">
 	<h3>상세보기</h3>
-	<table border="1">
-		<tr height="30">
-			<td width="150">글번호</td>
-			<td width="150">${board.n_id }</td>
-			<td width="150">조회수</td>
-			<td width="150">${board.n_hit }</td>
+	<div>
+	<table  id="detail_tb">
+		<tr>
+			<th width="50">글번호</th>
+			<td width="500">${board.n_id }</td>
+			<th width="50">조회수</th>
+			<td width="50">${board.n_hit }</td>
+		<tr>
+			<th width="50">작성자</th>
+			<td width="500">${board.n_emp_id }</td>
+			<th width="50">작성일</th>
+			<td width="80"><fmt:formatDate value= "${board.n_date }"/></td>
 		</tr>
-		<tr height="30">
-			<td width="150">작성자</td>
-			<td width="150">${board.n_emp_id }</td>
-			<td width="150">작성일</td>
-			<td width="150"><fmt:formatDate value= "${board.n_date }"/></td>
+		<tr>
+			<th width="50">제목</th>
+			<td width="500" colspan="3">${board.n_title }</td>
 		</tr>
 
-		<tr height="30">
-			<td width="150">제목</td>
-			<td colspan="3">${board.n_title }</td>
-		</tr>
-		<tr height="30">
-			<td colspan="4">${board.n_content }</td>
-		</tr>
+		<tr>
 		
-		<tr height="30">
-			<td colspan="4">
-				<a href="listAction.noticeboard">목록</a>
+			<td colspan="4"><hr>내용 : ${board.n_content }<hr></td>
+		</tr>
+	</table>
+		</div>
+					<a href="listAction.noticeboard">목록</a>
 				<a href="updateFormAction.noticeboard?n_id=${board.n_id} ">수정</a>
 				<a href="deleteAction.noticeboard?n_id=${board.n_id} ">삭제</a>
-		</tr>
-		
-		
 
-	</table>
+	</div>
+	</div>
 </body>
 </html>
 
