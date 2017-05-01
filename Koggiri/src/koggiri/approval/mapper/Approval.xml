@@ -10,7 +10,7 @@
 	
 	
 	<select id="app_tyselect" resultType="AppType">
-		select app_type_cd, app_type_nm from App_type
+		select app_type_cd, app_type_nm, app_context from App_type
 	</select>
 	
 	<select id="einfo_select" resultType="Emp_infomation">
