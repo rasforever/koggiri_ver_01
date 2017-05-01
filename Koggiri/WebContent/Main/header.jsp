@@ -50,7 +50,7 @@
 					<li><a href="#">그림회의</a></li>
 					<li><a href="#">화상회의</a></li>
 				</ul></li>
-			<li><a href="#">조직도</a></li>
+			<li><a href="../member_chart/chart.ch">조직도</a></li>
 
 		</ul>
 	</div>

@@ -30,11 +30,6 @@ $(function(){
 });
  
 </script>
-
-<form action="chart.ch" method="post">
-		<input type="submit" value="조직도 보기">
-</form>	
-
 <!-- 부서 별 -->	
  <div id="Tabs">
  <ul>
