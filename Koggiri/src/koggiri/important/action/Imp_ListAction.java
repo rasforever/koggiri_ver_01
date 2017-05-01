@@ -16,8 +16,8 @@ public class Imp_ListAction implements Imp_Action {
 	public Imp_ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Imp_BoardDao dao = Imp_BoardDao.getInstance();
-		List<Imp_Board> list = dao.imp_listBoard();
+		Imp_BoardDao imp_dao = Imp_BoardDao.getInstance();
+		List<Imp_Board> list = imp_dao.imp_listBoard();
 		request.setAttribute("list", list);
 		
 		Imp_ActionForward imp_forward = new Imp_ActionForward();

@@ -10,6 +10,7 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="script/approval.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -22,7 +23,15 @@
 		기&nbsp;안&nbsp;일 : <input type="text" name="draft_dt" class="datepicker"><br>
 		제목 : <input type="text" name = "draft_title"><br>
 	 	내용 : <br>
-	 	<textarea rows="20" cols="100" name = "draft_content"></textarea>
+	 	<textarea rows="20" cols="100" id="draft_content" name = "draft_content">
+	 	</textarea>
+	 	<script type="text/javascript">
+			 	CKEDITOR.replace( 'draft_content',{
+			 	    'filebrowserUploadUrl':'/ckeditor/upload.jsp?'
+			 	    +'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
+			 	    +'&realDir=서버업로드될디렉토리명'
+			 	});
+            </script>
 		<br>
 		<input type="submit" value="등록">
 	</form>
