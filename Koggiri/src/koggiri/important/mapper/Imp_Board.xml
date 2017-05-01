@@ -29,6 +29,13 @@
 				i_hit = i_hit+1
 			where i_id = #{i_id}
 	</update>
+	
+	<update id="imp_updateBoard" parameterType="Imp_Board">
+			update importantboard set			
+				i_title = #{i_title},
+				i_content = #{i_content}	
+			where i_id = #{i_id}	
+	</update>
 		
 
 

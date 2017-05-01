@@ -10,5 +10,6 @@ public interface Imp_BoardMapper {
 	List<Imp_Board> imp_listBoard();
 	Imp_Board imp_detailBoard(int i_id);
 	int imp_updateHit(int i_id);
+	int imp_updateBoard(Imp_Board imp_board);
 
 }
