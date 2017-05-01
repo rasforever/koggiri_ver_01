@@ -12,6 +12,9 @@
 .chart{
 	width: 1100px;
 }
+.update{
+	width: 1100px;
+}
 #chart_detail {
 	width: 1100px;
 }
@@ -19,6 +22,10 @@
 .detail{
 	width: 1100px;
 }
+#update_tb{
+	width: 1100px;
+}
+
 #detail_tb{
 		width: 1100px;
 
@@ -171,4 +178,9 @@ h3 {
 }
 #MG a:hover{
 	color: #ff8080;
+}
+
+/**************************/
+.up_input{
+	border: 0px;
 }

@@ -13,10 +13,11 @@
 	<div id="main_header" align="center">
 		<jsp:include page="../Main/header.jsp" />
 	</div>
-		<br><br><br><br>
 	<div align="center">
+			<br><br><br><br>
 	<div class="list" align="center">
-		<br><br><br><br>
+		<h3>Notice</h3>
+		<br><br>
 		<table cellpadding="0" cellspacing="0" id="list_tb">
 			<tr>
 				<th width="100">글번호</th>

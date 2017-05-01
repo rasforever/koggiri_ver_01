@@ -21,7 +21,7 @@
 }
 #main_logo img {
 	/* 이미지크기 및 마진 */
-	margin-right:50px;
+	padding-right:15px;
 	width: 100px;
 	height: 100px;
 	float: left;
@@ -30,7 +30,7 @@
 
 #main_contain {
 	/* 컨테인  */
-	margin-left:70px;
+
 	width:1400px;
 	clear: both;
 }
