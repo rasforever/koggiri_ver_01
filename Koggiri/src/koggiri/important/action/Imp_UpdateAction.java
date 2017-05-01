@@ -35,6 +35,7 @@ public class Imp_UpdateAction implements Imp_Action {
 		imp_forward.setRedirect(false);
 		imp_forward.setPath("listAction.importantboard");
 	
+		
 		return imp_forward;
 	}
 

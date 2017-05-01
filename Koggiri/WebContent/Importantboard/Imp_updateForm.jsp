@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="updateAction.importantboard?i_id=${imp_board.i_id}">
+	<form action="updateAction.importantboard?i_id=${imp_board.i_id}" method="post">
 		
 		<table border="1" cellpadding="0" cellspacing="0">
 		<tr height="30">
@@ -37,10 +37,6 @@
 			</td>			
 		</tr>
 	</table>
-
-
-
-
 	</form>
 </body>
 </html>
