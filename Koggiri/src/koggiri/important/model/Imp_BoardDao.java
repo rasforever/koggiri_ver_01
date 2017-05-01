@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -50,11 +51,11 @@ public class Imp_BoardDao {
 		}
 	}
 
-	public List<Imp_Board> imp_listBoard(Imp_Search imp_search) {
+	public List<Imp_Board> imp_listBoard(int startRow, Imp_Search imp_search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		List<Imp_Board> imp_listBoard = null;
 		try {
-			imp_listBoard =  session.getMapper(Imp_BoardMapper.class).imp_listBoard(imp_search);
+			imp_listBoard =  session.getMapper(Imp_BoardMapper.class).imp_listBoard(new RowBounds(startRow, 5) ,imp_search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -131,6 +132,19 @@ public class Imp_BoardDao {
 			session.close();
 		}
 
+	}
+	
+	public int imp_countBoard(Imp_Search imp_search){
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = 0;
+		try {
+			re = session.getMapper(Imp_BoardMapper.class).imp_countBoard(imp_search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return re;
 	}
 
 }

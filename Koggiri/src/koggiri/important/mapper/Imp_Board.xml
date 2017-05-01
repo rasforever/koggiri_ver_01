@@ -49,7 +49,16 @@
 			delete from importantboard 
 			where i_id = #{i_id}
 	</delete>
-		
-
+	
+	<select id="imp_countBoard" resultType="int" parameterType="Imp_Search">
+		select count(*) from importantboard
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator= "OR" open = "(" close = ")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>	
+		</if>
+	</select>
 
 </mapper>
