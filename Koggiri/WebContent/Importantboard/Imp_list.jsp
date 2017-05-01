@@ -31,21 +31,32 @@
 	<br>
 	<br>
 	
-	<c:if test=""></c:if>
+	<!--  페이징 처리 영역  -->
 	
+	<!-- [이전] 버튼 만들기 -->
+	<c:if test="${Imp_ListModel.imp_startPage > 5}">
+		<a href="listAction.importantboard?pageNum=${Imp_ListModel.imp_startPage - 5}">[이전]</a>
+	</c:if>
 	
+	<!-- [1][2][3] 버튼 만들기  -->
+	<c:forEach var="pageNo" begin="${Imp_ListModel.imp_startPage}" end="${Imp_ListModel.imp_endPage}">
+		<c:if test="${Imp_ListModel.requestPage == pageNo }">
+		<b>
+		</c:if>
+		
+		<a href="listAction.importantboard?pageNum=${pageNo }">[${pageNo }]</a>
+		
+		<c:if test="${Imp_ListModel.requestPage == pageNo }">
+		</b>
+		</c:if>
+	</c:forEach>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<!-- [이후] 버튼 만들기 -->
+	<c:if test="${Imp_ListModel.imp_endPage > 5}">
+		<a href="listAction.importantboard?pageNum=${Imp_ListModel.imp_startPage + 5}">[이전]</a>
+	</c:if>
+
+
 	<form action="listAction.importantboard" method ="post">
 		<input type = "hidden" name="temp" value = "temp"></input>
 		<input type = "checkbox" name = "area" value = "i_title">제목</input>

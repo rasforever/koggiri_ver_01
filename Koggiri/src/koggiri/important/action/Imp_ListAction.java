@@ -23,6 +23,7 @@ public class Imp_ListAction implements Imp_Action {
 		Imp_BoardDao imp_dao = Imp_BoardDao.getInstance();
 		Imp_Search imp_search = new Imp_Search();
 		
+		//검색부분
 		if(request.getParameter("temp") != null){//새로운 검색이 들어오기전 이전의 검색된 것을 삭제해줌.
 			session.removeAttribute("imp_search");
 		}
