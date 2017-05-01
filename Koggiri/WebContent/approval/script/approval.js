@@ -6,11 +6,8 @@ $(function() {
 	});
 });
 
-function typesel(obj) {		
-
-		$('#draft_content').text("disabled");
-
-	
+function typesel(obj) {	
+	$('#draft_content > body').text('AA');		
 }
 
 function approval_type(obj) {
