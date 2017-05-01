@@ -30,29 +30,7 @@ public class ApprovalDao {
 
 	}
 
-	public List<PayType> pay_tyselect() throws Exception { //비용신청 지불방법 
-		SqlSession session = getSqlSessionFactory().openSession();
-		try {
-			return session.getMapper(ApprovalMapper.class).pay_tyselect();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		} finally {
-			session.close();
-		}
-	}
 
-	public List<ReqType> req_tyselect() throws Exception { //비용신청 사용방법
-		SqlSession session = getSqlSessionFactory().openSession();
-		try {
-			return session.getMapper(ApprovalMapper.class).req_tyselect();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		} finally {
-			session.close();
-		}
-	}
 	
 	public Emp_infomation einfo_select() throws Exception { //인사정보 가져오기
 		SqlSession session = getSqlSessionFactory().openSession();
@@ -66,10 +44,12 @@ public class ApprovalDao {
 		}
 	}
 	
-	public List<LeaveType> leave_tyselect() throws Exception { //휴가 휴가종류
+	
+	
+	public List<AppType> app_tyselect() throws Exception { //휴가 휴가종류
 		SqlSession session = getSqlSessionFactory().openSession();		
 		try {
-			return session.getMapper(ApprovalMapper.class).leave_tyselect();
+			return session.getMapper(ApprovalMapper.class).app_tyselect();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
