@@ -23,4 +23,5 @@ public interface ApprovalMapper {
 	public List<Approval> approval_st_select(); //전체 조회
 	public int insertApproval(ApprovalInsert approvalInsert); //기안서에서 기안종류
 	public ApprovalDetail approval_detail(String app_id);
+	public int updateApproval(ApprovalInsert approvalInsert); //기안서에서 기안종류
 }

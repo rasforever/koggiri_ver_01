@@ -201,5 +201,25 @@ public class ApprovalDao {
 			session.close();
 		}
 	}
+	
+	public void updateApproval(ApprovalInsert approvalInsert) {
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = -1;
+
+		try {
+			re = session.getMapper(ApprovalMapper.class).updateApproval(approvalInsert);
+
+			if (re > 0) {
+				session.commit();
+
+			} else {
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
 
 }

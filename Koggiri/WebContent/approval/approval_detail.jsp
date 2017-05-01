@@ -48,7 +48,7 @@
 		</tr>
 	</table>
 				<a href="approval_list_r.approval?type=0">목록</a>
-				<a href="approval_updateFormAction.approval?app_id=${approvaldetail.app_id} ">수정</a>
+				<a href="approval_updateForm.approval?app_id=${approvaldetail.app_id} ">수정</a>
 				<a href="approval_deleteAction.approval?app_id=${approvaldetail.app_id} ">삭제</a>
 
 

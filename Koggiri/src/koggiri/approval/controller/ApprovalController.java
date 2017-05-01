@@ -16,6 +16,8 @@ import koggiri.approval.action.ApprovalDetailAction;
 import koggiri.approval.action.ApprovalInsertAction;
 import koggiri.approval.action.ApprovalInsertFormAction;
 import koggiri.approval.action.ApprovalListAction;
+import koggiri.approval.action.ApprovalUpdateAction;
+import koggiri.approval.action.ApprovalUpdateForm;
 
 @WebServlet(urlPatterns = "*.approval")
 public class ApprovalController extends HttpServlet {
@@ -136,6 +138,22 @@ public class ApprovalController extends HttpServlet {
 		}
 		else if (command.equals("approval/approval_detailAction.approval")) {
 			action = new ApprovalDetailAction();	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_updateForm.approval")) {
+			action = new ApprovalUpdateForm();	
+            try {
+               forward = action.execute(request, response);
+           } catch (Exception e) {
+              e.printStackTrace();
+           }
+		}
+		else if (command.equals("approval/approval_updateAction.approval")) {
+			action = new ApprovalUpdateAction();	
             try {
                forward = action.execute(request, response);
            } catch (Exception e) {
