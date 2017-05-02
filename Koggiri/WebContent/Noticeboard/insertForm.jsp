@@ -12,9 +12,7 @@
 
 	<form action="insertAction.noticeboard" method="post">
 		<div align="center">
-			<div id="main_header" align="center">
 				<jsp:include page="../Main/header.jsp" />
-			</div>
 			<br> <br> <br> <br>
 			<div class="board" align="center">
 
