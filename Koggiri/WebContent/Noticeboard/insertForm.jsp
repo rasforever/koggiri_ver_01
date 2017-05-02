@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<form action="insertAction.noticeboard" method="post">
 		<div align="center">
 				<jsp:include page="../Main/header.jsp" />
