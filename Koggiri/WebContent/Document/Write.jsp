@@ -8,5 +8,16 @@
 </head>
 <body>
 
+<form action="insertAction.document" method="post" enctype="multipart/form-data">
+
+제목 : <input type="text" name="f_title"/><br/>
+작성자 : <input type="text" name="f_writer"/><br/>
+내용 : <textarea rows="10" cols="20" name="f_content"></textarea>
+문서 : <input type="file" name="filename"><br/>
+<input type="submit"/>
+
+
+</form>
+
 </body>
 </html>
