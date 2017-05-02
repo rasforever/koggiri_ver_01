@@ -12,17 +12,16 @@
 
 	<form action="insertAction.noticeboard" method="post">
 		<div align="center">
-			<div id="main_header" align="center">
 				<jsp:include page="../Main/header.jsp" />
-			</div>
 			<br> <br> <br> <br>
 			<div class="board" align="center">
 
 
-				<h3 align="center">공지사항 작성</h3>
+				<h3 align="center">Notice</h3>
+				<br><br>
 				<hr>
 				<br> <br> 제목 &nbsp;<input type="text" name="n_title"
-					size="160"> <br> <br>
+					size="143"><br><br>
 				<textarea rows="50" cols="190" name="n_content"></textarea>
 				<script type="text/javascript">
 					CKEDITOR.replace('n_content', {

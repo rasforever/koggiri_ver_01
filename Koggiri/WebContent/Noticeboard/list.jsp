@@ -13,11 +13,12 @@
 	<div id="main_header" align="center">
 		<jsp:include page="../Main/header.jsp" />
 	</div>
-		<br><br><br><br>
 	<div align="center">
+			<br><br><br><br>
 	<div class="list" align="center">
-		<br><br><br><br>
-		<table cellpadding="0" cellspacing="0" id="list_tb">
+		<h3>Notice</h3>
+		<br><br>
+		<table id="list_tb">
 			<tr>
 				<th width="100">글번호</th>
 				<th width="400">제목</th>
@@ -73,8 +74,8 @@
 				<input type="hidden" name="temp" value="temp"></input> <input
 					type="checkbox" name="area" value="n_title">제목</input> <input
 					type="checkbox" name="area" value="n_content">내용</input> <input
-					type="text" name="searchKey" size="30"></input> <input
-					type="submit" value="검색" id="search_btn">
+					type="text" name="searchKey" size="30"></input> 
+					<input type="submit" value="검색" id="search_btn">
 			</div>
 			<!-- search_div div -->
 		</form>
