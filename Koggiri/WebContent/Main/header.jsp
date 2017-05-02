@@ -37,7 +37,7 @@
 							<li><a href="#">공지사항</a>
 								<ul>
 									<li><a href="../Noticeboard/listAction.noticeboard">공지합니다</a></li>
-									<li><a href="#">알립니다</a></li>
+									<li><a href="../Importantboard/listAction.importantboard">알립니다</a></li>
 								</ul></li>
 
 							<li><a href="#">일정</a></li>

@@ -18,7 +18,7 @@
 	<div class="list" align="center">
 		<h3>Notice</h3>
 		<br><br>
-		<table cellpadding="0" cellspacing="0" id="list_tb">
+		<table id="list_tb">
 			<tr>
 				<th width="100">글번호</th>
 				<th width="400">제목</th>
