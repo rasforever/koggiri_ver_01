@@ -28,8 +28,7 @@ public class ta_DetailAction implements ta_Action {
 		Task task = dao.detailTask(ta_seq);
 		
 		
-		task.setTa_startdate(task.getTa_startdate().substring(0,10));
-		task.setTa_enddate(task.getTa_enddate().substring(0,10));
+		task.setTa_date(task.getTa_date().substring(0,21));
 
 		request.setAttribute("task", task);
 	

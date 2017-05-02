@@ -22,8 +22,7 @@
 		<tr height="30">
 			<td width="80">업무기간</td>
 			<td width="170">
-				시작일:<input type="text" name="ta_startdate" class="datepicker1" value="${task.ta_startdate}">
-				종료일:<input type="text" name="ta_enddate" class="datepicker2" value="${task.ta_enddate}">
+				<input type="text" name="ta_date" class="week-picker" value="${task.ta_date}">
 			</td>			
 		</tr>
 		

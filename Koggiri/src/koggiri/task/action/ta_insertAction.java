@@ -16,27 +16,18 @@ public class ta_insertAction implements ta_Action {
 		System.out.println("dfjkjdkjkj");
 		TaskDao dao = TaskDao.getInstance();
 	     Task task = new Task();
-	     
+		
 	     task.setTa_weekresult(request.getParameter("ta_weekresult"));
 	     task.setTa_nextresult(request.getParameter("ta_nextresult"));
-	   
-		
-	     String result1 = request.getParameter("ta_startdate");
-			String ta_startdate = result1.substring(0,10);
-			task.setTa_startdate(ta_startdate);
-			System.out.println(result1);
-			
-		  String result2 = request.getParameter("ta_enddate").substring(0,10);
-			String ta_enddate = result2.substring(0,10);
-				task.setTa_enddate(ta_enddate);	
-				System.out.println(result2);
-				
+	     task.setTa_date(request.getParameter("ta_date"));
+			   
 	     
 	     dao.insertTask(task);
 		
 		ta_ActionForward forward = new ta_ActionForward();
 	    forward.setRedirect(true); 
 		forward.setPath("ta_listAction.task");
+		
 		
 		return forward;
 	}

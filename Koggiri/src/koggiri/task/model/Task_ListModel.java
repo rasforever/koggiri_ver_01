@@ -4,6 +4,13 @@ import java.util.List;
 
 public class Task_ListModel {
 	
+	@Override
+	public String toString() {
+		return "Task_ListModel [list=" + list + ", requestPage=" + requestPage + ", totalPageCount=" + totalPageCount
+				+ ", startPage=" + startPage + ", endPage=" + endPage + "]";
+	}
+
+
 	private List<Task> list;
 	private int requestPage;//현재 페이지
 	private int totalPageCount; //총 페이지 갯수

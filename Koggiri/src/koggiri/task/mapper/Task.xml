@@ -7,11 +7,11 @@
 
 	<insert id="insertTask" parameterType="Task">
 		insert into task(
-		ta_seq, emp_id, ta_startdate, ta_enddate, ta_weekresult,
+		ta_seq, emp_id, ta_date, ta_weekresult,
 		ta_nextresult, ta_regdate, ta_hitcount
 		)
 		values(
-		TASK_TA_SEQ.nextval, #{emp_id}, #{ta_startdate} , #{ta_enddate}, #{ta_weekresult},
+		TASK_TA_SEQ.nextval, '12', #{ta_date}, #{ta_weekresult},
 		#{ta_nextresult}, SYSDATE, 0
 		)
 	</insert>
@@ -26,8 +26,7 @@
 	
 	<update id="updateTask" parameterType="Task">
 		update Task set 
-			ta_startdate = #{ta_startdate}, 
-			ta_enddate = #{ta_enddate},
+			ta_date = #{ta_date}, 
 			ta_weekresult = #{ta_weekresult},
 			ta_nextresult = #{ta_nextresult}
 		     where ta_seq = #{ta_seq}
@@ -37,20 +36,25 @@
 		delete from Task where ta_seq = #{ta_seq}
 	</delete>
 	
-	<update id="updateTask_Hit" parameterType="int">
+	<update id="updateTask_Hit" parameterType="int" >
 	    update Task set
 			ta_hitcount = ta_hitcount + 1
 			where ta_seq = #{ta_seq}
     </update>
     
     	<select id="countTask" resultType="int" parameterType="TaskSearch">
+			<!-- 페이지처리를 위해 게시글 갯수 알기 -->
 		select count(*) from Task
 		<if test="area != null">
+		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
 			<where>
-				<foreach collection="area" item="item" separator= "OR" open = "(" close = ")">
+				<!-- b_title LIKE %~~% or b_name LIKE %~~% -->
+				<!-- collection : 전달받은 인자값 -->
+				<foreach collection="area" item="item" separator="OR"
+				open="(" close=")">
 					${item} LIKE #{searchKey}
 				</foreach>
 			</where>
 		</if>
-	</select>
+</select>
 </mapper>

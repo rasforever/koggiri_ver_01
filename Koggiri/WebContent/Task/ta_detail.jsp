@@ -25,7 +25,7 @@
 
 		<tr height="30">
 			<td width="150">업무기간</td>
-			<td colspan="3">${task.ta_startdate} ~ ${task.ta_enddate}</td>
+			<td colspan="3">${task.ta_date}</td>
 		</tr>
 		<tr height="30">
 		    <td width="150">주간업무일지</td>
