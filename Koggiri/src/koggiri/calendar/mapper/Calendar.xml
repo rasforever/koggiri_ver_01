@@ -10,7 +10,7 @@
 	
 	<insert id="calendarinsert" parameterType="Event" >
 		insert into calendar values(
-		#{title},#{start_date},#{end_date}
+		#{_id},#{title},#{start_date},#{end_date}
 		)
 		
 		
@@ -23,6 +23,12 @@
 		select count(*) from calendar
 		
 	</select>
+	
+	<update id="updateEvent" parameterType="Event">
+		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}
+		 where event_id = #{_id}
+		
+	</update>
 </mapper>
 
 

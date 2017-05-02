@@ -75,4 +75,24 @@ private static EventDao dao = new EventDao();
 			session.close();
 		}
 	}
+	
+	public int updateEvent(List<Event> eventlist){
+		int re=-1;
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			re = session.getMapper(CalendarMapper.class).updateEvent(eventlist);
+			if(re>0){
+				session.commit();
+
+			}else{
+				session.rollback();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return re;
+	}
 }

@@ -47,6 +47,7 @@ public class EventInsertAction implements Action {
 	        	      for(int i=0;i<lstJson.size();i++) {
 	        	    	  Event event = new Event(); // json array size만큼 event객체에 속성에 대한 값을 지정 후 eventlist arraylist에 추가
 	        	       JSONObject rstJson = (JSONObject)lstJson.get(i);
+	        	       event.set_id((String) rstJson.get("_id"));
 	        	       event.setTitle((String) rstJson.get("title")); // title key값을 갖는 value값을 가져옴
 	        	       event.setStart_date(((String) rstJson.get("start")));
 	        	       

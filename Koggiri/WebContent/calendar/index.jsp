@@ -75,7 +75,7 @@
 	        event.title = prompt('Event Title:');
 			
 	        $('#calendar').fullCalendar('updateEvent', event);
-
+			
 	    },
 	    //event의 사이즈를 줄였다 늘였다 할 수 있는 기능
 	    eventResizeStart: function(event) {     
@@ -189,7 +189,7 @@
 
 	<div id='calendar'></div>
 	<input id='post' type="button" value="일정 등록">
-	<input id='post1' type="button" value="일정 등록1">
+	<input id='post1' type="button" value="일정 수정">
 
 </body>
 </html>
