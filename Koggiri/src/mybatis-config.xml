@@ -19,6 +19,8 @@
  		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 
 		<typeAlias type="koggiri.calendar.model.Event" alias="Event"/>
 		<typeAlias type="koggiri.chart.model.Chart" alias="Chart"/><!-- 조직도 -->
+		<typeAlias type="koggiri.change_pw.model.ChangePw" alias="ChangePw"/><!-- 비밀번호 변경 -->
+		
 
 	</typeAliases>
 	
@@ -40,6 +42,7 @@
 		<mapper resource="koggiri/task/mapper/Task.xml"/>
 		<mapper resource="koggiri/calendar/mapper/Calendar.xml"/>
 		<mapper resource="koggiri/chart/mapper/Chart.xml"/>
+		<mapper resource="koggiri/change_pw/mapper/ChangePw.xml"/>
 	</mappers>
 	
 </configuration>

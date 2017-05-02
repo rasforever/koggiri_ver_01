@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-
-</form>
-
+비밀번호 변경 성공ㅋ.ㅋ
 </body>
 </html>
