@@ -31,14 +31,11 @@
 		직&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;급 : <input
 			type="text" name="pos_nm" value="${einfo.pos_nm }" disabled>
 		<br> 기&nbsp;안&nbsp;일 : <input type="text" name="draft_dt"
-			class="datepicker"><br> 신청종류 : <select id="app_type"
-			name="app_type" onchange="typesel(this)">
-			<c:forEach var="apptype" items="${applist}">
-				<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
-				</option>
-			</c:forEach>
+			class="datepicker"><br> 신청종류 : <input type="text" name="app_type_nm"
+			value= "${approval.app_context}">
+		
 
-		</select>&nbsp;&nbsp;&nbsp; 제목 : <input type="text" name="app_title" value ="${approvaldetail.app_title}"><br>
+		</select>&nbsp;&nbsp;&nbsp; 제목 : <input type="text" name="app_title" value ="${approval.app_title}"><br>
 		내용 : <br>
 		<textarea rows="20" cols="100" id="app_context" name="app_context">
 	 	</textarea>
@@ -48,7 +45,7 @@
 					+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
 					+ '&realDir=서버업로드될디렉토리명'
 			});
-			CKEDITOR.instances.app_context.getData(${approvaldetail.app_context});
+			CKEDITOR.instances.app_context.getData(${approval.app_context});
 			function typesel(obj) {
 				var text ="";
 				if ($(obj).val() == "10"){
