@@ -52,4 +52,27 @@ private static EventDao dao = new EventDao();
 		return re;
 	}
 	
+	public List<Event> calendarList() throws Exception{ 
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(CalendarMapper.class).calendarList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			session.close();
+		}
+	}
+	
+	public int count() throws Exception{
+		SqlSession session = getSqlSessionFactory().openSession();
+		try {
+			return session.getMapper(CalendarMapper.class).count();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally {
+			session.close();
+		}
+	}
 }

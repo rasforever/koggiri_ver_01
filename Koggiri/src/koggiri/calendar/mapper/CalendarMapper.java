@@ -6,4 +6,6 @@ import koggiri.calendar.model.Event;
 
 public interface CalendarMapper {
 	int calendarinsert(Event event);
+	List<Event> calendarList();
+	int count();
 }
