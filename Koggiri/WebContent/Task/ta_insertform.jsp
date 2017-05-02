@@ -5,20 +5,24 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
 <link rel="stylesheet"
    href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script type="text/javascript" src="script/task.js"></script>
+<script type="text/javascript" src="script/task.js"></script> 
+<link rel="stylesheet" href="/css/jquery.datetimepicker.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
 <title>Insert title here</title>
 </head>
 <body>
-
+오늘 날짜 : <span id="today"></span>
 <form action="ta_insertAction.task" method="post">
 	<h3>업무등록</h3>
 	<hr>
 		<div>
-		시작일:<input type="text" name="ta_startdate" class="datepicker">
-		종료일:<input type="text" name="ta_enddate" class="datepicker">
+		시작일:<input type="text" name="ta_startdate" class="datepicker1" >
+		종료일:<input type="text" name="ta_enddate" class="datepicker2">
 		</div>
 		<div>
 		금주업무실적:<br>

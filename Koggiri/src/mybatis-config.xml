@@ -17,6 +17,7 @@
  		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> <!-- 고병휘  -->
  		<typeAlias type="koggiri.important.model.Imp_Search" alias="Imp_Search"/> <!-- 고병휘  -->
  		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 
+ 		<typeAlias type="koggiri.task.model.TaskSearch" alias="TaskSearch"/> 
 		<typeAlias type="koggiri.calendar.model.Event" alias="Event"/>
 		<typeAlias type="koggiri.chart.model.Chart" alias="Chart"/><!-- 조직도 -->
 
