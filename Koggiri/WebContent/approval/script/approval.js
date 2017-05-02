@@ -7,7 +7,6 @@ $(function() {
 });
 
 
-
 function approval_type(obj) {
 	if (obj == "rw") {
 		location.href = "approval_list_rw.approval";

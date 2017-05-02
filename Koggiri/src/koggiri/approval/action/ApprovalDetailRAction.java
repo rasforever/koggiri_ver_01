@@ -1,25 +1,24 @@
 package koggiri.approval.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import koggiri.approval.model.AppType;
 import koggiri.approval.model.Approval;
 import koggiri.approval.model.ApprovalDao;
-import koggiri.approval.model.Emp_infomation;
 
-public class ApprovalUpdateForm implements Action{
-
+public class ApprovalDetailRAction implements Action{
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ApprovalDao dao = ApprovalDao.getInstance();
+		Approval Approval = dao.detailRApproval(request.getParameter("app_id"));
 		
-		ApprovalDao dao = ApprovalDao.getInstance();		
+
+		request.setAttribute("approval", Approval); // 중요!
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/approval/approval_updateForm.jsp");
+		forward.setPath("/approval/approval_detail.jsp");
 
 		return forward;
 	}
