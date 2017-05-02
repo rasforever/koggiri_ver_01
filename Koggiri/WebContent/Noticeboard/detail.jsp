@@ -19,7 +19,8 @@
 			</div>
 			<br><br><br><br>
 <div class="detail" align="center">
-	<h3>상세보기</h3>
+	<h3>Notice</h3>
+	<br><br>
 	<hr><br>
 	<div>
 	<table  id="detail_tb">

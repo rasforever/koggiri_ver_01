@@ -12,6 +12,9 @@
 .chart{
 	width: 1100px;
 }
+.update{
+	width: 1100px;
+}
 #chart_detail {
 	width: 1100px;
 }
@@ -19,6 +22,17 @@
 .detail{
 	width: 1100px;
 }
+#update_tb{
+	width: 1100px;
+	border: 0px;
+}
+#update_tb th{
+	background-color: #0080ff;
+	color: white;
+	width: 60px;
+	height: 25px;
+}
+
 #detail_tb{
 		width: 1100px;
 
@@ -28,6 +42,18 @@
 	color: white;
 	width: 60px;
 	height: 25px;
+}
+
+.det_btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	border: 0px;
+	color: white;
+	font-weight: bold;
+}
+.det_btn:HOVER{
+	background-color: #ff8080;
 }
 
 h3 {
@@ -58,6 +84,7 @@ h3 {
 	background-color: #0080ff;
 	color: white;
 	height: 40px;
+	border: 0px;
 }
 
 #list_tb td {
@@ -75,6 +102,9 @@ h3 {
 	background-color:#0080ff;
 	color: white;
 }
+#insert_a a:HOVER{
+	background-color: #ff8080;
+}
 #bottom{
 	width: 1100px;
 }
@@ -90,6 +120,9 @@ h3 {
 	background-color: #0080ff;
 	border: 0px;
 	color: white;
+}
+#search_btn:HOVER{
+	background-color: #ff8080;
 }
 #rud a{
 	padding:10px;
@@ -171,4 +204,9 @@ h3 {
 }
 #MG a:hover{
 	color: #ff8080;
+}
+
+/**************************/
+.up_input{
+	border: 0px;
 }
