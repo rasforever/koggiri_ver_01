@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.calendar.action.Action;
 import koggiri.calendar.action.ActionForward;
+import koggiri.calendar.action.CountAction;
 import koggiri.calendar.action.EventInsertAction;
+import koggiri.calendar.action.EventListAction;
 
 
 @WebServlet("*.cal")
@@ -32,6 +34,7 @@ public void doProcess(HttpServletRequest request, HttpServletResponse response) 
         
         ActionForward forward = null;
         Action action = null;
+        
     	System.out.println(command);
         
         if(command.equals("calendar/send.cal")){
@@ -44,7 +47,27 @@ public void doProcess(HttpServletRequest request, HttpServletResponse response) 
               e.printStackTrace();
            }
          
-         }
+         }else if(command.equals("calendar/get.cal")){
+             
+             action = new EventListAction();
+             
+             try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+          
+          }else if(command.equals("calendar/cnt.cal")){
+              
+              action = new CountAction();
+              
+              try {
+                 forward = action.execute(request, response);
+             } catch (Exception e) {
+                e.printStackTrace();
+             }
+           
+           }
         
         if(forward !=null){
             if(forward.isRedirect()){

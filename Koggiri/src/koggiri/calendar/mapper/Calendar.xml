@@ -10,13 +10,19 @@
 	
 	<insert id="calendarinsert" parameterType="Event" >
 		insert into calendar values(
-		#{title},#{start},#{end}
+		#{title},#{start_date},#{end_date}
 		)
 		
 		
 	</insert>
-	
-	
+	<select id="calendarList" resultType="Event">
+		select start_date,end_date,title from calendar
+		
+	</select>
+	<select id="count" resultType="Integer">
+		select count(*) from calendar
+		
+	</select>
 </mapper>
 
 

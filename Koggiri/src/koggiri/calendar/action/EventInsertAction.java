@@ -36,7 +36,7 @@ public class EventInsertAction implements Action {
 	        if(br != null){
 	            json = br.readLine();
 	        }
-	        
+	        System.out.println(json);
 	       
 	     // string json array -> array<json> 변환
 	        if(json != null && !json.equals("")){ // json이 값이 있을 때
@@ -48,7 +48,7 @@ public class EventInsertAction implements Action {
 	        	    	  Event event = new Event(); // json array size만큼 event객체에 속성에 대한 값을 지정 후 eventlist arraylist에 추가
 	        	       JSONObject rstJson = (JSONObject)lstJson.get(i);
 	        	       event.setTitle((String) rstJson.get("title")); // title key값을 갖는 value값을 가져옴
-	        	       event.setStart((String) rstJson.get("start"));
+	        	       event.setStart_date(((String) rstJson.get("start")));
 	        	       
 	        	      // 날짜 변환 -->> string에서 calandar로 변환후 하루 전날로 변경후 다시  string으로 변환
 	        	       String end = (String) rstJson.get("end");
@@ -59,7 +59,7 @@ public class EventInsertAction implements Action {
 	        	       cal.setTime(tempDate);
 	        	       cal.add(Calendar.DAY_OF_MONTH, -1); // 하루 전날로 바꿈
 	        	       String enddate = sdFormat.format(cal.getTime());
-	        	       event.setEnd(enddate);
+	        	       event.setEnd_date(enddate);
 	        	      ///////////////////////////////////////////////////////////////
 	        	       
 	        	       eventlist.add(event);

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+
 <script src='lib/jquery.min.js'></script>
 <script src='json2.js'></script>
 <link rel='stylesheet' href='fullcalendar.css' />
@@ -20,7 +21,9 @@
 	$(document).ready(function() {
 	
     // page is now ready, initialize the calendar...
-	
+	var count;
+    
+    
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -28,6 +31,20 @@
 			right: 'month,agendaWeek,agendaDay'
 		},
 		
+		    eventAfterAllRender: function (view) {
+		    	
+		    	$.ajax({
+		    		   type:"GET",
+		    		   url:"cnt.cal",
+		    		   dataType:'text',
+		    		   success:function(data){
+		    			   count = Number(data);
+		    			  /*  alert(count);
+		    			   alert(cal.length); */
+		    		   }
+		    	   })
+		   	
+		    },
 		navLinks: true, // can click day/week names to navigate views
 		selectable: true,
 		selectHelper: true,
@@ -72,27 +89,44 @@
 	                 startDateOnStop = event.start;
 	                 endDateOnStop = event.end;
 	        }, 1000);                   
-	    }
+	    }, 
+	    eventSources: { // 데이터 받고 뿌려주기
+            url: 'get.cal',
+            type: 'GET', 
+            
+        }
 		
 	});
-	 var cal=[];
+	   var cal=[];
 	 cal=$('#calendar').fullCalendar( 'clientEvents');
-     
+	 
       //event store in var End
         
-        
+      /*  $('#post1').click(function(){ 
+    	   $.ajax({
+    		   type:"GET",
+    		   url:"cnt.cal",
+    		   dataType:'text',
+    		   success:function(data){
+    			   count = Number(data);
+    			   alert(count);
+    			   alert(cal.length);
+    		   }
+    	   })
+    	   
+       }) */
 	//id가 post인 버튼 클릭시 eventDatalist라는 json형식의 배열을 for문으로 하나하나 서블릿으로 post방식으로 데이터를 전송한다.
     $('#post').click(function(){
     	
     	
     	var newcal ="";
-    	for(var i =0;i<cal.length;i++){
+    	for(var i =count; i<cal.length;i++){
     		newcal = newcal + JSONtoString(cal[i])+",";
     		
     	}
     	newcal = "["+newcal.substring(0,newcal.length-1)+"]"; // json 배열 스트링형식으로의 변환
     	
-    	
+    	console.log(newcal);
     	$.ajax({
             
             type:"POST",
@@ -109,9 +143,11 @@
                    }
             
         });
+	/* 	console.log(newcal); */
+    }); 
+    
+	
 
-    });
-	 
 });	
 	//json array 을 string으로 변환하는 함수
 	function JSONtoString(object) {
@@ -126,7 +162,14 @@
 	        }
 	             
 	        return '{' + results.join(', ') + '}';
-	}
+	} 
+	
+/* 	function popup(){
+		var url = "insert.jsp";
+		var name = "일정 등록 페이지";
+		window.open(url,name,"width=200,height=200")
+		
+	} */
 	
 </script>
 <style type="text/css">
@@ -145,12 +188,8 @@
 <body>
 
 	<div id='calendar'></div>
-	
-	<div id="result">
-		<table border="1">
-		
-		</table>
-	</div>
-	<button id="post">전송</button>
+	<input id='post' type="button" value="일정 등록">
+	<input id='post1' type="button" value="일정 등록1">
+
 </body>
 </html>
