@@ -36,7 +36,7 @@ public class EventUpdateAction implements Action {
 	    
 		}
 	   
-		System.out.println(json);
+		System.out.println("update할 event: "+json);
 		
 		
 		if(json != null && !json.equals("")){ // json이 값이 있을 때
@@ -60,7 +60,7 @@ public class EventUpdateAction implements Action {
       	      // 날짜 변환 -->> string에서 calandar로 변환후 하루 전날로 변경후 다시  string으로 변환
       	       String end = (String) rstJson.get("end");
       	       
-      	       System.out.println(end);
+      	       
       	       
       	       DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
       	       

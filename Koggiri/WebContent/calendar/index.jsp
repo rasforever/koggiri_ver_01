@@ -11,15 +11,42 @@
 <script src='lib/jquery.min.js'></script>
 <script src='json2.js'></script>
 <link rel='stylesheet' href='fullcalendar.css' />
-
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar.js' charset="euc-kr"></script>
 <script src='locale/ko.js'></script>
+
+<link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
+<script type="text/javascript" src="jquery.qtip.min.js"></script>
+
 <script type="text/javascript">
 	
 	
 	$(document).ready(function() {
-	
+		
+		
+		var tooltip = $('<div/>').qtip({
+			id: 'calendar',
+			prerender: true,
+			content: {
+				text: ' ',
+				title: {
+					button: true
+				}
+			},
+			position: {
+				my: 'bottom center',
+				at: 'top center',
+				target: 'mouse',
+				viewport: $('#calendar'),
+				adjust: {
+					mouse: false,
+					scroll: false
+				}
+			},
+			show: false,
+			hide: false,
+			style: 'qtip-light'
+		}).qtip('api');
     // page is now ready, initialize the calendar...
 	var count;
     var selected=[];
@@ -28,8 +55,8 @@
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
+			center: 'title'/* ,
+			right: 'month,agendaWeek,agendaDay' */
 		},
 		
 		 events: { // 데이터 받고 뿌려주기
@@ -39,19 +66,19 @@
 	        },     
 		    
 		    
-		navLinks: true, // can click day/week names to navigate views
+		navLinks: false, // can click day/week names to navigate views
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end) { 
 			
 			var title = prompt('Event Title:');
-		
+			var content = prompt('Content: ');
 			if (title) {
 			var	eventData = {
 					title: title,
 					start: start,
-					end: end
-					
+					end: end,
+					content: content
 					
 				}
 				
@@ -62,64 +89,26 @@
 			var cal=[];
 			
 	     	 cal=$('#calendar').fullCalendar( 'clientEvents');	
-	     	 
+	     	 console.log(cal);
 	     	 
 	     	
-	     	alert(cal.length);
-	     	cal[cal.length-1]._id = "_fc"+cal.length;
-	     	alert(JSONtoString(cal[cal.length-1]));
+	     	
+	     	cal[cal.length-1]._id = "_fc"+cal.length; // _id 1로 자꾸 지정되서 event개수만큼 으로 지정함.
+	     	
 	     	
 	     	$.ajax({
 	            
 	            type:"POST",
 	            url:"send.cal",
-	           
-	                   data: JSONtoString(cal[cal.length-1])
-	                    ,
-	                   
-	                   success:function(){
-	                          alert("성공");
-	                   },
-	                   error:function(){
-	                          alert("실패");
-	                   } 
+				data: JSONtoString(cal[cal.length-1])
+	
 	            
 	        });
 								
 			}
 			
 			$('#calendar').fullCalendar('unselect');
-			
-			/* var cal=[];
-			
-	     	 cal=$('#calendar').fullCalendar( 'clientEvents');	
-	     	
-		var newcal ="";
-   	for(var i =count; i<cal.length;i++){
-   		
-   		newcal = newcal + JSONtoString(cal[i])+",";
-   		alert(cal[i]._id);
-   	}
-   	newcal = "["+newcal.substring(0,newcal.length-1)+"]"; // json 배열 스트링형식으로의 변환
-   	
-   	console.log(newcal);
-   	$.ajax({
-           
-           type:"POST",
-           url:"send.cal",
-          
-                  data: newcal
-                   ,
-                  
-                  success:function(){
-                         alert("성공");
-                  },
-                  error:function(){
-                         alert("실패");
-                  } 
-           
-       }); */
-			
+	
 		},
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events
@@ -133,23 +122,15 @@
 	        
 	        var cal=[];
 	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
-	        /* alert(selected); */
 	    	   for(var i =0;i<cal.length;i++){
 	    		   if(cal[i]._id==selected){
-	    			  /*  alert(JSON.stringify(cal[i])); */
 	    			   update = JSON.stringify(cal[i]);
 	    		   }
 	    	   }
 	    	   $.ajax({
 	    		   type:"POST",
 	    		   url:"update.cal",
-	    		   data:update,
-	    		   /* success:function(){
-	    			   alert("일정 수정 완료");
-	    		   },
-	    		   error:function(){
-	    			   alert("일정 수정 실패");
-	    		   } */
+	    		   data:update
 	    	   });
 	        
 	    },
@@ -187,17 +168,36 @@
 	    	   $.ajax({
 	    		   type:"POST",
 	    		   url:"update.cal",
-	    		   data:update,
-	    		   /* success:function(){
-	    			   alert("일정 수정 완료");
-	    		   },
-	    		   error:function(){
-	    			   alert("일정 수정 실패");
-	    		   } */
+	    		   data:update
 	    	   });
 
 	    },
-	   
+	    eventMouseout:function( data, event, view ){
+	    	   $(this).css('z-index', 8);
+
+	           $('.tooltiptopicevent').remove();
+	    },
+	    eventMouseover: function( data, event, view ) {
+	    	 /* var content = '<h3>'+event.content+'</h3>';
+	    	tooltip.set({
+				'content.text': content
+			}).reposition(jsEvent).show(jsEvent);  */
+			
+	    	 tooltip = '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#feb811;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' 
+	    	 + data.content + '</div>';
+
+
+	         $("body").append(tooltip);
+	         $(this).mouseover(function (e) {
+	             $(this).css('z-index', 10000);
+	             $('.tooltiptopicevent').fadeIn('500');
+	             $('.tooltiptopicevent').fadeTo('10', 1.9);
+	         }).mousemove(function (e) {
+	             $('.tooltiptopicevent').css('top', e.pageY + 10);
+	             $('.tooltiptopicevent').css('left', e.pageX + 20);
+	         });
+			
+	    }
         
 		
 	});
@@ -207,13 +207,9 @@
       //event store in var End
         
         
-	//id가 post인 버튼 클릭시 eventDatalist라는 json형식의 배열을 for문으로 하나하나 서블릿으로 post방식으로 데이터를 전송한다.
-    
-    
-	
 
 });	
-	//json array 을 string으로 변환하는 함수
+	//json을 string으로 변환하는 함수
 	function JSONtoString(object) {
 	    var results = [];
 	    for (var property in object) {
@@ -227,17 +223,6 @@
 	             
 	        return '{' + results.join(', ') + '}';
 	} 
-	function get(){
-		$.ajax({
- 		   type:"GET",
- 		   url:"cnt.cal",
- 		   dataType:'text',
- 		   success:function(data){
- 			   count = Number(data);
- 		   }
- 	   });
-	return count;	
-	}
 /* 	function popup(){
 		var url = "insert.jsp";
 		var name = "일정 등록 페이지";
@@ -262,8 +247,7 @@
 <body>
 
 	<div id='calendar'></div>
-	<!-- <input id='post' type="button" value="일정 등록"> -->
-	<!-- <input id='post1' type="button" value="일정 수정"> -->
+	
 
 </body>
 </html>

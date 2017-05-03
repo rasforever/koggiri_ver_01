@@ -10,13 +10,13 @@
 	
 	<insert id="calendarinsert" parameterType="Event" >
 		insert into calendar values(
-		#{_id},#{title},#{start_date},#{end_date}
+		#{_id},#{title},#{start_date},#{end_date},#{content}
 		)
 		
 		
 	</insert>
 	<select id="calendarList" resultType="Event">
-		select start_date,end_date,title,event_id as "_id" from calendar
+		select start_date,end_date,title,event_id as "_id",content from calendar
 		
 	</select>
 	

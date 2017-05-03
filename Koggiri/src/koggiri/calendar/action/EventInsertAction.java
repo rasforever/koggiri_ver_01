@@ -85,6 +85,7 @@ public class EventInsertAction implements Action {
 	        	       String enddate = sdFormat.format(cal.getTime());
 	        	       
 	        	       event.setEnd_date(enddate);
+	        	       event.setContent((String) Json.get("content"));
 	        	      ///////////////////////////////////////////////////////////////
 	        	       
 	        	     
