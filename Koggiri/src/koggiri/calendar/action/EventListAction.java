@@ -31,34 +31,53 @@ public class EventListAction implements Action {
 		for(int i=0;i<listEvent.size();i++){
 			
 			
+		
 			String end = listEvent.get(i).getEnd_date();
+		
 			DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
- 	       Date tempDate = sdFormat.parse(end);
- 	       Calendar cal = Calendar.getInstance();
- 	       cal.setTime(tempDate);
- 	       cal.add(Calendar.DAY_OF_MONTH, 1); // 하루 다음날로 바꿈
- 	       String enddate = sdFormat.format(cal.getTime());
+ 	    
+			Date tempDate = sdFormat.parse(end);
+ 	    
+			Calendar cal = Calendar.getInstance();
+ 	   
+			cal.setTime(tempDate);
+ 	  
+			cal.add(Calendar.DAY_OF_MONTH, 1); // 하루 다음날로 바꿈
+ 	  
+			String enddate = sdFormat.format(cal.getTime());
 			
  	       
  	      listEvent.get(i).setEnd_date(enddate);
+	
 		}
 		
 		
 		
 		
+	
 		JSONArray jsonArray = JSONArray.fromObject(listEvent);
+	
 		String events = jsonArray.toString().replace("start_date", "start").replace("end_date", "end");
+	
 		//db에서 start end가 안되서 고침
+	
 		System.out.println(events);
 		
 		
+	
 		response.setContentType("application/json");
+	
 		response.setCharacterEncoding("UTF-8");
+	
 		PrintWriter out = response.getWriter();
+	
 		out.write(events);
 		
+	
 		ActionForward forward = new ActionForward();
+	
 		forward.setRedirect(false);
+	
 		forward.setPath("/calendar/index.jsp");
 		
 		return null;

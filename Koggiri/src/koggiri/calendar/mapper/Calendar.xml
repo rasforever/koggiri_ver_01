@@ -16,13 +16,10 @@
 		
 	</insert>
 	<select id="calendarList" resultType="Event">
-		select start_date,end_date,title from calendar
+		select start_date,end_date,title,event_id as "_id" from calendar
 		
 	</select>
-	<select id="count" resultType="Integer">
-		select count(*) from calendar
-		
-	</select>
+	
 	
 	<update id="updateEvent" parameterType="Event">
 		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}

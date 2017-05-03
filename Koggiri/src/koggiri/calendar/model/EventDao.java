@@ -64,23 +64,12 @@ private static EventDao dao = new EventDao();
 		}
 	}
 	
-	public int count() throws Exception{
-		SqlSession session = getSqlSessionFactory().openSession();
-		try {
-			return session.getMapper(CalendarMapper.class).count();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}finally {
-			session.close();
-		}
-	}
 	
-	public int updateEvent(List<Event> eventlist){
+	public int updateEvent(Event event){
 		int re=-1;
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			re = session.getMapper(CalendarMapper.class).updateEvent(eventlist);
+			re = session.getMapper(CalendarMapper.class).updateEvent(event);
 			if(re>0){
 				session.commit();
 
