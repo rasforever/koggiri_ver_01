@@ -56,7 +56,8 @@ public class EventUpdateAction implements Action {
       	    	  event.setTitle((String) rstJson.get("title")); // title key값을 갖는 value값을 가져옴
       	  
       	    	  event.setStart_date(((String) rstJson.get("start")));
-      	       
+      	    	  
+      	    	  event.setContent((String) rstJson.get("content"));
       	      // 날짜 변환 -->> string에서 calandar로 변환후 하루 전날로 변경후 다시  string으로 변환
       	       String end = (String) rstJson.get("end");
       	       
@@ -75,6 +76,8 @@ public class EventUpdateAction implements Action {
       	       String enddate = sdFormat.format(cal.getTime());
       	       
       	       event.setEnd_date(enddate);
+      	       
+      	       
       	      ///////////////////////////////////////////////////////////////
       	       
       	      

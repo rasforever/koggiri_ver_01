@@ -29,6 +29,7 @@ public class EventListAction implements Action {
 		/*System.out.println(listEvent.get(0).getStart_date());*/
 		
 		for(int i=0;i<listEvent.size();i++){
+			listEvent.get(i).setContent(listEvent.get(i).getContent().replace("\n", "<br>"));
 			
 			
 		

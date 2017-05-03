@@ -22,10 +22,15 @@
 	
 	
 	<update id="updateEvent" parameterType="Event">
-		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}
+		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}, content = #{content}
 		 where event_id = #{_id}
 		
 	</update>
+	
+	<delete id="deleteEvent" parameterType="Event">
+		delete from calendar where event_id = #{_id}
+		
+	</delete>
 </mapper>
 
 

@@ -8,4 +8,5 @@ public interface CalendarMapper {
 	int calendarinsert(Event event);
 	List<Event> calendarList();
 	int updateEvent(Event event);
+	int deleteEvent(Event event);
 }

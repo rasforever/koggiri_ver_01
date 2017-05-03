@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.calendar.action.Action;
 import koggiri.calendar.action.ActionForward;
+import koggiri.calendar.action.EventDeleteAction;
 import koggiri.calendar.action.EventInsertAction;
 import koggiri.calendar.action.EventListAction;
 import koggiri.calendar.action.EventUpdateAction;
@@ -74,7 +75,17 @@ public class CalendarController extends HttpServlet {
                  e.printStackTrace();
               }
             
-            }
+            }else if(command.equals("calendar/delete.cal")){
+                
+                action = new EventDeleteAction();
+                
+                try {
+                   forward = action.execute(request, response);
+               } catch (Exception e) {
+                  e.printStackTrace();
+               }
+             
+             }
         
         if(forward !=null){
             if(forward.isRedirect()){

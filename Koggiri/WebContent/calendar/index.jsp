@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 
 
-<script src='lib/jquery.min.js'></script>
-<script src='json2.js'></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
 <link rel='stylesheet' href='fullcalendar.css' />
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar.js' charset="euc-kr"></script>
@@ -17,13 +17,16 @@
 
 <link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
 <script type="text/javascript" src="jquery.qtip.min.js"></script>
-
+<link href="ssi-modal.min.css" rel="stylesheet"/>
+<script src="ssi-modal.min.js"></script>
+<script src='json2.js'></script>
 <script type="text/javascript">
 	
 	
 	$(document).ready(function() {
 		
 		
+
 		var tooltip = $('<div/>').qtip({
 			id: 'calendar',
 			prerender: true,
@@ -51,7 +54,8 @@
 	var count;
     var selected=[];
     var update;
-    
+    var send;
+    var del;
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -70,68 +74,285 @@
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end) { 
-			
-			var title = prompt('Event Title:');
-			var content = prompt('Content: ');
-			if (title) {
-			var	eventData = {
-					title: title,
-					start: start,
-					end: end,
-					content: content
-					
-				}
-				
-				
-				
-			$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-			
-			var cal=[];
-			
-	     	 cal=$('#calendar').fullCalendar( 'clientEvents');	
-	     	 console.log(cal);
-	     	 
-	     	
-	     	
-	     	cal[cal.length-1]._id = "_fc"+cal.length; // _id 1로 자꾸 지정되서 event개수만큼 으로 지정함.
-	     	
-	     	
-	     	$.ajax({
-	            
-	            type:"POST",
-	            url:"send.cal",
-				data: JSONtoString(cal[cal.length-1])
-	
-	            
-	        });
+			//일정 추가창
+			ssi_modal.show({
+	            content: '<form>' +
+	            '<label for="title">title:</label><br/>' +
+	            '<input id="title" class="input" name="title" type="text"/><br/>' +
+	            '<label for="content">content:</label><br/>' +
+	            '<textarea id="content" class="input" name="content"></textarea><br/>' +
+	            '</form>',
+	            sizeClass: 'small',
+	            title: '일정 등록',
+	            keepContent: false,
+	            beforeClose: function (modal) {
+	                ssi_modal.confirm({
+	                    position: 'top center',
+	                    content: '작성하시던 일정이 사라집니다.그래도 끄시겠습니까?',
+	                    okBtn:{className:'btn btn-primary'},
+	                    cancelBtn:{className:'btn btn-danger'}
+	                },function (result) {
+	                     if (result === true) {
+	                         modal.options.keepContent=false;
+	                         modal.options.beforeClose = '';
+	                         modal.close();
+	                         ssi_modal.notify('error', {
+	                             position: 'center top',
+	                             content: "The content removed!"
+	                         })
+	                     }
+	                 });
+	                return false;
+	            },
+	            buttons: [{
+	                className: 'btn btn-danger',
+	                label: '닫기',
+	                closeAfter: false,
+	                keepContent: false,
+	                method:function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=false;
+	                    
+	                    modal.close();
+	                }
+	            }, {
+	                className: 'btn btn-success',
+	                label: '등록',
+	                closeAfter: false,
+	                keepContent: true,
+	                method: function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=true;
+	                    
+	                    
+	                    var	eventData = {
+								title: title.value,
+								start: start,
+								end: end,
+								content: content.value.replace(/\n/gi,"<br>")
 								
-			}
+							}
+	                    
+	                    modal.close();
+	                    modal.options.beforeClose =beforeCloseMethod;
+	                    ssi_modal.notify('success', {
+	                        position: 'center top',
+	                        content: "일정이 추가되었습니다."
+	                    })
+	                    
+	                    
+	                    
+			
+					
+				$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				
+				var cal=[];
+				
+		     	 cal=$('#calendar').fullCalendar( 'clientEvents');	
+		     	 console.log(cal);
+		     	 
+		     	
+		     	
+		     	cal[cal.length-1]._id = "_fc"+cal.length; // _id 1로 자꾸 지정되서 event개수만큼 으로 지정함.
+				send = JSONtoString(cal[cal.length-1]).replace(/\n/gi,"\\n"); 
+				//엔터키-->개행문자 전환
+		     	
+		     	$.ajax({
+		            
+		            type:"POST",
+		            url:"send.cal",
+					data: send,
+					 success:
+  	    			   setTimeout(
+  	    					   function() 
+  	    					   {
+  	    						   ssi_modal.removeAll();
+  	    					   }, 2000)
+		            
+		        });
+		     	
+	                }
+	            }]
+	        },'#modal4');
+			
 			
 			$('#calendar').fullCalendar('unselect');
 	
 		},
+		
 		editable: true,
+		
+		eventDrop: function(event, delta, revertFunc) {
+
+	        	selected = event._id;
+		        
+		        var cal=[];
+		     	 cal=$('#calendar').fullCalendar( 'clientEvents');
+		    	   for(var i =0;i<cal.length;i++){
+		    		   if(cal[i]._id==selected){
+		    			   update = JSON.stringify(cal[i]);
+		    		   }
+		    	   }
+		    	   $.ajax({
+		    		   type:"POST",
+		    		   url:"update.cal",
+		    		   data:update
+		    	   });
+	    
+
+	    },
 		eventLimit: true, // allow "more" link when too many events
 		eventClick: function(event, element) {
 			
-	        event.title = prompt('Event Title:');
+	        //일정수정창
+	        ssi_modal.show({
+	            content: '<form>' +
+	            '<label for="title">title:</label><br/>' +
+	            '<input id="title" class="input" name="title" type="text" value="'+event.title+'"/><br/>' +
+	            '<label for="content">content:</label><br/>' +
+	            '<textarea id="content" class="input" name="content" >'+event.content.replace(/<br>/gi,"\n")+'</textarea><br/>' +
+	            '</form>',
+	            sizeClass: 'small',
+	            title: '일정 수정',
+	            keepContent: false,
+	            beforeClose: function (modal) {
+	                ssi_modal.confirm({
+	                    position: 'top center',
+	                    content: 'Your content will be lost! Are you sure you want to continue?',
+	                    okBtn:{className:'btn btn-primary'},
+	                    cancelBtn:{className:'btn btn-danger'}
+	                },function (result) {
+	                     if (result === true) {
+	                         modal.options.keepContent=false;
+	                         modal.options.beforeClose = '';
+	                         modal.close();
+	                         ssi_modal.notify('삭제 완료', {
+	                             position: 'center top',
+	                             content: "일정이 삭제되었습니다."
+	                         })
+	                     }
+	                 });
+	                return false;
+	            },
+	            buttons: [{
+	                className: 'btn btn-danger',
+	                label: '닫기',
+	                closeAfter: false,
+	                keepContent: false,
+	                method:function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=false;
+	                    
+	                    modal.close();
+	                }
+	            },{
+	            	className: 'btn btn-remove',
+	            	label: '삭제',
+	            	closeAfter: true,
+	            	keepContent:false,
+	            	method: function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=false;
+	                    
+	                    modal.close();
+	                    modal.options.beforeClose =beforeCloseMethod;
+	                   
+	                    
+	                    
+	                    
+	                    selected = event._id;
+	                    
+	                    
+	                    
+	        	        var cal=[];
+	        	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
+	        	    	   for(var i =0;i<cal.length;i++){
+	        	    		   if(cal[i]._id==selected){
+	        	    			  
+	        	    			   del = JSON.stringify(cal[i]);
+	        	    			   
+	        	    		   }
+	        	    	   }
+	        	    	   
+	        	    	  $('#calendar').fullCalendar('removeEvents', event._id);
+	        	    	  
+	        	    	   $.ajax({
+	        	    		   type:"POST",
+	        	    		   url:"delete.cal",
+	        	    		   data:del
+	        	    		  
+	        	    			  
+	        	    	   });
+	        	    	   
+	                    
 			
-	        $('#calendar').fullCalendar('updateEvent', event);
+					
+				
+	                }
+	            	
+		            	
+	            }, {
+	                className: 'btn btn-success',
+	                label: '수정',
+	                closeAfter: false,
+	                keepContent: true,
+	                method: function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=true;
+	                    
+	                    modal.close();
+	                    modal.options.beforeClose =beforeCloseMethod;
+	                    ssi_modal.notify('success', {
+	                        position: 'center top',
+	                        content: "일정이 수정되었습니다."
+	                    })
+	                    
+	                    event.title = title.value;
+	                    event.content = content.value;
+	                    
+	                    selected = event._id;
+	                    
+	                    $('#calendar').fullCalendar('updateEvent', event);
+	                    
+	        	        var cal=[];
+	        	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
+	        	    	   for(var i =0;i<cal.length;i++){
+	        	    		   if(cal[i]._id==selected){
+	        	    			   update = JSON.stringify(cal[i]);
+	        	    			   
+	        	    		   }
+	        	    	   }
+	        	    	   
+	        	    	   $.ajax({
+	        	    		   type:"POST",
+	        	    		   url:"update.cal",
+	        	    		   data:update,
+	        	    		   success:
+	          	    			   setTimeout(
+	          	    					   function() 
+	          	    					   {
+	          	    						   ssi_modal.removeAll();
+	          	    					   }, 2000)
+	        	    	   });
+	        	    	   
+	                   
 			
-	        selected = event._id;
+					
+				
+	                }
+	            }]
+	        },'#modal4');
 	        
-	        var cal=[];
-	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
-	    	   for(var i =0;i<cal.length;i++){
-	    		   if(cal[i]._id==selected){
-	    			   update = JSON.stringify(cal[i]);
-	    		   }
-	    	   }
-	    	   $.ajax({
-	    		   type:"POST",
-	    		   url:"update.cal",
-	    		   data:update
-	    	   });
+	        
+	        
+	        
+			
+	       
 	        
 	    },
 	    //event의 사이즈를 줄였다 늘였다 할 수 있는 기능
@@ -182,7 +403,7 @@
 	    	tooltip.set({
 				'content.text': content
 			}).reposition(jsEvent).show(jsEvent);  */
-			
+			//마우스 오버할때 이벤트의 content가 보여짐
 	    	 tooltip = '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#feb811;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' 
 	    	 + data.content + '</div>';
 
@@ -198,17 +419,21 @@
 	         });
 			
 	    }
+	    
+	    
+
         
 		
 	});
 	
 	
-	 
-      //event store in var End
+
+		    
         
         
 
 });	
+	
 	//json을 string으로 변환하는 함수
 	function JSONtoString(object) {
 	    var results = [];
@@ -223,12 +448,6 @@
 	             
 	        return '{' + results.join(', ') + '}';
 	} 
-/* 	function popup(){
-		var url = "insert.jsp";
-		var name = "일정 등록 페이지";
-		window.open(url,name,"width=200,height=200")
-		
-	} */
 	
 </script>
 <style type="text/css">
@@ -248,6 +467,7 @@
 
 	<div id='calendar'></div>
 	
+
 
 </body>
 </html>
