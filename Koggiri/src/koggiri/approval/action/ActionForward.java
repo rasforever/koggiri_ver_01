@@ -1,6 +1,6 @@
 package koggiri.approval.action;
 
-public class ActionFoward {
+public class ActionForward {
 	
 	private boolean isRedirect;
 	private String path;
@@ -18,4 +18,5 @@ public class ActionFoward {
 	public void setPath(String path) {
 		this.path = path;
 	}
+
 }

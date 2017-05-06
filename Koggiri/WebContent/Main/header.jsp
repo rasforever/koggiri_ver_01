@@ -42,7 +42,12 @@
 
 							<li><a href="#">일정</a></li>
 							<li><a href="#">메일</a></li>
-							<li><a href="#">결재</a></li>
+							<li><a href="#">결재</a>
+								<ul>
+									<li><a href="../approval/approval_list_s.approval">결재목록</a></li>
+									<li><a href="../approval/approval_insertForm.approval">결재작성</a></li>
+								</ul>
+							</li>
 							<li><a href="#">문서</a></li>
 							<li><a href="#">업무</a></li>
 							<li><a href="#">회의</a>
