@@ -8,7 +8,7 @@ public class Event implements Serializable {
 	private String end_date;
 	private String _id;
 	private String content;
-	
+	private String mem_id;
 	public String getTitle() {
 		return title;
 	}
@@ -31,6 +31,12 @@ public class Event implements Serializable {
 	
 	
 	
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
 	public String get_id() {
 		return _id;
 	}
@@ -43,13 +49,14 @@ public class Event implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Event [title=" + title + ", start_date=" + start_date + ", end_date=" + end_date + ", _id=" + _id
-				+ ", content=" + content + "]";
+				+ ", content=" + content + ", mem_id=" + mem_id + "]";
 	}
+	
+	
+	
 	
 	
 	
