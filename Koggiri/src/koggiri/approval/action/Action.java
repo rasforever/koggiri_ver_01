@@ -5,5 +5,5 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public interface Action {
-	public ActionFoward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

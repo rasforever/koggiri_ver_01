@@ -9,14 +9,17 @@
 	
 	
 	<insert id="calendarinsert" parameterType="Event" >
+
+		
 		insert into calendar values(
-		#{_id},#{title},#{start_date},#{end_date},#{content}
+		#{_id},#{title},#{start_date},#{end_date},#{content},'y'
 		)
 		
 		
 	</insert>
 	<select id="calendarList" resultType="Event">
 		select start_date,end_date,title,event_id as "_id",content from calendar
+		where show = 'y'
 		
 	</select>
 	
@@ -27,10 +30,9 @@
 		
 	</update>
 	
-	<delete id="deleteEvent" parameterType="Event">
-		delete from calendar where event_id = #{_id}
-		
-	</delete>
+	<update id="deleteEvent" parameterType="Event">
+		update calendar set show = 'n' where event_id = #{_id}
+	</update>
 </mapper>
 
 

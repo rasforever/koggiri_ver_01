@@ -38,7 +38,7 @@ public class Doc_BoardDao {
 			re = session.getMapper(Doc_BoardMapper.class).doc_insertBoard(doc_board);	
 			if(re>0){
 				session.commit();	
-				System.out.println("들어옴");
+				
 			}else{
 				session.rollback();
 			}

@@ -13,6 +13,7 @@ public class Doc_InsertAction implements Doc_Action {
 	
 		Doc_BoardDao doc_dao = Doc_BoardDao.getInstance();
 		Doc_Board doc_board = new Doc_Board();
+		
 		doc_board.setF_title(request.getParameter("f_title"));
 		doc_board.setF_content(request.getParameter("f_content"));
 		doc_board.setF_name(request.getParameter("f_name"));
