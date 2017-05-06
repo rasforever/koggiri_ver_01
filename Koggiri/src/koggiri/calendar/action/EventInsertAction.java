@@ -12,6 +12,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,6 +28,9 @@ public class EventInsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
 		
 		ArrayList<Event> eventlist = new ArrayList<Event>();
 		
@@ -86,6 +90,8 @@ public class EventInsertAction implements Action {
 	        	       
 	        	       event.setEnd_date(enddate);
 	        	       event.setContent((String) Json.get("content"));
+	        	       
+	        	       event.setMem_id(mem_id);
 	        	      ///////////////////////////////////////////////////////////////
 	        	       
 	        	     

@@ -52,10 +52,10 @@ private static EventDao dao = new EventDao();
 		return re;
 	}
 	
-	public List<Event> calendarList() throws Exception{ 
+	public List<Event> calendarList(String mem_id) throws Exception{ 
 		SqlSession session = getSqlSessionFactory().openSession();
 		try {
-			return session.getMapper(CalendarMapper.class).calendarList();
+			return session.getMapper(CalendarMapper.class).calendarList(mem_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
