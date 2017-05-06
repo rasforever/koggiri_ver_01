@@ -115,6 +115,7 @@
 	                    modal.options.keepContent=false;
 	                    
 	                    modal.close();
+	                    ssi_modal.removeAll();
 	                }
 	            }, {
 	                className: 'btn btn-success',
@@ -164,15 +165,9 @@
 		            type:"POST",
 		            url:"send.cal",
 					data: send,
-					 success:
-  	    			   setTimeout(
-  	    					   function() 
-  	    					   {
-  	    						   ssi_modal.removeAll();
-  	    					   }, 2000)
-		            
+					
 		        });
-		     	
+		     	ssi_modal.removeAll();
 	                }
 	            }]
 	        },'#modal4');
@@ -220,7 +215,7 @@
 	            beforeClose: function (modal) {
 	                ssi_modal.confirm({
 	                    position: 'top center',
-	                    content: 'Your content will be lost! Are you sure you want to continue?',
+	                    content: '일정을 삭제하시겠습니까?',
 	                    okBtn:{className:'btn btn-primary'},
 	                    cancelBtn:{className:'btn btn-danger'}
 	                },function (result) {
@@ -228,10 +223,7 @@
 	                         modal.options.keepContent=false;
 	                         modal.options.beforeClose = '';
 	                         modal.close();
-	                         ssi_modal.notify('삭제 완료', {
-	                             position: 'center top',
-	                             content: "일정이 삭제되었습니다."
-	                         })
+	                         
 	                     }
 	                 });
 	                return false;
@@ -247,52 +239,49 @@
 	                    modal.options.keepContent=false;
 	                    
 	                    modal.close();
+	                    
 	                }
 	            },{
 	            	className: 'btn btn-remove',
 	            	label: '삭제',
-	            	closeAfter: true,
+	            	closeAfter: false,
 	            	keepContent:false,
-	            	method: function (e, modal) {
-	                    var beforeCloseMethod=modal.options.beforeClose;
+	 				method:function(e, modal){
+	 					var beforeCloseMethod=modal.options.beforeClose;
 	                    modal.options.beforeClose = '';
-	                    modal.options.keepContent=false;
+	                    modal.options.keepContent=true;
 	                    
 	                    modal.close();
-	                    modal.options.beforeClose =beforeCloseMethod;
-	                   
-	                    
-	                    
-	                    
-	                    selected = event._id;
-	                    
-	                    
-	                    
-	        	        var cal=[];
-	        	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
-	        	    	   for(var i =0;i<cal.length;i++){
-	        	    		   if(cal[i]._id==selected){
-	        	    			  
-	        	    			   del = JSON.stringify(cal[i]);
-	        	    			   
-	        	    		   }
-	        	    	   }
-	        	    	   
-	        	    	  $('#calendar').fullCalendar('removeEvents', event._id);
-	        	    	  
-	        	    	   $.ajax({
-	        	    		   type:"POST",
-	        	    		   url:"delete.cal",
-	        	    		   data:del
-	        	    		  
-	        	    			  
-	        	    	   });
-	        	    	   
-	                    
-			
-					
-				
-	                }
+	 					selected = event._id;
+ 	                    /* alert(event._id); */
+ 	                    
+ 	                    
+ 	        	        var cal=[];
+ 	        	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
+ 	        	     	 
+ 	        	    	   for(var i =0;i<cal.length;i++){
+ 	        	    		   if(cal[i]._id==selected){
+ 	        	    			
+ 	        	    			   del = JSONtoString(cal[i]);
+ 	        	    			  
+ 	        	    			  
+ 	        	    			  $('#calendar').fullCalendar('removeEvents', event._id);
+ 	    	        	    	  
+ 	   	        	    	   $.ajax({
+ 	   	        	    		   type:"POST",
+ 	   	        	    		   url:"delete.cal",
+ 	   	        	    		   data:del
+ 	   	        	    		  
+ 	   	        	    			  
+ 	   	        	    	   });
+ 	        	    		   }
+ 	        	    	   }
+ 	        	    	   
+ 	        	    	  
+
+                         
+                         ssi_modal.removeAll();
+	 				}
 	            	
 		            	
 	            }, {
@@ -331,19 +320,14 @@
 	        	    	   $.ajax({
 	        	    		   type:"POST",
 	        	    		   url:"update.cal",
-	        	    		   data:update,
-	        	    		   success:
-	          	    			   setTimeout(
-	          	    					   function() 
-	          	    					   {
-	          	    						   ssi_modal.removeAll();
-	          	    					   }, 2000)
+	        	    		   data:update
+	        	    		  
 	        	    	   });
 	        	    	   
 	                   
 			
 					
-				
+	        	    	   ssi_modal.removeAll();
 	                }
 	            }]
 	        },'#modal4');

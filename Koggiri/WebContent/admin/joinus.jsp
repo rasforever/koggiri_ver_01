@@ -15,7 +15,7 @@ $(function(){
 
 </script>
 
-	<form action="join.admin" method="post">
+	<form action="join.admin" method="post" id="insertform">
 		
 		이름:  <input type="text" name="emp_nm"><br>
 		직급: <select name="pos_id">

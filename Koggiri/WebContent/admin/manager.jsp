@@ -21,8 +21,11 @@ $(function(){
 				dataType : 'text' ,
 				success: function(data) {
 					
-					$("#joindiv").html(data).toggle();
-					
+					if($("#joindiv").children().length==0){
+					$("#joindiv").html(data);
+					}else if($("#joindiv").children().length>0){
+						$("#joindiv").empty();
+					}
 					
 					} 
 				});
