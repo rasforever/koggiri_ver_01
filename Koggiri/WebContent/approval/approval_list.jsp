@@ -42,9 +42,11 @@ function rs_type(obj) {
 	if (obj == 1){
 		$('#r_approval').show();
 		$('#s_approval').hide();
+		location.href = "approval_list_r.approval";
 	} else {
 		$('#r_approval').hide();
 		$('#s_approval').show();
+		location.href = "approval_list_s.approval";
 	}
 }
 

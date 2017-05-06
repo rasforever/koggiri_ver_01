@@ -35,6 +35,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -47,6 +48,7 @@
 		ed.emp_id
 		inner join emp ea
 		on a.app_emp_id = ea.emp_id
+		
 		<if test="area != null">
 			<where>
 				<foreach collection="area" item="item" separator="or" open="("
@@ -69,6 +71,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -105,6 +108,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -141,6 +145,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -178,6 +183,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -212,6 +218,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -248,6 +255,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -284,6 +292,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -320,6 +329,7 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
+		and a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd = ap.app_pro_cd
@@ -484,10 +494,5 @@
 				and ${item} LIKE #{searchKey}
 			</foreach>
 		</if>
-
-
-
 	</select>
-
-
 </mapper>

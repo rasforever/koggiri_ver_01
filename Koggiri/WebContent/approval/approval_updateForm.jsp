@@ -56,6 +56,9 @@
 			
 		<br> <input type="submit" value="수정"><input type="reset"
 			value="취소">
+		<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>	
 	</form>
 </body>
 </html>

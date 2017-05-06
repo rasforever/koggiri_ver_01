@@ -22,6 +22,9 @@
 </head>
 <body>
 	<form action="approval_insertAction.approval" method="post">
+		<div align="center">
+				<jsp:include page="../Main/header.jsp" />
+			<br> <br> <br> <br>
 
 		<input type="hidden" name="dept_id" value="${einfo.dept_id }">
 		<input type="hidden" name="emp_id" value="k15010201">
