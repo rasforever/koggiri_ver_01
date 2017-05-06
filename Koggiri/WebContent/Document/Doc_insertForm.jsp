@@ -9,7 +9,7 @@
 <body>
 
 <h1>글작성하기</h1>
-	<form action="insertAction.document" method="post"> <!--enctype을 이렇게 설정해야 파일 업로드 가능  -->
+	<form action="insertAction.document" method="post" enctype="multipart/form-data"> <!--enctype을 이렇게 설정해야 파일 업로드 가능  -->
 	
 		<table border="1" cellpadding="0" cellspacing="0">
 		<tr height="30">
