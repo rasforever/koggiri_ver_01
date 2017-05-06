@@ -9,6 +9,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -21,10 +22,11 @@ public class EventUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	
+		
 		EventDao dao = EventDao.getInstance();
 		
-		
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream(),"UTF-8"));//ajax에서 데이터받아옴, 두번째 인자로는 인코딩 안하면 한글 깨짐
 	     
@@ -77,7 +79,7 @@ public class EventUpdateAction implements Action {
       	       
       	       event.setEnd_date(enddate);
       	       
-      	       
+      	       event.setMem_id(mem_id);
       	      ///////////////////////////////////////////////////////////////
       	       
       	      

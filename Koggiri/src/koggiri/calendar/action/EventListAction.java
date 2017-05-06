@@ -11,7 +11,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import koggiri.calendar.model.Event;
 import koggiri.calendar.model.EventDao;
@@ -25,8 +25,13 @@ public class EventListAction implements Action {
 		
 		EventDao dao = EventDao.getInstance();
 		
-		List<Event> listEvent = dao.calendarList();
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id"); // session id 받아옴
+		
+		
+		List<Event> listEvent = dao.calendarList(mem_id);
 		/*System.out.println(listEvent.get(0).getStart_date());*/
+		
 		
 		for(int i=0;i<listEvent.size();i++){
 			listEvent.get(i).setContent(listEvent.get(i).getContent().replace("\n", "<br>"));

@@ -14,6 +14,11 @@
 	href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src='lib/moment.min.js'></script>
+<script src='fullcalendar.js' charset="euc-kr"></script>
+<script src='locale/ko.js'></script>
+<link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
+<script type="text/javascript" src="jquery.qtip.min.js"></script>
 <script>
 	$(document).ready(function() {
 		$("#btnlogout").click(function() {
@@ -40,7 +45,7 @@
 									<li><a href="../Importantboard/listAction.importantboard">알립니다</a></li>
 								</ul></li>
 
-							<li><a href="#">일정</a></li>
+							<li><a href="../calendar/index.jsp">일정</a></li>
 							<li><a href="#">메일</a></li>
 							<li><a href="#">결재</a>
 								<ul>

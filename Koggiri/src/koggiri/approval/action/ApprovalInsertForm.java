@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import koggiri.approval.model.AppType;
 import koggiri.approval.model.ApprovalDao;
@@ -15,9 +16,10 @@ public class ApprovalInsertForm implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ApprovalDao dao = ApprovalDao.getInstance();
 		
-		String emp_id = request.getParameter("emp_id");
+
+		HttpSession session = request.getSession(true); 
+		String emp_id = (String) session.getAttribute("mem_id");		
 		
-		emp_id = "k15010201";
 		
 		List<AppType> applist = dao.appty_select();		
 		Emp_infomation einfo = dao.einfo_select(emp_id);
