@@ -15,6 +15,8 @@
 
 </head>
 <body>
+
+		<input type="hidden" name="emp_id" value="k15010201">
 	<h3>상세보기</h3>
 	<table>
 		<tr>
@@ -58,11 +60,11 @@
 	%>
 
 	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=2 ">승인</a>&nbsp;&nbsp;
+		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=2&app_emp_id=${approval.app_emp_id } ">승인</a>&nbsp;&nbsp;
 	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=3 ">부결</a>&nbsp;&nbsp;
+		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=3&app_emp_id=${approval.app_emp_id }  ">부결</a>&nbsp;&nbsp;
 	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=4 ">반려</a>
+		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=4&app_emp_id=${approval.app_emp_id }  ">반려</a>
 	<br>
 	<br>
 	<%

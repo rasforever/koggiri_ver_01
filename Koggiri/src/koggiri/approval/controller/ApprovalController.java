@@ -205,7 +205,6 @@ public class ApprovalController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 		if (forward != null) {
 			if (forward.isRedirect()) {
 

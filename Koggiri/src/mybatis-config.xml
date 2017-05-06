@@ -14,6 +14,7 @@
 		<typeAlias type="koggiri.approval.model.AppType" alias="AppType"/> <!-- 결제방법 서버접속 -->
 		<typeAlias type="koggiri.approval.model.Emp_infomation" alias="Emp_infomation"/> <!-- 사원정보 서버접속 -->	
 		<typeAlias type="koggiri.approval.model.Approval" alias="Approval"/> <!-- approval 서버접속 -->	
+		<typeAlias type="koggiri.approval.model.ApprovalSearch" alias="ApprovalSearch"/> <!-- approval 서버접속 -->	
  		<typeAlias type="koggiri.important.model.Imp_Board" alias="Imp_Board"/> <!-- 고병휘  -->
  		<typeAlias type="koggiri.important.model.Imp_Search" alias="Imp_Search"/> <!-- 고병휘  -->
  		<typeAlias type="koggiri.task.model.Task" alias="Task"/> 

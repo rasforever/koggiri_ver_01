@@ -14,8 +14,15 @@ public class ApprovalUpdateAPP implements Action{
 		Approval approval =  new Approval();
 		String app_id = request.getParameter("app_id");
 		String app_pro_cd = request.getParameter("app_pro_cd");
+		String app_emp_id = request.getParameter("app_emp_id");
+		
 		approval.setApp_id(app_id);
-		approval.setApp_pro_cd(app_pro_cd);		
+		approval.setApp_pro_cd(app_pro_cd);	
+		approval.setChg_emp_id(app_emp_id);
+		
+		System.out.println(approval.getApp_id());
+		System.out.println(approval.getApp_pro_cd());
+		System.out.println(approval.getChg_emp_id());
 		
 		dao.updateApproval_app(approval);
 		
