@@ -23,42 +23,38 @@
 </script>
 </head>
 <body>
+
 	<div align="center">
 		<div id="header" align="center">
 			<div id="log" align="right">
 				<span> <%=emp_nm%>님 접속 중입니다.
 				</span> <a href="#" id="btnlogout">로그아웃</a>
 			</div>
-			<div id="main_top" align="center">
-					<a href="../Main/main.jsp"><img src="../images/koggiri.PNG"></a>
 
-				<div class="main_menu">
+					<div class="main_menu" align="center" style="width: 1100px">
+							<a href="../Main/main.jsp"><img src="../images/koggiri.PNG"></a>
+						<ul style="width: 900px">
+							<li><a href="#">공지사항</a>
+								<ul>
+									<li><a href="../Noticeboard/listAction.noticeboard">공지합니다</a></li>
+									<li><a href="../Importantboard/listAction.importantboard">알립니다</a></li>
+								</ul></li>
 
-					<ul>
-						<li><a href="#">공지사항</a>
-							<ul>
-								<li><a href="../Noticeboard/listAction.noticeboard">공지합니다</a></li>
-								<li><a href="#">알립니다</a></li>
-							</ul></li>
+							<li><a href="#">일정</a></li>
+							<li><a href="#">메일</a></li>
+							<li><a href="#">결재</a></li>
+							<li><a href="#">문서</a></li>
+							<li><a href="#">업무</a></li>
+							<li><a href="#">회의</a>
+								<ul>
+									<li><a href="#">그림회의</a></li>
+									<li><a href="#">화상회의</a></li>
+								</ul></li>
+							<li><a href="../member_chart/chart.ch">조직도</a></li>
 
-						<li><a href="#">일정</a></li>
-						<li><a href="#">메일</a></li>
-						<li><a href="#">결재</a></li>
-						<li><a href="#">문서</a></li>
-						<li><a href="#">업무</a></li>
-						<li><a href="#">회의</a>
-							<ul>
-								<li><a href="#">그림회의</a></li>
-								<li><a href="#">화상회의</a></li>
-							</ul></li>
-						<li><a href="../member_chart/chart.ch">조직도</a></li>
-
-					</ul>
+						</ul>
+					</div>
 				</div>
 			</div>
-
-		</div>
-	</div>
-
 </body>
 </html>
