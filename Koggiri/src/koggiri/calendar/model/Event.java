@@ -6,6 +6,8 @@ public class Event implements Serializable {
 	private String title;
 	private String start_date;
 	private String end_date;
+	private String _id;
+	private String content;
 	public String getTitle() {
 		return title;
 	}
@@ -24,10 +26,29 @@ public class Event implements Serializable {
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
+	
+	
+	
+	
+	public String get_id() {
+		return _id;
+	}
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	@Override
 	public String toString() {
-		return "Event [title=" + title + ", start_date=" + start_date + ", end_date=" + end_date + "]";
+		return "Event [title=" + title + ", start_date=" + start_date + ", end_date=" + end_date + ", _id=" + _id
+				+ ", content=" + content + "]";
 	}
+	
+	
 	
 	
 	
