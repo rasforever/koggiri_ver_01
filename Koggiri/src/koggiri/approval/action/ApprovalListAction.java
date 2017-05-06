@@ -17,7 +17,6 @@ public class ApprovalListAction implements Action {
 	private static final int PAGE_SIZE = 5; // 한 페이지당 글 갯수를 2개로 지정하겠다!
 	
 	public String type = null;
-	public String type_cd = null;
 	public ApprovalListAction(String read_type) {
 		this.read_type = read_type;
 	}
@@ -43,6 +42,8 @@ public class ApprovalListAction implements Action {
 		if (read_type.equals("s")) {
 			approvallist = dao.listsApproval(startRow, search);
 			type = "0";
+
+			search.setSearchType(read_type+1);
 		} else if (read_type.equals("sp")) {
 			approvallist = dao.listspApproval(startRow, search);
 			type = "0";
@@ -58,6 +59,7 @@ public class ApprovalListAction implements Action {
 		} else if (read_type.equals("r")) {
 			approvallist = dao.listrApproval(startRow, search);
 			type = "1";
+			search.setSearchType(read_type+1);
 		} else if (read_type.equals("rw")) {
 			approvallist = dao.listrwApproval(startRow, search);
 			type = "1";
@@ -71,13 +73,12 @@ public class ApprovalListAction implements Action {
 			approvallist = dao.listreApproval(startRow, search);
 			type = "1";
 		}
-
 		for (int i = 0; i < approvallist.size(); i++) {
 			approvallist.get(i).setDraft_dt(approvallist.get(i).getDraft_dt().substring(0, 10));
 		}
 		
 		request.setAttribute("approvallist", approvallist); // 중요!
-
+		System.out.println(search.getSearchType());
 		int totalCount = dao.countApproval(search); // 총 글 갯수
 		System.out.println(totalCount);
 		int totalPageCount = totalCount / PAGE_SIZE; // 총 페이지의 수
@@ -85,7 +86,7 @@ public class ApprovalListAction implements Action {
 											// 나머지값이 생기면 페이지의 수를 1 증가 시킨다.
 			totalPageCount++;// 총 페이지의 수에서 1을 증가시킨다.
 		}
-
+	
 		int startPage = requestPage - (requestPage - 1) % 5; // 공식..
 		int endPage = startPage + 4;
 

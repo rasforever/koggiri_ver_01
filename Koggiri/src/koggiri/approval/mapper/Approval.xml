@@ -450,7 +450,7 @@
 	<select id="countApproval" resultType="int" parameterType="ApprovalSearch">
 		select count(*) from approval
 		<choose>
-			<when test="searchType.equals('s')">
+			<when test="searchType.equals('s1')">
 				where draft_emp_id = #{emp_id}
 			</when>
 			<when test="searchType.equals('sp')">
@@ -468,7 +468,7 @@
 			<when test="searchType.equals('st')">
 				where draft_emp_id = #{emp_id}
 			</when>
-			<when test="searchType.equals('r')">
+			<when test="searchType.equals('r1')">
 				where app_emp_id = #{emp_id}
 			</when>
 			<when test="searchType.equals('rw')">
