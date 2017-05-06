@@ -9,7 +9,7 @@ public class Doc_Board implements Serializable {
 	private Timestamp f_date;
 	private String f_title;
 	private String f_content;
-	private String b_pwd;
+	private String f_pwd;
 	private String f_fname;
 	
 	public int getF_id() {
@@ -42,11 +42,11 @@ public class Doc_Board implements Serializable {
 	public void setF_content(String f_content) {
 		this.f_content = f_content;
 	}
-	public String getB_pwd() {
-		return b_pwd;
+	public String getF_pwd() {
+		return f_pwd;
 	}
-	public void setB_pwd(String b_pwd) {
-		this.b_pwd = b_pwd;
+	public void setF_pwd(String f_pwd) {
+		this.f_pwd = f_pwd;
 	}
 	public String getF_fname() {
 		return f_fname;
@@ -54,5 +54,11 @@ public class Doc_Board implements Serializable {
 	public void setF_fname(String f_fname) {
 		this.f_fname = f_fname;
 	}
+	@Override
+	public String toString() {
+		return "Doc_Board [f_id=" + f_id + ", f_name=" + f_name + ", f_date=" + f_date + ", f_title=" + f_title
+				+ ", f_content=" + f_content + ", f_pwd=" + f_pwd + ", f_fname=" + f_fname + "]";
+	}
+	
 	
 }

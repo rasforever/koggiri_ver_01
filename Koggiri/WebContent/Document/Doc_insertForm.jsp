@@ -27,7 +27,7 @@
 		<tr height="30">
 			<td>파일</td>
 			<td colspan="3">
-				<input type = "file" name= "b_fname">
+				<input type = "file" name= "f_fname">
 			</td>
 		</tr>
 		
@@ -36,15 +36,16 @@
 			<td width="80">제목</td>
 			<td align="left" colspan="3">
 				<c:choose >
-				<c:when test="${param.b_id == null}">
+				<c:when test="${param.f_id == null}">
 					<input type = "text" name = "f_title" size = "50">
 				</c:when>
 				<c:otherwise>
-					<input type = "text" name = "f_title" size ="50" value = "[re]: ${board.b_title}">				
+					<input type = "text" name = "f_title" size ="50" value = "[re]: ${doc_board.f_title}">				
 				</c:otherwise>	
 				</c:choose>		
 			</td>						
-		</tr>		
+		</tr>
+				
 		<tr height="30">			
 			<td colspan="4">
 				<textarea rows="10" cols="70" name="f_content"></textarea>
@@ -57,8 +58,8 @@
 			</td>			
 		</tr>
 	</table>
+	
 	</form>
-</form>
 
 </body>
 </html>

@@ -9,7 +9,8 @@
 		insert into documentboard (
 			f_id, f_name, f_date, f_title, f_content, 
 			f_pwd, f_fname
-		) values(
+		)
+		values(
 		dboard.nextval, #{f_name}, sysdate, #{f_title}, #{f_content},
 			#{f_pwd}, #{f_fname}		
 		)
