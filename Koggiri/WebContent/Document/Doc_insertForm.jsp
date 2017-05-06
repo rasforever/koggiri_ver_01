@@ -37,17 +37,17 @@
 			<td align="left" colspan="3">
 				<c:choose >
 				<c:when test="${param.b_id == null}">
-					<input type = "text" name = "b_title" size = "50">
+					<input type = "text" name = "f_title" size = "50">
 				</c:when>
 				<c:otherwise>
-					<input type = "text" name = "b_title" size ="50" value = "[re]: ${board.b_title}">				
+					<input type = "text" name = "f_title" size ="50" value = "[re]: ${board.b_title}">				
 				</c:otherwise>	
 				</c:choose>		
 			</td>						
 		</tr>		
 		<tr height="30">			
 			<td colspan="4">
-				<textarea rows="10" cols="70" name="b_content"></textarea>
+				<textarea rows="10" cols="70" name="f_content"></textarea>
 			</td>			
 		</tr>
 		<tr height="30">			
