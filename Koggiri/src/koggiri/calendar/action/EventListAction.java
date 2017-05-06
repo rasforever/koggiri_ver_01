@@ -28,6 +28,7 @@ public class EventListAction implements Action {
 		HttpSession session =request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id"); // session id 받아옴
 		
+		
 		List<Event> listEvent = dao.calendarList(mem_id);
 		/*System.out.println(listEvent.get(0).getStart_date());*/
 		

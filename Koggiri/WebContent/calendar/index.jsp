@@ -448,7 +448,9 @@
 </style>
 </head>
 <body>
-
+	
+	<jsp:include page="../Main/header.jsp"></jsp:include>
+	<br><br><br><br><br>
 	<div id='calendar'></div>
 	
 
