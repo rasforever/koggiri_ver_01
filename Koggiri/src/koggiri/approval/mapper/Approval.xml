@@ -448,7 +448,7 @@
 			<foreach collection="area" item="item" separator="OR" open="("
 				close=")">
 				<if test="area.equals('app_id')">
-					 a.app_id LIKE #{app_id_search}
+					 a.${item} LIKE #{app_id_search}
 				</if>
 				<if test="area.equals('app_type_cd')">
 					 a.app_type_cd = #{app_type}
