@@ -8,9 +8,11 @@ import koggiri.approval.model.Emp_infomation;
 import koggiri.approval.model.AppType;
 import koggiri.approval.model.Approval;
 import koggiri.approval.model.ApprovalSearch;
+import koggiri.approval.model.Dept;
 
 public interface ApprovalMapper {
 	public List<AppType> appty_select(); //입력시 문서 종류
+	public List<Dept> dept_select(); //입력시 문서 종류 
 	public Emp_infomation einfo_select(String emp_id); //개인정보 가져오기
 	public List<Approval> listsApproval(RowBounds row, ApprovalSearch search); //내가 보낸 결재 목록 전체
 	public List<Approval> listspApproval(RowBounds row, ApprovalSearch search); //내가 보낸 결재 목록 전체

@@ -14,6 +14,12 @@
 		app_type_nm, app_context from App_type
 	</select>
 
+	<select id="dept_select" resultType="Dept">
+		select dept_id,
+		dept_nm,
+		dept_e_nm from Dept
+	</select>
+
 	<select id="einfo_select" parameterType="String" resultType="Emp_infomation">
 		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
 		d.dept_nm as dept_nm, p.pos_nm as pos_nm
@@ -35,10 +41,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.draft_emp_id = #{emp_id}
+		and
+		a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -47,18 +55,10 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
+		on a.app_emp_id =
+		ea.emp_id
 
-			</where>
 
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -71,10 +71,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.draft_emp_id = #{emp_id}
+		and
+		a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -83,19 +85,11 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		= '1'
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -108,10 +102,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.draft_emp_id = #{emp_id}
+		and
+		a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -120,19 +116,11 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		= '2'
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -145,10 +133,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.draft_emp_id = #{emp_id}
+		and
+		a.draft_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -157,20 +147,12 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		in
 		('3','4')
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -183,10 +165,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.app_emp_id = #{emp_id}
+		and
+		a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -195,17 +179,9 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
+		on a.app_emp_id =
+		ea.emp_id
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -218,10 +194,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.app_emp_id = #{emp_id}
+		and
+		a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -230,19 +208,11 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		= '0'
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -255,10 +225,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.app_emp_id = #{emp_id}
+		and
+		a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -267,56 +239,11 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		= '1'
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
-		order by a.app_id desc
-	</select>
-
-	<select id="listrcApproval" resultType="Approval" parameterType="ApprovalSearch">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
-		app_type_nm,
-		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
-		ea.emp_nm as app_emp_nm,
-		ap.app_pro_nm as app_pro_nm
-		from approval a
-		inner join app_type at
-		on a.app_type_cd = at.app_type_cd
-		and a.app_emp_id = #{emp_id}
-		inner join
-		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join
-		dept d
-		on
-		a.dept_id = d.dept_id
-		inner join emp ed
-		on a.draft_emp_id =
-		ed.emp_id
-		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd
-		= '2'
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
-
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -329,10 +256,12 @@
 		from approval a
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		and a.app_emp_id = #{emp_id}
+		and
+		a.app_emp_id = #{emp_id}
 		inner join
 		app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
+		on a.app_pro_cd =
+		ap.app_pro_cd
 		inner join
 		dept d
 		on
@@ -341,20 +270,43 @@
 		on a.draft_emp_id =
 		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '2'
+
+		order by a.app_id desc
+	</select>
+
+	<select id="listrcApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id =
+		ed.emp_id
+		inner join emp ea
+		on a.app_emp_id =
+		ea.emp_id
 		and a.app_pro_cd
 		in
 		('3','4')
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="("
-					close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
 
-			</where>
-
-		</if>
 		order by a.app_id desc
 	</select>
 
@@ -448,51 +400,74 @@
 	</delete>
 
 	<select id="countApproval" resultType="int" parameterType="ApprovalSearch">
-		select count(*) from approval
+		select count(*) from approval a, emp e1, emp e2
+		where a.draft_emp_id =
+		e1.emp_id
+		and a.app_emp_id = e2.emp_id
 		<choose>
 			<when test="searchType.equals('s1')">
-				where draft_emp_id = #{emp_id}
+				and a.draft_emp_id = #{emp_id}
 			</when>
 			<when test="searchType.equals('sp')">
-				where draft_emp_id = #{emp_id}
-				  and app_pro_cd in ('1')
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('1')
 			</when>
 			<when test="searchType.equals('se')">
-				where draft_emp_id = #{emp_id}
-				  and app_pro_cd in ('2')
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('2')
 			</when>
 			<when test="searchType.equals('sc')">
-				where draft_emp_id = #{emp_id}
-				  and app_pro_cd in ('3','4')
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('3','4')
 			</when>
 			<when test="searchType.equals('st')">
-				where draft_emp_id = #{emp_id}
+				and a.draft_emp_id = #{emp_id}
 			</when>
 			<when test="searchType.equals('r1')">
-				where app_emp_id = #{emp_id}
+				and a.app_emp_id = #{emp_id}
 			</when>
 			<when test="searchType.equals('rw')">
-				where app_emp_id = #{emp_id}
-				  and app_pro_cd in ('0')
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('0')
 			</when>
 			<when test="searchType.equals('rp')">
-				where app_emp_id = #{emp_id}
-				  and app_pro_cd in ('1')
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('1')
 			</when>
 			<when test="searchType.equals('rc')">
-				where app_emp_id = #{emp_id}
-				  and app_pro_cd in ('2')
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('2')
 			</when>
 			<when test="searchType.equals('re')">
-				where app_emp_id = #{emp_id}
-				  and app_pro_cd in ('3','4')
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('3','4')
 			</when>
-		</choose>
+		</choose>	
+		and
 		<if test="area != null">
 			<foreach collection="area" item="item" separator="OR" open="("
 				close=")">
-				and ${item} LIKE #{searchKey}
+				<if test="area.equals('app_id')">
+					 a.app_id LIKE #{app_id_search}
+				</if>
+				<if test="area.equals('app_type_cd')">
+					 a.app_type_cd = #{app_type}
+				</if>
+				<if test="area.equals('dept_id')">
+					 a.dept_id = #{dept}
+				</if>
+				<if test="area.equals('draft_emp_id')">
+					 (a.draft_emp_id LIKE #{draft_emp_id_search} or e1.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="area.equals('app_emp_id')">
+					 (a.app_emp_id LIKE #{app_emp_id_search} or e2.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="area.equals('draft_dt')">
+					 a.draft_dt between #{draft_s_dt} and #{draft_e_dt}
+				</if>
 			</foreach>
-		</if>
+		</if>  
 	</select>
 </mapper>

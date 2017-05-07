@@ -6,10 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import koggiri.approval.model.AppType;
 import koggiri.approval.model.Approval;
 import koggiri.approval.model.ApprovalDao;
 import koggiri.approval.model.ApprovalSearch;
 import koggiri.approval.model.Approval_List;
+import koggiri.approval.model.Dept;
 
 public class ApprovalListAction implements Action {
 	private String read_type;
@@ -27,11 +29,40 @@ public class ApprovalListAction implements Action {
 		List<Approval> approvallist = null;
 		ApprovalSearch search = new ApprovalSearch();
 		
+		List<AppType> applist = dao.appty_select();	
+		List<Dept> deptlist = dao.dept_select();	
+		
 		HttpSession session = request.getSession(true); 
 		String emp_id = (String) session.getAttribute("mem_id");
 		search.setSearchType(read_type);
 		search.setEmp_id(emp_id);
 		
+		// 검색 로직
+		if (request.getParameterValues("area") != null) {
+			search.setArea(request.getParameterValues("area"));
+			search.setApp_id_search("%" + request.getParameter("app_id_search") + "%");
+			search.setApp_type(request.getParameter("app_type"));
+			search.setDept(request.getParameter("dept"));
+			search.setDraft_emp_id_search("%" + request.getParameter("draft_emp_id_search") + "%");
+			search.setApp_emp_id_search("%" + request.getParameter("app_emp_id_search") + "%");
+			search.setDraft_s_dt(request.getParameter("draft_s_dt"));
+			search.setDraft_e_dt(request.getParameter("draft_e_dt"));
+			session.setAttribute("search", search);
+		} else if ((ApprovalSearch) session.getAttribute("search") != null) {// 검색 후
+																		// 페이징처리를
+																		// 클릭 했을
+																		// 시
+			search = (ApprovalSearch) session.getAttribute("search");
+		}
+		
+		for(int i = 0;i<search.getArea().length;i++){
+			System.out.println(search.getSearchType());
+			System.out.println(search.getEmp_id());
+			System.out.println(search.getArea()[i]);
+		}
+
+	    request.setAttribute("applist", applist); //중요!
+	    request.setAttribute("deptlist", deptlist); //중요! 
 		String pageNum = request.getParameter("pageNum");
 		if (pageNum == null) { // 인설트하고 바로 왔다는 뜻.
 			pageNum = "1";

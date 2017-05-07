@@ -3,15 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="script/approval.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <%
 	String type = request.getParameter("type");
 	String type_cd = request.getParameter("type_cd");
@@ -24,11 +15,22 @@
 		}
 	}
 	
-%>
+%>	
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="jquery.tabs.css" type="text/css" media="print, projection, screen">
 <script type="text/javascript" src="script/approval.js"></script>
 <script type="text/javascript">
-
 $(function (){
 	if (<%=type%> == 1){
 		$('#r_approval').show();
@@ -50,6 +52,40 @@ function rs_type(obj) {
 	}
 }
 
+function dis_chg(obj) {	
+	 if (obj.checked == true ){
+		 if ( $(obj).val() == "app_id"){
+			 $('#app_id_search').attr("disabled",false);	
+		 } else if ($(obj).val() == "app_type_cd"){
+			 $('#app_type').attr("disabled",false);					 
+		 } else if ($(obj).val() == "dept_id"){
+			 $('#dept').attr("disabled",false);					 
+		 } else if ($(obj).val() == "draft_emp_id"){
+			 $('#draft_emp_id_search').attr("disabled",false);					 
+		 } else if ($(obj).val() == "app_emp_id"){
+			 $('#app_emp_id_search').attr("disabled",false);					 
+		 } else if ($(obj).val() == "draft_dt"){
+			 $('#draft_s_dt').attr("disabled",false);	
+			 $('#draft_e_dt').attr("disabled",false);					 
+		 }
+		  
+	 }else if (obj.checked == false) {
+		 if ( $(obj).val() == "app_id"){
+			 $('#app_id_search').attr("disabled",true);
+		 } else if ($(obj).val() == "app_type_cd"){
+			 $('#app_type').attr("disabled",true);					 
+		 } else if ($(obj).val() == "dept_id"){
+			 $('#dept').attr("disabled",true);					 
+		 } else if ($(obj).val() == "draft_emp_id"){
+			 $('#draft_emp_id_search').attr("disabled",true);					 
+		 } else if ($(obj).val() == "app_emp_id"){
+			 $('#app_emp_id_search').attr("disabled",true);					 
+		 } else if ($(obj).val() == "draft_dt"){
+			 $('#draft_s_dt').attr("disabled",true);	
+			 $('#draft_e_dt').attr("disabled",true);					 
+		 }		
+	 }	
+}
 
 </script>
 </head>
@@ -129,7 +165,39 @@ function rs_type(obj) {
 				<a href="approval_list_<%=type_cd %>.approval?pageNum=${approval_List.startPage + 5 }">[이후]</a>
 			</c:if>
 		</div>
+		<form action="approval_list_<%=type_cd %>.approval" method="post">
+		<div align="left" id="search_div">
+				<input type="submit" value="검색" id="search_btn"> <br>
+				
+				<input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input> 
+				<input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input> <br>
+				<input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input> 
+				<select id="app_type"
+					name="app_type" disabled>
+					<c:forEach var="apptype" items="${applist}">
+						<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
+						</option>
+					</c:forEach>
+				</select><br>
+				<input type="checkbox" name="area" value="dept_id" onclick="dis_chg(this)">관리부서</input> 
+				<select id="dept"
+					name="dept"  disabled>
+					<c:forEach var="dept" items="${deptlist}">
+						<option value="${dept.dept_id}">${dept.dept_nm}
+						</option>
+					</c:forEach>
+				</select><br>
+				<input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자
+				<input type="text" name="draft_emp_id_search" id ="draft_emp_id_search" size="30" disabled> <br>
+				<input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자
+				<input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled> <br>
+				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
+				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
+				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
+					
+			</div>
 		<!-- bottom div -->
+		</form>
 </body>
 </html>
 
