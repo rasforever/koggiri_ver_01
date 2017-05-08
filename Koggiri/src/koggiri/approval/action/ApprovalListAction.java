@@ -37,6 +37,11 @@ public class ApprovalListAction implements Action {
 		search.setSearchType(read_type);
 		search.setEmp_id(emp_id);
 		
+		System.out.println(request.getParameter("temp"));
+		if (request.getParameter("temp") != null){
+			session.removeAttribute("search");
+		}
+		
 		// 검색 로직
 		if (request.getParameterValues("area") != null) {
 			search.setArea(request.getParameterValues("area"));
@@ -53,13 +58,11 @@ public class ApprovalListAction implements Action {
 																		// 클릭 했을
 																		// 시
 			search = (ApprovalSearch) session.getAttribute("search");
+		} else if (request.getParameterValues("area") == null ){
+
+			
 		}
 		
-		for(int i = 0;i<search.getArea().length;i++){
-			System.out.println(search.getSearchType());
-			System.out.println(search.getEmp_id());
-			System.out.println(search.getArea()[i]);
-		}
 
 	    request.setAttribute("applist", applist); //중요!
 	    request.setAttribute("deptlist", deptlist); //중요! 

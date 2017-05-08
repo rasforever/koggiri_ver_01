@@ -57,7 +57,32 @@
 		inner join emp ea
 		on a.app_emp_id =
 		ea.emp_id
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 
 		order by a.app_id desc
 	</select>
@@ -89,7 +114,32 @@
 		ea.emp_id
 		and a.app_pro_cd
 		= '1'
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -120,7 +170,32 @@
 		ea.emp_id
 		and a.app_pro_cd
 		= '2'
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -152,7 +227,32 @@
 		and a.app_pro_cd
 		in
 		('3','4')
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -181,7 +281,32 @@
 		inner join emp ea
 		on a.app_emp_id =
 		ea.emp_id
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -212,7 +337,32 @@
 		ea.emp_id
 		and a.app_pro_cd
 		= '0'
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -243,7 +393,32 @@
 		ea.emp_id
 		and a.app_pro_cd
 		= '1'
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -274,7 +449,32 @@
 		ea.emp_id
 		and a.app_pro_cd
 		= '2'
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -306,7 +506,32 @@
 		and a.app_pro_cd
 		in
 		('3','4')
-
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
 		order by a.app_id desc
 	</select>
 
@@ -443,29 +668,30 @@
 				and a.app_pro_cd in ('3','4')
 			</when>
 		</choose>	
-		and
+		
 		<if test="area != null">
-			<foreach collection="area" item="item" separator="OR" open="("
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
 				close=")">
-				<if test="area.equals('app_id')">
+				<if test="item.equals('app_id')">
 					 a.${item} LIKE #{app_id_search}
 				</if>
-				<if test="area.equals('app_type_cd')">
-					 a.app_type_cd = #{app_type}
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
 				</if>
-				<if test="area.equals('dept_id')">
-					 a.dept_id = #{dept}
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
 				</if>
-				<if test="area.equals('draft_emp_id')">
-					 (a.draft_emp_id LIKE #{draft_emp_id_search} or e1.emp_nm LIKE
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or e1.emp_nm LIKE
 					#{draft_emp_id_search})
 				</if>
-				<if test="area.equals('app_emp_id')">
-					 (a.app_emp_id LIKE #{app_emp_id_search} or e2.emp_nm LIKE
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or e2.emp_nm LIKE
 					#{app_emp_id_search})
 				</if>
-				<if test="area.equals('draft_dt')">
-					 a.draft_dt between #{draft_s_dt} and #{draft_e_dt}
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
 				</if>
 			</foreach>
 		</if>  

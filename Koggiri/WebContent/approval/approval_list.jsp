@@ -44,11 +44,11 @@ function rs_type(obj) {
 	if (obj == 1){
 		$('#r_approval').show();
 		$('#s_approval').hide();
-		location.href = "approval_list_r.approval";
+		location.href = "approval_list_r.approval?temp=temp";
 	} else {
 		$('#r_approval').hide();
 		$('#s_approval').show();
-		location.href = "approval_list_s.approval";
+		location.href = "approval_list_s.approval?temp=temp";
 	}
 }
 
@@ -86,7 +86,30 @@ function dis_chg(obj) {
 		 }		
 	 }	
 }
-
+function approval_type(obj) {
+	if (obj == "rw") {
+		location.href = "approval_list_rw.approval?temp=temp";
+	} else if (obj == "rp") {
+		location.href = "approval_list_rp.approval?temp=temp";
+	} else if (obj == "re") {
+		location.href = "approval_list_re.approval?temp=temp";
+	} else if (obj == "rc") {
+		location.href = "approval_list_rc.approval?temp=temp";
+	} else if (obj == "sp") {
+		location.href = "approval_list_sp.approval?temp=temp";
+	} else if (obj == "se") {
+		location.href = "approval_list_se.approval?temp=temp";
+	} else if (obj == "sc") {
+		location.href = "approval_list_sc.approval?temp=temp";
+	} else if (obj == "st") {
+		location.href = "approval_list_st.approval?temp=temp";
+	} else if (obj == "r") {
+		location.href = "approval_list_r.approval?temp=temp";
+	} else if (obj == "s") {
+		location.href = "approval_list_s.approval?temp=temp";
+	}
+s
+}
 </script>
 </head>
 <body>
@@ -94,7 +117,7 @@ function dis_chg(obj) {
 		<li><a href="#" onclick="rs_type(0)">내가 보낸 결재</a></li>
 		<li><a href="#" onclick="rs_type(1)">내가 받은 결재</a></li>
 	</ul>
-	<form action="approval_list_s.approval" method="post">
+	<form action="approval_list_<%=type_cd %>.approval?temp=temp" method="post">	
 		<div id="s_approval">
 			<input type="button" id="s_approval_all" name="s_approval_all" value="전체" onclick="approval_type('s')"> 
 			<input type="button" id="s_approval_p" name="s_approval_p" value="진행중결재" onclick="approval_type('sp')"> 
@@ -126,8 +149,6 @@ function dis_chg(obj) {
 		<tbody>
 		<c:forEach var = "approval" items = "${approvallist }">
 				<tr>
-					<input type="hidden" name="draft_emp_id" value="${approval.draft_emp_id }">
-					<input type="hidden" name="app_emp_id" value="${approval.app_emp_id }">
 					<td><a href="approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>">${approval.app_id }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.draft_dt }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.app_type_nm }</a></td>
@@ -164,11 +185,12 @@ function dis_chg(obj) {
 			<c:if test="${approval_List.endPage < approval_List.totalPageCount}">
 				<a href="approval_list_<%=type_cd %>.approval?pageNum=${approval_List.startPage + 5 }">[이후]</a>
 			</c:if>
-		</div>
+		
 		<form action="approval_list_<%=type_cd %>.approval" method="post">
-		<div align="left" id="search_div">
+			<div align="left" id="search_div">
+				<input type="hidden" name="temp" value="temp"></input>
 				<input type="submit" value="검색" id="search_btn"> <br>
-				
+					
 				<input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input> 
 				<input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input> <br>
 				<input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input> 
@@ -194,10 +216,10 @@ function dis_chg(obj) {
 				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
 				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
 				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
-					
 			</div>
-		<!-- bottom div -->
 		</form>
+	</div>		
+	<!-- bottom div -->
 </body>
 </html>
 
