@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="koggiri.document.mapper.Doc_BoardMapper">
+	<cache />
+	
+	<insert id="doc_insertBoard" parameterType="Doc_Board" >
+		insert into documentboard (
+			f_id, f_name, f_date, f_title, f_content, 
+			f_pwd, f_fname
+		)
+		values(
+		dboard.nextval, #{f_name}, sysdate, #{f_title}, #{f_content},
+			#{f_pwd}, #{f_fname}		
+		)
+		
+	</insert>	
+	
+	<select id="doc_listBoard" resultType="Doc_Board">
+		select * from documentboard 
+	</select>
+	
+	<select id="doc_detailBoard" parameterType="int" resultType="Doc_Board">
+		select * from documentboard where f_id = #{f_id}
+	</select>
+	
+	<update id="doc_updateBoard" parameterType="Doc_Board">
+		update documentboard set
+			f_title = #{f_title},
+			f_content = #{f_content},
+			f_fname = #{f_fname}
+		where f_id = #{f_id} and f_pwd = #{f_pwd}
+	</update>
+	
+	<delete id="doc_deleteBoard" parameterType="Doc_Board">
+		delete from documentboard
+		where f_id = #{f_id}
+	</delete>
+	
+	</mapper>

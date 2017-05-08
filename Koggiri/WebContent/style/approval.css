@@ -1,0 +1,106 @@
+@CHARSET "EUC-KR";
+
+#approval{
+	width: 1100px;
+}
+#cke_app_context{
+	width: 1100px;
+}
+
+#app_table tr th{
+	background-color: #0080ff;
+	width: 80px;
+	height: 20px;
+	color: white;
+}
+
+#app_table td{
+	width: 500px;
+	border: 0px;
+}
+#app_table td input{
+	width: 98%;
+}
+
+.approval_btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	color:white;
+	border: 0px;
+	font-weight: bold;
+
+}
+.approval_btn:HOVER {
+	background-color: #ff8080;
+}
+
+/***********************************/
+#app_list li{
+	display: inline;
+}
+.app_send_receive{
+	text-decoration: none;
+	background-color: #0080ff;
+	color:white;
+	padding: 11px;
+	font-weight: bold;
+}
+.app_send_receive:HOVER{
+
+	background-color: #ff8080;
+}
+
+#s_approval input{
+width: 100px;
+height: 30px;	
+border: 0px;
+color: white;
+background-color: #0080ff;
+font-weight: bold;
+}
+
+#s_approval input:HOVER{
+
+background-color: #ff8080;
+
+}
+#r_approval input{
+width: 100px;
+height: 30px;	
+border: 0px;
+color: white;
+background-color: #0080ff;
+font-weight: bold;
+}
+
+#r_approval input:HOVER{
+
+background-color: #ff8080;
+
+}
+#app_table02{
+	width: 1100px;
+	
+}
+#app_table02 th{
+	width: 140px;
+	background-color: #0080ff;
+	color:white;
+	font-weight: bold;
+	padding: 10px;
+}
+#app_table02_tr td{
+	padding: 10px 0px 10px 0px;
+border-bottom: 1px solid silver;
+}
+#app_table02_tr td a{
+text-decoration: none;
+color: black;
+}
+#app_table02_tr:HOVER{
+background-color: #e6f4ff;
+}
+#app_contain{
+	width: 1100px;
+}

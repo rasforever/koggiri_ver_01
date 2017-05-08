@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.calendar.action.Action;
 import koggiri.calendar.action.ActionForward;
+import koggiri.calendar.action.EventDeleteAction;
 import koggiri.calendar.action.EventInsertAction;
+import koggiri.calendar.action.EventListAction;
+import koggiri.calendar.action.EventUpdateAction;
 
 
 @WebServlet("*.cal")
@@ -23,15 +26,23 @@ public class CalendarController extends HttpServlet {
         super();
 
     }
-public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    
+
+    public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	
-        String requestURI = request.getRequestURI();
-        String contextPath = request.getContextPath();
-        String command = requestURI.substring(contextPath.length()+1);
-        request.setCharacterEncoding("UTF-8");
+     
+    	String requestURI = request.getRequestURI();
+     
+    	String contextPath = request.getContextPath();
+     
+    	String command = requestURI.substring(contextPath.length()+1);
+    
+    	request.setCharacterEncoding("UTF-8");
         
         ActionForward forward = null;
+      
         Action action = null;
+        
     	System.out.println(command);
         
         if(command.equals("calendar/send.cal")){
@@ -44,7 +55,37 @@ public void doProcess(HttpServletRequest request, HttpServletResponse response) 
               e.printStackTrace();
            }
          
-         }
+         }else if(command.equals("calendar/get.cal")){
+             
+             action = new EventListAction();
+             
+             try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+          
+          }else if(command.equals("calendar/update.cal")){
+               
+               action = new EventUpdateAction();
+               
+               try {
+                  forward = action.execute(request, response);
+              } catch (Exception e) {
+                 e.printStackTrace();
+              }
+            
+            }else if(command.equals("calendar/delete.cal")){
+                
+                action = new EventDeleteAction();
+                
+                try {
+                   forward = action.execute(request, response);
+               } catch (Exception e) {
+                  e.printStackTrace();
+               }
+             
+             }
         
         if(forward !=null){
             if(forward.isRedirect()){
@@ -54,6 +95,7 @@ public void doProcess(HttpServletRequest request, HttpServletResponse response) 
                
                 RequestDispatcher dispatcher = 
                       request.getRequestDispatcher(forward.getPath());
+         
                 dispatcher.forward(request, response);
             }
          }

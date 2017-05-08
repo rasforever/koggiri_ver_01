@@ -16,7 +16,7 @@ public class Emp implements Serializable{
 	private String nation_id;
 	private String wstate_cd;
 	private String input_emp_id;
-	
+	private String mem_pw;
 	
 	
 	public String getNation_id() {
@@ -80,12 +80,19 @@ public class Emp implements Serializable{
 	public void setInput_emp_id(String input_emp_id) {
 		this.input_emp_id = input_emp_id;
 	}
+	public String getMem_pw() {
+		return mem_pw;
+	}
+	public void setMem_pw(String mem_pw) {
+		this.mem_pw = mem_pw;
+	}
 	@Override
 	public String toString() {
 		return "Emp [emp_nm=" + emp_nm + ", pos_id=" + pos_id + ", dept_id=" + dept_id + ", join_dt=" + join_dt
 				+ ", emp_id=" + emp_id + ", res_no=" + res_no + ", sex_id=" + sex_id + ", nation_id=" + nation_id
-				+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + "]";
+				+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw + "]";
 	}
+	
 	
 	
 	

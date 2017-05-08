@@ -7,161 +7,693 @@
 <mapper namespace="koggiri.approval.mapper.ApprovalMapper">
 	<cache />
 
-	
-	
-	<select id="app_tyselect" resultType="AppType">
-		select app_type_cd, app_type_nm from App_type
+
+
+	<select id="appty_select" resultType="AppType">
+		select app_type_cd,
+		app_type_nm, app_context from App_type
 	</select>
-	
-	<select id="einfo_select" resultType="Emp_infomation">
-		select e.emp_id as emp_id, e.emp_nm as emp_nm, d.dept_nm as dept_nm, p.pos_nm as pos_nm from emp e inner join dept d
+
+	<select id="dept_select" resultType="Dept">
+		select dept_id,
+		dept_nm,
+		dept_e_nm from Dept
+	</select>
+
+	<select id="einfo_select" parameterType="String" resultType="Emp_infomation">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
+		d.dept_nm as dept_nm, p.pos_nm as pos_nm
+		from emp e inner join dept d
 		on e.dept_id = d.dept_id
 		inner join pos p
-		on e.pos_id = p.pos_id
-		and e.emp_id = 'k15010201'
+		on
+		e.pos_id = p.pos_id
+		and
+		e.emp_id = #{emp_id}
 	</select>
 
-	<select id="approval_r_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+	<select id="listsApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.draft_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_rw_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listspApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.draft_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd = '0'
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '1'
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_rp_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listseApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.draft_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd = '1'
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '2'
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_re_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listscApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm ,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.draft_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd = '2'
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		in
+		('3','4')
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_rc_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listrApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd in ('3','4')
+		on a.app_emp_id =
+		ea.emp_id
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_s_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listrwApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '0'
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_sp_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listrpApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd = '1'
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '1'
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_se_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listreApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd = '2'
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		= '2'
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
-	
-	<select id="approval_sc_select" resultType="Approval">
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as app_type_nm,
-		       d.dept_nm as dept_nm, ed.emp_nm as drafter , ea.emp_nm as approver, ap.app_pro_nm as app_pro_nm 
-		from approval a inner join app_type at
+
+	<select id="listrcApproval" resultType="Approval" parameterType="ApprovalSearch">
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
-		inner join app_pro_type ap
-		on a.app_pro_cd = ap.app_pro_cd
-		inner join dept d
-		on a.dept_id = d.dept_id
+		and
+		a.app_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
 		inner join emp ed
-		on a.draft_emp_id = ed.emp_id
+		on a.draft_emp_id =
+		ed.emp_id
 		inner join emp ea
-		on a.app_emp_id = ea.emp_id
-		and a.app_pro_cd in ('3','4')
+		on a.app_emp_id =
+		ea.emp_id
+		and a.app_pro_cd
+		in
+		('3','4')
+<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or ed.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or ea.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>
+		order by a.app_id desc
 	</select>
 
 
+
+
+	<insert id="insertApproval" parameterType="Approval">
+		{CALL
+		insert_approval(#{app_type_cd}, #{draft_emp_id}, #{app_emp_id},
+		#{draft_dt}, #{app_title}, #{app_context})}
+	</insert>
+
+	<select id="detailRApproval" parameterType="String" resultType="Approval">
+		select a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
+		dept_nm, ap.app_pro_nm as app_pro_nm,
+		ed.emp_nm as draft_emp_nm,
+		a.draft_emp_id as draft_emp_id, ea.emp_nm as
+		app_emp_nm, a.app_emp_id
+		as app_emp_id,
+		a.draft_dt as draft_dt, a.app_dt as app_dt, a.app_title
+		as app_title,
+		a.app_context as app_context
+		from approval a inner join
+		app_type at
+		on
+		a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on
+		a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id =
+		d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp
+		ea
+		on
+		a.app_emp_id = ea.emp_id
+		and a.app_id = #{app_id}
+	</select>
+
+	<select id="detailSApproval" parameterType="String" resultType="Approval">
+		select a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
+		dept_nm, ap.app_pro_nm as app_pro_nm,
+		ed.emp_nm as draft_emp_nm,
+		a.draft_emp_id as draft_emp_id, ea.emp_nm as
+		app_emp_nm, a.app_emp_id
+		as app_emp_id,
+		a.draft_dt as draft_dt, a.app_dt as app_dt, a.app_title
+		as app_title,
+		a.app_context as app_context
+		from approval a inner join
+		app_type at
+		on
+		a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on
+		a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id =
+		d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp
+		ea
+		on
+		a.app_emp_id = ea.emp_id
+		and a.app_id = #{app_id}
+	</select>
+
+	<update id="updateApproval_app" parameterType="Approval">
+		update approval
+		set app_pro_cd = #{app_pro_cd}, app_dt = SYSDATE, chg_emp_id
+		=
+		#{chg_emp_id}, chg_sysdt = SYSDATE where app_id = #{app_id}
+	</update>
+
+	<update id="updateApproval" parameterType="Approval">
+
+		update approval set
+		app_emp_id = #{app_emp_id}, app_title = #{app_title},
+		app_context =
+		#{app_context}, draft_dt = #{draft_dt},
+		chg_emp_id = #{chg_emp_id},
+		chg_sysdt = SYSDATE where app_id = #{app_id}
+	</update>
+
+	<delete id="deleteApproval" parameterType="String">
+		delete from approval
+		where app_id = #{app_id}
+	</delete>
+
+	<select id="countApproval" resultType="int" parameterType="ApprovalSearch">
+		select count(*) from approval a, emp e1, emp e2
+		where a.draft_emp_id =
+		e1.emp_id
+		and a.app_emp_id = e2.emp_id
+		<choose>
+			<when test="searchType.equals('s1')">
+				and a.draft_emp_id = #{emp_id}
+			</when>
+			<when test="searchType.equals('sp')">
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('1')
+			</when>
+			<when test="searchType.equals('se')">
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('2')
+			</when>
+			<when test="searchType.equals('sc')">
+				and a.draft_emp_id = #{emp_id}
+				and a.app_pro_cd in ('3','4')
+			</when>
+			<when test="searchType.equals('st')">
+				and a.draft_emp_id = #{emp_id}
+			</when>
+			<when test="searchType.equals('r1')">
+				and a.app_emp_id = #{emp_id}
+			</when>
+			<when test="searchType.equals('rw')">
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('0')
+			</when>
+			<when test="searchType.equals('rp')">
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('1')
+			</when>
+			<when test="searchType.equals('rc')">
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('2')
+			</when>
+			<when test="searchType.equals('re')">
+				and a.app_emp_id = #{emp_id}
+				and a.app_pro_cd in ('3','4')
+			</when>
+		</choose>	
+		
+		<if test="area != null">
+		and
+			<foreach collection="area" item="item" separator="AND" open="("
+				close=")">
+				<if test="item.equals('app_id')">
+					 a.${item} LIKE #{app_id_search}
+				</if>
+				<if test="item.equals('app_type_cd')">
+					  a.${item} = #{app_type}
+				</if>
+				<if test="item.equals('dept_id')">
+					  a.${item}= #{dept}
+				</if>
+				<if test="item.equals('draft_emp_id')">
+					 ( a.${item} LIKE #{draft_emp_id_search} or e1.emp_nm LIKE
+					#{draft_emp_id_search})
+				</if>
+				<if test="item.equals('app_emp_id')">
+					 ( a.${item} LIKE #{app_emp_id_search} or e2.emp_nm LIKE
+					#{app_emp_id_search})
+				</if>
+				<if test="item.equals('draft_dt')">
+					  a.${item} between #{draft_s_dt} and #{draft_e_dt}
+				</if>
+			</foreach>
+		</if>  
+	</select>
 </mapper>

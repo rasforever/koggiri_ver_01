@@ -1,15 +1,15 @@
-package koggiri.approval.action;
+package koggiri.document.action;
 
-public class ActionFoward {
+
+public class Doc_ActionForward {
 	
 	private boolean isRedirect;
 	private String path;
 	
-	
 	public boolean isRedirect() {
 		return isRedirect;
 	}
-	public void setRedirect(boolean isRedirect) {
+	public void setIsRedirect(boolean isRedirect) {
 		this.isRedirect = isRedirect;
 	}
 	public String getPath() {
@@ -18,4 +18,6 @@ public class ActionFoward {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
+	
 }

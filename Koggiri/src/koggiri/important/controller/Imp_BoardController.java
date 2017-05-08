@@ -120,14 +120,13 @@ public class Imp_BoardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);
-		System.out.println("get으로 진입");
-
+	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);
-		System.out.println("post로 진입");
+	
 	}
 
 }
