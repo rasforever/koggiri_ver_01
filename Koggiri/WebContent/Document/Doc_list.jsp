@@ -29,49 +29,20 @@
 					<th width="150">작성일자</th>
 					<th width="150">조회수</th>
 				</tr>
-				<c:forEach var="imp_board" items="${list}">
+				<c:forEach var="doc_board" items="${list}">
 					<tr>
-						<td align="center">${imp_board.i_id }</td>
+						<td align="center">${doc_board.f_id }</td>
 						<td><a
-							href="detailAction.importantboard?i_id=${imp_board.i_id }">${imp_board.i_title }</a></td>
-						<td align="center">${imp_board.i_emp_id}</td>
-						<td align="center">${imp_board.i_date }</td>
-						<td align="center">${imp_board.i_hit }</td>
+							href="detailAction.importantboard?i_id=${doc_board.f_id }">${doc_board.f_title }</a></td>
+						<td align="center">${doc_board.f_name}</td>
+						<td align="center">${doc_board.f_date }</td>
+						
 					</tr>
 				</c:forEach>
 			</table>
 			<br> <br> <span id="insert_a"><a
-				href="Imp_insertForm.jsp">글쓰기</a></span> <br> <br>
-			<div id="bottom">
-				<!--  페이징 처리 영역  -->
-
-				<!-- [이전] 버튼 만들기 -->
-				<c:if test="${imp_listModel.imp_startPage > 5}">
-					<a
-						href="listAction.importantboard?pageNum=${imp_listModel.imp_startPage - 5}">[이전]</a>
-				</c:if>
-
-				<!-- [1][2][3] 버튼 만들기  -->
-				<c:forEach var="pageNo" begin="${imp_listModel.imp_startPage}"
-					end="${imp_listModel.imp_endPage}">
-					<c:if test="${imp_listModel.imp_requestPage == pageNo }">
-						<b>
-					</c:if>
-
-					<a href="listAction.importantboard?pageNum=${pageNo }">[${pageNo }]</a>
-
-					<c:if test="${imp_listModel.imp_requestPage == pageNo }">
-						</b>
-					</c:if>
-				</c:forEach>
-
-				<!-- [이후] 버튼 만들기 -->
-				<c:if
-					test="${imp_listModel.imp_endPage < imp_listModel.imp_totalPageCount}">
-					<a
-						href="listAction.importantboard?pageNum=${imp_listModel.imp_startPage + 5}">[이후]</a>
-				</c:if>
-			</div>
+				href="Doc_insertForm.jsp">글쓰기</a></span> <br> <br>
+	
 			<br> <br>
 			<form action="listAction.importantboard" method="post">
 				<div align="left" id="search_div">

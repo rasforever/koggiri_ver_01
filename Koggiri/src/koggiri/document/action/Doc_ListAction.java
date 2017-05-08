@@ -21,7 +21,7 @@ public class Doc_ListAction implements Doc_Action {
 		Doc_ActionForward doc_forward = new Doc_ActionForward();
 		
 		doc_forward.setIsRedirect(false);
-		doc_forward.setPath("Doc_List.jsp");
+		doc_forward.setPath("Doc_list.jsp");
 		
 		return doc_forward;
 	}
