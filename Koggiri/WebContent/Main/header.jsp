@@ -41,7 +41,7 @@
 
 				<c:if test="${mem_id=='master' }">
 				
-				<a id="master_log" href="../admin/manager.jsp">관리자 페이지</a>
+				<a id="master_log" href="../admin/searchEmp.admin">관리자 페이지</a>
 			
 				</c:if>
 				<c:if test="${mem_id!='master' }">

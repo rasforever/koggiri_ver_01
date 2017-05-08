@@ -42,6 +42,20 @@
 		where join_dt = #{join_dt} 
 		
 	</select>
+	
+	<insert id="tempPass" parameterType="Emp">
+		insert into member(mem_id,mem_pw,mem_aut_cd)
+		values( #{emp_id},#{mem_pw},'A')
+		
+	</insert>
+	
+	<update id="tempPassUpdate" parameterType="Admin_Member">
+		update member set mem_pw = #{mem_pw}
+		where mem_id = #{mem_id}
+		
+	</update>
+	
+
 </mapper>
 
 
