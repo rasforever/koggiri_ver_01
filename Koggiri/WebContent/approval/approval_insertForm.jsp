@@ -18,40 +18,62 @@
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="script/approval.js"></script>
-
+<link rel="stylesheet" href="../style/approval.css">
+<link rel="stylesheet" href="../style/board.css">
 </head>
 <body>
 	<form action="approval_insertAction.approval" method="post">
 		<div align="center">
 				<jsp:include page="../Main/header.jsp" />
 			<br> <br> <br> <br>
-
+		<div id="approval"align="center">
+				<h3>Approval</h3>
+		<br><br>
 		<input type="hidden" name="dept_id" value="${einfo.dept_id }">
 		<input type="hidden" name="emp_id" value="k15010201">
-
-		사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번 : <input
-			type="text" id="draft_emp_id" name="draft_emp_id"
-			value="${einfo.emp_id }" disabled>&nbsp;&nbsp;&nbsp;
-		이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input
-			type="text" name="draft_emp_nm" value="${einfo.emp_nm }" disabled>
-		<br> 소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;속 : <input
-			type="text" name="dept_nm" value="${einfo.dept_nm }" disabled>&nbsp;&nbsp;&nbsp;
-		직&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;급 : <input
-			type="text" name="pos_nm" value="${einfo.pos_nm }" disabled>
-		<br> 기&nbsp;안&nbsp;일 : <input type="text" name="draft_dt"
-			class="datepicker"><br> 신청종류 : <select id="app_type"
+		
+		<table width="1100" id="app_table" align="center" >
+		<tr>
+		<th>사번</th>
+		<td><input type="text" name="draft_emp_id" value="${einfo.emp_id }" disabled></td>
+		<th>이름</th>
+		<td><input type="text" name="draft_emp_nm" value="${einfo.emp_nm }" disabled></td>
+		</tr>
+		<tr>
+		<th>소속</th>
+		<td><input type="text" name="dept_nm" value="${einfo.dept_nm }" disabled></td>
+		<th>직급</th>
+		<td> <input type="text" name="pos_nm" value="${einfo.pos_nm }" disabled></td>
+		</tr>
+		<tr>
+		<th>기안일</th>
+		<td><input type="text" name="draft_dt" class="datepicker"></td>
+		<th>신청종류</th>
+		<td><select id="app_type"
 			name="app_type" onchange="typesel(this)">
 			<c:forEach var="apptype" items="${applist}">
 				<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
 				</option>
 			</c:forEach>
-		</select>
-		<br>
-		결재자 : <input type="text" name="app_emp_id"><br>		
-		&nbsp;&nbsp;&nbsp; 제목 : <input type="text" name="app_title"><br>
+		</select></td>
+		</tr>
+		<tr>
+		<th>결재자</th>
+		<td><input type="text" name="app_emp_id"></td>
+		</tr>
+		<tr>
+		<th>제목</th>
+		<td colspan="3"> <input type="text" name="app_title" width="100%"></td>
+		</tr>
 		
-		<textarea rows="20" cols="100" id="app_context" name="app_context">
+		</table>
+		</div>
+		<br>
+		<div align="center" id="app_text">
+		<textarea rows="20" cols="70" id="app_context" name="app_context">
 	 	</textarea>
+	 	</div>
+
 		<script type="text/javascript">
 			CKEDITOR.replace('app_context', {
 				'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
@@ -75,8 +97,10 @@
 				CKEDITOR.instances.app_context.setData(text);
 			}
 		</script>
-		<br> <input type="submit" value="등록"><input type="reset"
-			value="취소">
+
+		<br> <input type="submit" value="등록" class="approval_btn">
+		&nbsp;&nbsp;
+		<input type="reset" value="취소" class="approval_btn">
 	</form>
 </body>
 </html>

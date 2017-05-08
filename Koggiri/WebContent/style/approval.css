@@ -1,0 +1,36 @@
+@CHARSET "EUC-KR";
+
+#approval{
+	width: 1100px;
+}
+#cke_app_context{
+	width: 1100px;
+}
+
+#app_table tr th{
+	background-color: #0080ff;
+	width: 80px;
+	height: 20px;
+	color: white;
+}
+
+#app_table td{
+	width: 500px;
+	border: 0px;
+}
+#app_table td input{
+	width: 98%;
+}
+
+.approval_btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	color:white;
+	border: 0px;
+	font-weight: bold;
+
+}
+.approval_btn:HOVER {
+	background-color: #ff8080;
+}
