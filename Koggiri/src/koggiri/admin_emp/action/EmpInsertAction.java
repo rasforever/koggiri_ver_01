@@ -49,11 +49,19 @@ public class EmpInsertAction implements Action {
 		emp.setWstate_cd("0");
 		emp.setInput_emp_id("master");
 		System.out.println(emp.toString());
-		dao.insertEmp(emp); 
+		dao.insertEmp(emp);
+		
+		
+		String res_no = request.getParameter("res_no");
+		String mem_pw = res_no.substring(0, 6);
+		
+		emp.setMem_pw(mem_pw);
+		dao.tempPass(emp);
+		
 		
 		ActionFoward forward = new ActionFoward();
 		forward.setRedirect(true);
-		forward.setPath("/Koggiri/admin/manager.jsp");
+		forward.setPath("/Koggiri/admin/searchEmp.admin");
 		
 		return forward;
 	}

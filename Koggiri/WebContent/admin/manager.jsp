@@ -14,7 +14,7 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script type="text/javascript">
-$(function(){ 
+$(document).ready(function() {
 	$("#join").click(function(){
 		$.ajax({ type: 'get' ,
 				url: 'joinus.jsp' ,
@@ -29,8 +29,26 @@ $(function(){
 					
 					} 
 				});
-			})	
+			});
+	
+	$("#temp").click(function(){
+		$.ajax({ type: 'get' ,
+				url: 'temppass.jsp' ,
+				dataType : 'text' ,
+				success: function(data) {
+					
+					if($("#joindiv").children().length==0){
+					$("#joindiv").html(data);
+					}else if($("#joindiv").children().length>0){
+						$("#joindiv").empty();
+					}
+					
+					} 
+				});
+			});
+	
 })
+
 
 
 
@@ -54,7 +72,7 @@ $(function(){
 	</form>
 	
 	<input type="button" id="join" value="입사발령"/>
-	
+	<input type="button" id="temp" value="임시비밀번호 부여"/>
 	<table border="1">
 		<tr>
 			<th>사번</th>
@@ -74,6 +92,10 @@ $(function(){
 	</table>
 	</div>
 	<div id="joindiv"></div>
+	
+	<c:if test="${mem_pw!=null }">
+	<br>임시비밀번호는 ${mem_pw } 로 부여 되었습니다.
+	</c:if>
 	
 	<br><br><br>
 	<jsp:include page="../Main/footer.jsp"></jsp:include>
