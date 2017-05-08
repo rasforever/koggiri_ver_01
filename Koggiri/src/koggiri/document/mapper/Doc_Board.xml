@@ -30,7 +30,7 @@
 			f_title = #{f_title},
 			f_content = #{f_content},
 			f_fname = #{f_fname}
-		where f_id = #{f_id}
+		where f_id = #{f_id} and f_pwd = #{f_pwd}
 	</update>
 	
 	<delete id="doc_deleteBoard" parameterType="Doc_Board">

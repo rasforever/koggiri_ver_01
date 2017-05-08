@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,6 +33,7 @@
 						<td>&nbsp;&nbsp;<input type="text" name="f_name"
 							value="${doc_board.f_name }" size="10" readonly="true"
 							class="up_input"></td>
+						
 					</tr>
 
 					<tr align="center">
@@ -39,6 +42,7 @@
 						<td align="left" colspan="3">&nbsp;&nbsp;<input type="text"
 							name="f_title" size="50" value="[수정]: ${doc_board.f_title}"
 							class="up_input"></td>
+							
 					</tr>
 					
 							<!--파일 업로드를 위해 작성해야할 부분  -->
@@ -68,6 +72,7 @@
 				</table>
 				<br>
 				<div id="detail_btn" align="center">
+				
 					<input type="submit" value="수정완료" class="det_btn">
 					&nbsp;&nbsp; <input type=button value="취소"
 						OnClick="javascript:history.back(-1)" class="det_btn">

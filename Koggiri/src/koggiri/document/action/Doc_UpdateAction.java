@@ -26,6 +26,7 @@ public class Doc_UpdateAction implements Doc_Action {
 		doc_board.setF_fname(request.getParameter("f_fname"));
 		doc_board.setF_title(request.getParameter("f_title"));
 		doc_board.setF_content(request.getParameter("f_content"));
+		doc_board.setF_pwd(request.getParameter("f_pwd"));
 		
 		doc_dao.doc_updateBoard(doc_board);
 		
