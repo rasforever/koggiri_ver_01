@@ -7,17 +7,54 @@
 
 	<insert id="insertTask" parameterType="Task">
 		insert into task(
-		ta_seq, emp_id, ta_startdate, ta_enddate, ta_weekresult,
+		ta_seq, emp_id, ta_date, ta_weekresult,
 		ta_nextresult, ta_regdate, ta_hitcount
 		)
 		values(
-		TASK_TA_SEQ.nextval, '12', #{ta_startdate} , #{ta_enddate}, #{ta_weekresult},
+		TASK_TA_SEQ.nextval, #{emp_id}, #{ta_date}, #{ta_weekresult},
 		#{ta_nextresult}, SYSDATE, 0
 		)
 	</insert>
 
-	<select id="listTask" resultType="Task" >
+	<select id="listTask" resultType="Task" parameterType="TaskSearch" >
 		select *from Task
+		<if test="searchKey != '' and searchKey != null ">
+		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
+					where ta_date = #{searchKey}
+				
+		</if>
 	</select>
-
+	
+      <select id="detailTask" resultType="Task" parameterType="int">
+		select * from Task where ta_seq = #{ta_seq}
+	</select>
+	
+	<update id="updateTask" parameterType="Task">
+		update Task set 
+			ta_date = #{ta_date}, 
+			ta_weekresult = #{ta_weekresult},
+			ta_nextresult = #{ta_nextresult}
+		     where ta_seq = #{ta_seq}
+	</update>
+	
+	<delete id="deleteTask" parameterType="Task">
+		delete from Task where ta_seq = #{ta_seq}
+	</delete>
+	
+	<update id="updateTask_Hit" parameterType="int" >
+	    update Task set
+			ta_hitcount = ta_hitcount + 1
+			where ta_seq = #{ta_seq}
+    </update>
+    
+    	<select id="countTask" resultType="int" parameterType="TaskSearch">
+			<!-- 페이지처리를 위해 게시글 갯수 알기 -->
+		select count(*) from Task
+		<if test="searchKey != '' and searchKey != null ">
+		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
+					where ta_date = #{searchKey}
+				
+		</if>
+		
+</select>
 </mapper>

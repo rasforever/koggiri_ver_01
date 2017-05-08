@@ -2,31 +2,123 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+ 	<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
+
+<script type="text/javascript">
+$(function() {
+    var startDate;
+    var endDate;
+    
+    $('.week-picker').datepicker( {
+        showOtherMonths: true,
+        selectOtherMonths: true,
+		selectWeek:true,
+        onSelect: function(dateText, inst) { 
+            var date = $(this).datepicker('getDate');
+            startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 1);
+            endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 5);
+			var dateFormat = 'yy/mm/dd'
+            startDate = $.datepicker.formatDate( dateFormat, startDate, inst.settings );
+            endDate = $.datepicker.formatDate( dateFormat, endDate, inst.settings );
+
+			$('.week-picker').val(startDate + '~' + endDate);
+            
+            setTimeout("applyWeeklyHighlight()", 100);
+        },
+		beforeShow : function() {
+			setTimeout("applyWeeklyHighlight()", 100);
+		}
+    });
+});
+
+function applyWeeklyHighlight() {
+
+	$('.ui-datepicker-calendar tr').each(function() {
+
+		if ($(this).parent().get(0).tagName == 'TBODY') {
+			$(this).mouseover(function() {
+				$(this).find('a').css({
+					'background' : '#ffffcc',
+					'border' : '1px solid #dddddd'
+				});
+				$(this).find('a').removeClass('ui-state-default');
+				$(this).css('background', '#ffffcc');
+			});
+			
+			$(this).mouseout(function() {
+				$(this).css('background', '#ffffff');
+				$(this).find('a').css('background', '');
+				$(this).find('a').addClass('ui-state-default');
+			});
+		}
+
+	});
+}
+</script>
 </head>
 <body>
-
+   
 	<table width="500" border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<th>글번호</th>
-			<th>금주업무실적</th>			
-			<th>차주업무계획</th>			
+			<th>업무기간</th>			
 			<th>작성일자</th>			
 			<th>조회수</th>			
 		</tr>
 			<c:forEach var = "task" items = "${list}">
 		<tr>
 		<td>${task.ta_seq}</td>
-		<td>${task.ta_weekresult}</td>
-		<td>${task.ta_nextresult}</td>
+		<td><a href="ta_detailAction.task?ta_seq=${task.ta_seq}">${task.ta_date}</a></td>
 		<td>${task.ta_regdate}</td>
 		<td>${task.ta_hitcount}</td>
 		</tr>
 		</c:forEach>
 			</table>
 	<br>
+	
+	<br>
+		<br>
+		<div id="bottom">
+			<!--페이징 처리할 곳 -->
+			<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
+			<!-- 현재페이지, start_row, end_row  -->
+
+			<!--[이전] 버튼 만들기!  -->
+			<c:if test="${task_listModel.startPage > 5}">
+				<a href="ta_listAction.task?pageNum=${task_listModel.startPage - 5 }">[이전]</a>
+			</c:if>
+			<!-- 페이지 목록  -->
+			<c:forEach var="pageNo" begin="${task_listModel.startPage}"
+				end="${task_listModel.endPage}">
+				<c:if test="${task_listModel.requestPage == pageNo }">
+					<b>
+				</c:if>
+				<!-- <b>태그는 글씨를 두껍게 해주는 태그 -->
+				<a href="ta_listAction.task?pageNum=${ pageNo}">[${pageNo}]</a>
+				<c:if test="${task_listModel.requestPage == pageNo }">
+					</b>
+				</c:if>
+			</c:forEach>
+			<!-- [이후] 버튼 만들기!  -->
+			<c:if test="${task_listModel.endPage < task_listModel.totalPageCount}">
+				<a href="ta_listAction.task?pageNum=${task_listModel.startPage + 5 }">[이후]</a>
+			</c:if>
+		</div>
+		<!-- bottom div -->
+		<br>
+		<br>
+		<form action="ta_listAction.task" method="post">
+			<div align="left" id="task_search">
+				<input type="hidden" name="temp" value="temp"></input> 
+			   업무기간 <input type="text" name="searchKey" size="22" class="week-picker">
+			   <input type="submit" value="검색" id="search_btn">
+			</div>
+		</form> 
+		<br> <br> <br><br> <br> <br>
 </body>
 </html>

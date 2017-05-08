@@ -6,8 +6,7 @@ import java.sql.Timestamp;
 public class Task implements Serializable {
 	private int ta_seq;
 	private String emp_id;
-	private String ta_startdate;
-	private String ta_enddate;
+	private String ta_date;
 	private String ta_weekresult;
 	private String ta_nextresult;
 	private Timestamp ta_regdate;
@@ -15,13 +14,12 @@ public class Task implements Serializable {
 	
 	public Task(){}
 
-	public Task(int ta_seq, String emp_id, String ta_startdate, String ta_enddate, String ta_weekresult,
-			String ta_nextresult, Timestamp ta_regdate, int ta_hitcount) {
+	public Task(int ta_seq, String emp_id, String ta_date, String ta_weekresult, String ta_nextresult,
+			Timestamp ta_regdate, int ta_hitcount) {
 		super();
 		this.ta_seq = ta_seq;
 		this.emp_id = emp_id;
-		this.ta_startdate = ta_startdate;
-		this.ta_enddate = ta_enddate;
+		this.ta_date = ta_date;
 		this.ta_weekresult = ta_weekresult;
 		this.ta_nextresult = ta_nextresult;
 		this.ta_regdate = ta_regdate;
@@ -44,20 +42,12 @@ public class Task implements Serializable {
 		this.emp_id = emp_id;
 	}
 
-	public String getTa_startdate() {
-		return ta_startdate;
+	public String getTa_date() {
+		return ta_date;
 	}
 
-	public void setTa_startdate(String ta_startdate) {
-		this.ta_startdate = ta_startdate;
-	}
-
-	public String getTa_enddate() {
-		return ta_enddate;
-	}
-
-	public void setTa_enddate(String ta_enddate) {
-		this.ta_enddate = ta_enddate;
+	public void setTa_date(String ta_date) {
+		this.ta_date = ta_date;
 	}
 
 	public String getTa_weekresult() {
@@ -91,6 +81,5 @@ public class Task implements Serializable {
 	public void setTa_hitcount(int ta_hitcount) {
 		this.ta_hitcount = ta_hitcount;
 	}
-	
-}
 
+}

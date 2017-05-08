@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import koggiri.noticeboard.action.DeleteAction;
 import koggiri.task.action.ta_Action;
 import koggiri.task.action.ta_ActionForward;
+import koggiri.task.action.ta_DeleteAction;
+import koggiri.task.action.ta_DetailAction;
+import koggiri.task.action.ta_UpdateAction;
+import koggiri.task.action.ta_UpdateformAction;
 import koggiri.task.action.ta_insertAction;
 import koggiri.task.action.ta_insertformAction;
 import koggiri.task.action.ta_listAction;
@@ -48,7 +53,7 @@ public class TaskController extends HttpServlet {
 
 			}
 
-		} else if (command.equals("ta_insertformAction.task")) {
+		} else if (command.equals("Task/ta_insertformAction.task")) {
 			action = new ta_insertformAction();
 			try {
 				forward = action.execute(request, response);
@@ -63,6 +68,46 @@ public class TaskController extends HttpServlet {
 			} catch (Exception e) {
 			}
 		}
+		
+		else if (command.equals("Task/ta_detailAction.task")) { 
+			action = new ta_DetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+	    else if (command.equals("Task/ta_updateformAction.task")) {
+		action = new ta_UpdateformAction();
+		try {
+			forward = action.execute(request, response);
+
+		} catch (Exception e) {
+		}
+		
+		
+	} else if(command.equals("Task/ta_updateAction.task")){
+			action = new ta_UpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	else if(command.equals("Task/ta_deleteAction.task")){
+
+		action = new ta_DeleteAction();
+		try {
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+		
+		
 		
 		if (forward != null) {
 			if (forward.isRedirect()) {
