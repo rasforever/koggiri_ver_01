@@ -28,7 +28,7 @@
 					<tr>
 						<th width="70" align="center">작성자
 						</th>
-						<td>&nbsp;&nbsp;<input type="text" name="n_emp_id"
+						<td>&nbsp;&nbsp;<input type="text" name="f_name"
 							value="${doc_board.f_name }" size="10" readonly="true"
 							class="up_input"></td>
 					</tr>

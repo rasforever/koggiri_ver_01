@@ -41,8 +41,8 @@
 		<tr height="30">
 					
 			<td colspan="4">
+				<a href="listAction.document">목록</a>
 				<a href="updateFormAction.document?f_id=${doc_board.f_id }">수정</a>
-				<a href="Doc_list.jsp">취소</a>
 			</td>	
 			
 			
