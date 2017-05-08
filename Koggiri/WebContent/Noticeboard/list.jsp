@@ -32,7 +32,7 @@
 					<td align="center">${board.n_id }</td>
 					<td><a href="detailAction.noticeboard?n_id=${board.n_id }">${board.n_title }</a></td>
 					<td align="center">${board.n_emp_id}</td>
-					<td align="center">&nbsp;&nbsp;<fmt:formatDate  pattern="YYYY-MM-dd" value= "${board.n_date }"/></td>
+					<td align="center">&nbsp;&nbsp;<fmt:formatDate  pattern="YYYY/MM/dd HH:mm" value= "${board.n_date }"/></td>
 					<td align="center">${board.n_hit }</td>
 				</tr>
 			</c:forEach>
