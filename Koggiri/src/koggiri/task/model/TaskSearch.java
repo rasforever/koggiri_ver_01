@@ -1,16 +1,9 @@
 package koggiri.task.model;
 
 public class TaskSearch {
-	private String[] area;
-	private String searchKey;
+	   private String searchKey;
 	   
 	   
-	   public String[] getArea() {
-	      return area;
-	   }
-	   public void setArea(String[] area) {
-	      this.area = area;
-	   }
 	   public String getSearchKey() {
 	      return searchKey;
 	   }
@@ -18,4 +11,4 @@ public class TaskSearch {
 	      this.searchKey = searchKey;
 	   }
 	   
-}
+	}

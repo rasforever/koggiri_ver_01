@@ -13,7 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-오늘 날짜 : <span id="today"></span>
 <form action="ta_updateAction.task?ta_seq=${task.ta_seq}" method="post">
 		
 		<h3>업무수정</h3>

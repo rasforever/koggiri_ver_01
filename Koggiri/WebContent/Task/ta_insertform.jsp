@@ -61,16 +61,15 @@ function applyWeeklyHighlight() {
 </script>
 </head>
 <body>
-오늘 날짜 : <span id="today"></span>
 <form action="ta_insertAction.task" method="post">
 	<h3>업무등록</h3>
 	<hr>
 		<div>
-		업무기간:<input type="text" name="ta_date" class="week-picker" >
+		업무기간:<input type="text" name="ta_date"  size="22" class="week-picker" >
 		</div>
 		<div>
 		금주업무실적:<br>
-		<textarea rows="6" cols="70" name="ta_weekresult"></textarea>
+		<textarea rows="6" cols="70"  name="ta_weekresult"></textarea>
 		</div>
 		<br>
 		<div>

@@ -83,40 +83,40 @@ function applyWeeklyHighlight() {
 	
 	<br>
 		<br>
-		<div id="ta_page">
+		<div id="bottom">
 			<!--페이징 처리할 곳 -->
 			<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
 			<!-- 현재페이지, start_row, end_row  -->
 
 			<!--[이전] 버튼 만들기!  -->
-			<c:if test="${Task_ListModel.startPage > 5}">
-				<a href="ta_listAction.task?pageNum=${Task_ListModel.startPage - 5 }">[이전]</a>
+			<c:if test="${task_listModel.startPage > 5}">
+				<a href="ta_listAction.task?pageNum=${task_listModel.startPage - 5 }">[이전]</a>
 			</c:if>
 			<!-- 페이지 목록  -->
-			<c:forEach var="pageNo" begin="${Task_ListModel.startPage}"
-				end="${Task_ListModel.endPage}">
-				<c:if test="${Task_ListModel.requestPage == pageNo }">
+			<c:forEach var="pageNo" begin="${task_listModel.startPage}"
+				end="${task_listModel.endPage}">
+				<c:if test="${task_listModel.requestPage == pageNo }">
 					<b>
 				</c:if>
+				<!-- <b>태그는 글씨를 두껍게 해주는 태그 -->
 				<a href="ta_listAction.task?pageNum=${ pageNo}">[${pageNo}]</a>
-				<c:if test="${Task_ListModel.requestPage == pageNo }">
+				<c:if test="${task_listModel.requestPage == pageNo }">
 					</b>
 				</c:if>
 			</c:forEach>
-			<!-- [이후] 버튼 만들기  -->
-			<c:if test="${Task_ListModel.endPage < Task_ListModel.totalPageCount}">
-				<a href="ta_listAction.task?pageNum=${Task_ListModel.startPage + 5 }">[이후]</a>
+			<!-- [이후] 버튼 만들기!  -->
+			<c:if test="${task_listModel.endPage < task_listModel.totalPageCount}">
+				<a href="ta_listAction.task?pageNum=${task_listModel.startPage + 5 }">[이후]</a>
 			</c:if>
 		</div>
-		<!-- ta_page div -->
+		<!-- bottom div -->
 		<br>
 		<br>
 		<form action="ta_listAction.task" method="post">
 			<div align="left" id="task_search">
 				<input type="hidden" name="temp" value="temp"></input> 
-				업무기간 <input type="text" name="area" size="35" class="week-picker">
-					 <input
-					type="submit" value="검색" id="search_btn">
+			   업무기간 <input type="text" name="searchKey" size="22" class="week-picker">
+			   <input type="submit" value="검색" id="search_btn">
 			</div>
 		</form> 
 		<br> <br> <br><br> <br> <br>

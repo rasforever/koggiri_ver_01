@@ -16,8 +16,13 @@
 		)
 	</insert>
 
-	<select id="listTask" resultType="Task" >
+	<select id="listTask" resultType="Task" parameterType="TaskSearch" >
 		select *from Task
+		<if test="searchKey != '' and searchKey != null ">
+		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
+					where ta_date = #{searchKey}
+				
+		</if>
 	</select>
 	
       <select id="detailTask" resultType="Task" parameterType="int">
@@ -45,16 +50,11 @@
     	<select id="countTask" resultType="int" parameterType="TaskSearch">
 			<!-- 페이지처리를 위해 게시글 갯수 알기 -->
 		select count(*) from Task
-		<if test="area != null">
+		<if test="searchKey != '' and searchKey != null ">
 		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
-			<where>
-				<!-- b_title LIKE %~~% or b_name LIKE %~~% -->
-				<!-- collection : 전달받은 인자값 -->
-				<foreach collection="area" item="item" separator="OR"
-				open="(" close=")">
-					${item} LIKE #{searchKey}
-				</foreach>
-			</where>
+					where ta_date = #{searchKey}
+				
 		</if>
+		
 </select>
 </mapper>

@@ -28,15 +28,14 @@ public class ta_listAction implements ta_Action {
 		/*여기서 위의 if문과 아래 검색시의 else if문은 search에 대한 page처리를 해주어야함.
 		 아니면, 검색해서 여러개가 나와서 페이지가 이루어질 때 다음페이지 태그를 누르면,
 		 내가 찾고자 하는 페이지가 아니라 원래 리스트의 페이지가 나옴 => session으로 처리*/
-		
+		System.out.println(request.getParameter("temp"));
 
 		if (request.getParameter("temp") != null) {
 			session.removeAttribute("search");
 		}
 
-		if (request.getParameterValues("area") != null) {
-			search.setArea(request.getParameterValues("area"));
-			search.setSearchKey(("%" + request.getParameter("searchKey") + "%"));
+		if (request.getParameter("searchKey") != null) {
+			search.setSearchKey(request.getParameter("searchKey"));
 			session.setAttribute("search", search);
 		} else if ((TaskSearch) session.getAttribute("search") != null) {
 			//검색 후 페이징처리 클릭
@@ -52,28 +51,35 @@ public class ta_listAction implements ta_Action {
 			pageNum = "1";
 		}
 		int requestPage = Integer.parseInt(pageNum);
+
+		System.out.println(pageNum);
+		System.out.println(requestPage);
 		int startRow = (requestPage - 1) * PAGE_SIZE;
 
 		List<Task> list = dao.listTask(startRow, search);
 		request.setAttribute("list", list);
-
-		int totalCount = dao.countTask(search); 
-		int totalPageCount = totalCount / PAGE_SIZE; 
-		if (totalCount % PAGE_SIZE > 0) { 
+		
+		int totalCount = dao.countTask(search); //총 글 갯수\
+		int totalPageCount = totalCount/PAGE_SIZE;
+		if(totalCount % PAGE_SIZE > 0 ){//나머지가 있으면
 			totalPageCount++;
 		}
+		
 
 		int startPage = requestPage - (requestPage - 1) % 5;
 		int endPage = startPage + 4;
-
 		if (endPage > totalPageCount) {
 			endPage = totalPageCount;
 		}
 
-		Task_ListModel listModel = new Task_ListModel(list, requestPage, totalPageCount, startPage, endPage);
+		System.out.println(requestPage);
+		System.out.println(totalPageCount);
+		System.out.println(startPage);
+		System.out.println(endPage);
 
-		request.setAttribute("listModel", listModel);
+		Task_ListModel task_listModel = new Task_ListModel(list, requestPage, totalPageCount, startPage, endPage);
 
+		request.setAttribute("task_listModel", task_listModel);
 		ta_ActionForward forward = new ta_ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("ta_list.jsp");
