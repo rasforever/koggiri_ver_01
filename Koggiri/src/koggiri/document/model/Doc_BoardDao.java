@@ -97,4 +97,24 @@ public class Doc_BoardDao {
 
 	}
 
+	public void doc_deleteBoard(Doc_Board doc_board) {
+		SqlSession session = getSqlSessionFactory().openSession();
+
+		int re = -1;
+		try {
+			re = session.getMapper(Doc_BoardMapper.class).doc_deleteBoard(doc_board);
+			if (re > 0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+
+	}
+
 }

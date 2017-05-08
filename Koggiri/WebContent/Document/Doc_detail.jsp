@@ -22,7 +22,7 @@
 			<td width="150">${doc_board.f_name }</td>
 			<td width="150">작성일</td>
 			<td width="150">
-				<fmt:formatDate value="${doc_board.f_date}" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate value="${doc_board.f_date}" pattern="yyyy/MM/dd/ hh:mm"/>
 			</td>
 		</tr>			
 		<tr height="30">
@@ -43,11 +43,9 @@
 			<td colspan="4">
 				<a href="listAction.document">목록</a>
 				<a href="updateFormAction.document?f_id=${doc_board.f_id }">수정</a>
+				<a href="deleteAction.document?f_id=${doc_board.f_id }">삭제</a>
 			</td>	
-			
-			
 				
-					
 		</tr>
 	</table>
 

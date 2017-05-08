@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.document.action.Doc_Action;
 import koggiri.document.action.Doc_ActionForward;
+import koggiri.document.action.Doc_DeleteAction;
 import koggiri.document.action.Doc_DetailAction;
 import koggiri.document.action.Doc_InsertAction;
 import koggiri.document.action.Doc_ListAction;
@@ -80,6 +81,16 @@ public class Doc_Controller extends HttpServlet {
 
 		else if (path.equals("updateAction.document")) {
 			doc_action = new Doc_UpdateAction();
+			try {
+				doc_forward = doc_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		else if (path.equals("deleteAction.document")) {
+			doc_action = new Doc_DeleteAction();
 			try {
 				doc_forward = doc_action.execute(request, response);
 			} catch (Exception e) {

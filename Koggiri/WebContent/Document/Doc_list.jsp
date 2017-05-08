@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><!--커스텀 태그는 반드시 선언해줘야함  -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +35,9 @@
 						<td align="center">${doc_board.f_id }</td>
 						<td><a href="detailAction.document?f_id=${doc_board.f_id }">${doc_board.f_title }</a></td>
 						<td align="center">${doc_board.f_name}</td>
-						<td align="center">${doc_board.f_date }</td>
+						<td align="center">
+						<fmt:formatDate value="${doc_board.f_date}" pattern="yyyy/MM/dd hh:mm"/>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

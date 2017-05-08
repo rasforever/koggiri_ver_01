@@ -33,4 +33,9 @@
 		where f_id = #{f_id}
 	</update>
 	
+	<delete id="doc_deleteBoard" parameterType="Doc_Board">
+		delete from documentboard
+		where f_id = #{f_id}
+	</delete>
+	
 	</mapper>
