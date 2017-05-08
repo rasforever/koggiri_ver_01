@@ -69,7 +69,7 @@ img {
 }
 
 
-#log a {
+#btnlogout{
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
@@ -80,7 +80,11 @@ img {
 width: 100%;
 }
 
-
+#master_log{
+	padding-right: 3px;
+	color: white;
+	font-weight: bold;
+}
 /*****************************************/
 #my {
 	width: 350px;

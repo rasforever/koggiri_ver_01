@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String emp_nm = (String) session.getAttribute("emp_nm");
+	System.out.println("get id : " + emp_nm);
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,12 +20,13 @@
 			<br> <br> <br> <br>
 			<div class="board" align="center">
 
-
+					
 				<h3 align="center">Notice</h3>
 				<br><br>
 				<hr>
 				<br> <br> 제목 &nbsp;<input type="text" name="n_title"
 					size="143"><br><br>
+				<input type="hidden" name="n_emp_id" value="<%=emp_nm%>">
 				<textarea rows="50" cols="190" name="n_content"></textarea>
 				<script type="text/javascript">
 					CKEDITOR.replace('n_content', {

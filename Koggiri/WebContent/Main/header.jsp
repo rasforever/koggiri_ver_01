@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String emp_nm = (String) session.getAttribute("emp_nm");
+	String mem_id = (String) session.getAttribute("mem_id");
+	request.setAttribute("mem_id", mem_id);
+	request.setAttribute("emp_nm",emp_nm);
 	System.out.println(emp_nm);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,15 +14,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <link type="text/css" rel="stylesheet" href="../style/main_menu.css">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar.js' charset="euc-kr"></script>
 <script src='locale/ko.js'></script>
 <link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
 <script type="text/javascript" src="jquery.qtip.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 		$("#btnlogout").click(function() {
@@ -32,8 +38,22 @@
 	<div align="center">
 		<div id="header" align="center">
 			<div id="log" align="right">
-				<span> <%=emp_nm%>님 접속 중입니다.
-				</span> <a href="#" id="btnlogout">로그아웃</a>
+
+				<c:if test="${mem_id=='master' }">
+				
+				<a id="master_log" href="../admin/manager.jsp">관리자 페이지</a>
+			
+				</c:if>
+				<c:if test="${mem_id!='master' }">
+				<span> ${emp_nm }님 접속 중입니다.
+				</span>
+				</c:if>
+				<c:if test="${mem_id=='master' }">
+				<span> ${mem_id }님 접속 중입니다.
+				</span>
+				</c:if>
+				 <a href="#" id="btnlogout">로그아웃</a>
+
 			</div>
 
 					<div class="main_menu" align="center" style="width: 1100px">
