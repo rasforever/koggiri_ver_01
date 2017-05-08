@@ -33,7 +33,7 @@
 			<th width="50">작성자</th>
 			<td width="500">&nbsp;&nbsp;${board.n_emp_id }</td>
 			<th width="50">작성일</th>
-			<td width="80">&nbsp;&nbsp;<fmt:formatDate value= "${board.n_date }"/></td>
+			<td width="80">&nbsp;&nbsp;<fmt:formatDate  pattern="YYYY-MM-dd" value= "${board.n_date }"/></td>
 		</tr>
 		<tr>
 			<th width="50"  class="bt">제목</th>

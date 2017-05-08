@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +32,7 @@
 					<td align="center">${board.n_id }</td>
 					<td><a href="detailAction.noticeboard?n_id=${board.n_id }">${board.n_title }</a></td>
 					<td align="center">${board.n_emp_id}</td>
-					<td align="center">${board.n_date }</td>
+					<td align="center">&nbsp;&nbsp;<fmt:formatDate  pattern="YYYY-MM-dd" value= "${board.n_date }"/></td>
 					<td align="center">${board.n_hit }</td>
 				</tr>
 			</c:forEach>
