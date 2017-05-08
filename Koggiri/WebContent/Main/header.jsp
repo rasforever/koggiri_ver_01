@@ -32,8 +32,8 @@
 	<div align="center">
 		<div id="header" align="center">
 			<div id="log" align="right">
-				<span> <%=emp_nm%>님 접속 중입니다.
-				</span> <a href="#" id="btnlogout">로그아웃</a>
+				<span> <%=emp_nm%>님 접속 중입니다.<!-- 해당 사원의 이름을 표시 -->
+				</span> <a href="#" id="btnlogout">로그아웃</a> <!-- 로그아웃을 누르면 로그인 창으로 이동 -->
 			</div>
 
 					<div class="main_menu" align="center" style="width: 1100px">
