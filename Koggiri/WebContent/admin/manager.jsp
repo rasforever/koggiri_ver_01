@@ -38,6 +38,9 @@ $(function(){
 
 </head>
 <body>
+
+	<jsp:include page="../Main/header.jsp"></jsp:include>
+	<br><br><br><br><br>
 	<form action="searchEmp.admin" method="post">
 	<select name="area">
     <option value="">검색옵션</option>
@@ -71,6 +74,9 @@ $(function(){
 	</table>
 	</div>
 	<div id="joindiv"></div>
+	
+	<br><br><br>
+	<jsp:include page="../Main/footer.jsp"></jsp:include>
 </body>
 
 </html>

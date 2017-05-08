@@ -18,11 +18,14 @@
 	href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar.js' charset="euc-kr"></script>
 <script src='locale/ko.js'></script>
 <link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
 <script type="text/javascript" src="jquery.qtip.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 		$("#btnlogout").click(function() {
