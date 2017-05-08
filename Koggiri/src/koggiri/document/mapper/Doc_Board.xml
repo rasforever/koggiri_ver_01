@@ -17,4 +17,8 @@
 		
 	</insert>	
 	
+	<select id="doc_listBoard" resultType="Doc_Board">
+		select * from documentboard 
+	</select>
+	
 	</mapper>

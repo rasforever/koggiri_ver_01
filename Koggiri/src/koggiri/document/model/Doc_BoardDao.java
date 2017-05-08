@@ -1,6 +1,7 @@
 package koggiri.document.model;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import koggiri.document.mapper.Doc_BoardMapper;
+import koggiri.noticeboard.mapper.BoardMapper;
 
 public class Doc_BoardDao { 
 	
@@ -47,6 +49,19 @@ public class Doc_BoardDao {
 		}finally {
 			session.close();
 		}
+	}
+	
+	public List<Doc_Board> doc_listBoard(){
+		SqlSession session = getSqlSessionFactory().openSession();
+		List<Doc_Board> list = null;
+		try {
+			list = session.getMapper(Doc_BoardMapper.class).doc_listBoard();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return list;
 	}
 	
 	
