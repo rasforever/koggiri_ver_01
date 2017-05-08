@@ -102,5 +102,10 @@
 		&nbsp;&nbsp;
 		<input type="reset" value="취소" class="approval_btn">
 	</form>
+	<br> <br> <br><br> <br> <br>
+		<div id="main_footer">
+		<jsp:include page="../Main/footer.jsp" />
+	</div>
+	
 </body>
 </html>

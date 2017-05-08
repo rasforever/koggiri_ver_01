@@ -21,7 +21,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet"
+	href="../style/approval.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -113,9 +114,9 @@ s
 </script>
 </head>
 <body>
-	<ul>
-		<li><a href="#" onclick="rs_type(0)">내가 보낸 결재</a></li>
-		<li><a href="#" onclick="rs_type(1)">내가 받은 결재</a></li>
+	<ul id="app_list">
+		<li><a href="#" onclick="rs_type(0)" class="app_send_receive">내가 보낸 결재</a></li>
+		<li><a href="#" onclick="rs_type(1)" class="app_send_receive">내가 받은 결재</a></li>
 	</ul>
 	<form action="approval_list_<%=type_cd %>.approval?temp=temp" method="post">	
 		<div id="s_approval">
@@ -134,7 +135,41 @@ s
 		</div>
 		
 	</form>
-	<table border=1>
+	<br>
+	<form action="approval_list_<%=type_cd %>.approval" method="post">
+			<div align="left" id="search_div">
+				<input type="hidden" name="temp" value="temp"></input>
+				<input type="submit" value="검색" id="search_btn"> <br>
+					
+				<input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input> 
+				<input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input> <br>
+				<input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input> 
+				<select id="app_type"
+					name="app_type" disabled>
+					<c:forEach var="apptype" items="${applist}">
+						<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
+						</option>
+					</c:forEach>
+				</select><br>
+				<input type="checkbox" name="area" value="dept_id" onclick="dis_chg(this)">관리부서</input> 
+				<select id="dept"
+					name="dept"  disabled>
+					<c:forEach var="dept" items="${deptlist}">
+						<option value="${dept.dept_id}">${dept.dept_nm}
+						</option>
+					</c:forEach>
+				</select><br>
+				<input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자
+				<input type="text" name="draft_emp_id_search" id ="draft_emp_id_search" size="30" disabled> <br>
+				<input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자
+				<input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled> <br>
+				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
+				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
+				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
+			</div>
+		</form>
+		<br>
+	<table id="app_table02">
 		<thead>
 			<tr>
 				<th>결재문서번호</th>
@@ -148,7 +183,7 @@ s
 		</thead>
 		<tbody>
 		<c:forEach var = "approval" items = "${approvallist }">
-				<tr>
+				<tr id="app_table02_tr">
 					<td><a href="approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>">${approval.app_id }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.draft_dt }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.app_type_nm }</a></td>
@@ -186,38 +221,7 @@ s
 				<a href="approval_list_<%=type_cd %>.approval?pageNum=${approval_List.startPage + 5 }">[이후]</a>
 			</c:if>
 		
-		<form action="approval_list_<%=type_cd %>.approval" method="post">
-			<div align="left" id="search_div">
-				<input type="hidden" name="temp" value="temp"></input>
-				<input type="submit" value="검색" id="search_btn"> <br>
-					
-				<input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input> 
-				<input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input> <br>
-				<input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input> 
-				<select id="app_type"
-					name="app_type" disabled>
-					<c:forEach var="apptype" items="${applist}">
-						<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
-						</option>
-					</c:forEach>
-				</select><br>
-				<input type="checkbox" name="area" value="dept_id" onclick="dis_chg(this)">관리부서</input> 
-				<select id="dept"
-					name="dept"  disabled>
-					<c:forEach var="dept" items="${deptlist}">
-						<option value="${dept.dept_id}">${dept.dept_nm}
-						</option>
-					</c:forEach>
-				</select><br>
-				<input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자
-				<input type="text" name="draft_emp_id_search" id ="draft_emp_id_search" size="30" disabled> <br>
-				<input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자
-				<input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled> <br>
-				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
-				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
-				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
-			</div>
-		</form>
+		
 	</div>		
 	<!-- bottom div -->
 </body>

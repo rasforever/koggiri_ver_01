@@ -34,3 +34,61 @@
 .approval_btn:HOVER {
 	background-color: #ff8080;
 }
+
+/***********************************/
+#app_list li{
+	display: inline;
+}
+.app_send_receive{
+	text-decoration: none;
+	background-color: #0080ff;
+	color:white;
+	padding: 8px;
+	font-weight: bold;
+}
+.app_send_receive:HOVER{
+
+	background-color: #ff8080;
+}
+
+#s_approval input{
+width: 100px;
+height: 30px;	
+border: 0px;
+color: white;
+background-color: #0080ff;
+font-weight: bold;
+}
+
+#s_approval input:HOVER{
+
+background-color: #ff8080;
+
+}
+#r_approval input{
+width: 100px;
+height: 30px;	
+border: 0px;
+color: white;
+background-color: #0080ff;
+font-weight: bold;
+}
+
+#r_approval input:HOVER{
+
+background-color: #ff8080;
+
+}
+#app_table02{
+	width: 1100px;
+	
+}
+#app_table02 th{
+	width: 157px;
+	background-color: #0080ff;
+	color:white;
+	font-weight: bold;
+}
+#app_table02_tr{
+border-bottom: 1px solid silver;
+}
