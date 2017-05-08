@@ -25,4 +25,12 @@
 		select * from documentboard where f_id = #{f_id}
 	</select>
 	
+	<update id="doc_updateBoard" parameterType="Doc_Board">
+		update documentboard set
+			f_title = #{f_title},
+			f_content = #{f_content},
+			f_fname = #{f_fname}
+		where f_id = #{f_id}
+	</update>
+	
 	</mapper>

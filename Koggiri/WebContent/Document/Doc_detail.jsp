@@ -38,10 +38,16 @@
 		<tr height="30">			
 			<td colspan="4">${doc_board.f_content }</td>			
 		</tr>
-		<tr height="30">			
+		<tr height="30">
+					
 			<td colspan="4">
-				<input type="button" value="수정" onclick="fn_update()">
-			</td>			
+				<a href="updateFormAction.document?f_id=${doc_board.f_id }">수정</a>
+				<a href="Doc_list.jsp">취소</a>
+			</td>	
+			
+			
+				
+					
 		</tr>
 	</table>
 

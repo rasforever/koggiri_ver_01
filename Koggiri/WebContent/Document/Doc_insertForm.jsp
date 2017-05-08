@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+
 <body>
 
 <h1>글작성하기</h1>
@@ -46,7 +49,15 @@
 		<tr height="30">			
 			<td colspan="4">
 				<textarea rows="10" cols="70" name="f_content"></textarea>
-			</td>			
+			</td>	
+			
+					<script type="text/javascript">
+							CKEDITOR.replace('f_content', {
+								'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
+									+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
+									+ '&realDir=서버업로드될디렉토리명'
+							});
+						</script>		
 		</tr>
 		
 		<tr height="30">			
