@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.document.action.Doc_Action;
 import koggiri.document.action.Doc_ActionForward;
+import koggiri.document.action.Doc_DeleteAction;
 import koggiri.document.action.Doc_DetailAction;
 import koggiri.document.action.Doc_InsertAction;
 import koggiri.document.action.Doc_ListAction;
+import koggiri.document.action.Doc_UpdateAction;
+import koggiri.document.action.Doc_UpdateFormAction;
 
 @WebServlet("*.document")
 public class Doc_Controller extends HttpServlet {
@@ -57,14 +60,43 @@ public class Doc_Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		else if (path.equals("detailAction.document")){
+
+		else if (path.equals("detailAction.document")) {
 			doc_action = new Doc_DetailAction();
 			try {
 				doc_forward = doc_action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}	
+			}
+		}
+
+		else if (path.equals("updateFormAction.document")) {
+			doc_action = new Doc_UpdateFormAction();
+			try {
+				doc_forward = doc_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		else if (path.equals("updateAction.document")) {
+			doc_action = new Doc_UpdateAction();
+			try {
+				doc_forward = doc_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		else if (path.equals("deleteAction.document")) {
+			doc_action = new Doc_DeleteAction();
+			try {
+				doc_forward = doc_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		if (doc_forward != null) {
