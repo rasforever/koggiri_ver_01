@@ -21,8 +21,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="../style/approval.css">
+<link rel="stylesheet" href="../style/approval.css">
+<link rel="stylesheet" href="../style/board.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -114,17 +114,26 @@ s
 </script>
 </head>
 <body>
+<div align="center">
+	<div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
+	<br><br><br><br>
+	
+	<div id="app_contain" align="left">
+	<h3 align="center">Approval</h3>
+	<br>
+	<br>
 	<ul id="app_list">
 		<li><a href="#" onclick="rs_type(0)" class="app_send_receive">내가 보낸 결재</a></li>
 		<li><a href="#" onclick="rs_type(1)" class="app_send_receive">내가 받은 결재</a></li>
 	</ul>
+		<br>
 	<form action="approval_list_<%=type_cd %>.approval?temp=temp" method="post">	
-		<div id="s_approval">
+		<div id="s_approval" align="left">
 			<input type="button" id="s_approval_all" name="s_approval_all" value="전체" onclick="approval_type('s')"> 
 			<input type="button" id="s_approval_p" name="s_approval_p" value="진행중결재" onclick="approval_type('sp')"> 
 			<input type="button" id="s_approval_e" name="s_approval_e" value="완료결재" onclick="approval_type('se')"> 
 			<input type="button" id="s_approval_c" name="s_approval_c" value="부결/반려결재"  onclick="approval_type('sc')">
-			<input type="button" id="s_approval_t" name="s_approval_t" value="임시저장결재" onclick="approval_type('st')">
+			<input type="button" id="s_approval_t" name="s_approval_t" value="(현재 미구현)" onclick="approval_type('st')"><!--임시저장결재 -->
 		</div>
 		<div id ="r_approval">			
 			<input type="button" id="r_approval_all" name="r_approval_all" value="전체" onclick="approval_type('r')"> 
@@ -183,7 +192,7 @@ s
 		</thead>
 		<tbody>
 		<c:forEach var = "approval" items = "${approvallist }">
-				<tr id="app_table02_tr">
+				<tr id="app_table02_tr" align="center">
 					<td><a href="approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>">${approval.app_id }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.draft_dt }</a></td>
 					<td><a href='approval_detail<%=type_nm %>Action.approval?app_id=${approval.app_id }&type_nm=<%=type_nm %>&type_cd=<%=type_cd %>'>${approval.app_type_nm }</a></td>
@@ -195,7 +204,8 @@ s
 		</c:forEach>
 		</tbody>		
 	</table>
-	<div id="bottom">
+	<br><br>
+	<div id="bottom" align="center">
 			<!--페이징 처리할 곳 -->
 			<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
 			<!-- 현재페이지, start_row, end_row  -->
@@ -224,6 +234,13 @@ s
 		
 	</div>		
 	<!-- bottom div -->
+	</div>
+	</div>
+	<br><br><br><br><br><br>
+	<br><br><br><br><br><br>
+	<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>
 </body>
 </html>
 

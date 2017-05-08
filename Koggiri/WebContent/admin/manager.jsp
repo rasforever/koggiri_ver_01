@@ -91,11 +91,13 @@ $(document).ready(function() {
 		</c:forEach>
 	</table>
 	</div>
-	<div id="joindiv"></div>
-	
+	<div id="joindiv">
 	<c:if test="${mem_pw!=null }">
 	<br>사번 '${id }' 님의 임시비밀번호는 '${mem_pw }' 로 부여 되었습니다.
 	</c:if>
+	</div>
+	
+	
 	
 	<br><br><br>
 	<jsp:include page="../Main/footer.jsp"></jsp:include>
