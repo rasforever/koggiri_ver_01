@@ -378,21 +378,30 @@
 
 	    },
 	    eventMouseout:function( data, event, view ){
-	    	   $(this).css('z-index', 8);
-
-	           $('.tooltiptopicevent').remove();
+	    	    $(this).css('z-index', 8); 
+				
+	            $('.tooltiptopicevent').remove(); 
 	    },
 	    eventMouseover: function( data, event, view ) {
-	    	 /* var content = '<h3>'+event.content+'</h3>';
+	    	
+	
+	    	
+	    	
+	    	
+	    	
+	    	 /*   var content = '<h3>'+data.content+'</h3>';
 	    	tooltip.set({
 				'content.text': content
-			}).reposition(jsEvent).show(jsEvent);  */
+			}).reposition(event).show(event);  */
+			
+			
+			
 			//마우스 오버할때 이벤트의 content가 보여짐
-	    	 tooltip = '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#feb811;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' 
-	    	 + data.content + '</div>';
+	    	   tooltip = '<div class="tooltiptopicevent" style="width:100px;height:100px;background:#ccc;position:absolute;z-index:10001;">' 
+	    	+'<h3>'+data.title+'</h3>' +'<p><b>Content:</b> '+ data.content + '</div>'; 
 
 
-	         $("body").append(tooltip);
+	          $("body").append(tooltip);
 	         $(this).mouseover(function (e) {
 	             $(this).css('z-index', 10000);
 	             $('.tooltiptopicevent').fadeIn('500');
@@ -400,7 +409,7 @@
 	         }).mousemove(function (e) {
 	             $('.tooltiptopicevent').css('top', e.pageY + 10);
 	             $('.tooltiptopicevent').css('left', e.pageX + 20);
-	         });
+	         });  
 			
 	    }
 	    

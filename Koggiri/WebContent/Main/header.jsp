@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String emp_nm = (String) session.getAttribute("emp_nm");
+	String mem_id = (String) session.getAttribute("mem_id");
+	request.setAttribute("mem_id", mem_id);
+	request.setAttribute("emp_nm",emp_nm);
 	System.out.println(emp_nm);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,8 +36,20 @@
 	<div align="center">
 		<div id="header" align="center">
 			<div id="log" align="right">
-				<span> <%=emp_nm%>님 접속 중입니다.
-				</span> <a href="#" id="btnlogout">로그아웃</a>
+				<c:if test="${mem_id=='master' }">
+				
+				<a href="../admin/manager.jsp">관리자 페이지</a>
+			
+				</c:if>
+				<c:if test="${mem_id!='master' }">
+				<span> ${emp_nm }님 접속 중입니다.
+				</span>
+				</c:if>
+				<c:if test="${mem_id=='master' }">
+				<span> ${mem_id }님 접속 중입니다.
+				</span>
+				</c:if>
+				 <a href="#" id="btnlogout">로그아웃</a>
 			</div>
 
 					<div class="main_menu" align="center" style="width: 1100px">
