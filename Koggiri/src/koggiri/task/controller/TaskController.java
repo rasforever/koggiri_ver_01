@@ -53,7 +53,7 @@ public class TaskController extends HttpServlet {
 
 			}
 
-		} else if (command.equals("ta_insertformAction.task")) {
+		} else if (command.equals("Task/ta_insertformAction.task")) {
 			action = new ta_insertformAction();
 			try {
 				forward = action.execute(request, response);

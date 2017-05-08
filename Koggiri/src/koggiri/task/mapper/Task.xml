@@ -11,7 +11,7 @@
 		ta_nextresult, ta_regdate, ta_hitcount
 		)
 		values(
-		TASK_TA_SEQ.nextval, '12', #{ta_date}, #{ta_weekresult},
+		TASK_TA_SEQ.nextval, #{emp_id}, #{ta_date}, #{ta_weekresult},
 		#{ta_nextresult}, SYSDATE, 0
 		)
 	</insert>
