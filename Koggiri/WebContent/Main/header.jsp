@@ -14,8 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <link type="text/css" rel="stylesheet" href="../style/main_menu.css">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -42,7 +41,7 @@
 
 				<c:if test="${mem_id=='master' }">
 				
-				<a href="../admin/manager.jsp">관리자 페이지</a>
+				<a id="master_log" href="../admin/manager.jsp">관리자 페이지</a>
 			
 				</c:if>
 				<c:if test="${mem_id!='master' }">
