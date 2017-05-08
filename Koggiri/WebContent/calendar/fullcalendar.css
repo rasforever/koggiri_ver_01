@@ -50,7 +50,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed td.fc-today {
-	background: #fcf8e3;
+	background: #ffece4;
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -857,6 +857,11 @@ a.fc-more:hover {
 
 .fc-toolbar h2 {
 	margin: 0;
+	border: 1px solid #0080ff;
+	background: #0080ff;
+	border-radius: 10px;
+	color: white;
+	width: 200px;
 }
 
 /* button layering (for border precedence) */

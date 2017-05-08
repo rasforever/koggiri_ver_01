@@ -57,6 +57,19 @@ public class ApprovalDao {
 			session.close();
 		}
 	}
+	
+	// 부서코드 종류
+		public List<Dept> dept_select() throws Exception {
+			SqlSession session = getSqlSessionFactory().openSession();
+			try {
+				return session.getMapper(ApprovalMapper.class).dept_select();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			} finally {
+				session.close();
+			}
+		}
 
 	// 내가 보낸 전체 목록 조회
 	public List<Approval> listsApproval(int startRow, ApprovalSearch search) throws Exception {
