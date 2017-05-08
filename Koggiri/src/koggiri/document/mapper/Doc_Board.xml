@@ -21,4 +21,8 @@
 		select * from documentboard 
 	</select>
 	
+	<select id="doc_detailBoard" parameterType="int" resultType="Doc_Board">
+		select * from documentboard where f_id = #{f_id}
+	</select>
+	
 	</mapper>

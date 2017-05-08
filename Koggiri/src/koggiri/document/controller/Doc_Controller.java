@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import koggiri.document.action.Doc_Action;
 import koggiri.document.action.Doc_ActionForward;
+import koggiri.document.action.Doc_DetailAction;
 import koggiri.document.action.Doc_InsertAction;
 import koggiri.document.action.Doc_ListAction;
 
@@ -55,6 +56,15 @@ public class Doc_Controller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		else if (path.equals("detailAction.document")){
+			doc_action = new Doc_DetailAction();
+			try {
+				doc_forward = doc_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
 		}
 
 		if (doc_forward != null) {
