@@ -94,7 +94,7 @@ $(document).ready(function() {
 	<div id="joindiv"></div>
 	
 	<c:if test="${mem_pw!=null }">
-	<br>임시비밀번호는 ${mem_pw } 로 부여 되었습니다.
+	<br>사번 '${id }' 님의 임시비밀번호는 '${mem_pw }' 로 부여 되었습니다.
 	</c:if>
 	
 	<br><br><br>

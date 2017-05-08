@@ -26,7 +26,7 @@ public class TempPassAction implements Action {
 		dao.tempPassUpdate(member);
 
 		
-		request.setAttribute("mem_id", mem_id);
+		request.setAttribute("id", mem_id);
 		 request.setAttribute("mem_pw",mem_pw);
 		 
 		ActionFoward forward = new ActionFoward();
