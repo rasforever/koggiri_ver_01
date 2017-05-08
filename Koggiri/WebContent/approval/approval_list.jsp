@@ -21,8 +21,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="../style/approval.css">
+<link rel="stylesheet" href="../style/approval.css">
+<link rel="stylesheet" href="../style/board.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -116,9 +116,12 @@ s
 <body>
 <div align="center">
 	<div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
-	<br><br><br><br><br><br>
+	<br><br><br><br>
 	
 	<div id="app_contain" align="left">
+	<h3 align="center">Approval</h3>
+	<br>
+	<br>
 	<ul id="app_list">
 		<li><a href="#" onclick="rs_type(0)" class="app_send_receive">내가 보낸 결재</a></li>
 		<li><a href="#" onclick="rs_type(1)" class="app_send_receive">내가 받은 결재</a></li>
@@ -201,7 +204,8 @@ s
 		</c:forEach>
 		</tbody>		
 	</table>
-	<div id="bottom">
+	<br><br>
+	<div id="bottom" align="center">
 			<!--페이징 처리할 곳 -->
 			<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
 			<!-- 현재페이지, start_row, end_row  -->
@@ -232,6 +236,11 @@ s
 	<!-- bottom div -->
 	</div>
 	</div>
+	<br><br><br><br><br><br>
+	<br><br><br><br><br><br>
+	<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>
 </body>
 </html>
 
