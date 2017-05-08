@@ -104,3 +104,21 @@ background-color: #e6f4ff;
 #app_contain{
 	width: 1100px;
 }
+
+/*******************************/
+#app_table03{
+	width: 1100px;
+}
+
+#app_table03 th{
+	width: 80px;
+	background-color: #0080ff;
+	color: white;
+}
+.bottom_app{
+	padding: 10px 30px 10px 30px;
+	width:100px;
+	color: white;
+	background-color: #0080ff;
+}
+
