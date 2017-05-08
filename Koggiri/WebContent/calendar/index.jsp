@@ -104,7 +104,20 @@
 	                 });
 	                return false;
 	            },
-	            buttons: [ {
+	            buttons: [{
+	                className: 'btn btn-danger',
+	                label: '닫기',
+	                closeAfter: false,
+	                keepContent: false,
+	                method:function (e, modal) {
+	                    var beforeCloseMethod=modal.options.beforeClose;
+	                    modal.options.beforeClose = '';
+	                    modal.options.keepContent=false;
+	                    
+	                    modal.close();
+	                    ssi_modal.removeAll();
+	                }
+	            }, {
 	                className: 'btn btn-success',
 	                label: '등록',
 	                closeAfter: false,
@@ -202,7 +215,7 @@
 	            beforeClose: function (modal) {
 	                ssi_modal.confirm({
 	                    position: 'top center',
-	                    content: '작성하시던 일정이 사라집니다.그래도 끄시겠습니까?',
+	                    content: '일정을 삭제하시겠습니까?',
 	                    okBtn:{className:'btn btn-primary'},
 	                    cancelBtn:{className:'btn btn-danger'}
 	                },function (result) {

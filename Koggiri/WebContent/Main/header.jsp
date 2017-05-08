@@ -39,6 +39,7 @@
 	<div align="center">
 		<div id="header" align="center">
 			<div id="log" align="right">
+
 				<c:if test="${mem_id=='master' }">
 				
 				<a href="../admin/manager.jsp">관리자 페이지</a>
@@ -53,6 +54,7 @@
 				</span>
 				</c:if>
 				 <a href="#" id="btnlogout">로그아웃</a>
+
 			</div>
 
 					<div class="main_menu" align="center" style="width: 1100px">

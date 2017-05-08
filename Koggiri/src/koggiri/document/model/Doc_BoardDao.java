@@ -63,6 +63,20 @@ public class Doc_BoardDao {
 		}
 		return list;
 	}
+
+	public Doc_Board doc_detailBoard(int seq) {
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		try {
+			return session.getMapper(Doc_BoardMapper.class).doc_detailBoard(seq);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		finally {
+			session.close();
+		}
+	}
 	
 	
 

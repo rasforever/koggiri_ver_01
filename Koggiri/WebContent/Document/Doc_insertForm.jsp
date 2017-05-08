@@ -39,9 +39,6 @@
 				<c:when test="${param.f_id == null}">
 					<input type = "text" name = "f_title" size = "50">
 				</c:when>
-				<c:otherwise>
-					<input type = "text" name = "f_title" size ="50" value = "[re]: ${doc_board.f_title}">				
-				</c:otherwise>	
 				</c:choose>		
 			</td>						
 		</tr>

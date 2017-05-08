@@ -1,0 +1,14 @@
+@CHARSET "EUC-KR";
+
+#Tabs ul li{
+	display: inline;
+	background-color: #0080ff;
+	padding: 10px;
+}
+#Tabs ul li:HOVER{
+	background-color: #ff8080;
+}
+#Tabs ul li a{
+text-decoration: none;
+color: white;	
+}
