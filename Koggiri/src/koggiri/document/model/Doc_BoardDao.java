@@ -77,7 +77,7 @@ public class Doc_BoardDao {
 		}
 	}
 
-	public void doc_updateBoard(Doc_Board doc_board) {
+	public int doc_updateBoard(Doc_Board doc_board) {
 		SqlSession session = getSqlSessionFactory().openSession();
 
 		int re = -1;
@@ -93,8 +93,10 @@ public class Doc_BoardDao {
 			e.printStackTrace();
 		} finally {
 			session.close();
+			
 		}
 
+		return re;
 	}
 
 	public void doc_deleteBoard(Doc_Board doc_board) {
