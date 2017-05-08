@@ -13,7 +13,7 @@ import koggiri.admin_emp.action.Action;
 import koggiri.admin_emp.action.ActionFoward;
 import koggiri.admin_emp.action.EmpInsertAction;
 import koggiri.admin_emp.action.EmpSearchAction;
-
+import koggiri.admin_emp.action.TempPassAction;
 
 
 
@@ -57,7 +57,15 @@ public class EmpController extends HttpServlet {
 				e.printStackTrace();
 			}
          }
-        
+        else if(command.equals("admin/temppass.admin")){
+       	 action = new TempPassAction();
+       	 
+       	 try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
         if(forward !=null){
             if(forward.isRedirect()){
                

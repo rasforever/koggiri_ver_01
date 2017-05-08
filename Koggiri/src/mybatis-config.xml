@@ -8,6 +8,7 @@
 		<typeAlias type="koggiri.admin_emp.model.SearchedEmp" alias="SearchedEmp"/>
 		<typeAlias type="koggiri.admin_emp.model.Search" alias="Search"/>
 		<typeAlias type="koggiri.admin_emp.model.Emp" alias="Emp"/>
+		<typeAlias type="koggiri.admin_emp.model.Admin_Member" alias="Admin_Member"/>
 		<typeAlias type="koggiri.login.model.Member" alias ="Member"/>
 		<typeAlias type="koggiri.noticeboard.model.Board" alias ="Board"/> <!-- 고병휘 -->
 		<typeAlias type="koggiri.noticeboard.model.NoticeSearch" alias = "NoticeSearch"/><!-- 고병휘 -->
