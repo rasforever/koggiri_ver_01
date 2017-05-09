@@ -19,6 +19,8 @@ public class InsertAction implements Action {
 		board.setN_title(request.getParameter("n_title"));
 		board.setN_content(request.getParameter("n_content"));
 		board.setN_emp_id(request.getParameter("n_emp_id"));
+			
+		
 		System.out.println("test action id : " + request.getParameter("n_emp_id"));
 		
 		dao.insertBoard(board);

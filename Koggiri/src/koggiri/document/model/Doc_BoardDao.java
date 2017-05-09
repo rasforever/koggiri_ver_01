@@ -4,12 +4,12 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import koggiri.document.mapper.Doc_BoardMapper;
-import koggiri.noticeboard.mapper.BoardMapper;
 
 public class Doc_BoardDao {
 
@@ -51,11 +51,11 @@ public class Doc_BoardDao {
 		}
 	}
 
-	public List<Doc_Board> doc_listBoard() {
+	public List<Doc_Board> doc_listBoard(int startRow, Doc_Search doc_search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		List<Doc_Board> list = null;
 		try {
-			list = session.getMapper(Doc_BoardMapper.class).doc_listBoard();
+			list = session.getMapper(Doc_BoardMapper.class).doc_listBoard(new RowBounds(startRow,5), doc_search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -93,7 +93,7 @@ public class Doc_BoardDao {
 			e.printStackTrace();
 		} finally {
 			session.close();
-			
+
 		}
 
 		return re;
@@ -112,11 +112,23 @@ public class Doc_BoardDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			session.close();
 		}
 
+	}
+
+	public int doc_countBoard(Doc_Search doc_search) {
+		SqlSession session = getSqlSessionFactory().openSession();
+		int re = 0;
+		try {
+			re = session.getMapper(Doc_BoardMapper.class).doc_countBoard(doc_search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return re;
 	}
 
 }

@@ -26,6 +26,7 @@
 		<typeAlias type="koggiri.calendar.model.Event" alias="Event"/>
 		<typeAlias type="koggiri.chart.model.Chart" alias="Chart"/><!-- 조직도 -->
 		<typeAlias type="koggiri.document.model.Doc_Board" alias="Doc_Board"/><!--고병휘 문서함  -->
+		<typeAlias type="koggiri.document.model.Doc_Search" alias="Doc_Search"/> <!-- 고병휘  -->
 		
 
 	</typeAliases>
