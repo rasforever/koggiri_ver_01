@@ -55,7 +55,22 @@
 		
 	</update>
 	
-
+	<update id="empUpdate" parameterType="Emp">
+		update emp set e_mail = #{e_mail}, tel_no= #{tel_no}, addr = #{addr}
+		where emp_id = #{emp_id}
+		
+	</update>
+	<update id="memUpdate" parameterType="Emp">
+		update member set mem_pw = #{mem_pw} 
+		where mem_id = #{emp_id}
+		
+	</update>
+	
+	
+	<select id="passCheck" parameterType="Emp" resultType="String">
+		select mem_pw from member where mem_id = #{emp_id}
+		
+	</select>
 </mapper>
 
 

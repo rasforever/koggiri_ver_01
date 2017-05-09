@@ -13,6 +13,8 @@ import koggiri.admin_emp.action.Action;
 import koggiri.admin_emp.action.ActionFoward;
 import koggiri.admin_emp.action.EmpInsertAction;
 import koggiri.admin_emp.action.EmpSearchAction;
+import koggiri.admin_emp.action.EmpUpdateAction;
+import koggiri.admin_emp.action.MempassCheckAction;
 import koggiri.admin_emp.action.TempPassAction;
 
 
@@ -65,7 +67,25 @@ public class EmpController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-        }
+        }else if(command.equals("modify/update.admin")){
+          	 action = new EmpUpdateAction();
+           	 
+           	 try {
+    				forward = action.execute(request, response);
+    			} catch (Exception e) {
+    				e.printStackTrace();
+    			}
+            }
+        else if(command.equals("modify/passcheck.admin")){
+         	 action = new MempassCheckAction();
+          	 
+          	 try {
+   				forward = action.execute(request, response);
+   			} catch (Exception e) {
+   				e.printStackTrace();
+   			}
+           }
+        
         if(forward !=null){
             if(forward.isRedirect()){
                

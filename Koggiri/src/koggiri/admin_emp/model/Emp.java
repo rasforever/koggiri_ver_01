@@ -17,6 +17,9 @@ public class Emp implements Serializable{
 	private String wstate_cd;
 	private String input_emp_id;
 	private String mem_pw;
+	private String e_mail;
+	private String tel_no;
+	private String addr;
 	
 	
 	public String getNation_id() {
@@ -86,12 +89,56 @@ public class Emp implements Serializable{
 	public void setMem_pw(String mem_pw) {
 		this.mem_pw = mem_pw;
 	}
+	
+	
+	public String getE_mail() {
+		return e_mail;
+	}
+	public void setE_mail(String e_mail) {
+		this.e_mail = e_mail;
+	}
+	public String getTel_no() {
+		return tel_no;
+	}
+	public void setTel_no(String tel_no) {
+		this.tel_no = tel_no;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	@Override
 	public String toString() {
 		return "Emp [emp_nm=" + emp_nm + ", pos_id=" + pos_id + ", dept_id=" + dept_id + ", join_dt=" + join_dt
 				+ ", emp_id=" + emp_id + ", res_no=" + res_no + ", sex_id=" + sex_id + ", nation_id=" + nation_id
-				+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw + "]";
+				+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw + ", e_mail="
+				+ e_mail + ", tel_no=" + tel_no + ", addr=" + addr + "]";
 	}
+	
+	public Emp(){}
+	public Emp(String emp_nm, String pos_id, String dept_id, String join_dt, String emp_id, String res_no,
+			String sex_id, String nation_id, String wstate_cd, String input_emp_id, String mem_pw, String e_mail,
+			String tel_no, String addr) {
+		super();
+		this.emp_nm = emp_nm;
+		this.pos_id = pos_id;
+		this.dept_id = dept_id;
+		this.join_dt = join_dt;
+		this.emp_id = emp_id;
+		this.res_no = res_no;
+		this.sex_id = sex_id;
+		this.nation_id = nation_id;
+		this.wstate_cd = wstate_cd;
+		this.input_emp_id = input_emp_id;
+		this.mem_pw = mem_pw;
+		this.e_mail = e_mail;
+		this.tel_no = tel_no;
+		this.addr = addr;
+	}
+	
+	
 	
 	
 	

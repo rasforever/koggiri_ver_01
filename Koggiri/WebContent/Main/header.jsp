@@ -75,6 +75,7 @@ $(function(){
 				<span> ${mem_id }님 접속 중입니다.
 				</span>
 				</c:if>
+				<a href="../modify/passcheck.jsp">내 정보</a>
 				 <a href="#" id="btnlogout">로그아웃</a>
 
 			</div>

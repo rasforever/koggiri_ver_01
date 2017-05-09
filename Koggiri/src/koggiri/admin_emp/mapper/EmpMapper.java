@@ -14,4 +14,7 @@ public interface EmpMapper {
 	String findEmpid(Emp emp);
 	int tempPass(Emp emp);
 	int tempPassUpdate(Admin_Member member);
+	int empUpdate(Emp emp);
+	String passCheck(Emp emp);
+	int memUpdate(Emp emp);
 }
