@@ -8,31 +8,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../style/task.css">
+<link rel="stylesheet" type="text/css" href="../style/board.css">
 <title>Insert title here</title>
 </head>
 <body>
-<h3>상세보기</h3>
-	<table border="1" id="task_table02">
+<div align="center">
+<div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
+<br><br><br><br>
+<div id="detail">
+<h3>Task</h3>
+<br><br><hr><br>
+	<table id="task_table02">
 	     <tr>
-			<td >작성일</td>
-			<td><fmt:formatDate value= "${task.ta_regdate}"/></td>
-			<td>글번호</td>
+			<th width="100">작성일</th>
+			<td width="800"><fmt:formatDate value= "${task.ta_regdate}"/></td>
+			<th width="100">글번호</th>
 			<td>${task.ta_seq }</td>
 		</tr>
 
 		<tr>
-			<td>업무기간</td>
+			<th>업무기간</th>
 			<td colspan="3">${task.ta_date}</td>
 		</tr>
 		<tr>
-		    <td>주간업무일지</td>
-			<td colspan="3">${task.ta_weekresult}</td>
+		    <th>주간업무일지</th>
+			<td colspan="3" class="detail_td">${task.ta_weekresult}</td>
 		<tr>
-		     <td>차주업무계획</td>	
-			<td colspan="3">${task.ta_nextresult}</td>
+		     <th>차주업무계획</th>	
+			<td colspan="3" class="detail_td">${task.ta_nextresult}</td>
 		</tr>
-				<a href="ta_updateformAction.task?ta_seq=${task.ta_seq}">수정</a>
-				<a href="ta_deleteAction.task?ta_seq=${task.ta_seq}">삭제</a>
-	</table>
+			</table>
+			<br><br>
+			<div align="right">
+				<a class="detail_btn" href="ta_updateformAction.task?ta_seq=${task.ta_seq}">수정</a>
+				<a class="detail_btn" href="ta_deleteAction.task?ta_seq=${task.ta_seq}">삭제</a>
+			</div>
+			</div>
+			</div><br><br><br><br><br>
+						<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
 </body>
 </html>

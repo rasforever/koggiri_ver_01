@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../style/task.css">
+		<link rel="stylesheet" type="text/css" href="../style/board.css">
 <script type="text/javascript">
 	$(function() {
 		var startDate;
@@ -64,39 +66,45 @@
 </script>
 </head>
 <body>
+<div align="center">
+<div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
+<br><br><br><br>
 <form action="ta_updateAction.task?ta_seq=${task.ta_seq}" method="post">
-		
-		<h3>업무수정</h3>
-		
-		<table border="1" cellpadding="0" cellspacing="0">
-		<tr height="30">
-			<td width="80">업무기간</td>
-			<td width="170">
-				<input type="text" name="ta_date" class="week-picker" value="${task.ta_date}">
+		<div id="update">
+		<h3>Task</h3>
+		<br><br>
+		<hr>
+		<br>
+		<table id="update_table">
+		<tr>
+			<th>업무기간</th>
+			<td>
+				<input type="text"name="ta_date" class="week-picker" value="${task.ta_date}">
 			</td>			
 		</tr>
 		
-		<tr height="30">
-			<td width="80">금주업무실적</td>
-			<td width="170">
-				<textarea rows="6" cols="70" name="ta_weekresult"></textarea>
+		<tr>
+			<th>금주업무실적</th>
+			<td>
+				<textarea  name="ta_weekresult"></textarea>
 			</td>			
 		</tr>
 		
-		<tr height="30">
-			<td width="80">차주업무계획</td>
-			<td width="170">
-				<textarea rows="6" cols="70" name="ta_nextresult"></textarea>
+		<tr>
+			<th>차주업무계획</th>
+			<td>
+				<textarea rows="20" cols="130" name="ta_nextresult"></textarea>
 			</td>			
 		</tr>
-		<tr height="30">			
-			<td colspan="4" align="center">
+	</table>
+	<br><br>
+	<div id="update_bottom" align="center">
 				<input type="submit" value="수정완료">&nbsp;&nbsp;
 				<input type="reset" value="취소">
-			</td>			
-		</tr>
-	</table>	
-	</form>
 
+	</div>
+	</div>
+	</form>
+</div>
 </body>
 </html>

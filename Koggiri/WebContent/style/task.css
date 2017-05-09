@@ -67,6 +67,57 @@
 }
 
 /**********************************/
+#detail{
+	width: 1100px;
+}
 #task_table02{
 	width: 1100px;
+}
+
+#task_table02 th{
+	background-color: #0080ff;
+	color: white;
+	padding: 7px;
+}
+.detail_td{
+	height: 300px;
+	border: 1px solid silver;
+}
+.detail_btn{
+	padding:15px 20px;
+	background-color: #0080ff;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+
+/*****************************/
+#update{
+	width: 1100px;
+}
+
+#update_table{
+	width: 1100px;
+}
+#update_table th{
+	width: 100px;
+	background-color: #0080ff;
+	color: white;
+	padding: 10px;
+}
+
+#update_table td textarea{
+	width: 960px;
+	height: 280px;
+}
+#update_table td input{
+	border: 0px;
+}
+#update_bottom input{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	color: white;
+	border: 0px;
 }
