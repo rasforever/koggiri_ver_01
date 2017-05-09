@@ -25,7 +25,7 @@ $(function(){
 	</tr>
 	<tr>
 	<th align="left">직급</th>
-	<td>		<select name="pos_id">
+	<td>		<select name="pos_id" style="cursor:pointer">
 				<option value="">직급선택</option>
     			<option value="10">CEO</option>
    				<option value="11">이사</option>
@@ -38,7 +38,7 @@ $(function(){
 	</tr>
 	<tr>
 	<th align="left">부서</th>
-	<td><select name="dept_id">
+	<td><select name="dept_id" style="cursor:pointer">
 				<option value="">부서선택</option>
     			<option value="MM">경영진</option>
    				<option value="PL">인사팀</option>
@@ -55,10 +55,18 @@ $(function(){
 	</tr>
 			<tr>
 	<th align="left">성별</th>
-	<td><select name="sex_id">
+	<td><select name="sex_id" style="cursor:pointer">
 				<option value="">성별선택</option>
 				<option value="M">남자</option>
 				<option value="F">여자</option>
+			</select></td>
+	</tr>
+	<th align="left">국적</th>
+	<td><select name="nation_id" style="cursor:pointer">
+				<option value="">국적선택</option>
+				<option value="KR">한국</option>
+				<option value="JP">일본</option>
+				<option value="US">미국</option>
 			</select></td>
 	</tr>
 			<tr>
@@ -67,7 +75,7 @@ $(function(){
 	</tr>
 	<tr>
 	<br>
-	<td colspan="2" align="center"><input type="submit" value="추가" id="joinus_btn"></td>
+	<td colspan="2" align="center"><input type="submit" value="추가" id="joinus_btn" style="cursor:pointer"></td>
 	</tr>
 	</table>
 		
