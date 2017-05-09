@@ -25,7 +25,7 @@ $(document).ready(function() {
 					if($("#joindiv").children().length==0){
 					$("#joindiv").html(data);
 					}else if($("#joindiv").children().length>0){
-						$("#joindiv").empty();
+						$("#joindiv").empty().html(data);
 					}
 					
 					} 
@@ -41,7 +41,7 @@ $(document).ready(function() {
 					if($("#joindiv").children().length==0){
 					$("#joindiv").html(data);
 					}else if($("#joindiv").children().length>0){
-						$("#joindiv").empty();
+						$("#joindiv").empty().html(data);
 					}
 					
 					} 
