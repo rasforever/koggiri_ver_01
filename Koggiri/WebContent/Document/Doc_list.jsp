@@ -43,13 +43,45 @@
 			</table>
 			<br> <br> <span id="insert_a"><a
 				href="Doc_insertForm.jsp">글쓰기</a></span> <br> <br>
+		
+				<!--  페이징 처리 영역  -->
+
+				<!-- [이전] 버튼 만들기 -->
+				<c:if test="${doc_listModel.doc_startPage > 5}">
+					<a
+						href="listAction.document?pageNum=${doc_listModel.doc_startPage - 5}">[이전]</a>
+				</c:if>
+
+				<!-- [1][2][3] 버튼 만들기  -->
+				<c:forEach var="pageNo" begin="${doc_listModel.doc_startPage}"
+					end="${doc_listModel.doc_endPage}">
+					<c:if test="${doc_listModel.doc_requestPage == pageNo }">
+						<b>
+					</c:if>
+
+					<a href="listAction.document?pageNum=${pageNo }">[${pageNo }]</a>
+
+					<c:if test="${doc_listModel.doc_requestPage == pageNo }">
+						</b>
+					</c:if>
+				</c:forEach>
+
+				<!-- [이후] 버튼 만들기 -->
+				<c:if
+					test="${doc_listModel.doc_endPage < doc_listModel.doc_totalPageCount}">
+					<a
+						href="listAction.document?pageNum=${doc_listModel.doc_startPage + 5}">[이후]</a>
+				</c:if>
+			</div>
+			<br> <br>
+			
 	
 			<br> <br>
 			<form action="listAction.document" method="post">
 				<div align="left" id="search_div">
 					<input type="hidden" name="temp" value="temp"></input> <input
-						type="checkbox" name="area" value="i_title">제목</input> <input
-						type="checkbox" name="area" value="i_content">내용</input> <input
+						type="checkbox" name="area" value="f_title">제목</input> <input
+						type="checkbox" name="area" value="f_content">내용</input> <input
 						type="text" name="searchKey" size="10"></input> <input
 						type="submit" value="검색" id="search_btn">
 				</div>
