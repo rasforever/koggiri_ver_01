@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <link type="text/css" rel="stylesheet" href="../style/main.css">
 <link type="text/css" rel="stylesheet" href="../style/main_menu.css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
-<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="../style/chart.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -25,12 +25,35 @@
 <link type="text/css" rel="stylesheet" href="jquery.qtip.min.css" />
 <script type="text/javascript" src="jquery.qtip.min.js"></script>
 
+
+<title>Insert title here</title>
+
+
+
 <script>
 	$(document).ready(function() {
 		$("#btnlogout").click(function() {
 			location.href = "../logout/logoutform.login";
 		});
 	});
+</script>
+<script type="text/javascript">
+
+$(function(){
+  //id 가 Tabs 인 div 태그를 탭형태로 출력해줍니다.
+  $( "#Tabss" ).tabs({ 
+     select: function(event, ui) {                   
+           window.location.replace(ui.tab.hash);
+        }
+  });
+ 
+});
+
+
+	   $('#Tabss').click(function() {
+	      $('#chart_detail').empty();
+	   });
+
 </script>
 </head>
 <body>
@@ -74,12 +97,7 @@
 								</ul>
 							</li>
 							<li><a href="#">문서</a></li>
-							<li><a href="#">업무</a>
-							    <ul>
-							        <li><a href="../Task/ta_insertformAction.task">업무작성</a></li>
-									<li><a href="../Task/ta_listAction.task">업무목록</a></li>
-								</ul>	
-							</li>						
+							<li><a href="#">업무</a></li>
 							<li><a href="#">회의</a>
 								<ul>
 									<li><a href="#">그림회의</a></li>
