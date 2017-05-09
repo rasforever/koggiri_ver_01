@@ -33,6 +33,7 @@ public class InsertAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("listAction.noticeboard");
+		
 		return forward;	
 	}
 
