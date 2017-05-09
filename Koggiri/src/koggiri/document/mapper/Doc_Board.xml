@@ -8,30 +8,31 @@
 	<insert id="doc_insertBoard" parameterType="Doc_Board" >
 		insert into documentboard (
 			f_id, f_emp_id, f_date, f_title, f_content, 
-			f_pwd, f_fname, f_emp_nm
+			f_pwd, f_fname
 		)
 		values(
 		dboard.nextval, #{f_emp_id}, sysdate, #{f_title}, #{f_content},
-			#{f_pwd}, #{f_fname}, #{f_emp_nm}	
+			#{f_pwd}, #{f_fname}
 		)
 		
 	</insert>	
 	
-	<select id="doc_listBoard" resultType="Doc_Board" parameterType="Doc_Search">
-		select * from documentboard 
-		
+	<select id="doc_listBoard" resultType="Doc_Board" parameterType="Doc_Search"> 
+		select d.*, e.emp_nm as f_emp_nm from documentboard d, emp e
+		where d.f_emp_id = e.emp_id
 		<if test="area != null">
-			<where>
+			and
 				<foreach collection="area" item = "item" separator="or" open ="(" close =")">
 					${item} LIKE #{searchKey}
 				</foreach>
-			</where>
 		</if>
 		order by f_id desc
 	</select>
 	
 	<select id="doc_detailBoard" parameterType="int" resultType="Doc_Board">
-		select * from documentboard where f_id = #{f_id}
+		select d.*,e.emp_nm as f_emp_nm from documentboard d, emp e
+			where d.f_emp_id = e.emp_id
+			and f_id = #{f_id}
 	</select>
 	
 	<update id="doc_updateBoard" parameterType="Doc_Board">
@@ -48,13 +49,14 @@
 	</delete>
 	
 	<select id="doc_countBoard" resultType="int" parameterType="Doc_Search">
-		select count(*) from documentboard
+		select count(*) from documentboard d, emp e
+		where d.f_emp_id = e.emp_id
 		<if test="area != null">
-			<where>
+			and
 				<foreach collection="area" item= "item" separator="OR" open="(" close=")">
 					${item} LIKE #{searchKey}
 				</foreach>	
-			</where>
+	
 		</if>
 	</select>
 	
