@@ -1,0 +1,66 @@
+@CHARSET "EUC-KR";
+
+#modify{
+	width: 1100px;
+}
+
+
+#modify_table{
+	width: 800px;
+}
+
+#modify_table th{
+	padding: 10px;
+	width:100px;
+	background-color: #0080ff;
+	color: white;
+}
+#modify_table td{
+ border-bottom: 1px solid silver;
+}
+#modify_table td input{
+ border: 0px;
+}
+	
+#modify_btn input{
+	width: 100px;
+	height: 40px;
+	color: white;
+	background-color: #0080ff;
+	border: 0px;
+	font-weight: bold;
+}
+
+#modify_btn input:HOVER{
+
+	background-color: #ff8080;
+
+}
+
+/*********************************/
+
+#passcheck{
+	width: 1100px;
+}
+#id_label{
+	font-size: 30px;
+}
+
+.idpw_pw{
+	width: 300px;
+	height: 30px;
+}
+#pw_btn{
+	width: 100px;
+	height: 40px;
+	background-color: #0080ff;
+	border: 0px;
+	color: white;
+	font-weight: bold;
+}
+
+#pw_btn:HOVER{
+
+	background-color: #ff8080;
+
+}

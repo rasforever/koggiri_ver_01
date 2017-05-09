@@ -45,6 +45,11 @@
 	background-color: #0080ff;
 	border: 0px;
 }
+#search_btn:HOVER{
+
+	background-color: #ff8080;
+
+}
 
 
 /************************************/
@@ -64,6 +69,12 @@
 	background-color: #0080ff;
 	border: 0px;
 	font-weight: bold;
+}
+
+#insert_btn input:HOVER{
+
+	background-color: #ff8080;
+
 }
 
 /**********************************/
@@ -89,6 +100,11 @@
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
+}
+.detail_btn:HOVER{
+
+	background-color: #ff8080;
+
 }
 
 
@@ -120,4 +136,9 @@
 	background-color: #0080ff;
 	color: white;
 	border: 0px;
+}
+#update_bottom input:HOVER{
+
+	background-color: #ff8080;
+
 }

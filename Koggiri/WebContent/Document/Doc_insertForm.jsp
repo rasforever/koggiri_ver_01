@@ -4,38 +4,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style/document.css">
+<link type="text/css" rel="stylesheet" href="../style/board.css">
 <title>Insert title here</title>
 </head>
 
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 <body>
-
-	<h1>글작성하기</h1>
-	<form action="insertAction.document" method="post"
-		enctype="multipart/form-data">
+<div align="center">
+		<div id="main_header" align="center">
+		<jsp:include page="../Main/header.jsp" />
+	</div>
+	<br><br><br><br>
+	<form action="insertAction.document" method="post" enctype="multipart/form-data">
 		<!--enctype을 이렇게 설정해야 파일 업로드 가능  -->
-
-		<table border="1" cellpadding="0" cellspacing="0">
+		<div id="document">
+	<h3>Document</h3>
+	<br><br><hr><br>
+		<table id="document_table">
 			<tr height="30">
 
-				<td width="80">비밀번호</td>
-				<td width="170"><input type="password" name="f_pwd" size="10">
-				</td>
+				<th>비밀번호</th>
+				<td><input type="password" name="f_pwd" size="150" placeholder="문서의 비밀번호를 설정하세요"></td>
 			</tr>
 
 			<!--파일 업로드를 위해 작성해야할 부분  -->
-			<tr height="30">
-				<td>파일</td>
-				<td colspan="3"><input type="file" name="f_fname"></td>
+			<tr>
+				<th>파일</th>
+				<td><input type="file" name="f_fname"></td>
 			</tr>
 
 
-			<tr height="30">
-				<td width="80">제목</td>
-				<td align="left" colspan="3"><c:choose>
+			<tr >
+				<th>제목</th>
+				<td><c:choose>
 						<c:when test="${param.f_id == null}">
-							<input type="text" name="f_title" size="50">
+							<input type="text" name="f_title" size="150" placeholder="문서의 제목을 입력하세요">
 						</c:when>
 					</c:choose></td>
 			</tr>
@@ -52,14 +57,19 @@
 					});
 				</script>
 			</tr>
-
-			<tr height="30">
-				<td colspan="4" align="center"><input type="submit" value="글쓰기">&nbsp;&nbsp;
-					<input type="reset" value="취소"></td>
-			</tr>
 		</table>
+		<br><br><br>
+		<div id="doc_btn" align="center">
+		<input type="submit" value="글쓰기">&nbsp;&nbsp; 
+		<input type="reset" value="취소">
+		</div>
+		</div>
 
 	</form>
-
+</div>
+<br><br><br><br>
+<div id="main_footer">
+		<jsp:include page="../Main/footer.jsp" />
+	</div>
 </body>
 </html>

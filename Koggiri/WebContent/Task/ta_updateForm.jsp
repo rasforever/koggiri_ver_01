@@ -86,21 +86,21 @@
 		<tr>
 			<th>금주업무실적</th>
 			<td>
-				<textarea  name="ta_weekresult"></textarea>
+				<textarea  name="ta_weekresult">${task.ta_weekresult}</textarea>
 			</td>			
 		</tr>
 		
 		<tr>
 			<th>차주업무계획</th>
 			<td>
-				<textarea rows="20" cols="130" name="ta_nextresult"></textarea>
+				<textarea rows="20" cols="130" name="ta_nextresult">${task.ta_nextresult}</textarea>
 			</td>			
 		</tr>
 	</table>
 	<br><br>
 	<div id="update_bottom" align="center">
-				<input type="submit" value="수정완료">&nbsp;&nbsp;
-				<input type="reset" value="취소">
+				<input type="submit" value="수정완료" class="ta_update_btn">&nbsp;&nbsp;
+				<input type="reset" value="취소" OnClick="javascript:history.back(-1)" class="ta_update_btn">
 
 	</div>
 	</div>

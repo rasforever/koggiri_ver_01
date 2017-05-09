@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/board.css">
+<link type="text/css" rel="stylesheet" href="../style/document.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -47,6 +48,7 @@
 				<!--  페이징 처리 영역  -->
 
 				<!-- [이전] 버튼 만들기 -->
+				<div id="doc_bottom">
 				<c:if test="${doc_listModel.doc_startPage > 5}">
 					<a
 						href="listAction.document?pageNum=${doc_listModel.doc_startPage - 5}">[이전]</a>
@@ -72,13 +74,15 @@
 					<a
 						href="listAction.document?pageNum=${doc_listModel.doc_startPage + 5}">[이후]</a>
 				</c:if>
+				</div>
 			</div>
 			<br> <br>
 			
 	
 			<br> <br>
+			<div id="doc_list">
 			<form action="listAction.document" method="post">
-				<div align="left" id="search_div">
+				<div align="right" id="search_div">
 					<input type="hidden" name="temp" value="temp"></input> <input
 						type="checkbox" name="area" value="f_title">제목</input> <input
 						type="checkbox" name="area" value="f_content">내용</input> <input

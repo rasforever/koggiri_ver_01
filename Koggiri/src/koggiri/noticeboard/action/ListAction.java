@@ -53,7 +53,7 @@ public class ListAction implements Action {
 		
 		List<Board> list = dao.listBoard(startRow, search);
 		request.setAttribute("list", list);
-		
+
 
 		int totalCount = dao.countBoard(search); // 총 글 갯수
 		int totalPageCount = totalCount / PAGE_SIZE; // 총 페이지의 수

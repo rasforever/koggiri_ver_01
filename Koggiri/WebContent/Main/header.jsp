@@ -62,11 +62,7 @@ $(function(){
 		<div id="header" align="center">
 			<div id="log" align="right">
 
-				<c:if test="${mem_id=='master' }">
 				
-				<a id="master_log" href="../admin/searchEmp.admin">관리자 페이지</a>
-			
-				</c:if>
 				<c:if test="${mem_id!='master' }">
 				<span> ${emp_nm }님 접속 중입니다.
 				</span>
@@ -74,8 +70,13 @@ $(function(){
 				<c:if test="${mem_id=='master' }">
 				<span> ${mem_id }님 접속 중입니다.
 				</span>
+				<c:if test="${mem_id=='master' }">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a id="master_log" href="../admin/searchEmp.admin">관리자 페이지</a>
+			
 				</c:if>
-				<a href="../modify/passcheck.jsp">내 정보</a>
+				</c:if>
+				│ <a href="../modify/passcheck.jsp" id="myimp">내 정보</a> │
 				 <a href="#" id="btnlogout">로그아웃</a>
 
 			</div>
