@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../style/task.css">
 	<link rel="stylesheet" type="text/css" href="../style/board.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 $(function() {
     var startDate;
