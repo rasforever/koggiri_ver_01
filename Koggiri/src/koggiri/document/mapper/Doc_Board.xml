@@ -17,8 +17,17 @@
 		
 	</insert>	
 	
-	<select id="doc_listBoard" resultType="Doc_Board">
+	<select id="doc_listBoard" resultType="Doc_Board" parameterType="Doc_Search">
 		select * from documentboard 
+		
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item = "item" separator="or" open ="(" close =")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by f_id desc
 	</select>
 	
 	<select id="doc_detailBoard" parameterType="int" resultType="Doc_Board">

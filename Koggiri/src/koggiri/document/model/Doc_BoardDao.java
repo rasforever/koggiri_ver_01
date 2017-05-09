@@ -51,11 +51,11 @@ public class Doc_BoardDao {
 		}
 	}
 
-	public List<Doc_Board> doc_listBoard() {
+	public List<Doc_Board> doc_listBoard(Doc_Search doc_search) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		List<Doc_Board> list = null;
 		try {
-			list = session.getMapper(Doc_BoardMapper.class).doc_listBoard();
+			list = session.getMapper(Doc_BoardMapper.class).doc_listBoard(doc_search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

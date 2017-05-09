@@ -48,8 +48,8 @@
 			<form action="listAction.document" method="post">
 				<div align="left" id="search_div">
 					<input type="hidden" name="temp" value="temp"></input> <input
-						type="checkbox" name="area" value="i_title">제목</input> <input
-						type="checkbox" name="area" value="i_content">내용</input> <input
+						type="checkbox" name="area" value="f_title">제목</input> <input
+						type="checkbox" name="area" value="f_content">내용</input> <input
 						type="text" name="searchKey" size="10"></input> <input
 						type="submit" value="검색" id="search_btn">
 				</div>

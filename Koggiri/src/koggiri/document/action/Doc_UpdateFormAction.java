@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import koggiri.document.model.Doc_Board;
 import koggiri.document.model.Doc_BoardDao;
 
-public class Doc_UpdateFormAction implements Doc_Action {
+public class Doc_UpdateFormAction implements Doc_Action{
 
 	@Override
 	public Doc_ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
