@@ -15,7 +15,7 @@
 		<table id="logtable">
 		<tr>
 		<td><input type="text" name="mem_id" maxlength="15" placeholder="아이디를 입력하세요" class="idpw"></td>
-		<td rowspan="2"><input type="submit" value="LOGIN" id="loginbt"></td>
+		<td rowspan="2"><input type="submit" value="LOGIN" id="loginbt" style="cursor:pointer"></td>
 		</tr>
 		<tr>
 		<td><input type="password" name="mem_pw" maxlength="15" placeholder="비밀번호를 입력하세요" class="idpw"></td>
