@@ -6,47 +6,23 @@
     
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %> 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../style/chart.css">
-<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-</head>
 
-<body>
+
+
+<jsp:include page="../Main/header.jsp"></jsp:include>
+
+	<br><br><br><br><br>
+
 <%-- 
 <div align="center">
 <div id="main_header" align="center">
       <jsp:include page="../Main/header.jsp" />
    </div>
 <div class="chart" align="center"> --%>
-<script type="text/javascript">
 
-$(function(){
-  //id 가 Tabs 인 div 태그를 탭형태로 출력해줍니다.
-  $( "#Tabs" ).tabs({ 
-     select: function(event, ui) {                   
-           window.location.replace(ui.tab.hash);
-        }
-  });
- 
-});
-
-$.fn.cart_del = function(){
-	   $(this).click(function() {
-	      $('#chart_detail').empty();
-	   });
-	}
-
-	$(function() {
-	   $('#Tabs').cart_del();
-	});
-</script>
 <!-- 부서 별 -->   
- <div id="Tabs">
+
+ <div id="Tabss">
  <ul>
     <li><a href="#MM">경영진</a></li>
    	<li><a href="#PL">인사팀</a></li>
@@ -129,6 +105,5 @@ $.fn.cart_del = function(){
 </div>
 </div>
 </div>
-
-</body>
-</html>
+<br><br><br>
+	<jsp:include page="../Main/footer.jsp"></jsp:include>

@@ -174,7 +174,7 @@
 		     	 cal=$('#calendar').fullCalendar( 'clientEvents');
 		    	   for(var i =0;i<cal.length;i++){
 		    		   if(cal[i]._id==selected){
-		    			   update = JSON.stringify(cal[i]);
+		    			   update = JSONtoString(cal[i]);
 		    		   }
 		    	   }
 		    	   $.ajax({
@@ -286,7 +286,7 @@
 	        	     	 cal=$('#calendar').fullCalendar( 'clientEvents');
 	        	    	   for(var i =0;i<cal.length;i++){
 	        	    		   if(cal[i]._id==selected){
-	        	    			   update = JSON.stringify(cal[i]);
+	        	    			   update = JSONtoString(cal[i]);
 	        	    			   
 	        	    		   }
 	        	    	   }
