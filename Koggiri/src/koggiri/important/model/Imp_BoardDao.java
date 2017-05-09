@@ -31,7 +31,7 @@ public class Imp_BoardDao {
 	}
 
 	public void imp_insertBoard(Imp_Board imp_board) {
-		imp_board.setI_emp_id("Master"); // 관리자 아이디
+		
 
 		SqlSession session = getSqlSessionFactory().openSession();
 		int re = -1;

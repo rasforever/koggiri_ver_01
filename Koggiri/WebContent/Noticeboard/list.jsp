@@ -38,7 +38,7 @@
 			</c:forEach>
 		</table>
 		<br>
-		<br> <span id="insert_a"><a href="insertForm.jsp">글쓰기</a></span>
+		<br> <span id="insert_a"><a href="insertFormAction.noticeboard">글쓰기</a></span>
 		<br>
 		<br>
 		<div id="bottom">

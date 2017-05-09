@@ -22,10 +22,10 @@ public class Imp_InsertAction implements Imp_Action{
 		imp_board.setI_content(request.getParameter("i_content"));
 		
 		HttpSession session = request.getSession();
-		String emp_nm = (String) session.getAttribute("emp_nm");
+		
 		String mem_id = (String) session.getAttribute("mem_id");
 		imp_board.setI_emp_id(mem_id);
-		imp_board.setI_emp_nm(emp_nm);
+	
 		
 		
 		imp_dao.imp_insertBoard(imp_board);

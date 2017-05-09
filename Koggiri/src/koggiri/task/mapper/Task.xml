@@ -21,8 +21,8 @@
 		<if test="searchKey != '' and searchKey != null ">
 		<!-- 여기는 검색된 글의 갯수에 맞게 페이지를 처리하기 위함 -->
 					where ta_date = #{searchKey}
-				
 		</if>
+		order by ta_seq desc, ta_date desc
 	</select>
 	
       <select id="detailTask" resultType="Task" parameterType="int">

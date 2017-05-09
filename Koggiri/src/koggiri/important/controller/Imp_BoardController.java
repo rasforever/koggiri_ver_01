@@ -14,6 +14,7 @@ import koggiri.important.action.Imp_ActionForward;
 import koggiri.important.action.Imp_DeleteAction;
 import koggiri.important.action.Imp_DetailAction;
 import koggiri.important.action.Imp_InsertAction;
+import koggiri.important.action.Imp_InsertFormAction;
 import koggiri.important.action.Imp_ListAction;
 import koggiri.important.action.Imp_UpdateAction;
 import koggiri.important.action.Imp_UpdateFormAction;
@@ -47,7 +48,7 @@ public class Imp_BoardController extends HttpServlet {
 
 		// insert
 		if (path.equals("insertAction.importantboard")) {
-			System.out.println(" success!! insert path가 정상적으로 비교됨.");
+		
 			imp_action = new Imp_InsertAction();
 			try {
 				imp_forward = imp_action.execute(request, response);
@@ -56,7 +57,19 @@ public class Imp_BoardController extends HttpServlet {
 			}
 
 			// list
-		} else if (path.equals("listAction.importantboard")) {// 리스트액션인가?
+		} 
+		
+		else if (path.equals("insertFormAction.importantboard")) {// 리스트액션인가?
+			
+			imp_action = new Imp_InsertFormAction();
+			try {
+				imp_forward = imp_action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		else if (path.equals("listAction.importantboard")) {// 리스트액션인가?
 			System.out.println(" success!! list path가 정상적으로 비교됨.");
 			imp_action = new Imp_ListAction();
 			try {
