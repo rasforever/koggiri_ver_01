@@ -61,6 +61,14 @@ $(function(){
 				<option value="F">여자</option>
 			</select></td>
 	</tr>
+	<th align="left">국적</th>
+	<td><select name="nation_id">
+				<option value="">국적선택</option>
+				<option value="KR">한국</option>
+				<option value="JP">일본</option>
+				<option value="US">미국</option>
+			</select></td>
+	</tr>
 			<tr>
 	<th align="left">주민등록번호</th>
 	<td><input type="text"  size="37px"name="res_no" placeholder=" ' - '없이 입력하세요"></td>
