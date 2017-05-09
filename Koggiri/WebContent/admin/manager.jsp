@@ -73,13 +73,14 @@ $(document).ready(function() {
     <option value="pos_nm">직급</option>
 	</select>
 	<input type="text" name="searchKey" size="30px">
-	<input type="submit" value="검색" id="manager_search_btn">
+	<input type="submit" value="검색" id="manager_search_btn" style="cursor:pointer">
 	
 	</form>
 	
-	<input type="button" id="join" value="입사발령"/>
+	<input type="button" id="join" value="입사발령" style="cursor:pointer"/>
 	
-	<input type="button" id="temp" value="임시비밀번호 부여"/>
+	<input type="button" id="temp" value="임시비밀번호 부여" style="cursor:pointer"/>
+	
 	<table id="manager_table" >
 		<tr >
 			<th>사번</th>
