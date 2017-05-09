@@ -11,10 +11,12 @@ public class Imp_Board implements Serializable {
 	private String i_content;
 	private Timestamp i_date;
 	private int i_hit;
+	private String i_emp_nm;
 
 	public Imp_Board(){}
 
-	public Imp_Board(int i_id, String i_emp_id, String i_title, String i_content, Timestamp i_date, int i_hit) {
+	public Imp_Board(int i_id, String i_emp_id, String i_title, String i_content, Timestamp i_date, int i_hit,
+			String i_emp_nm) {
 		super();
 		this.i_id = i_id;
 		this.i_emp_id = i_emp_id;
@@ -22,6 +24,7 @@ public class Imp_Board implements Serializable {
 		this.i_content = i_content;
 		this.i_date = i_date;
 		this.i_hit = i_hit;
+		this.i_emp_nm = i_emp_nm;
 	}
 
 	public int getI_id() {
@@ -71,7 +74,15 @@ public class Imp_Board implements Serializable {
 	public void setI_hit(int i_hit) {
 		this.i_hit = i_hit;
 	}
-	
+
+	public String getI_emp_nm() {
+		return i_emp_nm;
+	}
+
+	public void setI_emp_nm(String i_emp_nm) {
+		this.i_emp_nm = i_emp_nm;
+	}
+
 	
 	
 }

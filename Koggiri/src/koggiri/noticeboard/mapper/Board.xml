@@ -9,10 +9,10 @@
 	
 	<insert id="insertBoard" parameterType="Board">
 		insert into noticeboard(
-         n_id, n_emp_id, n_title, n_content, n_date, n_hit
+         n_id, n_emp_id, n_title, n_content, n_date, n_hit,n_emp_nm
       )
       values(
-         nboard.nextval, #{n_emp_id}, #{n_title}, #{n_content}, SYSDATE, 0
+         nboard.nextval, #{n_emp_id}, #{n_title}, #{n_content}, SYSDATE, 0,#{n_emp_nm}
       )
 
 	</insert>

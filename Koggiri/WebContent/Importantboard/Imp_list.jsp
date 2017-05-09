@@ -34,7 +34,7 @@
 						<td align="center">${imp_board.i_id }</td>
 						<td><a
 							href="detailAction.importantboard?i_id=${imp_board.i_id }">${imp_board.i_title }</a></td>
-						<td align="center">${imp_board.i_emp_id}</td>
+						<td align="center">${imp_board.i_emp_nm}</td>
 						<td align="center">${imp_board.i_date }</td>
 						<td align="center">${imp_board.i_hit }</td>
 					</tr>

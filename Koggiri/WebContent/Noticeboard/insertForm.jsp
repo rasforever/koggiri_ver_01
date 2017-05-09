@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String emp_nm = (String) session.getAttribute("emp_nm");
-	String mem_id = (String) session.getAttribute("mem_id");
-	System.out.println("get name : " + emp_nm);
-	System.out.println("get id : " + mem_id);
-%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,8 +23,8 @@
 				<hr>
 				<br> <br> 제목 &nbsp;<input type="text" name="n_title"
 					size="143"><br><br>
-				<input type="hidden" name="n_emp_id" value="<%=emp_nm%>">
-				<input type="hidden" name="mem_id" value ="<%=mem_id%>>">
+				
+			
 				
 				<textarea rows="50" cols="190" name="n_content"></textarea>
 				<script type="text/javascript">

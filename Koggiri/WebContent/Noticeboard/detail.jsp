@@ -31,7 +31,7 @@
 			<td width="50">&nbsp;&nbsp;${board.n_hit }</td>
 		<tr>
 			<th width="50">작성자</th>
-			<td width="500">&nbsp;&nbsp;${board.n_emp_id }</td>
+			<td width="500">&nbsp;&nbsp;${board.n_emp_nm }</td>
 			<th width="50">작성일</th>
 			<td width="80">&nbsp;&nbsp;<fmt:formatDate  pattern="YYYY/MM/dd HH:mm" value= "${board.n_date }"/></td>
 		</tr>

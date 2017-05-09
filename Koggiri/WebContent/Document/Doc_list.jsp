@@ -34,7 +34,7 @@
 					<tr>
 						<td align="center">${doc_board.f_id }</td>
 						<td><a href="detailAction.document?f_id=${doc_board.f_id }">${doc_board.f_title }</a></td>
-						<td align="center">${doc_board.f_name}</td>
+						<td align="center">${doc_board.f_emp_nm}</td>
 						<td align="center">
 						<fmt:formatDate value="${doc_board.f_date}" pattern="yyyy/MM/dd hh:mm"/>
 						</td>

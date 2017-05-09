@@ -7,12 +7,12 @@
 	
 	<insert id="doc_insertBoard" parameterType="Doc_Board" >
 		insert into documentboard (
-			f_id, f_name, f_date, f_title, f_content, 
-			f_pwd, f_fname
+			f_id, f_emp_id, f_date, f_title, f_content, 
+			f_pwd, f_fname, f_emp_nm
 		)
 		values(
-		dboard.nextval, #{f_name}, sysdate, #{f_title}, #{f_content},
-			#{f_pwd}, #{f_fname}		
+		dboard.nextval, #{f_emp_id}, sysdate, #{f_title}, #{f_content},
+			#{f_pwd}, #{f_fname}, #{f_emp_nm}	
 		)
 		
 	</insert>	

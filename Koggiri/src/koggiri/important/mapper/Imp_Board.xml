@@ -7,11 +7,11 @@
 	
 	<insert id="imp_insertBoard" parameterType="Imp_Board">
 		insert into importantboard(
-		i_id, i_emp_id, i_title, i_content, i_date, i_hit
+		i_id, i_emp_id, i_title, i_content, i_date, i_hit, i_emp_nm
 		)
 		values(
 		nboard.nextval, #{i_emp_id}, #{i_title}, #{i_content},
-		SYSDATE, 0
+		SYSDATE, 0, #{i_emp_nm}
 		)
 	</insert>
 	

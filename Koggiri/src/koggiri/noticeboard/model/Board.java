@@ -10,10 +10,13 @@ public class Board implements Serializable{
 	private String n_content;
 	private Timestamp n_date;
 	private int n_hit;
-	
+	private String n_emp_nm;
 	public Board(){}
 
-	public Board(int n_id, String n_emp_id, String n_title, String n_content, Timestamp n_date, int n_hit) {
+	
+
+	public Board(int n_id, String n_emp_id, String n_title, String n_content, Timestamp n_date, int n_hit,
+			String n_emp_nm) {
 		super();
 		this.n_id = n_id;
 		this.n_emp_id = n_emp_id;
@@ -21,7 +24,10 @@ public class Board implements Serializable{
 		this.n_content = n_content;
 		this.n_date = n_date;
 		this.n_hit = n_hit;
+		this.n_emp_nm = n_emp_nm;
 	}
+
+
 
 	public int getN_id() {
 		return n_id;
@@ -37,6 +43,14 @@ public class Board implements Serializable{
 
 	public void setN_emp_id(String n_emp_id) {
 		this.n_emp_id = n_emp_id;
+	}
+
+	public String getN_emp_nm() {
+		return n_emp_nm;
+	}
+
+	public void setN_emp_nm(String n_emp_nm) {
+		this.n_emp_nm = n_emp_nm;
 	}
 
 	public String getN_title() {
