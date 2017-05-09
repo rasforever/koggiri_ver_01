@@ -32,7 +32,11 @@ width: 1100px;
 	background-color: #0080ff;
 	font-weight: bold;
 }
+#doc_btn input:HOVER{
 
+	background-color: #ff8080;
+
+}
 /*******************************/
 #doc_detail{
 	width: 1100px;
@@ -59,6 +63,10 @@ width: 1100px;
 	background-color: #0080ff;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+#doc_btn a:HOVER{
+	background-color: #ff8080;
 }
 
 /********************************/
