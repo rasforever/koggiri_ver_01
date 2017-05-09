@@ -23,6 +23,7 @@
 <!-- 부서 별 -->   
 
  <div id="Tabss">
+ <div id="a">
  <ul>
     <li><a href="#MM">경영진</a></li>
    	<li><a href="#PL">인사팀</a></li>
@@ -31,6 +32,7 @@
     <li><a href="#BS">영업팀</a></li>
     <li><a href="#MG">마게팅팀</a></li>
 </ul>
+</div>
      <br><br><br>
 <div class="tabs-spacer"></div>
    <div id="MM" class="tab_content">

@@ -46,13 +46,15 @@ $(function(){
            window.location.replace(ui.tab.hash);
         }
   });
- 
+  
+  $('#a').click(function() {
+      $('#chart_detail').empty();
+   });
+  
 });
 
 
-	   $('#Tabss').click(function() {
-	      $('#chart_detail').empty();
-	   });
+	   
 
 </script>
 </head>
