@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../style/task.css">
 	<link rel="stylesheet" type="text/css" href="../style/board.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 $(function() {
     var startDate;
@@ -73,15 +74,13 @@ function applyWeeklyHighlight() {
 		<tr>
 			<th>글번호</th>
 			<th>업무기간</th>			
-			<th>작성일자</th>			
-			<th>조회수</th>			
+			<th>작성일자</th>				
 		</tr>
 			<c:forEach var = "task" items = "${list}">
 		<tr align="center">
 		<td>${task.ta_seq}</td>
 		<td><a href="ta_detailAction.task?ta_seq=${task.ta_seq}">${task.ta_date}</a></td>
 		<td>${task.ta_regdate}</td>
-		<td>${task.ta_hitcount}</td>
 		</tr>
 		</c:forEach>
 			</table>

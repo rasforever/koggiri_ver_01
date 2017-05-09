@@ -41,6 +41,7 @@ public class TaskController extends HttpServlet {
 		System.out.println(contextPath);
 		String command = requestURI.substring(contextPath.length() +1);
 		System.out.println(command); 
+		request.setCharacterEncoding("utf-8");
 
 		ta_ActionForward forward = null;
 		ta_Action action = null;
