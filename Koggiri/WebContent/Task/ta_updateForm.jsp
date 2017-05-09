@@ -100,7 +100,7 @@
 	<br><br>
 	<div id="update_bottom" align="center">
 				<input type="submit" value="수정완료" class="ta_update_btn">&nbsp;&nbsp;
-				<input type="reset" value="취소" OnClick="javascript:history.back(-1)" class="ta_update_btn">
+				<input type="reset" value="취소" Onclick="location.href='ta_listAction.task' ">
 
 	</div>
 	</div>
