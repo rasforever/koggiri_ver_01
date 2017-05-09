@@ -8,7 +8,8 @@
     <script type="text/javascript" src="jquery-ui.min.js"></script>
  	<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="../style/task.css">
+	<link rel="stylesheet" type="text/css" href="../style/task.css">
+	<link rel="stylesheet" type="text/css" href="../style/board.css">
 <script type="text/javascript">
 $(function() {
     var startDate;
@@ -62,8 +63,13 @@ function applyWeeklyHighlight() {
 </script>
 </head>
 <body>
-   
-	<table border="1" id="task_table">
+<div align="center">
+   <div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
+	<br><br><br><br>
+	<div id="task" align="center">
+	<h3 align="center">Task</h3>
+	<br><br>
+	<table id="task_table">
 		<tr>
 			<th>글번호</th>
 			<th>업무기간</th>			
@@ -71,7 +77,7 @@ function applyWeeklyHighlight() {
 			<th>조회수</th>			
 		</tr>
 			<c:forEach var = "task" items = "${list}">
-		<tr>
+		<tr align="center">
 		<td>${task.ta_seq}</td>
 		<td><a href="ta_detailAction.task?ta_seq=${task.ta_seq}">${task.ta_date}</a></td>
 		<td>${task.ta_regdate}</td>
@@ -79,11 +85,9 @@ function applyWeeklyHighlight() {
 		</tr>
 		</c:forEach>
 			</table>
-	<br>
-	
-	<br>
+			</div>
 		<br>
-		<div id="bottom">
+		<div id="bottom" align="center">
 			<!--페이징 처리할 곳 -->
 			<!-- 1.한 페이지당 글의 갯수  2.전체 총 글의 갯수  3.시작페이지  4.마지막페이지  -->
 			<!-- 현재페이지, start_row, end_row  -->
@@ -113,12 +117,15 @@ function applyWeeklyHighlight() {
 		<br>
 		<br>
 		<form action="ta_listAction.task" method="post">
-			<div align="left" id="task_search">
+			<div align="right" id="task_search">
 				<input type="hidden" name="temp" value="temp"></input> 
-			   업무기간 <input type="text" name="searchKey" size="22" class="week-picker">
+			   <input type="text" name="searchKey" size="22" class="week-picker" placeholder="업무기간을 선택하세요" >
 			   <input type="submit" value="검색" id="search_btn">
 			</div>
 		</form> 
 		<br> <br> <br><br> <br> <br>
+		<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+		</div>
 </body>
 </html>
