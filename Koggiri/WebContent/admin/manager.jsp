@@ -13,6 +13,7 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="../style/manager.css">
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#join").click(function(){
@@ -56,9 +57,13 @@ $(document).ready(function() {
 
 </head>
 <body>
-
+	<div align="center">
+	<div id="haeder">
 	<jsp:include page="../Main/header.jsp"></jsp:include>
+	</div>
 	<br><br><br><br><br>
+	<div id="manager" align="left">
+
 	<form action="searchEmp.admin" method="post">
 	<select name="area">
     <option value="">검색옵션</option>
@@ -67,14 +72,16 @@ $(document).ready(function() {
     <option value="dept_nm">부서</option>
     <option value="pos_nm">직급</option>
 	</select>
-	<input type="text" name="searchKey">
-	<input type="submit" value="검색"	>
+	<input type="text" name="searchKey" size="30px">
+	<input type="submit" value="검색" id="manager_search_btn">
+	
 	</form>
 	
 	<input type="button" id="join" value="입사발령"/>
+	
 	<input type="button" id="temp" value="임시비밀번호 부여"/>
-	<table border="1">
-		<tr>
+	<table id="manager_table" >
+		<tr >
 			<th>사번</th>
 			<th>이름</th>
 			<th>부서</th>
@@ -82,7 +89,7 @@ $(document).ready(function() {
 		</tr>  <!-- 밑에는 내용 뿌려줄것 -->
 		
 		<c:forEach var = "SearchedEmp" items = "${list }">
-		<tr>
+		<tr align="center">
 			<td>${SearchedEmp.emp_id }</td>
 			<td>${SearchedEmp.emp_nm }</td>
 			<td>${SearchedEmp.dept_nm }</td>			
@@ -96,11 +103,12 @@ $(document).ready(function() {
 	<br>사번 '${id }' 님의 임시비밀번호는 '${mem_pw }' 로 부여 되었습니다.
 	</c:if>
 	</div>
-	
-	
-	
+
 	<br><br><br>
+	<div id="footer">
 	<jsp:include page="../Main/footer.jsp"></jsp:include>
+	</div>
+	</div>
 </body>
 
 </html>

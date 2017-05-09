@@ -10,42 +10,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="../style/board.css">
+<link type="text/css" rel="stylesheet" href="../style/approval.css">
 
 <title>Insert title here</title>
 
 </head>
 <body>
-
+<div align="center">
+<div id="main_header"><jsp:include page="../Main/header.jsp" /></div>
+	<br><br><br><br>
+	<div id="app_contain" align="center"> 
 		<input type="hidden" name="emp_id" value="k15010201">
-	<h3>상세보기</h3>
-	<table>
+	<h3 align="center">상세보기</h3>
+	<br><br>
+	<table id="app_table03">
 		<tr>
-			<th width="50">문서번호</th>
-			<td width="500">${approval.app_id }</td>
-			<th width="50">문서타입</th>
-			<td width="50">${approval.app_type_nm }</td>
+			<th>문서번호</th>
+			<td width="700px">${approval.app_id }</td>
+			<th>문서타입</th>
+			<td>${approval.app_type_nm }</td>
 		</tr>
 		<tr>
-			<th width="50">부서명</th>
-			<td width="500">${approval.dept_nm }</td>
-			<th width="50">진행상태</th>
-			<td width="50">${approval.app_pro_nm }</td>
+			<th>부서명</th>
+			<td >${approval.dept_nm }</td>
+			<th>진행상태</th>
+			<td>${approval.app_pro_nm }</td>
 		</tr>
 		<tr>
-			<th width="50">기안자</th>
-			<td width="500">${approval.draft_emp_nm }</td>
-			<th width="50">결재자</th>
-			<td width="50">${approval.app_emp_nm }</td>
+			<th>기안자</th>
+			<td >${approval.draft_emp_nm }</td>
+			<th>결재자</th>
+			<td>${approval.app_emp_nm }</td>
 		</tr>
 		<tr>
-			<th width="50">기안일</th>
-			<td width="500">${approval.draft_dt }</td>
-			<th width="50">결재일</th>
-			<td width="50">${approval.app_dt }</td>
+			<th>기안일</th>
+			<td>${approval.draft_dt }</td>
+			<th>결재일</th>
+			<td >${approval.app_dt }</td>
 		</tr>
 		<tr>
-			<th width="50">제목</th>
-			<td width="500" colspan="3">${approval.app_title }</td>
+			<th>제목</th>
+			<td colspan="3">${approval.app_title }</td>
 		</tr>
 		<tr>
 			<td colspan="4"><hr>내용 : ${approval.app_context }
@@ -53,33 +58,35 @@
 		</tr>
 
 	</table>
-
+<br>
+</div>
 
 	<%
 		if (type_cd.equals("rw")) {
 	%>
 
-	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=2&app_emp_id=${approval.app_emp_id } ">승인</a>&nbsp;&nbsp;
-	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=3&app_emp_id=${approval.app_emp_id }  ">부결</a>&nbsp;&nbsp;
-	<a
-		href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=4&app_emp_id=${approval.app_emp_id }  ">반려</a>
+	<a class="bottom_app" href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=2&app_emp_id=${approval.app_emp_id } ">승인</a>&nbsp;&nbsp;
+	<a class="bottom_app" href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=3&app_emp_id=${approval.app_emp_id }  ">부결</a>&nbsp;&nbsp;
+	<a class="bottom_app" href="approval_updateAction_App.approval?app_id=${approval.app_id}&app_pro_cd=4&app_emp_id=${approval.app_emp_id }  ">반려</a>
 	<br>
 	<br>
 	<%
 		}
 	%>
-	<a href="approval_list_s.approval?type=0">목록</a>&nbsp;&nbsp;
+	<a class="bottom_app" href="approval_list_s.approval?type=0">목록</a>
 	<%
 		if (type_cd.equals("sp")) {
 	%>
-	<a href="approval_updateForm.approval?app_id=${approval.app_id} ">수정</a>&nbsp;&nbsp;
-	<a href="approval_deleteAction.approval?app_id=${approval.app_id} ">삭제</a>
+	<a class="bottom_app" href="approval_updateForm.approval?app_id=${approval.app_id} ">수정</a>&nbsp;&nbsp;
+	<a class="bottom_app" href="approval_deleteAction.approval?app_id=${approval.app_id} ">삭제</a>
 	<%
 		}
 	%>
 
+	<br><br><br><br><br><br>
+	<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>
 </body>
 </html>
 
