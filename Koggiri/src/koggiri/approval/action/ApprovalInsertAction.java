@@ -14,8 +14,9 @@ public class ApprovalInsertAction implements Action{
 		ApprovalDao dao = ApprovalDao.getInstance();
 		Approval approval = new Approval();
 
-		System.out.println(request.getParameter("draft_emp_id"));
-		System.out.println(request.getParameter("app_emp_id"));
+		System.out.println("draft_emp_id:"+request.getParameter("draft_emp_id"));
+		System.out.println("app_emp_id"+request.getParameter("app_emp_id"));
+		System.out.println("draft_emp_id"+request.getParameter("emp_id"));
 		approval.setApp_type_cd(request.getParameter("app_type"));
 		approval.setDraft_emp_id(request.getParameter("emp_id"));
 		approval.setApp_emp_id(request.getParameter("app_emp_id"));
