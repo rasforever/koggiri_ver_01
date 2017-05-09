@@ -90,6 +90,11 @@
 	color: white;
 	font-weight: bold;
 }
+.detail_btn:HOVER{
+
+	background-color: #ff8080;
+
+}
 
 
 /*****************************/
@@ -120,4 +125,9 @@
 	background-color: #0080ff;
 	color: white;
 	border: 0px;
+}
+#update_bottom input:HOVER{
+
+	background-color: #ff8080;
+
 }
