@@ -8,7 +8,7 @@
     <script type="text/javascript" src="jquery-ui.min.js"></script>
  	<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
-
+		<link rel="stylesheet" type="text/css" href="../style/task.css">
 <script type="text/javascript">
 $(function() {
     var startDate;
@@ -63,7 +63,7 @@ function applyWeeklyHighlight() {
 </head>
 <body>
    
-	<table width="500" border="1" cellpadding="0" cellspacing="0">
+	<table border="1" id="task_table">
 		<tr>
 			<th>글번호</th>
 			<th>업무기간</th>			

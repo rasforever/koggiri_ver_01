@@ -21,13 +21,13 @@ public class DetailAction implements Action {
 		System.out.println(emp_nm);
 		Chart result_chart = dao.detailChart(emp_nm);
 		
-		result_chart.setEmp_nm("<th>이름</th>"+"<td>"+result_chart.getEmp_nm()+"</td>");
-		result_chart.setEmp_id("사원번호 : "+result_chart.getEmp_id());
-		result_chart.setSex_nm("성별 : "+result_chart.getSex_nm());
-		result_chart.setPos_nm("직급 : "+result_chart.getPos_nm());
-		result_chart.setTel_no("휴대전화 : "+result_chart.getTel_no());
-		result_chart.setE_mail("이메일  : "+result_chart.getE_mail());
-		result_chart.setJoin_dt("입사일 : "+result_chart.getJoin_dt());
+		  result_chart.setEmp_nm("<tr><th>이름</th>"+"<td>"+result_chart.getEmp_nm()+"</td></tr>");
+	      result_chart.setEmp_id("<tr><th>사원번호</th>"+"<td>"+result_chart.getEmp_id()+"</td></tr>");
+	      result_chart.setSex_nm("<tr><th>성별</th>"+"<td>"+result_chart.getSex_nm()+"</td></tr>");
+	      result_chart.setPos_nm("<tr><th>직급</th>"+"<td>"+result_chart.getPos_nm()+"</td></tr>");
+	      result_chart.setTel_no("<tr><th>휴대전화</th>"+"<td>"+result_chart.getTel_no()+"</td></tr>");
+	      result_chart.setE_mail("<tr><th>이메일</th>"+"<td>"+result_chart.getE_mail()+"</td></tr>");
+	      result_chart.setJoin_dt("<tr><th>입사일</th>"+"<td>"+result_chart.getJoin_dt()+"</td></tr>");
 		
 		System.out.println(result_chart);
 		request.setAttribute("chart", result_chart);

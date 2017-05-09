@@ -34,6 +34,16 @@ $(function(){
   });
  
 });
+
+$.fn.cart_del = function(){
+	   $(this).click(function() {
+	      $('#chart_detail').empty();
+	   });
+	}
+
+	$(function() {
+	   $('#Tabs').cart_del();
+	});
 </script>
 <!-- 부서 별 -->   
  <div id="Tabs">
