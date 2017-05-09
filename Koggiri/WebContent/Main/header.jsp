@@ -97,8 +97,13 @@ $(function(){
 									<li><a href="../approval/approval_insertForm.approval">결재작성</a></li>
 								</ul>
 							</li>
-							<li><a href="#">문서</a></li>
-							<li><a href="#">업무</a></li>
+							<li><a href="../Document/listAction.document">문서</a></li>
+							<li><a href="#">업무</a>
+							    <ul>
+									<li><a href="../Task/ta_insertformAction.task">업무작성</a></li>
+									<li><a href="../Task/ta_listAction.task">업무목록</a></li>
+								</ul>
+								</li>
 							<li><a href="#">회의</a>
 								<ul>
 									<li><a href="#">그림회의</a></li>

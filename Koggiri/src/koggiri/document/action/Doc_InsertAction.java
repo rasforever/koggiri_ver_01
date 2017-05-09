@@ -24,10 +24,9 @@ public class Doc_InsertAction implements Doc_Action {
 
 		HttpSession session = request.getSession();
 
-		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_id = (String) session.getAttribute("mem_id");
 		doc_board.setF_emp_id(mem_id);
-		doc_board.setF_emp_nm(emp_nm);
+		
 
 		// 파일업로드 할 때 필요한 것들 -> 1.경로 2.파일의크기(용량) 3.인코딩(파일이름 같은거) 4.중첩정책(받았던파일을 또
 		// 받으면 이름 바뀌게)

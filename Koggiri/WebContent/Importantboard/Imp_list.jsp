@@ -40,8 +40,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<br> <br> <span id="insert_a"><a
-				href="Imp_insertForm.jsp">글쓰기</a></span> <br> <br>
+			<br> <br> <span id="insert_a"><a href="insertFormAction.importantboard">글쓰기</a></span> <br> <br>
 			<div id="bottom">
 				<!--  페이징 처리 영역  -->
 

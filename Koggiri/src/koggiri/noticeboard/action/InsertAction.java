@@ -21,10 +21,10 @@ public class InsertAction implements Action {
 		
 			
 		HttpSession session = request.getSession();
-		String emp_nm = (String) session.getAttribute("emp_nm");
+	
 		String mem_id = (String) session.getAttribute("mem_id");
 		board.setN_emp_id(mem_id);
-		board.setN_emp_nm(emp_nm);
+		
 		
 		System.out.println("test action id : " + request.getParameter("n_emp_id"));
 		
@@ -33,6 +33,7 @@ public class InsertAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("listAction.noticeboard");
+		
 		return forward;	
 	}
 

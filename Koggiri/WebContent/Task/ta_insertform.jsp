@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
 <script src="jquery.js"></script>
 <script type="text/javascript" src="jquery-ui.min.js"></script>
@@ -11,12 +11,15 @@
 	href="../jquery-ui-1.8.14/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../style/task.css">
 <link rel="stylesheet" type="text/css" href="../style/board.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	$(function() {
 		var startDate;
 		var endDate;
 
 		$('.week-picker').datepicker({
+			changeMonth:true,
+			changeYear:true,
 			showOtherMonths : true,
 			selectOtherMonths : true,
 			selectWeek : true,
@@ -79,7 +82,8 @@
 				<br> <label class="week_label">금주 업무계획</label>
 				<div id="week_p">
 					<textarea rows="20" cols="160" name="ta_weekresult"
-						placeholder="금주의 계획을 작성하세요"></textarea>
+						placeholder="금주의 계획을 작성하세요"></textarea><br>
+						
 				</div>
 				<br> <label class="week_label">차주 업무계획</label>
 				<div id="nextweek_p">

@@ -14,6 +14,7 @@ import koggiri.noticeboard.action.ActionForward;
 import koggiri.noticeboard.action.DeleteAction;
 import koggiri.noticeboard.action.DetailAction;
 import koggiri.noticeboard.action.InsertAction;
+import koggiri.noticeboard.action.InsertFormAction;
 import koggiri.noticeboard.action.ListAction;
 import koggiri.noticeboard.action.UpdateAction;
 import koggiri.noticeboard.action.UpdateFormAction;
@@ -46,6 +47,16 @@ public class BoardController extends HttpServlet {
 		if (path.equals("insertAction.noticeboard")) { //인설트액션인가?
 			
 			action = new InsertAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (path.equals("insertFormAction.noticeboard")) { //인설트액션인가?
+			
+			action = new InsertFormAction();
 			
 			try {
 				forward = action.execute(request, response);
