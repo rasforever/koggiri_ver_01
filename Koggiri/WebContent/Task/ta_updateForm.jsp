@@ -86,14 +86,14 @@
 		<tr>
 			<th>금주업무실적</th>
 			<td>
-				<textarea  name="ta_weekresult"></textarea>
+				<textarea  name="ta_weekresult">${task.ta_weekresult}</textarea>
 			</td>			
 		</tr>
 		
 		<tr>
 			<th>차주업무계획</th>
 			<td>
-				<textarea rows="20" cols="130" name="ta_nextresult"></textarea>
+				<textarea rows="20" cols="130" name="ta_nextresult">${task.ta_nextresult}</textarea>
 			</td>			
 		</tr>
 	</table>
