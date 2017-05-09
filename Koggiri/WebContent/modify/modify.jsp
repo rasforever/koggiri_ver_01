@@ -68,7 +68,7 @@
 			<br><br>
 			<div id="modify_btn">
 			<input type="submit" value="수정"/>  
-			<input type="button" value="취소" />
+			<input type="button" value="취소" onclick="history.go(-2)"/>
 			
 			</div>
 			
