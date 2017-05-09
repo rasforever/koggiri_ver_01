@@ -11,6 +11,8 @@
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style/board.css">
+<link type="text/css" rel="stylesheet" href="../style/document.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -25,30 +27,30 @@
 		<br>
 		<div align="center">
 			<div class="update">
-				<h3 align="center">Notice</h3>
+				<h3 align="center">Document</h3>
 				<br>
 				<br>
-				<table id="update_tb">
+				<hr>
+				<br>
+				<table id="doc_update_tb">
 					<tr>
 							
-						<td width="80">비밀번호</td>
-						<td width="170">
-							<input type="password" name="f_pwd" size="10">
+						<th >비밀번호</th>
+						<td >
+							<input type="password" name="f_pwd" size="150" id="update_text">
 						</td>		
 					</tr>
-
-					<tr align="center">
-						<th width="70">제목
-						</th>
-						<td align="left" colspan="3">&nbsp;&nbsp;<input type="text"
-							name="f_title" size="50" value="[수정]: ${doc_board.f_title}"
+					<tr>
+						<th>제목</th>
+						<td align="left" colspan="3">&nbsp;&nbsp;
+						<input type="text" name="f_title" size="140" value="[수정]: ${doc_board.f_title}"
 							class="up_input"></td>
 							
 					</tr>
 					
 							<!--파일 업로드를 위해 작성해야할 부분  -->
 					<tr height="30">
-						<td>파일</td>
+						<th>파일</th>
 						<td colspan="3">
 								<input type = "file" name= "f_fname">
 						</td>
@@ -71,7 +73,7 @@
 
 					</tr>
 				</table>
-				<br>
+				<br><br>
 				<div id="detail_btn" align="center">
 				
 					<input type="submit" value="수정완료" class="det_btn">
