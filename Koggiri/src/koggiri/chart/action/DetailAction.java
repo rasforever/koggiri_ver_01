@@ -21,7 +21,7 @@ public class DetailAction implements Action {
 		System.out.println(emp_nm);
 		Chart result_chart = dao.detailChart(emp_nm);
 		
-		result_chart.setEmp_nm("이름 : "+result_chart.getEmp_nm());
+		result_chart.setEmp_nm("<th>이름</th>"+"<td>"+result_chart.getEmp_nm()+"</td>");
 		result_chart.setEmp_id("사원번호 : "+result_chart.getEmp_id());
 		result_chart.setSex_nm("성별 : "+result_chart.getSex_nm());
 		result_chart.setPos_nm("직급 : "+result_chart.getPos_nm());
