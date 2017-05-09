@@ -23,6 +23,8 @@ public class Doc_ListAction implements Doc_Action {
 		
 		Doc_Search doc_search = new Doc_Search();
 		Doc_BoardDao doc_dao = Doc_BoardDao.getInstance();
+
+
 		
 		//페이징검색부분
 		if(request.getParameter("temp") != null){

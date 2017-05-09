@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import koggiri.noticeboard.model.Board;
 import koggiri.noticeboard.model.BoardDao;
@@ -18,8 +18,13 @@ public class InsertAction implements Action {
 		Board board = new Board();
 		board.setN_title(request.getParameter("n_title"));
 		board.setN_content(request.getParameter("n_content"));
-		board.setN_emp_id(request.getParameter("n_emp_id"));
+		
 			
+		HttpSession session = request.getSession();
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		board.setN_emp_id(mem_id);
+		board.setN_emp_nm(emp_nm);
 		
 		System.out.println("test action id : " + request.getParameter("n_emp_id"));
 		

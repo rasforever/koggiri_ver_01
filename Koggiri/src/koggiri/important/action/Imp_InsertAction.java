@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import koggiri.important.model.Imp_Board;
 import koggiri.important.model.Imp_BoardDao;
@@ -20,12 +21,20 @@ public class Imp_InsertAction implements Imp_Action{
 		imp_board.setI_title(request.getParameter("i_title"));
 		imp_board.setI_content(request.getParameter("i_content"));
 		
+		HttpSession session = request.getSession();
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		imp_board.setI_emp_id(mem_id);
+		imp_board.setI_emp_nm(emp_nm);
+		
+		
 		imp_dao.imp_insertBoard(imp_board);
-		System.out.println(imp_board);
-		System.out.println("insert!!"); //insertboard 확인
+
 		Imp_ActionForward imp_forward = new Imp_ActionForward();
+		
 		imp_forward.setRedirect(true);
 		imp_forward.setPath("listAction.importantboard");
+		
 		return imp_forward;
 	}
 
