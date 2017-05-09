@@ -4,16 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style/modify.css">
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 	<jsp:include page="../Main/header.jsp"></jsp:include>
 	<form action="passcheck.admin" method="post">
-		아이디 <%=session.getAttribute("mem_id")%>
+	<br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br>
+	<div id="passcheck">
+		<label id="id_label">아이디 '&nbsp;<%=session.getAttribute("mem_id")%>&nbsp;'</label>
 		<br>
-		<input type="password" name="mem_pw" maxlength="15" placeholder="비밀번호를 입력하세요" class="idpw">
-		<input type="submit" value="확인">
+		<input type="password" name="mem_pw" maxlength="15" placeholder="비밀번호를 입력하세요" class="idpw_pw">
+		<input type="submit" value="확인" id="pw_btn">
+		</div>
 	</form>
-	<jsp:include page="../Main/footer.jsp"></jsp:include>
+	<br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br>
+	<div id="main_footer">
+				<jsp:include page="../Main/footer.jsp" />
+			</div>
+	</div>
 </body>
+
 </html>
