@@ -191,8 +191,8 @@ function detail_search(){
 				<td><input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자</td>
 				<td><input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled></td>
 				<td><input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 </td>
-				<td><input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled size="15">
-					<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled size="15"></td>
+				<td><input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled size="14"> ~
+					<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled size="14"></td>
 			</table>
 			<input type="submit" value="검색" id="search_btn">
 		</form>
