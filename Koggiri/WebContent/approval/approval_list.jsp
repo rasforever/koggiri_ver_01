@@ -158,39 +158,43 @@ function detail_search(){
 		
 	</form>
 	<br>
-	<input type="button" onclick="detail_search()" value="상세검색">
-	<div align="left" id="search_div" >
+	<div align="right">
+	<input type="button" onclick="detail_search()" value="상세검색" id="detail_search_btn">
+	</div><br><br>
+	<div align="right" id="search_div" >
 	<form action="approval_list_<%=type_cd %>.approval" method="post">
-			
+			<table id="app_list_tb">
 				<input type="hidden" name="temp" value="temp"></input>
-				<input type="submit" value="검색" id="search_btn"> <br>
-					
-				<input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input> 
-				<input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input> <br>
-				<input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input> 
-				<select id="app_type"
-					name="app_type" disabled>
+				
+				<tr>
+				<td><input type="checkbox" name="area" value="app_id"  onclick="dis_chg(this)">결재문서번호</input></td>
+				<td><input type="text" name="app_id_search" id="app_id_search" size="30" disabled></input></td>
+				<td><input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input></td>
+				<td><select id="app_type"
+					name="app_type"  disabled>
 					<c:forEach var="apptype" items="${applist}">
 						<option value="${apptype.app_type_cd}">${apptype.app_type_nm}
 						</option>
 					</c:forEach>
-				</select><br>
-				<input type="checkbox" name="area" value="dept_id" onclick="dis_chg(this)">관리부서</input> 
-				<select id="dept"
+				</select></td>
+				<td><input type="checkbox" name="area" value="dept_id" onclick="dis_chg(this)">관리부서</input></td>
+				<td><select id="dept"
 					name="dept"  disabled>
 					<c:forEach var="dept" items="${deptlist}">
 						<option value="${dept.dept_id}">${dept.dept_nm}
 						</option>
 					</c:forEach>
-				</select><br>
-				<input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자
-				<input type="text" name="draft_emp_id_search" id ="draft_emp_id_search" size="30" disabled> <br>
-				<input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자
-				<input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled> <br>
-				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
-				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
-				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
-			
+				</select></td></tr>
+				<tr>
+				<td><input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자</td>
+				<td><input type="text" name="draft_emp_id_search" id ="draft_emp_id_search" size="30" disabled></td>
+				<td><input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자</td>
+				<td><input type="text" name="app_emp_id_search" id ="app_emp_id_search" size="30" disabled></td>
+				<td><input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 </td>
+				<td><input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled size="15">
+					<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled size="15"></td>
+			</table>
+			<input type="submit" value="검색" id="search_btn">
 		</form>
 	</div>
 		<br>
