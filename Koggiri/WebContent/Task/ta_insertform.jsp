@@ -93,7 +93,8 @@
 			</div>
 			<br>
 			<div id="insert_btn">
-				<input type="submit" value="등록" >&nbsp;&nbsp; <input type="reset" value="취소" OnClick="javascript:history.back(-1)" >
+				<input type="submit" value="등록" >&nbsp;&nbsp; 
+				<input type="reset" value="취소" Onclick="location.href='ta_listAction.task' ">
 			</div>
 		</form>
 	</div>

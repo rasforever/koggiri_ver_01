@@ -46,13 +46,15 @@ $(function(){
            window.location.replace(ui.tab.hash);
         }
   });
- 
+  
+  $('#a').click(function() {
+      $('#chart_detail').empty();
+   });
+  
 });
 
 
-	   $('#Tabss').click(function() {
-	      $('#chart_detail').empty();
-	   });
+	   
 
 </script>
 </head>
@@ -76,7 +78,7 @@ $(function(){
 			
 				</c:if>
 				</c:if>
-				│ <a href="../modify/passcheck.jsp" id="myimp">내 정보</a> │
+				│ <a href="../modify/passcheck.jsp" id="myimp">내 정보 수정</a> │
 				 <a href="#" id="btnlogout">로그아웃</a>
 
 			</div>

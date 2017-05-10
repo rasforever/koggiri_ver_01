@@ -50,9 +50,10 @@ public class ListAction implements Action {
 		}
 		int requestPage = Integer.parseInt(pageNum);
 		int startRow = (requestPage - 1) * PAGE_SIZE;
-
+		
 		List<Board> list = dao.listBoard(startRow, search);
 		request.setAttribute("list", list);
+
 
 		int totalCount = dao.countBoard(search); // 총 글 갯수
 		int totalPageCount = totalCount / PAGE_SIZE; // 총 페이지의 수
