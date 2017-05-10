@@ -32,6 +32,8 @@
 <link rel="stylesheet" href="jquery.tabs.css" type="text/css" media="print, projection, screen">
 <script type="text/javascript" src="script/approval.js"></script>
 <script type="text/javascript">
+
+var detail_search_ck = 0;
 $(function (){
 	if (<%=type%> == 1){
 		$('#r_approval').show();
@@ -40,6 +42,8 @@ $(function (){
 		$('#r_approval').hide();
 		$('#s_approval').show();
 	}
+	$('#search_div').hide();
+	
 });
 function rs_type(obj) {
 	if (obj == 1){
@@ -109,7 +113,16 @@ function approval_type(obj) {
 	} else if (obj == "s") {
 		location.href = "approval_list_s.approval?temp=temp";
 	}
-s
+
+}
+function detail_search(){
+	if (detail_search_ck  == 0){
+		$('#search_div').show();
+		detail_search_ck = 1;		
+	} else {	
+		$('#search_div').hide();
+		detail_search_ck = 0;
+	}
 }
 </script>
 </head>
@@ -145,8 +158,10 @@ s
 		
 	</form>
 	<br>
+	<input type="button" onclick="detail_search()" value="상세검색">
+	<div align="left" id="search_div" >
 	<form action="approval_list_<%=type_cd %>.approval" method="post">
-			<div align="left" id="search_div">
+			
 				<input type="hidden" name="temp" value="temp"></input>
 				<input type="submit" value="검색" id="search_btn"> <br>
 					
@@ -175,8 +190,9 @@ s
 				<input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일 
 				<input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled>
 				<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled>
-			</div>
+			
 		</form>
+	</div>
 		<br>
 	<table id="app_table02">
 		<thead>

@@ -12,6 +12,7 @@
 	<select id="appty_select" resultType="AppType">
 		select app_type_cd,
 		app_type_nm, app_context from App_type
+		order by APP_TYPE_CD
 	</select>
 
 	<select id="dept_select" resultType="Dept">
